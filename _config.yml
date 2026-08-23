@@ -40,8 +40,6 @@ default_author:
 markdown: kramdown
 highlighter: rouge
 permalink: /news/:slug/
-paginate: 9
-paginate_path: "/page/:num/"
 timezone: Asia/Kolkata
 
 kramdown:

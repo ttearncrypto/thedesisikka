@@ -54,7 +54,7 @@ layout: default
     <h2 class="section-title">Today's Combo</h2>
     <a class="section-link" href="{{ '/pages/todays-combo/' | relative_url }}">All combos &rarr;</a>
   </div>
-  {% assign combo = site.tags['combo'] | sort: 'date' | reverse %}
+  {% assign combo = site.tags['combo'] %}{% if combo %}{% assign combo = combo | sort: 'date' | reverse %}{% endif %}
   {% if combo.size > 0 %}
   <div class="card-row">
     {% for post in combo limit: 4 %}
@@ -72,7 +72,7 @@ layout: default
     <h2 class="section-title">Crypto Price Predictions</h2>
     <a class="section-link" href="{{ '/pages/predictions/' | relative_url }}">All predictions &rarr;</a>
   </div>
-  {% assign preds = site.tags['prediction'] | sort: 'date' | reverse %}
+  {% assign preds = site.tags['prediction'] %}{% if preds %}{% assign preds = preds | sort: 'date' | reverse %}{% endif %}
   {% if preds.size > 0 %}
   <div class="card-row">
     {% for post in preds limit: 4 %}
@@ -90,7 +90,7 @@ layout: default
     <h2 class="section-title">Featured Articles</h2>
     <a class="section-link" href="{{ '/pages/featured/' | relative_url }}">Editor's picks &rarr;</a>
   </div>
-  {% assign feats = site.tags['featured'] | sort: 'date' | reverse %}
+  {% assign feats = site.tags['featured'] %}{% if feats %}{% assign feats = feats | sort: 'date' | reverse %}{% endif %}
   {% if feats.size > 0 %}
   <div class="post-grid three">
     {% for post in feats limit: 3 %}
@@ -108,7 +108,7 @@ layout: default
     <h2 class="section-title">Crypto Press Release</h2>
     <a class="section-link" href="{{ '/press/' | relative_url }}">All releases &rarr;</a>
   </div>
-  {% assign prs = site.tags['press'] | sort: 'date' | reverse %}
+  {% assign prs = site.tags['press'] %}{% if prs %}{% assign prs = prs | sort: 'date' | reverse %}{% endif %}
   {% if prs.size > 0 %}
   <div class="card-row">
     {% for post in prs limit: 4 %}
@@ -126,7 +126,7 @@ layout: default
     <h2 class="section-title">Crypto Videos</h2>
     <a class="section-link" href="{{ '/pages/videos/' | relative_url }}">Watch more &rarr;</a>
   </div>
-  {% assign vids = site.tags['video'] | sort: 'date' | reverse %}
+  {% assign vids = site.tags['video'] %}{% if vids %}{% assign vids = vids | sort: 'date' | reverse %}{% endif %}
   {% if vids.size > 0 %}
   <div class="card-row">
     {% for post in vids limit: 4 %}
@@ -144,7 +144,7 @@ layout: default
     <h2 class="section-title">Crypto Airdrops</h2>
     <a class="section-link" href="{{ '/pages/airdrops/' | relative_url }}">Airdrop tracker &rarr;</a>
   </div>
-  {% assign drops = site.tags['airdrop'] | sort: 'date' | reverse %}
+  {% assign drops = site.tags['airdrop'] %}{% if drops %}{% assign drops = drops | sort: 'date' | reverse %}{% endif %}
   {% if drops.size > 0 %}
   <div class="card-row">
     {% for post in drops limit: 4 %}
@@ -162,7 +162,7 @@ layout: default
     <h2 class="section-title">Crypto Events</h2>
     <a class="section-link" href="{{ '/pages/events/' | relative_url }}">Full calendar &rarr;</a>
   </div>
-  {% assign events = site.tags['event'] | sort: 'date' | reverse %}
+  {% assign events = site.tags['event'] %}{% if events %}{% assign events = events | sort: 'date' | reverse %}{% endif %}
   {% if events.size > 0 %}
   <div class="card-row">
     {% for post in events limit: 4 %}

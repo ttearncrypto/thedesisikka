@@ -2,7 +2,7 @@
 layout: default
 ---
 {% assign items = site.tags[page.section_tag] %}
-{% if page.sort == 'newest' %}{% assign items = items | sort: 'date' | reverse %}{% endif %}
+{% if page.sort == 'newest' and items %}{% assign items = items | sort: 'date' | reverse %}{% endif %}
 
 <div class="meta-strip compact">
   <span>{% if page.kicker %}{{ page.kicker }}{% else %}Section{% endif %}</span>
