@@ -1,7 +1,7 @@
 ---
 layout: category
 cat_slug: regulation
-description: RBI circulars, 30 percent tax, TDS, FIU registrations and every rule that changes how Bharat trades crypto.
+description: Global policy from the SEC to MiCA, plus every Indian rule (RBI, 30 percent tax, TDS, FIU) that changes how you trade crypto.
 permalink: /category/regulation/
 ---
 

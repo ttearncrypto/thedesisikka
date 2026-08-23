@@ -2,7 +2,7 @@
 layout: default
 permalink: /legal/editorial-policy/
 title: "Editorial Policy"
-description: "How The DESI Sikka reports, sources and corrects crypto news for Indian readers."
+description: "How The DESI Sikka reports, sources and corrects crypto news for readers everywhere."
 ---
 
 <div class="meta-strip compact">

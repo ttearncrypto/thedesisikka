@@ -6,7 +6,7 @@ layout: default
     <div class="hero-inner">
       <span class="hero-badge">{{ site.tagline }}</span>
       <h1 class="hero-title">Crypto news that speaks your language.</h1>
-      <p class="hero-sub">Bitcoin to rupee rules, altcoin moves to exchange how-tos. We cover what actually matters for Indian readers. No jargon walls.</p>
+      <p class="hero-sub">Bitcoin to policy shifts, altcoin moves to exchange how-tos. We cover what actually matters worldwide, with deep coverage of India. No jargon walls.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#latest">Read the latest</a>
         <a class="btn btn-outline" href="{{ site.telegram_url }}" rel="noopener">Join us on Telegram</a>
@@ -22,10 +22,6 @@ layout: default
   {% endfor %}
   <a class="chip" href="{{ '/press/' | relative_url }}">Press Releases</a>
   <a class="chip" href="{{ '/pages/events/' | relative_url }}">Events</a>
-</div>
-
-<div class="shell">
-  {% include ad-slot.html slot="leaderboard" %}
 </div>
 
 {% assign all_posts = site.posts %}
@@ -179,18 +175,22 @@ layout: default
   <div class="about-box">
     <div class="about-box-main">
       <span class="mono-label">About us</span>
-      <h2 class="section-title" style="margin-top:0.5rem;">News for Bharat, minus the noise.</h2>
-      <p>The DESI Sikka covers crypto for Indian readers: bitcoin and ethereum moves, regulation that hits your wallet, DeFi explainers and exchange how-tos. Short stories, plain English, zero paid shilling.</p>
+      <h2 class="section-title" style="margin-top:0.5rem;">News for everyone, minus the noise.</h2>
+      <p>The DESI Sikka covers crypto for readers everywhere: bitcoin and ethereum moves, regulation that hits your wallet, DeFi explainers and exchange how-tos, with deep coverage of India. Short stories, plain English, zero paid shilling.</p>
       <div class="hero-actions">
         <a class="btn btn-primary btn-sm" href="{{ '/about/' | relative_url }}">Read our story</a>
         <a class="btn btn-outline btn-sm" href="{{ '/legal/editorial-policy/' | relative_url }}">Editorial policy</a>
       </div>
     </div>
     <div class="about-box-side">
-      <img src="{{ site.default_author.avatar | relative_url }}" alt="{{ site.default_author.name }}" width="56" height="56">
+      {% if site.default_author.avatar %}
+        <img src="{{ site.default_author.avatar | relative_url }}" alt="{{ site.default_author.name }}" width="56" height="56">
+      {% else %}
+        <span class="author-avatar author-monogram" aria-hidden="true" style="width:56px;height:56px;font-size:18px;">F9</span>
+      {% endif %}
       <p><strong>{{ site.default_author.name }}</strong></p>
       <p>{{ site.default_author.bio }}</p>
-      <a class="section-link" href="{{ '/author/f9xr/' | relative_url }}">Author profile &rarr;</a>
+      <a class="section-link" href="{{ '/author/f9xr/' | relative_url }}">Meet the desk &rarr;</a>
     </div>
   </div>
 </section>

@@ -5,10 +5,9 @@
         <img src="{{ '/assets/site-images/logo.png' | relative_url }}" alt="" width="24" height="24">
         <span>The DESI Sikka</span>
       </a>
-      <p>{{ site.description | strip_html | truncatewords: 24 }}</p>
+      <p>{{ site.description | strip_html | truncatewords: 26 }}</p>
       <div class="footer-social">
         <a href="https://twitter.com/{{ site.twitter_username }}" rel="noopener">Twitter / X</a>
-        <a href="https://instagram.com/{{ site.instagram_username }}" rel="noopener">Instagram</a>
         <a href="{{ site.telegram_url }}" rel="noopener">Telegram</a>
         <a href="https://github.com/{{ site.github_username }}" rel="noopener">GitHub</a>
       </div>
@@ -34,11 +33,11 @@
     <div class="footer-col">
       <h3>Site</h3>
       <a href="{{ '/about/' | relative_url }}">About</a>
+      <a href="{{ '/author/f9xr/' | relative_url }}">F9XR News Desk</a>
       <a href="{{ '/archive/' | relative_url }}">Archive</a>
       <a href="{{ '/pages/search/' | relative_url }}">Search</a>
       <a href="{{ '/pages/contact/' | relative_url }}">Contact</a>
       <a href="{{ '/rss.xml' | relative_url }}">RSS feed</a>
-      <a href="{{ '/atom.xml' | relative_url }}">Atom feed</a>
     </div>
 
     <div class="footer-col">
@@ -51,8 +50,13 @@
     </div>
   </div>
 
+  <div class="shell footer-risk">
+    <p>Not investment advice. Digital assets and related products are high risk. Consult your professional advisor and trade responsibly. Services are available to eligible customers in select locations.</p>
+    <p>We are not responsible for any losses, gains, or chaos that might happen if you act on what you read here. Investment decisions should come from your own research and, ideally, guidance from a qualified financial advisor. Crypto and tech move fast, info changes in a blink, and while we aim for accuracy we can't promise it's 100% complete or up to date.</p>
+  </div>
+
   <div class="shell footer-legal">
-    <p>&copy; {{ site.time | date: '%Y' }} The DESI Sikka. Not financial advice. DYOR.</p>
+    <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }} · Published by the F9XR Team.</p>
     <p>Powered by <a class="footer-credit-link" href="https://jekyllrb.com/" rel="noopener nofollow">Jekyll</a> on <a class="footer-credit-link" href="https://pages.github.com/" rel="noopener nofollow">GitHub Pages</a>. Website designed by <a class="footer-credit-link" href="https://f9xr.github.io/" rel="noopener">F9XR Team</a>.</p>
   </div>
 </footer>

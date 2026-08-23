@@ -19,7 +19,7 @@ description: "The DESI Sikka publishes news and education, not financial advice.
   <div class="prose" style="max-width:46rem;">
     <p>All content on The DESI Sikka is published for information and education only. Nothing here is investment advice, trading advice, legal advice or tax advice.</p>
 
-    <p>Crypto assets are volatile and largely unregulated in India. Prices can drop fast and permanently. Tax rules change with every budget. You alone are responsible for your decisions.</p>
+    <p>Crypto assets are volatile and regulation varies by country. Prices can drop fast and permanently. Tax rules change often. You alone are responsible for your decisions.</p>
 
     <h2>Do your own research</h2>
     <p>Before acting on anything you read here:</p>
@@ -33,7 +33,7 @@ description: "The DESI Sikka publishes news and education, not financial advice.
     <p>We report facts as best we can verify them at publishing time. Markets move after we hit publish. Old posts stay online for reference but may describe conditions that no longer exist.</p>
 
     <h2>Affiliates and ads</h2>
-    <p>The site may run ads through Google AdSense and, if introduced later, affiliate links. Ads don't equal endorsement. Sponsored content, if ever published, will be labeled inside the story itself per our <a href="{{ '/legal/editorial-policy/' | relative_url }}">editorial policy</a>.</p>
+    <p>We may introduce affiliate links later. If we do, they won't influence our coverage. Sponsored content, if ever published, will be labeled inside the story itself per our <a href="{{ '/legal/editorial-policy/' | relative_url }}">editorial policy</a>. Ads, if any, don't equal endorsement.</p>
 
     <p>Questions? Reach us via the <a href="{{ '/pages/contact/' | relative_url }}">contact page</a>.</p>
   </div>

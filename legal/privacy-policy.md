@@ -2,7 +2,7 @@
 layout: default
 permalink: /legal/privacy-policy/
 title: "Privacy Policy"
-description: "How The DESI Sikka collects, uses and protects your data, including advertising cookies."
+description: "How The DESI Sikka collects, uses and protects your data."
 ---
 
 <div class="meta-strip compact">
@@ -14,23 +14,15 @@ description: "How The DESI Sikka collects, uses and protects your data, includin
   <header class="page-intro">
     <span class="mono-label">Privacy Policy</span>
     <h1 class="page-title">Your data, in plain English.</h1>
-    <p class="page-sub">Short version: we collect almost nothing ourselves, and any ads you see are handled by Google under their rules.</p>
+    <p class="page-sub">Short version: we collect almost nothing. The site is static, no accounts, no tracking pixels.</p>
   </header>
 
   <div class="prose" style="max-width:46rem;">
     <h2>What we collect</h2>
-    <p>The DESI Sikka is a static website. We don't run accounts, logins or comment systems here. We don't ask for your name, phone number or wallet address.</p>
+    <p>The DESI Sikka is a static website with no accounts or logins. We don't ask for your name, phone number or wallet address. Optional comments are powered by GitHub Discussions and load only if you click to open them; GitHub's own privacy rules apply there.</p>
 
-    <h2>Cookies and advertising</h2>
-    <p>We may display ads served by Google AdSense. Google and its partners use cookies to serve ads based on your visits to this and other sites.</p>
-
-    <ul>
-      <li>You can opt out of personalized advertising at <a href="https://www.google.com/settings/ads" rel="noopener nofollow">Google Ads Settings</a>.</li>
-      <li>You can also opt out of third-party vendor cookies at <a href="https://www.aboutads.info/choices/" rel="noopener nofollow">aboutads.info/choices</a>.</li>
-      <li>Your browser's private/incognito mode limits most tracking.</li>
-    </ul>
-
-    <p>Google's use of advertising cookies follows the <a href="https://policies.google.com/technologies/ads" rel="noopener nofollow">Google Advertising Policies</a> and <a href="https://policies.google.com/privacy" rel="noopener nofollow">Privacy Policy</a>.</p>
+    <h2>Cookies</h2>
+    <p>We set one small preference in your browser's local storage (your preferred article font size) so the site remembers it between visits. It never leaves your device.</p>
 
     <h2>Analytics</h2>
     <p>If we enable traffic analytics later, it will be aggregate data only (page views, referrers, country). No individual profiles.</p>

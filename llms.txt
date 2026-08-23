@@ -1,10 +1,10 @@
 # The DESI Sikka
 
-> The DESI Sikka is a crypto news and updates site for Indian readers. It covers bitcoin, ethereum, altcoins, Indian crypto regulation (30% tax, 1% TDS, FIU rules), DeFi and Web3 explainers, exchange guides, price predictions, airdrops and daily market combos. Plain English, no jargon walls, no paid shilling.
+> The DESI Sikka is a crypto news and updates site for readers worldwide, with deep coverage of India. It covers bitcoin, ethereum, altcoins, crypto regulation (global policy plus Indian specifics: 30% tax, 1% TDS, FIU rules), DeFi and Web3 explainers, exchange guides, price predictions, airdrops and daily market combos. Plain English, no jargon walls, no paid shilling.
 
 Site: https://ttearncrypto.github.io/thedesisikka/
-Author: f9xr (https://ttearncrypto.github.io/thedesisikka/author/f9xr/)
-Language: English (India)
+Author: F9XR News Desk (https://ttearncrypto.github.io/thedesisikka/author/f9xr/)
+Language: English
 
 ## Main sections
 
@@ -12,7 +12,7 @@ Language: English (India)
 - [Bitcoin](https://ttearncrypto.github.io/thedesisikka/category/bitcoin/): BTC moves, halvings, ETF flows
 - [Ethereum](https://ttearncrypto.github.io/thedesisikka/category/ethereum/): ETH upgrades, staking, L2s
 - [Altcoins](https://ttearncrypto.github.io/thedesisikka/category/altcoins/): SOL, XRP, memecoins and what is actually building
-- [Regulation](https://ttearncrypto.github.io/thedesisikka/category/regulation/): RBI, Income Tax, TDS, FIU updates for India
+- [Regulation](https://ttearncrypto.github.io/thedesisikka/category/regulation/): global policy plus RBI, Income Tax, TDS, FIU updates for India
 - [DeFi & Web3](https://ttearncrypto.github.io/thedesisikka/category/defi/): yield, protocols, self-custody
 - [Exchanges & How-to](https://ttearncrypto.github.io/thedesisikka/category/exchanges/): INR on-ramps, P2P safety, tax filing steps
 - [Price Predictions](https://ttearncrypto.github.io/thedesisikka/pages/predictions/): analyst calls as clearly-labeled opinion

@@ -3,63 +3,206 @@ layout: default
 ---
 {% assign cat_slug = page.categories | first %}
 {% assign cat = site.site_categories | where: 'slug', cat_slug | first %}
+{% capture abs_url %}{{ site.url }}{{ site.baseurl }}{{ page.url }}{% endcapture %}
+{% capture summary_prompt %}Summarize this article in clear key points: {{ abs_url }}{% endcapture %}
 
 <div class="meta-strip">
-  <span>{% if cat %}{{ cat.name }}{% else %}News{% endif %}</span>
-  <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%B %-d, %Y' }}</time>
-  {% assign words = page.content | strip_html | number_of_words %}
-  {% if words > 0 %}<span>{{ words | divided_by: 180 | plus: 1 }} min read</span>{% endif %}
-  <span>By {{ site.default_author.name }}</span>
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href="{{ '/' | relative_url }}">Home</a>
+    <span>/</span>
+    <a href="{{ '/category/' | append: cat_slug | relative_url }}">{% if cat %}{{ cat.name }}{% else %}News{% endif %}</a>
+    <span>/</span>
+    <span class="crumb-here">{{ page.title | escape | truncatewords: 6 }}</span>
+  </nav>
 </div>
 
 <div class="article-layout">
 
-  <article class="article-column">
-    {% if page.description %}
-      <header class="article-header">
-        <span class="mono-label">{{ page.date | date: '%d.%m.%Y' }}</span>
-        <h1 itemprop="headline">{{ page.title | escape }}</h1>
+  <article class="article-column" data-slug="{{ page.slug }}">
+    <header class="article-header">
+      <span class="mono-label">{{ page.date | date: '%d.%m.%Y' }} · {% if cat %}{{ cat.name }}{% else %}News{% endif %} · F9XR News Desk</span>
+      <h1 itemprop="headline">{{ page.title | escape }}</h1>
+      {% if page.description %}
         <p class="article-lead">{{ page.description }}</p>
-      </header>
-    {% else %}
-      <header class="article-header">
-        <h1 itemprop="headline">{{ page.title | escape }}</h1>
-      </header>
-    {% endif %}
+      {% endif %}
+    </header>
 
-    <div class="prose" itemprop="articleBody">
-      {{ content }}
-      {% include ad-slot.html slot="in-article" %}
-      <p class="disclaimer">This is news and analysis, not financial advice. Crypto is volatile and tax rules in India change fast. Always do your own research before you put money in.</p>
+    {% comment %} ---- Featured image space ---- {% endcomment %}
+    <figure class="article-cover cover-{{ cat_slug }}">
+      {% if page.cover_image %}
+        <img src="{{ page.cover_image | relative_url }}" alt="{{ page.title | escape }}">
+        {% if page.cover_caption %}<figcaption class="cover-caption">{{ page.cover_caption }}</figcaption>{% endif %}
+      {% else %}
+        <span class="cover-glyph" aria-hidden="true"></span>
+        <figcaption class="cover-caption">Featured graphic · {% if cat %}{{ cat.name }}{% else %}News{% endif %}</figcaption>
+      {% endif %}
+    </figure>
+
+    {% comment %} ---- Article toolbar ---- {% endcomment %}
+    <div class="article-tools" role="toolbar" aria-label="Article tools">
+      <span class="tool-meta">
+        {% assign words = page.content | strip_html | number_of_words %}
+        {% if words > 0 %}<strong>{{ words | divided_by: 180 | plus: 1 }} min read</strong> ·{% endif %}
+        By {{ site.default_author.name }}
+      </span>
+      <span class="tool-buttons">
+        <button type="button" id="listen-btn" class="tool-btn" aria-pressed="false" title="Listen to this article">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg>
+          Listen
+        </button>
+        <button type="button" id="print-btn" class="tool-btn" title="Print this article">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Print
+        </button>
+        <button type="button" id="font-dec" class="tool-btn" title="Decrease font size" aria-label="Decrease font size">A&minus;</button>
+        <button type="button" id="font-inc" class="tool-btn" title="Increase font size" aria-label="Increase font size">A+</button>
+      </span>
     </div>
 
+    {% comment %} ---- Quick Summary + AI chips ---- {% endcomment %}
+    {% if page.summary %}
+    <aside class="summary-box">
+      <h2><span class="pulse-dot"></span>Quick Summary</h2>
+      <ul>
+        {% for point in page.summary %}<li>{{ point }}</li>{% endfor %}
+      </ul>
+      <div class="ai-chips">
+        <span class="mono-label">Summarize with AI</span>
+        <div class="ai-chip-row">
+          <a class="ai-chip" href="https://chatgpt.com/?q={{ summary_prompt | url_encode }}" target="_blank" rel="noopener nofollow">ChatGPT</a>
+          <a class="ai-chip" href="https://gemini.google.com/app" target="_blank" rel="noopener nofollow">Gemini</a>
+          <a class="ai-chip" href="https://claude.ai/new?q={{ summary_prompt | url_encode }}" target="_blank" rel="noopener nofollow">Claude</a>
+          <a class="ai-chip" href="https://copilot.microsoft.com/?q={{ summary_prompt | url_encode }}" target="_blank" rel="noopener nofollow">Copilot</a>
+          <a class="ai-chip" href="https://www.perplexity.ai/search?q={{ summary_prompt | url_encode }}" target="_blank" rel="noopener nofollow">Perplexity</a>
+        </div>
+      </div>
+    </aside>
+    {% endif %}
+
+    <div class="share-row share-top">
+      {% include sharelinks.html %}
+    </div>
+
+    <div class="prose" id="article-body" itemprop="articleBody">
+      {{ content }}
+
+      {% comment %} ---- Copyright box ---- {% endcomment %}
+      <div class="legal-box copyright-box">
+        <p>&copy; {{ site.time | date: '%Y' }} F9XR Team. Licensed under the <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener nofollow">Creative Commons Attribution 4.0 International License (CC BY 4.0)</a>. You are free to share and adapt this work with attribution to the F9XR Team and a link back to the original story.</p>
+        <p>The DESI Sikka is published by the F9XR Team and produced by staff journalists and contracted analysts unless otherwise noted. Questions or corrections? Visit our <a href="{{ '/pages/contact/' | relative_url }}">contact page</a>.</p>
+      </div>
+
+      {% comment %} ---- Disclaimer box ---- {% endcomment %}
+      <div class="legal-box disclaimer-box">
+        <p>This article reflects the research and opinions of the {{ site.default_author.name }} and is provided for general informational purposes only. It is not professional financial, legal or tax advice, and metrics mentioned are illustrative, not guaranteed.</p>
+      </div>
+    </div>
+
+    {% comment %} ---- Tags & keywords ---- {% endcomment %}
+    {% if page.tags.size > 0 %}
+    <div class="tags-row">
+      <span class="mono-label">Tags</span>
+      <div class="chip-row-inline">
+        {% for tag in page.tags %}
+          <a class="chip" href="{{ '/pages/search/' | relative_url }}?q={{ tag | url_encode }}">#{{ tag }}</a>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+    {% if page.keywords %}
+    <p class="keywords"><span class="mono-label">Keywords:</span> {{ page.keywords }}</p>
+    {% endif %}
+
+    {% comment %} ---- Bottom share + prev/next ---- {% endcomment %}
     <div class="share-row">
       {% include sharelinks.html %}
     </div>
 
-    <nav class="post-nav" aria-label="More posts">
+    <nav class="post-nav" aria-label="More news">
       {% if page.previous %}
         <a href="{{ page.previous.url | relative_url }}" class="prev">
-          <span class="nav-dir">&larr; Previous</span>
+          <span class="nav-dir">&larr; Previous News <kbd>P</kbd></span>
           <span class="nav-title">{{ page.previous.title | escape }}</span>
         </a>
-      {% endif %}
+      {% else %}<span></span>{% endif %}
       {% if page.next %}
         <a href="{{ page.next.url | relative_url }}" class="next">
-          <span class="nav-dir">Next &rarr;</span>
+          <span class="nav-dir">Next News &rarr; <kbd>N</kbd></span>
           <span class="nav-title">{{ page.next.title | escape }}</span>
         </a>
-      {% endif %}
+      {% else %}<span></span>{% endif %}
     </nav>
+
+    {% comment %} ---- Author box ---- {% endcomment %}
+    <section class="author-box">
+      <div class="author-box-head">
+        {% if site.default_author.avatar %}
+          <img class="author-avatar-lg" src="{{ site.default_author.avatar | relative_url }}" alt="{{ site.default_author.name }}">
+        {% else %}
+          <span class="author-avatar-lg author-monogram" aria-hidden="true">F9</span>
+        {% endif %}
+        <div>
+          <p class="mono-label">Written by</p>
+          <h2>{{ site.default_author.name }}</h2>
+        </div>
+      </div>
+      <p class="author-box-bio">{{ site.default_author.bio }}</p>
+      <div class="chip-row-inline">
+        {% for link in site.author_links %}
+          <a class="chip" href="{{ link.url }}" rel="noopener">{{ link.name }}</a>
+        {% endfor %}
+        <a class="chip" href="{{ '/author/f9xr/' | relative_url }}">All stories by the desk &rarr;</a>
+      </div>
+    </section>
+
+    {% comment %} ---- Related news (same category) ---- {% endcomment %}
+    {% assign related = site.categories[cat_slug] | where_exp: 'item', 'item.slug != page.slug' %}
+    {% if related.size > 0 %}
+    <section class="post-section">
+      <h2 class="section-title">Related News</h2>
+      <div class="card-row">
+        {% for post in related limit: 3 %}
+          {% include mini-card.html post=post glyph="🗂" %}
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+    {% comment %} ---- Further reading (everywhere else) ---- {% endcomment %}
+    {% assign further = site.posts | where_exp: 'item', 'item.slug != page.slug' | reject: 'categories', cat_slug %}
+    {% if further.size > 0 %}
+    <section class="post-section">
+      <h2 class="section-title">Further Reading</h2>
+      <div class="card-row">
+        {% for post in further limit: 4 %}
+          {% include mini-card.html post=post glyph="📖" %}
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+    {% comment %} ---- Comments (closed by default, lazy utterances) ---- {% endcomment %}
+    <details class="comments-box">
+      <summary>Comments <span class="mono-label">(click to load)</span></summary>
+      <div class="comments-body"
+           data-repo="ttearncrypto/thedesisikka"
+           data-issue-term="pathname"></div>
+    </details>
+
   </article>
 
+  {% comment %} ---- Sidebar ---- {% endcomment %}
   <aside class="sidebar">
     <div class="sidebar-sticky">
 
-      {% include ad-slot.html slot="sidebar" format="vertical" %}
-
       <div class="author-card">
-        <a href="{{ '/author/f9xr/' | relative_url }}"><img class="author-avatar" src="{{ site.default_author.avatar | relative_url }}" alt="{{ site.default_author.name }}"></a>
+        <a href="{{ '/author/f9xr/' | relative_url }}">
+          {% if site.default_author.avatar %}
+            <img class="author-avatar" src="{{ site.default_author.avatar | relative_url }}" alt="{{ site.default_author.name }}">
+          {% else %}
+            <span class="author-avatar author-monogram" aria-hidden="true">F9</span>
+          {% endif %}
+        </a>
         <div>
           <p class="mono-label">Written by</p>
           <h2 class="author-name"><a href="{{ '/author/f9xr/' | relative_url }}">{{ site.default_author.name }}</a></h2>
@@ -67,25 +210,16 @@ layout: default
       </div>
       <p class="author-bio">{{ site.default_author.bio }}</p>
 
+      {% if related.size > 0 %}
       <div class="side-card">
         <h3>More in {% if cat %}{{ cat.name }}{% else %}News{% endif %}</h3>
-        {% assign siblings = site.categories[cat_slug] | where_exp: 'item', 'item.slug != page.slug' %}
-        {% if siblings.size > 0 %}
         <ul class="toc-list">
-          {% for post in siblings limit: 6 %}
+          {% for post in related limit: 6 %}
             <li><a href="{{ post.url | relative_url }}">{{ post.title | escape | truncatewords: 8 }}</a></li>
           {% endfor %}
         </ul>
-        {% else %}
-        <ul class="toc-list">
-          {% for post in site.posts limit: 5 %}
-            {% if post.slug != page.slug %}
-              <li><a href="{{ post.url | relative_url }}">{{ post.title | escape | truncatewords: 8 }}</a></li>
-            {% endif %}
-          {% endfor %}
-        </ul>
-        {% endif %}
       </div>
+      {% endif %}
 
       <div class="side-card">
         <h3>The DESI Sikka daily</h3>
@@ -94,7 +228,7 @@ layout: default
           <div><span class="promo-name">Telegram channel</span></div>
           <span class="promo-count">Daily</span>
         </div>
-        <a class="btn btn-primary btn-sm" href="https://t.me/{{ site.telegram_username }}" rel="noopener">Join the channel &rarr;</a>
+        <a class="btn btn-primary btn-sm" href="{{ site.telegram_url }}" rel="noopener">Join the channel &rarr;</a>
       </div>
 
     </div>
@@ -102,7 +236,17 @@ layout: default
 
 </div>
 
-<a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+<script type="application/json" id="also-read-data">
+[
+{% for post in related limit: 3 %}
+  {"t": {{ post.title | jsonify }}, "u": {{ post.url | relative_url | jsonify }}}{% unless forloop.last %},{% endunless %}
+{% endfor %}
+{% assign fallback = site.posts | where_exp: 'item', 'item.slug != page.slug' %}
+{% if related.size == 0 %}{% for post in fallback limit: 3 %}
+  {"t": {{ post.title | jsonify }}, "u": {{ post.url | relative_url | jsonify }}}{% unless forloop.last %},{% endunless %}
+{% endfor %}{% endif %}
+]
+</script>
 
 <script type="application/ld+json">
 {
@@ -112,12 +256,15 @@ layout: default
   "description": {{ page.description | default: page.excerpt | strip_html | jsonify }},
   "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
   "dateModified": {{ page.date | date_to_xmlschema | jsonify }},
-  "mainEntityOfPage": {{ site.url | append: site.baseurl | append: page.url | jsonify }},
-  "image": [{{ site.url | append: site.baseurl | append: site.social_image | jsonify }}],
+  "mainEntityOfPage": {{ abs_url | jsonify }},
+  "image": [{{ site.url | append: site.baseurl | append: page.image | jsonify }}],
+  "keywords": {{ page.keywords | default: page.tags | join: ', ' | jsonify }},
+  "articleSection": "{% if cat %}{{ cat.name }}{% else %}News{% endif %}",
+  "inLanguage": "en",
   "author": {
-    "@type": "Person",
+    "@type": "Organization",
     "name": {{ site.default_author.name | jsonify }},
-    "url": {{ site.url | append: site.baseurl | append: '/about/' | jsonify }}
+    "url": {{ site.url | append: site.baseurl | append: '/author/f9xr/' | jsonify }}
   },
   "publisher": {
     "@type": "NewsMediaOrganization",
@@ -126,9 +273,7 @@ layout: default
       "@type": "ImageObject",
       "url": {{ site.url | append: site.baseurl | append: site.logo | jsonify }}
     }
-  },
-  "articleSection": "{% if cat %}{{ cat.name }}{% else %}News{% endif %}",
-  "inLanguage": "en-IN"
+  }
 }
 </script>
 <script type="application/ld+json">
@@ -152,7 +297,7 @@ layout: default
       "@type": "ListItem",
       "position": 3,
       "name": {{ page.title | jsonify }},
-      "item": {{ site.url | append: site.baseurl | append: page.url | jsonify }}
+      "item": {{ abs_url | jsonify }}
     }
   ]
 }

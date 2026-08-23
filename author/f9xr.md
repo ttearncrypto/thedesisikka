@@ -1,35 +1,39 @@
 ---
 layout: default
 permalink: /author/f9xr/
-title: "f9xr"
-description: "Author profile of f9xr, crypto writer and analyst at The DESI Sikka."
+title: "F9XR News Desk"
+description: "F9XR News Desk is the editorial team behind The DESI Sikka, reporting crypto news, market analysis and policy updates around the clock."
 ---
 
 {% assign author_posts = site.posts %}
 
 <div class="meta-strip compact">
-  <span>Author</span>
+  <span>News Desk</span>
   <span>{% if author_posts.size == 1 %}1 story published{% else %}{{ author_posts.size }} stories published{% endif %}</span>
 </div>
 
 <section class="section shell">
   <header class="author-hero">
-    <img class="author-avatar-lg" src="{{ site.default_author.avatar | relative_url }}" alt="{{ site.default_author.name }} avatar" width="96" height="96">
+    {% if site.default_author.avatar %}
+      <img class="author-avatar-lg" src="{{ site.default_author.avatar | relative_url }}" alt="{{ site.default_author.name }}" width="96" height="96">
+    {% else %}
+      <span class="author-avatar-lg author-monogram" aria-hidden="true">F9</span>
+    {% endif %}
     <div>
-      <span class="mono-label">Written by</span>
+      <span class="mono-label">The team behind every story</span>
       <h1 class="page-title">{{ site.default_author.name }}</h1>
       <p class="page-sub">{{ site.default_author.bio }}</p>
       <div class="chip-row" style="border-bottom:none;padding-block:1rem 0;">
-        <a class="chip" href="https://twitter.com/{{ site.twitter_username }}" rel="noopener">Twitter / X</a>
-        <a class="chip" href="https://github.com/{{ site.github_username }}" rel="noopener">GitHub</a>
-        <a class="chip" href="{{ site.telegram_url }}" rel="noopener">Telegram</a>
-        <a class="chip" href="{{ site.website_credit_url }}" rel="noopener">Website</a>
+        {% for link in site.author_links %}
+          <a class="chip" href="{{ link.url }}" rel="noopener">{{ link.name }}</a>
+        {% endfor %}
       </div>
     </div>
   </header>
 
   {% if author_posts.size > 0 %}
-  <div class="post-grid" style="margin-top:2.5rem;">
+  <h2 class="section-title" style="margin-top:2.5rem;">Latest from F9XR News Desk</h2>
+  <div class="post-grid">
     {% for post in author_posts %}
       {% assign pcat_slug = post.categories | first %}
       {% assign pcat = site.site_categories | where: 'slug', pcat_slug | first %}
@@ -39,7 +43,7 @@ description: "Author profile of f9xr, crypto writer and analyst at The DESI Sikk
         </div>
         <div class="post-card-body">
           <span class="post-card-cat">{% if pcat %}{{ pcat.name }}{% else %}News{% endif %}</span>
-          <h2 class="post-card-title">{{ post.title | escape }}</h2>
+          <h3 class="post-card-title">{{ post.title | escape }}</h3>
           <span class="post-card-meta">{{ post.date | date: '%b %-d, %Y' }}</span>
         </div>
       </a>
@@ -51,3 +55,17 @@ description: "Author profile of f9xr, crypto writer and analyst at The DESI Sikk
   </div>
   {% endif %}
 </section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "F9XR News Desk",
+    "description": {{ site.default_author.bio | jsonify }},
+    "url": {{ site.url | append: site.baseurl | append: '/author/f9xr/' | jsonify }},
+    "sameAs": [{% for link in site.author_links %}{{ link.url | jsonify }}{% unless forloop.last %},{% endunless %}{% endfor %}]
+  }
+}
+</script>

@@ -8,7 +8,7 @@ permalink: /rss.xml
     <title>{{ site.title | xml_escape }}</title>
     <link>{{ site.url }}{{ site.baseurl }}/</link>
     <description>{{ site.description | strip_html | xml_escape }}</description>
-    <language>en-in</language>
+    <language>en</language>
     <lastBuildDate>{{ site.time | date: "%a, %-d %b %Y %H:%M:%S %z" }}</lastBuildDate>
     <atom:link href="{{ site.url }}{{ site.baseurl }}/rss.xml" rel="self" type="application/rss+xml"/>
     <image>

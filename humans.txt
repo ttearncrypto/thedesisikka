@@ -2,11 +2,11 @@
 
 /* TEAM */
 
-Writer & Analyst: f9xr
+Writer & Analyst: F9XR News Desk
 Contact: hello@thedesisikka.in
 Twitter: @ttearncrypto
 GitHub: https://github.com/ttearncrypto
-From: Bharat
+From: Worldwide, with deep coverage of India
 
 Design & Build: F9XR Team
 Site: https://f9xr.github.io/
@@ -15,9 +15,9 @@ Site: https://f9xr.github.io/
 
 Name: The DESI Sikka
 Site: https://ttearncrypto.github.io/thedesisikka/
-Mission: Crypto news for Bharat. Bitcoin to rupee rules, minus the jargon walls.
+Mission: Crypto news for everyone. Bitcoin to policy shifts, with deep India coverage, minus the jargon walls.
 Launched: 2026
-Language: English (India)
+Language: English
 Doctype: HTML5
 Stack: Jekyll on GitHub Pages
 Components: Inter, JetBrains Mono

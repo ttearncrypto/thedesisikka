@@ -8,7 +8,7 @@ permalink: /llms-full.txt
 
 Publisher: The DESI Sikka (https://ttearncrypto.github.io/thedesisikka/)
 Author: {{ site.default_author.name }} — {{ site.default_author.bio }}
-Language: English (India). Nothing on this site is financial advice.
+Language: English. Nothing on this site is financial advice.
 
 {% if site.posts.size > 0 %}
 ## Stories
@@ -29,11 +29,11 @@ No stories published yet. First articles are scheduled for September 1, 2026.
 
 ## Planned coverage
 
-- Bitcoin and Ethereum market analysis for Indian readers
-- Indian crypto regulation: 30% flat tax, 1% TDS, FIU registration rules
+- Bitcoin and Ethereum market analysis for readers worldwide
+- Crypto regulation worldwide plus Indian specifics: 30% flat tax, 1% TDS, FIU registration rules
 - Altcoin research and exit-liquidity awareness
 - DeFi yield explainers and airdrop guides
-- Exchange how-tos: INR deposits, P2P safety, tax filing
+- Exchange how-tos: deposits, P2P safety, tax filing
 
 {% endif %}
 ## Site structure

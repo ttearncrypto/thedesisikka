@@ -1,19 +1,18 @@
 # Site identity -----------------------------------------------------------
 title: "The DESI Sikka"
-tagline: "Crypto news for Bharat"
+tagline: "Crypto news, zero jargon"
 email: "hello@thedesisikka.in"
 description: >-
-  The DESI Sikka covers crypto for Indian readers: bitcoin and ethereum news,
-  altcoin moves, DeFi explainers, exchange guides and the regulation updates
-  that actually matter in India. Plain English, no jargon walls.
+  The DESI Sikka covers crypto for readers worldwide: bitcoin and ethereum
+  news, altcoin moves, DeFi explainers, exchange guides and the regulation
+  updates that matter, with deep coverage of India. Plain English, no jargon
+  walls.
 
 url: "https://ttearncrypto.github.io"
 baseurl: "/thedesisikka"
 
 # Social -------------------------------------------------------------------
 twitter_username: "ttearncrypto"
-instagram_username: "thedesisikka"
-telegram_username: "thedesisikka"
 telegram_url: "https://t.me/+CxO1NVTowno2Y2E1"
 github_username: "ttearncrypto"
 website_credit_url: "https://ttearncrypto.github.io"
@@ -23,18 +22,23 @@ logo: "/assets/site-images/logo.png"
 social_image: "/assets/site-images/og-default.png"
 twitter:
   card: summary_large_image
-lang: en_IN
-
-# Google AdSense -------------------------------------------------------------
-# Paste your publisher id here (e.g. ca-pub-1234567890123456) once approved.
-# Leave empty until then; ad slots stay hidden automatically.
-google_adsense_client_id: ""
+lang: en
 
 # Author --------------------------------------------------------------------
 default_author:
-  name: "f9xr"
-  avatar: "/assets/authors/f9xr.webp"
-  bio: "Tracking coins, charts and policy so you don't have to open ten tabs."
+  name: "F9XR News Desk"
+  avatar: ""   # empty = monogram fallback
+  bio: >-
+    The F9XR News Desk is a team of journalists working around the clock to
+    gather, verify and report crypto news, market analysis and policy
+    updates. One desk, every timezone.
+author_links:
+  - { name: Website,   url: "https://f9xr.github.io/" }
+  - { name: LinkedIn,  url: "https://linkedin.com/company/f9xrteam" }
+  - { name: Instagram, url: "https://instagram.com/f9xrteam" }
+  - { name: YouTube,   url: "https://youtube.com/@QuarterlyLIV" }
+  - { name: Pinterest, url: "https://pinterest.com/f9xr" }
+  - { name: GitHub,    url: "https://github.com/f9xr" }
 
 # Build ----------------------------------------------------------------------
 markdown: kramdown
@@ -50,7 +54,6 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
-  - jekyll-paginate
 
 rss: rss
 
@@ -74,7 +77,7 @@ defaults:
       type: posts
     values:
       layout: post
-      author: f9xr
+      author: newsdesk
       comments: false
       image: /assets/site-images/og-default.png
   - scope:

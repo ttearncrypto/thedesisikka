@@ -14,7 +14,7 @@ description: "Reach The DESI Sikka for story tips, corrections, partnerships or 
   <header class="page-intro">
     <span class="mono-label">Say hello</span>
     <h1 class="page-title">Got a tip? Found an error? Talk to us.</h1>
-    <p class="page-sub">We read everything. Story tips get priority, especially regulation updates and exchange issues affecting Indian users.</p>
+    <p class="page-sub">We read everything. Story tips get priority, especially regulation updates and exchange issues affecting readers.</p>
   </header>
 
   <div class="prose" style="max-width:46rem;">
@@ -29,9 +29,8 @@ description: "Reach The DESI Sikka for story tips, corrections, partnerships or 
 
     <h2>Social</h2>
     <ul>
-      <li><a href="https://t.me/{{ site.telegram_username }}" rel="noopener">Telegram channel</a> for daily updates</li>
+      <li><a href="{{ site.telegram_url }}" rel="noopener">Telegram channel</a> for daily updates</li>
       <li><a href="https://twitter.com/{{ site.twitter_username }}" rel="noopener">Twitter / X</a> for quick takes</li>
-      <li><a href="https://instagram.com/{{ site.instagram_username }}" rel="noopener">Instagram</a> for explainers</li>
     </ul>
 
     <h2>Corrections</h2>

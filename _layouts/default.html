@@ -22,7 +22,6 @@
       "logo": {{ site.url | append: site.baseurl | append: site.logo | jsonify }},
       "sameAs": [
         "https://twitter.com/{{ site.twitter_username }}",
-        "https://instagram.com/{{ site.instagram_username }}",
         {{ site.telegram_url | jsonify }},
         "https://github.com/{{ site.github_username }}"
       ]
@@ -36,7 +35,7 @@
       "name": {{ site.title | jsonify }},
       "url": {{ site.url | append: site.baseurl | jsonify }},
       "description": {{ site.description | strip_html | jsonify }},
-      "inLanguage": "en-IN",
+      "inLanguage": "en",
       "potentialAction": {
         "@type": "SearchAction",
         "target": {

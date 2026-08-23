@@ -5,3 +5,93 @@ https://www.bitrue.com/blog
 https://www.hokanews.com/
 https://www.quiknotes.in/
 
+
+
+
+Author: F9XR News Desk
+
+
+Author Links:
+https://f9xr.github.io/
+https://linkedin.com/company/f9xrteam
+https://instagram.com/f9xrteam
+https://youtube.com/@QuarterlyLIV
+https://pinterest.com/f9xr
+https://github.com/f9xr
+
+The F9XR News Desk comprises a dedicated and tireless team of journalists who operate around the clock to deliver the most current and comprehensive news and updates to the readers worldwide. With an unwavering commitment to excellence in journalism, our team is at the forefront of gathering, verifying, and presenting breaking news, in-depth analysis, and insightful reports on a wide range of topics. The F9XR News Desk is your trusted source for staying informed and connected to the ever-evolving global landscape, ensuring that our readers are equipped with the latest developments that matter most."
+
+Latest from F9XR News Desk
+with all the articles wirtten by this author below  
+
+
+
+in footer add this:
+Not investment advice. Digital assets and related products are high risk. Consult your professional advisor and trade responsibly. Services are available to eligible customers in select locations. 
+
+We are not responsible for any losses, gains, or chaos that might happen if you act on what you read here. Investment decisions should come from your own research—and, ideally, guidance from a qualified financial advisor. Remember: crypto and tech move fast, info changes in a blink, and while we aim for accuracy, we can’t promise it’s 100% complete or up-to-date.
+
+
+add features:
+keyboard shortcuts
+remove the AD spaces, we will add later on
+Update telegram links to only: https://t.me/+CxO1NVTowno2Y2E1
+everywhere
+
+remove https://instagram.com/thedesisikka links
+we are not on insta
+
+also this publication is not just based on India, but for global users.
+
+fix whatsapp sharing icon, also add option to copy article link
+add breakcrumps schema markup in all news posts
+add option in news article to 
+Listen article
+Print
+increase or decrease font size
+N for next article
+P for previous article
+
+Clickable tags 
+
+Reading Miniutes
+space for featured image of the article
+share option at top of article
+
+Quick Summary at very starting of the news article, summarizing the key points covered in the article 
+with also option to summrize the news article in ChatGPT, Gemini, Claude, Copilot, Perplexty 
+
+Custom HR tags
+Custom table UI
+Custom 3d effects of images and video embeds
+
+also "Also Read" section auto added in between of articles at random places 
+
+Further Reading section after news article ends
+Author Box
+Keywords
+Option for Pevious News and Next News
+
+Copyright box
+© 2026 F9XR Team. Licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0). You are free to share and adapt this work with attribution to the F9XR Team.
+
+Disclaimer
+This article reflects the experience and opinions of the F9XR Team and is provided for general informational purposes only. It is not professional legal, financial, or medical advice. Metrics and results mentioned are illustrative and not guaranteed.
+
+F9XR/Articles, published by the F9XR Team, delivers high-quality marketing content produced by staff and contracted experts, unless otherwise noted. This commitment to quality ensures comprehensive coverage of industry topics from a trusted team of writers. For more information, please visit the F9XR Team website or reach out through the contact page.
+
+modify the text as per our needs 
+
+Related News
+
+Comments dropdown (closed by default)
+<script src="https://utteranc.es/client.js"
+        repo="ttearncrypto/thedesisikka"
+        issue-term="pathname"
+        theme="dark-blue"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+
