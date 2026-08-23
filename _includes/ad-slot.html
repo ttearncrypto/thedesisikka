@@ -1,0 +1,21 @@
+{% comment %}
+  Usage: {% include ad-slot.html slot="leaderboard" format="horizontal" %}
+  Slots: leaderboard (728x90-ish), in-article (fluid), sidebar (300x250-ish)
+  Renders nothing until site.google_adsense_client_id is set in _config.yml.
+{% endcomment %}
+
+{% if site.google_adsense_client_id %}
+<div class="ad-slot ad-{{ include.slot | default: 'in-article' }}" aria-label="Advertisement">
+  <span class="ad-tag">Ad</span>
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="{{ site.google_adsense_client_id }}"
+       data-ad-slot=""
+       data-ad-format="{% if include.format %}{{ include.format }}{% elsif include.slot == 'in-article' %}fluid{% else %}auto{% endif %}"
+       {% if include.slot == 'in-article' %}data-ad-layout="in-article"{% endif %}
+       data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+{% endif %}

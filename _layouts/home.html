@@ -1,0 +1,87 @@
+---
+layout: default
+---
+<div class="hero">
+  <div class="shell">
+    <div class="hero-inner">
+      <span class="hero-badge">{{ site.tagline }}</span>
+      <h1 class="hero-title">Crypto news that speaks your language.</h1>
+      <p class="hero-sub">Bitcoin to rupee rules, altcoin moves to exchange how-tos. We cover what actually matters for Indian readers. No jargon walls.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#latest">Read the latest</a>
+        <a class="btn btn-outline" href="https://t.me/{{ site.telegram_username }}" rel="noopener">Join us on Telegram</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="chip-row shell" aria-label="Categories">
+  {% for cat in site.site_categories %}
+    <a class="chip" href="{{ '/category/' | append: cat.slug | relative_url }}">{{ cat.name }}</a>
+  {% endfor %}
+</div>
+
+<div class="shell">
+  {% include ad-slot.html slot="leaderboard" %}
+</div>
+
+{% if paginator.posts.size > 0 %}
+<section class="section shell" id="latest">
+  {% assign featured = paginator.posts | first %}
+  {% assign cat_slug = featured.categories | first %}
+  {% assign fcat = site.site_categories | where: 'slug', cat_slug | first %}
+  <a class="featured-card" href="{{ featured.url | relative_url }}">
+    <div class="post-card-cover cover-{{ cat_slug }}">
+      <span class="cover-glyph"></span>
+    </div>
+    <div class="post-card-body">
+      <span class="post-card-cat">{% if fcat %}{{ fcat.name }}{% else %}News{% endif %}</span>
+      <h2 class="post-card-title">{{ featured.title | escape }}</h2>
+      <p class="post-card-excerpt">{{ featured.description | default: featured.excerpt | strip_html | truncatewords: 32 }}</p>
+      <span class="post-card-meta">{{ featured.date | date: '%b %-d, %Y' }} &middot; {{ site.default_author.name }}</span>
+    </div>
+  </a>
+
+  {% assign rest = paginator.posts | shift %}
+  <div class="section-head">
+    <h2 class="section-title">Latest stories</h2>
+    <a class="section-link" href="{{ '/archive/' | relative_url }}">Full archive &rarr;</a>
+  </div>
+
+  {% if rest.size > 0 %}
+  <div class="post-grid">
+    {% for post in rest %}
+      {% assign pcat_slug = post.categories | first %}
+      {% assign pcat = site.site_categories | where: 'slug', pcat_slug | first %}
+      <a class="post-card" href="{{ post.url | relative_url }}">
+        <div class="post-card-cover cover-{{ pcat_slug }}">
+          <span class="cover-glyph"></span>
+        </div>
+        <div class="post-card-body">
+          <span class="post-card-cat">{% if pcat %}{{ pcat.name }}{% else %}News{% endif %}</span>
+          <h3 class="post-card-title">{{ post.title | escape }}</h3>
+          <p class="post-card-excerpt">{{ post.description | default: post.excerpt | strip_html | truncatewords: 20 }}</p>
+          <span class="post-card-meta">{{ post.date | date: '%b %-d, %Y' }}</span>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% if paginator.total_pages > 1 %}
+  <nav class="pagination" aria-label="Pages">
+    {% if paginator.previous_page %}
+      <a class="btn btn-outline btn-sm" href="{{ paginator.previous_page_path | relative_url }}">&larr; Newer</a>
+    {% else %}<span></span>{% endif %}
+    <span class="page-numbers">Page <strong>{{ paginator.page }}</strong> of {{ paginator.total_pages }}</span>
+    {% if paginator.next_page %}
+      <a class="btn btn-outline btn-sm" href="{{ paginator.next_page_path | relative_url }}">Older &rarr;</a>
+    {% else %}<span></span>{% endif %}
+  </nav>
+  {% endif %}
+</section>
+{% else %}
+<section class="section shell">
+  <p class="empty-note">We go live September 1 with the first batch of stories. Join us on Telegram so you don't miss the drop.</p>
+</section>
+{% endif %}

@@ -1,0 +1,32 @@
+<header class="site-header">
+  <div class="shell header-inner">
+    <a href="{{ '/' | relative_url }}" class="brand group">
+      <img src="{{ '/assets/site-images/logo.png' | relative_url }}" alt="The DESI Sikka logo" width="28" height="28">
+      <span>The DESI Sikka</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Primary">
+      {% for cat in site.site_categories %}
+        <a href="{{ '/category/' | append: cat.slug | relative_url }}">{{ cat.name }}</a>
+      {% endfor %}
+      <a href="{{ '/about/' | relative_url }}">About</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="btn btn-outline btn-sm" href="https://t.me/{{ site.telegram_username }}" rel="noopener">Telegram</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'); document.getElementById('mobile-nav').classList.toggle('open');">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="visually-hidden">Menu</span>
+      </button>
+    </div>
+  </div>
+
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile">
+    {% for cat in site.site_categories %}
+      <a href="{{ '/category/' | append: cat.slug | relative_url }}">{{ cat.name }}</a>
+    {% endfor %}
+    <a href="{{ '/about/' | relative_url }}">About</a>
+  </nav>
+</header>

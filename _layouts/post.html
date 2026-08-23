@@ -1,30 +1,159 @@
 ---
 layout: default
 ---
-<link href="/css/override.css" rel="stylesheet" type="text/css">
-<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+{% assign cat_slug = page.categories | first %}
+{% assign cat = site.site_categories | where: 'slug', cat_slug | first %}
 
-  <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
-    <p class="post-meta">
-      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        {{ page.date | date: date_format }}
-      </time>
-      {% assign author = page.author | default: site.author %}
-      {%- if author -%}
-        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ author }}</span></span>
-      {%- endif -%}</p>
-  </header>
+<div class="meta-strip">
+  <span>{% if cat %}{{ cat.name }}{% else %}News{% endif %}</span>
+  <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%B %-d, %Y' }}</time>
+  {% assign words = page.content | strip_html | number_of_words %}
+  {% if words > 0 %}<span>{{ words | divided_by: 180 | plus: 1 }} min read</span>{% endif %}
+  <span>By {{ site.default_author.name }}</span>
+</div>
 
-  <div class="share-links">
-    {% include sharelinks.html %}
-  </div>
+<div class="article-layout">
 
-  <div class="post-content e-content" itemprop="articleBody">
-    {{ content }}
-    {% include navlinks.html %}
-  </div>
+  <article class="article-column">
+    {% if page.description %}
+      <header class="article-header">
+        <span class="mono-label">{{ page.date | date: '%d.%m.%Y' }}</span>
+        <h1 itemprop="headline">{{ page.title | escape }}</h1>
+        <p class="article-lead">{{ page.description }}</p>
+      </header>
+    {% else %}
+      <header class="article-header">
+        <h1 itemprop="headline">{{ page.title | escape }}</h1>
+      </header>
+    {% endif %}
 
-  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
-</article>
+    <div class="prose" itemprop="articleBody">
+      {{ content }}
+      {% include ad-slot.html slot="in-article" %}
+      <p class="disclaimer">This is news and analysis, not financial advice. Crypto is volatile and tax rules in India change fast. Always do your own research before you put money in.</p>
+    </div>
+
+    <div class="share-row">
+      {% include sharelinks.html %}
+    </div>
+
+    <nav class="post-nav" aria-label="More posts">
+      {% if page.previous %}
+        <a href="{{ page.previous.url | relative_url }}" class="prev">
+          <span class="nav-dir">&larr; Previous</span>
+          <span class="nav-title">{{ page.previous.title | escape }}</span>
+        </a>
+      {% endif %}
+      {% if page.next %}
+        <a href="{{ page.next.url | relative_url }}" class="next">
+          <span class="nav-dir">Next &rarr;</span>
+          <span class="nav-title">{{ page.next.title | escape }}</span>
+        </a>
+      {% endif %}
+    </nav>
+  </article>
+
+  <aside class="sidebar">
+    <div class="sidebar-sticky">
+
+      {% include ad-slot.html slot="sidebar" format="vertical" %}
+
+      <div class="author-card">
+        <img class="author-avatar" src="{{ site.default_author.avatar | relative_url }}" alt="{{ site.default_author.name }}">
+        <div>
+          <p class="mono-label">Written by</p>
+          <h2 class="author-name">{{ site.default_author.name }}</h2>
+        </div>
+      </div>
+      <p class="author-bio">{{ site.default_author.bio }}</p>
+
+      <div class="side-card">
+        <h3>More in {% if cat %}{{ cat.name }}{% else %}News{% endif %}</h3>
+        {% assign siblings = site.categories[cat_slug] | where_exp: 'item', 'item.slug != page.slug' %}
+        {% if siblings.size > 0 %}
+        <ul class="toc-list">
+          {% for post in siblings limit: 6 %}
+            <li><a href="{{ post.url | relative_url }}">{{ post.title | escape | truncatewords: 8 }}</a></li>
+          {% endfor %}
+        </ul>
+        {% else %}
+        <ul class="toc-list">
+          {% for post in site.posts limit: 5 %}
+            {% if post.slug != page.slug %}
+              <li><a href="{{ post.url | relative_url }}">{{ post.title | escape | truncatewords: 8 }}</a></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+
+      <div class="side-card">
+        <h3>The DESI Sikka daily</h3>
+        <p style="margin:0 0 0.75rem;font-size:13px;color:#71717a;">Market moves, regulation updates and airdrops. Straight to your Telegram, free.</p>
+        <div class="promo-row">
+          <div><span class="promo-name">Telegram channel</span></div>
+          <span class="promo-count">Daily</span>
+        </div>
+        <a class="btn btn-primary btn-sm" href="https://t.me/{{ site.telegram_username }}" rel="noopener">Join the channel &rarr;</a>
+      </div>
+
+    </div>
+  </aside>
+
+</div>
+
+<a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": {{ page.title | jsonify }},
+  "description": {{ page.description | default: page.excerpt | strip_html | jsonify }},
+  "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
+  "dateModified": {{ page.date | date_to_xmlschema | jsonify }},
+  "mainEntityOfPage": {{ site.url | append: site.baseurl | append: page.url | jsonify }},
+  "image": [{{ site.url | append: site.baseurl | append: site.social_image | jsonify }}],
+  "author": {
+    "@type": "Person",
+    "name": {{ site.default_author.name | jsonify }},
+    "url": {{ site.url | append: site.baseurl | append: '/about/' | jsonify }}
+  },
+  "publisher": {
+    "@type": "NewsMediaOrganization",
+    "name": {{ site.title | jsonify }},
+    "logo": {
+      "@type": "ImageObject",
+      "url": {{ site.url | append: site.baseurl | append: site.logo | jsonify }}
+    }
+  },
+  "articleSection": "{% if cat %}{{ cat.name }}{% else %}News{% endif %}",
+  "inLanguage": "en-IN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": {{ site.url | append: site.baseurl | append: '/' | jsonify }}
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{% if cat %}{{ cat.name }}{% else %}News{% endif %}",
+      "item": {{ site.url | append: site.baseurl | append: '/category/' | append: cat_slug | append: '/' | jsonify }}
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": {{ page.title | jsonify }},
+      "item": {{ site.url | append: site.baseurl | append: page.url | jsonify }}
+    }
+  ]
+}
+</script>

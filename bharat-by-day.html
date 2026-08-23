@@ -1,0 +1,222 @@
+---
+layout: null
+sitemap: false
+noindex: true
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BharatByDay — Component Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-[#0A0A0C] text-zinc-400 font-sans antialiased min-h-screen">
+
+  <div class="max-w-6xl mx-auto border-x border-zinc-800">
+
+    <header class="border-b border-zinc-800">
+      <div class="px-5 sm:px-8 md:px-10 py-4 flex items-center justify-between">
+        <a href="#" class="flex items-center gap-2.5 group">
+          <span class="h-2 w-2 rounded-sm bg-sky-400 group-hover:bg-sky-300 transition-colors"></span>
+          <span class="text-white font-bold tracking-tight">BharatByDay</span>
+        </a>
+        <nav class="hidden sm:flex items-center gap-7 text-sm text-zinc-500">
+          <a href="#" class="hover:text-white transition-colors">Docs</a>
+          <a href="#" class="hover:text-white transition-colors">Components</a>
+          <a href="#" class="hover:text-white transition-colors">Library</a>
+        </nav>
+        <a href="#" class="rounded-lg border border-zinc-700 px-3.5 py-1.5 text-sm font-medium text-zinc-200 hover:border-zinc-500 hover:text-white transition-colors">Get started</a>
+      </div>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-zinc-800 border-b border-zinc-800">
+      <div class="px-5 sm:px-8 md:px-10 py-3 font-mono text-xs text-zinc-500 tracking-wider">&larr; UI Frameworks</div>
+      <div class="px-5 sm:px-8 md:px-10 py-3 font-mono text-xs text-zinc-500 tracking-wider">React</div>
+      <div class="px-5 sm:px-8 md:px-10 py-3 font-mono text-xs text-zinc-500 tracking-wider">Components</div>
+      <div class="px-5 sm:px-8 md:px-10 py-3 font-mono text-xs text-zinc-500 tracking-wider">August 2026</div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_300px]">
+
+      <article class="px-5 sm:px-8 md:px-10 py-10 md:py-14 min-w-0">
+
+        <h1 class="text-4xl sm:text-5xl md:text-[3.4rem] font-bold tracking-tight leading-[1.08] text-white">
+          Building a Design System That Actually Ships
+        </h1>
+
+        <p class="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400">
+          A practical field guide to assembling a modern React component library from scratch —
+          the wireframe, the tokens, and the trade-offs that separate a living system from a
+          folder of orphaned cards.
+        </p>
+
+        <div class="mt-10 border border-zinc-800 rounded-lg overflow-hidden aspect-[16/9] bg-[#0D0E13]">
+          <div class="relative h-full w-full flex items-center justify-center">
+            <div class="absolute inset-0 opacity-50" style="background-image:linear-gradient(#27272A 1px, transparent 1px), linear-gradient(90deg,#27272A 1px, transparent 1px); background-size: 32px 32px;"></div>
+            <div class="relative h-24 w-24 rounded-xl border border-zinc-800 bg-zinc-900/80 rotate-12 flex items-center justify-center shadow-[0_0_60px_rgba(56,189,248,0.15)]">
+              <span class="h-3 w-3 rounded-sm bg-sky-400 -rotate-12"></span>
+            </div>
+            <span class="absolute bottom-4 left-4 font-mono text-[11px] text-zinc-600 uppercase tracking-widest">Featured Graphic &middot; UI Frameworks</span>
+          </div>
+        </div>
+
+        <div class="mt-10 space-y-6 text-[15px] leading-relaxed">
+          <p>
+            Component libraries fail for one recurring reason: they skip the frame. Teams reach
+            for beautiful primitives before agreeing on the grid they live inside. This guide
+            inverts the process — design the structural lines first, then let every component
+            snap to them.
+          </p>
+          <p>
+            We'll walk through the decisions that matter, using a real React stack: tokens in
+            CSS custom properties, primitives as small composable units, and a strict 1px
+            border language that keeps an entirely dark interface readable at a glance.
+          </p>
+        </div>
+
+        <h2 id="why-use-component-libraries" class="mt-14 text-2xl sm:text-3xl font-bold tracking-tight text-white scroll-mt-24">
+          Why Use Component Libraries?
+        </h2>
+        <div class="mt-6 space-y-6 text-[15px] leading-relaxed">
+          <p>
+            A component library converts design decisions from conversations into code. When
+            the divider, the badge, and the card are owned by the same package, every page
+            inherits the same spacing rhythm and the same border weight — no ad hoc styling
+            leaks through the cracks.
+          </p>
+          <p>
+            Consistency is the visible win, but speed is the compounding one. A new screen
+            becomes an assembly problem instead of an invention problem, and accessibility
+            improvements land once, in the source, instead of twenty times, in the markup.
+          </p>
+        </div>
+
+        <h3 id="top-react-component-libraries" class="mt-12 text-xl font-bold tracking-tight text-white scroll-mt-24">
+          Top React Component Libraries
+        </h3>
+        <div class="mt-5 space-y-6 text-[15px] leading-relaxed">
+          <p>
+            Radix UI gives you the behavior primitives with zero opinion on styling. Headless
+            UI covers the same ground with a lighter API. shadcn/ui shows how far a copy-in
+            distribution model can go, and libraries like Mantine and Chakra deliver batteries
+            included for teams that want speed over control.
+          </p>
+        </div>
+
+        <h3 id="performance-considerations" class="mt-12 text-xl font-bold tracking-tight text-white scroll-mt-24">
+          Performance Considerations
+        </h3>
+        <div class="mt-5 space-y-6 text-[15px] leading-relaxed">
+          <p>
+            Bundle size is the tax every abstraction pays. Tree-shakeable exports, per-component
+            entry points, and avoiding a single monolith barrel file keep the base payload
+            small. On a dark canvas this matters double — every wasted kilobyte delays the
+            first paint of an interface that already trades heavily on perceived depth.
+          </p>
+          <p>
+            Measure with a budget, not a dashboard. Lock a max JS payload in CI, and let a
+            failing build be the signal that a new primitive costs more than it earns.
+          </p>
+        </div>
+
+      </article>
+
+      <aside class="px-5 sm:px-8 md:px-6 py-10 md:py-14 border-t md:border-t-0 md:border-l border-zinc-800">
+        <div class="md:sticky md:top-10">
+
+          <div class="flex items-center gap-3">
+            <div class="h-11 w-11 rounded-full bg-gradient-to-br from-sky-500 to-indigo-600 flex items-center justify-center text-white text-sm font-bold">
+              AK
+            </div>
+            <div>
+              <p class="font-mono text-[11px] text-zinc-500 uppercase tracking-wider">Written by</p>
+              <p class="text-sm font-semibold text-white mt-0.5">Arjun Kulkarni</p>
+            </div>
+          </div>
+          <p class="mt-3 text-xs text-zinc-500">Senior UI Engineer, BharatByDay</p>
+
+          <div class="mt-8 rounded-xl border border-zinc-800 bg-zinc-900/40 p-5">
+            <h3 class="flex items-center gap-2 text-sm font-semibold text-white">
+              <span class="h-1.5 w-1.5 rounded-full bg-sky-400"></span>
+              On this page
+            </h3>
+            <ul class="mt-4 space-y-0.5 text-sm">
+              <li>
+                <a href="#why-use-component-libraries" class="flex items-center gap-2.5 rounded-md px-2.5 py-2 text-zinc-400 hover:text-white hover:bg-zinc-800/50 transition-colors">
+                  <span class="h-1 w-1 rounded-full bg-zinc-700"></span>
+                  Why Use Component Libraries?
+                </a>
+              </li>
+              <li>
+                <a href="#top-react-component-libraries" class="flex items-center gap-2.5 rounded-md px-2.5 py-2 text-zinc-400 hover:text-white hover:bg-zinc-800/50 transition-colors">
+                  <span class="h-1 w-1 rounded-full bg-zinc-700"></span>
+                  Top React Component Libraries
+                </a>
+              </li>
+              <li>
+                <a href="#performance-considerations" class="flex items-center gap-2.5 rounded-md px-2.5 py-2 text-zinc-400 hover:text-white hover:bg-zinc-800/50 transition-colors">
+                  <span class="h-1 w-1 rounded-full bg-zinc-700"></span>
+                  Performance Considerations
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mt-6 rounded-xl border border-zinc-800 bg-gradient-to-b from-zinc-900 to-[#0B0C11] p-5">
+            <p class="font-mono text-[11px] text-zinc-500 uppercase tracking-wider">New in the library</p>
+            <h4 class="mt-2 text-sm font-semibold text-white leading-snug">Ship faster with BharatByDay Kit</h4>
+            <div class="mt-4 space-y-2">
+              <div class="flex items-center justify-between rounded-lg border border-zinc-800 bg-zinc-900/70 px-3 py-2.5">
+                <div>
+                  <p class="text-xs font-medium text-white">Card Preview</p>
+                  <p class="text-[11px] text-zinc-500">UI primitives</p>
+                </div>
+                <span class="font-mono text-[11px] text-zinc-500">50+</span>
+              </div>
+              <div class="flex items-center justify-between rounded-lg border border-zinc-800 bg-zinc-900/70 px-3 py-2.5">
+                <div>
+                  <p class="text-xs font-medium text-white">Dark Theme Tokens</p>
+                  <p class="text-[11px] text-zinc-500">Design system</p>
+                </div>
+                <span class="font-mono text-[11px] text-zinc-500">120+</span>
+              </div>
+            </div>
+            <a href="#" class="mt-4 block rounded-lg bg-white py-2.5 text-center text-sm font-semibold text-black transition-colors hover:bg-zinc-200">
+              Browse components &rarr;
+            </a>
+          </div>
+
+        </div>
+      </aside>
+
+    </div>
+
+    <footer class="border-t border-zinc-800 px-5 sm:px-8 md:px-10 py-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p class="font-mono text-xs text-zinc-600">&copy; 2026 BharatByDay</p>
+      <p class="font-mono text-xs text-zinc-600">UI Frameworks / React / Components</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>

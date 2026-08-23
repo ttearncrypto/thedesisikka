@@ -1,0 +1,44 @@
+<footer class="site-footer">
+  <div class="shell footer-inner">
+    <div class="footer-brand">
+      <a href="{{ '/' | relative_url }}" class="brand">
+        <img src="{{ '/assets/site-images/logo.png' | relative_url }}" alt="" width="24" height="24">
+        <span>The DESI Sikka</span>
+      </a>
+      <p>{{ site.description | strip_html | truncatewords: 24 }}</p>
+      <div class="footer-social">
+        <a href="https://twitter.com/{{ site.twitter_username }}" rel="noopener">Twitter / X</a>
+        <a href="https://instagram.com/{{ site.instagram_username }}" rel="noopener">Instagram</a>
+        <a href="https://t.me/{{ site.telegram_username }}" rel="noopener">Telegram</a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h3>Categories</h3>
+      {% for cat in site.site_categories %}
+        <a href="{{ '/category/' | append: cat.slug | relative_url }}">{{ cat.name }}</a>
+      {% endfor %}
+    </div>
+
+    <div class="footer-col">
+      <h3>Site</h3>
+      <a href="{{ '/' | relative_url }}">Home</a>
+      <a href="{{ '/archive/' | relative_url }}">Archive</a>
+      <a href="{{ '/about/' | relative_url }}">About</a>
+      <a href="{{ '/contact/' | relative_url }}">Contact</a>
+      <a href="{{ '/feed.xml' | relative_url }}">RSS feed</a>
+    </div>
+
+    <div class="footer-col">
+      <h3>Trust</h3>
+      <a href="{{ '/editorial-policy/' | relative_url }}">Editorial policy</a>
+      <a href="{{ '/disclaimer/' | relative_url }}">Disclaimer</a>
+      <a href="{{ '/privacy-policy/' | relative_url }}">Privacy policy</a>
+    </div>
+  </div>
+
+  <div class="shell footer-legal">
+    <p>&copy; {{ site.time | date: '%Y' }} The DESI Sikka. Not financial advice. DYOR.</p>
+    <p class="font-mono">Made in Bharat</p>
+  </div>
+</footer>

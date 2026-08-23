@@ -1,42 +1,92 @@
-title: "My Blogs Name"
-author: "Default Author Name"
-description: "Some short description of your blog can go here." # This will show up in places like twitter, linkedin, etc, if you share your sites url as a post.
+# Site identity -----------------------------------------------------------
+title: "The DESI Sikka"
+tagline: "Crypto news for Bharat"
+email: "hello@thedesisikka.in"
+description: >-
+  The DESI Sikka covers crypto for Indian readers: bitcoin and ethereum news,
+  altcoin moves, DeFi explainers, exchange guides and the regulation updates
+  that actually matter in India. Plain English, no jargon walls.
 
-# Email / Social media user names used by the minima theme:
-# All of these are optional and can be removed or commented out
-email: "example@mail.com"
-twitter_username: "twitteruser"
-github_username: "githubuser"
-linkedin_username: "linkedinuser"
-#facebook_username: username
-#flickr_username: username
-#instagram_username: username
-#pinterest_username: username
-#youtube_username: username
-#googleplus_username: +username
+url: "https://ttearncrypto.github.io"
+baseurl: "/thedesisikka"
 
-#########################################################################################
-######### Nothing below needs to be changed (unless you know what you're doing) #########
-#########################################################################################
-theme: "minima"
+# Social -------------------------------------------------------------------
+twitter_username: "thedesisikka"
+instagram_username: "thedesisikka"
+telegram_username: "thedesisikka"
 
-rss: rss
+# SEO / social cards ---------------------------------------------------------
+logo: "/assets/site-images/logo.png"
+social_image: "/assets/site-images/og-default.png"
+twitter:
+  card: summary_large_image
+lang: en_IN
+
+# Google AdSense -------------------------------------------------------------
+# Paste your publisher id here (e.g. ca-pub-1234567890123456) once approved.
+# Leave empty until then; ad slots stay hidden automatically.
+google_adsense_client_id: ""
+
+# Author --------------------------------------------------------------------
+default_author:
+  name: "f9xr"
+  avatar: "/assets/authors/f9xr.webp"
+  bio: "Tracking coins, charts and policy so you don't have to open ten tabs."
+
+# Build ----------------------------------------------------------------------
+markdown: kramdown
+highlighter: rouge
+permalink: /news/:slug/
+paginate: 9
+paginate_path: "/page/:num/"
+timezone: Asia/Kolkata
 
 kramdown:
   syntax_highlighter_opts:
     disable: true
-    
+
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-paginate
+
+rss: rss
 
 titles_from_headings:
   strip_title: true
   collections: true
 
+# Categories used across the site --------------------------------------------
+site_categories:
+  - { slug: bitcoin,    name: "Bitcoin" }
+  - { slug: ethereum,   name: "Ethereum" }
+  - { slug: altcoins,   name: "Altcoins" }
+  - { slug: regulation, name: "Regulation" }
+  - { slug: defi,       name: "DeFi & Web3" }
+  - { slug: exchanges,  name: "Exchanges & How-to" }
+
+# Defaults ---------------------------------------------------------------------
 defaults:
   - scope:
       path: ""
-      type: post
+      type: posts
     values:
-      tags: Other
+      layout: post
+      author: f9xr
+      comments: false
+      image: /assets/site-images/og-default.png
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page
+      image: /assets/site-images/og-default.png
+
+# Exclude from build -------------------------------------------------------------
+exclude:
+  - skills/
+  - todo.txt
+  - Gemfile
+  - Gemfile.lock
+  - README.md

@@ -1,0 +1,69 @@
+---
+layout: default
+---
+{% assign cat = site.site_categories | where: 'slug', page.cat_slug | first %}
+
+<div class="meta-strip compact">
+  <span>Category</span>
+  <span>{% if cat %}{{ cat.name }}{% else %}News{% endif %}</span>
+</div>
+
+<div class="chip-row shell" aria-label="Categories">
+  {% for c in site.site_categories %}
+    <a class="chip {% if c.slug == page.cat_slug %}active{% endif %}" href="{{ '/category/' | append: c.slug | relative_url }}">{{ c.name }}</a>
+  {% endfor %}
+</div>
+
+<section class="section shell">
+  <header class="page-intro">
+    <span class="mono-label">The DESI Sikka</span>
+    <h1 class="page-title">{% if cat %}{{ cat.name }}{% else %}News{% endif %}</h1>
+    {% if page.description %}
+      <p class="page-sub">{{ page.description }}</p>
+    {% endif %}
+  </header>
+
+  {% assign cat_posts = site.categories[page.cat_slug] %}
+  {% assign total = cat_posts.size %}
+  {% if total > 0 %}
+  <div class="post-grid" style="margin-top:2.5rem;">
+    {% for post in cat_posts %}
+      <a class="post-card" href="{{ post.url | relative_url }}">
+        <div class="post-card-cover cover-{{ page.cat_slug }}">
+          <span class="cover-glyph"></span>
+        </div>
+        <div class="post-card-body">
+          <h2 class="post-card-title">{{ post.title | escape }}</h2>
+          <p class="post-card-excerpt">{{ post.description | default: post.excerpt | strip_html | truncatewords: 20 }}</p>
+          <span class="post-card-meta">{{ post.date | date: '%b %-d, %Y' }} &middot; {{ site.default_author.name }}</span>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div style="margin-top:2rem;">
+    <p class="empty-note">Nothing published in this category yet. Stories land here first when they drop.</p>
+  </div>
+  {% endif %}
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": {{ site.url | append: site.baseurl | append: '/' | jsonify }}
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{% if cat %}{{ cat.name }}{% else %}News{% endif %}",
+      "item": {{ site.url | append: site.baseurl | append: '/category/' | append: page.cat_slug | append: '/' | jsonify }}
+    }
+  ]
+}
+</script>
