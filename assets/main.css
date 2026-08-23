@@ -667,8 +667,8 @@ a {
 
 .prose {
   margin-top: 2.5rem;
-  font-size: 15px;
-  line-height: 1.75;
+  font-size: 17px;
+  line-height: 1.8;
   color: #d4d4d8;
 }
 
@@ -923,7 +923,7 @@ a {
 
 #share-buttons { display: inline-flex; vertical-align: middle; gap: 2px; }
 
-#share-buttons > div {
+#share-buttons > a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -933,16 +933,18 @@ a {
   border-radius: 8px;
 }
 
-#share-buttons > div > svg { height: 15px; fill: var(--muted); }
+#share-buttons > a > svg { height: 15px; width: 15px; fill: var(--muted); }
 
-#share-buttons > div:hover { border-color: var(--hairline-strong); cursor: pointer; }
-#share-buttons > div.facebook:hover > svg { fill: #3b5998; }
-#share-buttons > div.twitter:hover > svg,
-#share-buttons > div.x-twitter:hover > svg { fill: #7dd3fc; }
-#share-buttons > div.linkedin:hover > svg { fill: #0077b5; }
-#share-buttons > div.telegram:hover > svg { fill: #38bdf8; }
-#share-buttons > div.whatsapp:hover > svg { fill: #25d366; }
-#share-buttons > div.mail:hover > svg { fill: #d4d4d8; }
+#share-buttons > a.mail > svg,
+#share-buttons > a > svg[stroke] { fill: none; stroke: var(--muted); }
+
+#share-buttons > a:hover { border-color: var(--hairline-strong); }
+#share-buttons > a.facebook:hover > svg { fill: #3b5998; }
+#share-buttons > a.x-twitter:hover > svg { fill: #7dd3fc; }
+#share-buttons > a.linkedin:hover > svg { fill: #0077b5; }
+#share-buttons > a.telegram:hover > svg { fill: #38bdf8; }
+#share-buttons > a.whatsapp:hover > svg { fill: #25d366; }
+#share-buttons > a.mail:hover > svg { stroke: #d4d4d8; }
 
 /* Post navigation ------------------------------------------------------------------------------- */
 
@@ -1109,11 +1111,27 @@ a {
   font-size: 13.5px;
   color: var(--muted);
 }
+.footer-social { display: flex; gap: 0.5rem; margin-top: 0.25rem; }
 
-.footer-social { display: flex; gap: 1rem; font-size: 13px; }
-.footer-social a { color: var(--muted); }
-.footer-social a:hover { color: var(--ink); }
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--hairline);
+  border-radius: 8px;
+}
 
+.footer-social a > svg { fill: var(--muted); }
+
+.footer-social a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.footer-social a:hover > svg,
+.footer-social a:hover > svg[stroke] { fill: none; stroke: var(--accent); }
 .footer-col h3 {
   margin: 0 0 0.9rem;
   font-family: var(--font-mono);
@@ -1491,6 +1509,109 @@ a {
    F9XR News Desk article experience
    ========================================================================== */
 
+/* Visible breadcrumbs ------------------------------------------------------------ */
+
+.crumb-wrap {
+  border-bottom: 1px solid var(--hairline);
+  background: rgba(24, 24, 27, 0.25);
+}
+
+.breadcrumbs {
+  max-width: 72rem;
+  margin-inline: auto;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.breadcrumbs a {
+  color: var(--muted);
+  padding-block: 2px;
+}
+
+.breadcrumbs a:hover { color: var(--accent); }
+
+.breadcrumbs > svg { flex: none; color: var(--faint); }
+
+.crumb-here {
+  color: var(--body-text);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: min(100%, 58ch);
+}
+
+/* Icon rows (author box, author page) ---------------------------------------------- */
+
+.icon-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--hairline-strong);
+  border-radius: 9px;
+  transition: transform 0.15s ease, border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.icon-btn > svg { fill: var(--muted); }
+
+.icon-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  background: rgba(56, 189, 248, 0.08);
+}
+
+.icon-btn:hover > svg,
+.icon-btn:hover > svg[stroke] { fill: none; stroke: var(--accent); }
+
+.icon-btn-wide {
+  width: auto;
+  padding-inline: 0.8rem;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--body-text);
+}
+
+.icon-btn-wide > svg { fill: none; stroke: var(--faint); }
+
+.icon-btn-wide:hover { color: var(--accent); }
+
+.author-link { color: var(--ink); }
+
+.author-link:hover { color: var(--accent); }
+
+.author-link-lg { font-size: inherit; }
+
+.author-box-head h2 a { color: var(--ink); }
+
+.author-box-head h2 a:hover { color: var(--accent); }
+
+.comments-box summary {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.comments-box summary > svg { stroke: var(--muted); }
+
+.comments-box .mono-label { margin-left: auto; }
+
 /* Monogram avatar fallback ---------------------------------------------------- */
 
 .author-monogram {
@@ -1525,41 +1646,13 @@ a {
 .crumb-here { color: var(--faint); }
 
 /* Featured image slot ------------------------------------------------------------- */
-
-.article-cover {
-  margin: 0 0 1.5rem;
-  border: 1px solid var(--hairline);
-  border-radius: 12px;
-  overflow: hidden;
-  background:
-    radial-gradient(120% 140% at 85% 10%, rgba(56, 189, 248, 0.16), transparent 55%),
-    linear-gradient(150deg, #101014, #0a0a0c);
-}
-
-.article-cover img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 2 / 1;
-  object-fit: cover;
-}
+/* Base .article-cover lives with the article layout rules above;                    */
 
 .article-cover .cover-glyph {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  aspect-ratio: 3 / 1;
+  position: relative;
+  z-index: 1;
   font-size: clamp(48px, 9vw, 84px);
   opacity: 0.85;
-}
-
-.cover-caption {
-  padding: 0.6rem 0.9rem;
-  border-top: 1px solid var(--hairline);
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
 }
 
 /* Article toolbar ------------------------------------------------------------------- */
@@ -1571,6 +1664,7 @@ a {
   justify-content: space-between;
   gap: 0.75rem;
   padding-block: 0.65rem;
+  margin-top: 1.5rem;
   margin-bottom: 1.25rem;
   border-top: 1px solid var(--hairline);
   border-bottom: 1px solid var(--hairline);

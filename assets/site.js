@@ -145,9 +145,9 @@
 
   /* font size */
   if (body) {
-    var MIN = 14, MAX = 22;
+    var MIN = 15, MAX = 24;
     var size = parseInt(localStorage.getItem("tds-prose-size") || "", 10);
-    if (!size || size < MIN || size > MAX) size = 15;
+    if (!size || size < MIN || size > MAX) size = 17;
 
     function applySize() {
       body.style.fontSize = size + "px";

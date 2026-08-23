@@ -6,13 +6,13 @@ layout: default
 {% capture abs_url %}{{ site.url }}{{ site.baseurl }}{{ page.url }}{% endcapture %}
 {% capture summary_prompt %}Summarize this article in clear key points: {{ abs_url }}{% endcapture %}
 
-<div class="meta-strip">
+<div class="crumb-wrap">
   <nav class="breadcrumbs" aria-label="Breadcrumb">
     <a href="{{ '/' | relative_url }}">Home</a>
-    <span>/</span>
+    {% include social-icon.html name="chevron" size="12" %}
     <a href="{{ '/category/' | append: cat_slug | relative_url }}">{% if cat %}{{ cat.name }}{% else %}News{% endif %}</a>
-    <span>/</span>
-    <span class="crumb-here">{{ page.title | escape | truncatewords: 6 }}</span>
+    {% include social-icon.html name="chevron" size="12" %}
+    <span class="crumb-here">{{ page.title | escape }}</span>
   </nav>
 </div>
 
@@ -43,15 +43,15 @@ layout: default
       <span class="tool-meta">
         {% assign words = page.content | strip_html | number_of_words %}
         {% if words > 0 %}<strong>{{ words | divided_by: 180 | plus: 1 }} min read</strong> ·{% endif %}
-        By {{ site.default_author.name }}
+        By <a class="author-link" href="{{ '/author/f9xr/' | relative_url }}">{{ site.default_author.name }}</a>
       </span>
       <span class="tool-buttons">
         <button type="button" id="listen-btn" class="tool-btn" aria-pressed="false" title="Listen to this article">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z"/></svg>
+          {% include social-icon.html name="listen" size="14" %}
           Listen
         </button>
         <button type="button" id="print-btn" class="tool-btn" title="Print this article">
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          {% include social-icon.html name="print" size="14" %}
           Print
         </button>
         <button type="button" id="font-dec" class="tool-btn" title="Decrease font size" aria-label="Decrease font size">A&minus;</button>
@@ -88,8 +88,7 @@ layout: default
 
       {% comment %} ---- Copyright box ---- {% endcomment %}
       <div class="legal-box copyright-box">
-        <p>&copy; {{ site.time | date: '%Y' }} F9XR Team. Licensed under the <a href="https://creativecommons.org/licenses/by/4.0/" rel="noopener nofollow">Creative Commons Attribution 4.0 International License (CC BY 4.0)</a>. You are free to share and adapt this work with attribution to the F9XR Team and a link back to the original story.</p>
-        <p>The DESI Sikka is published by the F9XR Team and produced by staff journalists and contracted analysts unless otherwise noted. Questions or corrections? Visit our <a href="{{ '/pages/contact/' | relative_url }}">contact page</a>.</p>
+        <p>&copy; {{ site.time | date: '%Y' }} F9XR Team. All rights reserved. Published by staff journalists unless otherwise noted. Spotted an error? Visit our <a href="{{ '/pages/contact/' | relative_url }}">contact page</a>.</p>
       </div>
 
       {% comment %} ---- Disclaimer box ---- {% endcomment %}
@@ -136,22 +135,28 @@ layout: default
     {% comment %} ---- Author box ---- {% endcomment %}
     <section class="author-box">
       <div class="author-box-head">
-        {% if site.default_author.avatar %}
-          <img class="author-avatar-lg" src="{{ site.default_author.avatar | relative_url }}" alt="{{ site.default_author.name }}">
-        {% else %}
-          <span class="author-avatar-lg author-monogram" aria-hidden="true">F9</span>
-        {% endif %}
+        <a href="{{ '/author/f9xr/' | relative_url }}">
+          {% if site.default_author.avatar %}
+            <img class="author-avatar-lg" src="{{ site.default_author.avatar | relative_url }}" alt="{{ site.default_author.name }}">
+          {% else %}
+            <span class="author-avatar-lg author-monogram" aria-hidden="true">F9</span>
+          {% endif %}
+        </a>
         <div>
           <p class="mono-label">Written by</p>
-          <h2>{{ site.default_author.name }}</h2>
+          <h2><a class="author-link author-link-lg" href="{{ '/author/f9xr/' | relative_url }}">{{ site.default_author.name }}</a></h2>
         </div>
       </div>
       <p class="author-box-bio">{{ site.default_author.bio }}</p>
-      <div class="chip-row-inline">
+      <div class="icon-row">
         {% for link in site.author_links %}
-          <a class="chip" href="{{ link.url }}" rel="noopener">{{ link.name }}</a>
+          {% assign icon_name = link.name | downcase %}
+          {% if icon_name == 'website' %}{% assign icon_name = 'globe' %}{% endif %}
+          <a class="icon-btn" href="{{ link.url }}" rel="noopener" title="{{ link.name }}" aria-label="{{ link.name }}">
+            {% include social-icon.html name=icon_name size="16" %}
+          </a>
         {% endfor %}
-        <a class="chip" href="{{ '/author/f9xr/' | relative_url }}">All stories by the desk &rarr;</a>
+        <a class="icon-btn icon-btn-wide" href="{{ '/author/f9xr/' | relative_url }}">All stories {% include social-icon.html name="chevron" size="13" %}</a>
       </div>
     </section>
 
@@ -183,7 +188,7 @@ layout: default
 
     {% comment %} ---- Comments (closed by default, lazy utterances) ---- {% endcomment %}
     <details class="comments-box">
-      <summary>Comments <span class="mono-label">(click to load)</span></summary>
+      <summary>{% include social-icon.html name="comments" size="15" %} Comments <span class="mono-label">(click to load)</span></summary>
       <div class="comments-body"
            data-repo="ttearncrypto/thedesisikka"
            data-issue-term="pathname"></div>
@@ -264,7 +269,16 @@ layout: default
   "author": {
     "@type": "Organization",
     "name": {{ site.default_author.name | jsonify }},
-    "url": {{ site.url | append: site.baseurl | append: '/author/f9xr/' | jsonify }}
+    "url": {{ site.url | append: site.baseurl | append: '/author/f9xr/' | jsonify }},
+    "logo": {{ site.url | append: site.baseurl | append: site.default_author.avatar | jsonify }},
+    "sameAs": [
+      "https://f9xr.github.io/",
+      "https://linkedin.com/company/f9xrteam",
+      "https://instagram.com/f9xrteam",
+      "https://youtube.com/@QuarterlyLIV",
+      "https://pinterest.com/f9xr",
+      "https://github.com/f9xr"
+    ]
   },
   "publisher": {
     "@type": "NewsMediaOrganization",
@@ -272,8 +286,14 @@ layout: default
     "logo": {
       "@type": "ImageObject",
       "url": {{ site.url | append: site.baseurl | append: site.logo | jsonify }}
-    }
-  }
+    },
+    "sameAs": [
+      "https://twitter.com/{{ site.twitter_username }}",
+      {{ site.telegram_url | jsonify }},
+      "https://github.com/{{ site.github_username }}"
+    ]
+  },
+  "isAccessibleForFree": true
 }
 </script>
 <script type="application/ld+json">

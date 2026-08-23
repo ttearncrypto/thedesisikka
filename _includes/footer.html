@@ -7,9 +7,10 @@
       </a>
       <p>{{ site.description | strip_html | truncatewords: 26 }}</p>
       <div class="footer-social">
-        <a href="https://twitter.com/{{ site.twitter_username }}" rel="noopener">Twitter / X</a>
-        <a href="{{ site.telegram_url }}" rel="noopener">Telegram</a>
-        <a href="https://github.com/{{ site.github_username }}" rel="noopener">GitHub</a>
+        <a href="https://twitter.com/{{ site.twitter_username }}" rel="noopener" title="Twitter / X" aria-label="Twitter / X">{% include social-icon.html name="x" size="15" %}</a>
+        <a href="{{ site.telegram_url }}" rel="noopener" title="Telegram" aria-label="Telegram">{% include social-icon.html name="telegram" size="15" %}</a>
+        <a href="https://github.com/{{ site.github_username }}" rel="noopener" title="GitHub" aria-label="GitHub">{% include social-icon.html name="github" size="15" %}</a>
+        <a href="{{ '/rss.xml' | relative_url }}" title="RSS feed" aria-label="RSS feed">{% include social-icon.html name="rss" size="15" %}</a>
       </div>
     </div>
 

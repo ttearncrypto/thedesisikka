@@ -23,9 +23,13 @@ description: "F9XR News Desk is the editorial team behind The DESI Sikka, report
       <span class="mono-label">The team behind every story</span>
       <h1 class="page-title">{{ site.default_author.name }}</h1>
       <p class="page-sub">{{ site.default_author.bio }}</p>
-      <div class="chip-row" style="border-bottom:none;padding-block:1rem 0;">
+      <div class="icon-row" style="padding-block:0.5rem 0;">
         {% for link in site.author_links %}
-          <a class="chip" href="{{ link.url }}" rel="noopener">{{ link.name }}</a>
+          {% assign icon_name = link.name | downcase %}
+          {% if icon_name == 'website' %}{% assign icon_name = 'globe' %}{% endif %}
+          <a class="icon-btn" href="{{ link.url }}" rel="noopener" title="{{ link.name }}" aria-label="{{ link.name }}">
+            {% include social-icon.html name=icon_name size="16" %}
+          </a>
         {% endfor %}
       </div>
     </div>
