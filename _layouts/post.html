@@ -59,10 +59,10 @@ layout: default
       {% include ad-slot.html slot="sidebar" format="vertical" %}
 
       <div class="author-card">
-        <img class="author-avatar" src="{{ site.default_author.avatar | relative_url }}" alt="{{ site.default_author.name }}">
+        <a href="{{ '/author/f9xr/' | relative_url }}"><img class="author-avatar" src="{{ site.default_author.avatar | relative_url }}" alt="{{ site.default_author.name }}"></a>
         <div>
           <p class="mono-label">Written by</p>
-          <h2 class="author-name">{{ site.default_author.name }}</h2>
+          <h2 class="author-name"><a href="{{ '/author/f9xr/' | relative_url }}">{{ site.default_author.name }}</a></h2>
         </div>
       </div>
       <p class="author-bio">{{ site.default_author.bio }}</p>

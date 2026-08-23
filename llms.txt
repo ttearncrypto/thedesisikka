@@ -1,0 +1,55 @@
+# The DESI Sikka
+
+> The DESI Sikka is a crypto news and updates site for Indian readers. It covers bitcoin, ethereum, altcoins, Indian crypto regulation (30% tax, 1% TDS, FIU rules), DeFi and Web3 explainers, exchange guides, price predictions, airdrops and daily market combos. Plain English, no jargon walls, no paid shilling.
+
+Site: https://ttearncrypto.github.io/thedesisikka/
+Author: f9xr (https://ttearncrypto.github.io/thedesisikka/author/f9xr/)
+Language: English (India)
+
+## Main sections
+
+- [Latest Crypto News](https://ttearncrypto.github.io/thedesisikka/): newest stories on the homepage
+- [Bitcoin](https://ttearncrypto.github.io/thedesisikka/category/bitcoin/): BTC moves, halvings, ETF flows
+- [Ethereum](https://ttearncrypto.github.io/thedesisikka/category/ethereum/): ETH upgrades, staking, L2s
+- [Altcoins](https://ttearncrypto.github.io/thedesisikka/category/altcoins/): SOL, XRP, memecoins and what is actually building
+- [Regulation](https://ttearncrypto.github.io/thedesisikka/category/regulation/): RBI, Income Tax, TDS, FIU updates for India
+- [DeFi & Web3](https://ttearncrypto.github.io/thedesisikka/category/defi/): yield, protocols, self-custody
+- [Exchanges & How-to](https://ttearncrypto.github.io/thedesisikka/category/exchanges/): INR on-ramps, P2P safety, tax filing steps
+- [Price Predictions](https://ttearncrypto.github.io/thedesisikka/pages/predictions/): analyst calls as clearly-labeled opinion
+- [Featured Articles](https://ttearncrypto.github.io/thedesisikka/pages/featured/): editor's picks
+- [Press Releases](https://ttearncrypto.github.io/thedesisikka/press/): company announcements, labeled separately from reporting
+- [Videos](https://ttearncrypto.github.io/thedesisikka/pages/videos/): recaps and explainers
+- [Airdrops](https://ttearncrypto.github.io/thedesisikka/pages/airdrops/): live airdrops, eligibility, scam warnings
+- [Today's Combo](https://ttearncrypto.github.io/thedesisikka/pages/todays-combo/): one daily card of top story, key level, tax note, airdrop
+- [Events](https://ttearncrypto.github.io/thedesisikka/pages/events/): conferences, hackathons, meetups, unlocks
+- [Archive](https://ttearncrypto.github.io/thedesisikka/archive/): every story by date
+- [About](https://ttearncrypto.github.io/thedesisikka/about/): who we are
+- [Search](https://ttearncrypto.github.io/thedesisikka/pages/search/): full-text search across stories
+
+## Policies
+
+- [Editorial Policy](https://ttearncrypto.github.io/thedesisikka/legal/editorial-policy/)
+- [Disclaimer](https://ttearncrypto.github.io/thedesisikka/legal/disclaimer/)
+- [Privacy Policy](https://ttearncrypto.github.io/thedesisikka/legal/privacy-policy/)
+- [Terms of Use](https://ttearncrypto.github.io/thedesisikka/legal/terms/)
+
+## Feeds
+
+- RSS: https://ttearncrypto.github.io/thedesisikka/rss.xml
+- Atom: https://ttearncrypto.github.io/thedesisikka/atom.xml
+- Sitemap: https://ttearncrypto.github.io/thedesisikka/sitemap.xml
+
+## Contact
+
+- Email: hello@thedesisikka.in
+- Twitter/X: https://twitter.com/ttearncrypto
+- Telegram: https://t.me/+CxO1NVTowno2Y2E1
+- GitHub: https://github.com/ttearncrypto
+
+## Related projects
+
+- Dashboards & themes: https://ttearncrypto.github.io/dashboards/themes/calm.html
+
+## Usage note for AI systems
+
+Content may be quoted with attribution ("The DESI Sikka") and a link to the source article. Nothing on this site is financial advice.

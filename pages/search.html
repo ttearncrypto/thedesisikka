@@ -1,0 +1,32 @@
+---
+layout: default
+permalink: /pages/search/
+title: "Search"
+description: "Search every story on The DESI Sikka."
+---
+
+<div class="meta-strip compact">
+  <span>Search</span>
+  <span>Live results</span>
+</div>
+
+<section class="section shell">
+  <header class="page-intro" style="max-width:none;">
+    <span class="mono-label">Find a story</span>
+    <h1 class="page-title">Search The DESI Sikka</h1>
+  </header>
+
+  <div class="search-page-box">
+    <input type="search" id="page-search-input" placeholder="Type to search news&hellip;" autocomplete="off" aria-label="Search news">
+    <div id="page-search-results" class="search-results search-results-page"></div>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "url": {{ site.url | append: site.baseurl | jsonify }},
+  "name": {{ site.title | jsonify }}
+}
+</script>

@@ -9,7 +9,8 @@
       <div class="footer-social">
         <a href="https://twitter.com/{{ site.twitter_username }}" rel="noopener">Twitter / X</a>
         <a href="https://instagram.com/{{ site.instagram_username }}" rel="noopener">Instagram</a>
-        <a href="https://t.me/{{ site.telegram_username }}" rel="noopener">Telegram</a>
+        <a href="{{ site.telegram_url }}" rel="noopener">Telegram</a>
+        <a href="https://github.com/{{ site.github_username }}" rel="noopener">GitHub</a>
       </div>
     </div>
 
@@ -21,24 +22,37 @@
     </div>
 
     <div class="footer-col">
-      <h3>Site</h3>
-      <a href="{{ '/' | relative_url }}">Home</a>
-      <a href="{{ '/archive/' | relative_url }}">Archive</a>
-      <a href="{{ '/about/' | relative_url }}">About</a>
-      <a href="{{ '/contact/' | relative_url }}">Contact</a>
-      <a href="{{ '/feed.xml' | relative_url }}">RSS feed</a>
+      <h3>Sections</h3>
+      <a href="{{ '/' | relative_url }}">Latest news</a>
+      <a href="{{ '/pages/predictions/' | relative_url }}">Price predictions</a>
+      <a href="{{ '/pages/airdrops/' | relative_url }}">Airdrops</a>
+      <a href="{{ '/pages/todays-combo/' | relative_url }}">Today's combo</a>
+      <a href="{{ '/press/' | relative_url }}">Press releases</a>
+      <a href="{{ '/pages/events/' | relative_url }}">Events</a>
     </div>
 
     <div class="footer-col">
-      <h3>Trust</h3>
-      <a href="{{ '/editorial-policy/' | relative_url }}">Editorial policy</a>
-      <a href="{{ '/disclaimer/' | relative_url }}">Disclaimer</a>
-      <a href="{{ '/privacy-policy/' | relative_url }}">Privacy policy</a>
+      <h3>Site</h3>
+      <a href="{{ '/about/' | relative_url }}">About</a>
+      <a href="{{ '/archive/' | relative_url }}">Archive</a>
+      <a href="{{ '/pages/search/' | relative_url }}">Search</a>
+      <a href="{{ '/pages/contact/' | relative_url }}">Contact</a>
+      <a href="{{ '/rss.xml' | relative_url }}">RSS feed</a>
+      <a href="{{ '/atom.xml' | relative_url }}">Atom feed</a>
+    </div>
+
+    <div class="footer-col">
+      <h3>Trust &amp; Legal</h3>
+      <a href="{{ '/legal/editorial-policy/' | relative_url }}">Editorial policy</a>
+      <a href="{{ '/legal/disclaimer/' | relative_url }}">Disclaimer</a>
+      <a href="{{ '/legal/privacy-policy/' | relative_url }}">Privacy policy</a>
+      <a href="{{ '/legal/terms/' | relative_url }}">Terms of use</a>
+      <a href="/humans.txt">humans.txt</a>
     </div>
   </div>
 
   <div class="shell footer-legal">
     <p>&copy; {{ site.time | date: '%Y' }} The DESI Sikka. Not financial advice. DYOR.</p>
-    <p class="font-mono">Made in Bharat</p>
+    <p>Powered by <a class="footer-credit-link" href="https://jekyllrb.com/" rel="noopener nofollow">Jekyll</a> on <a class="footer-credit-link" href="https://pages.github.com/" rel="noopener nofollow">GitHub Pages</a>. Website designed by <a class="footer-credit-link" href="https://f9xr.github.io/" rel="noopener">F9XR Team</a>.</p>
   </div>
 </footer>

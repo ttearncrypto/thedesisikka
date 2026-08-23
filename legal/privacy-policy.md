@@ -1,6 +1,6 @@
 ---
 layout: default
-permalink: /privacy-policy/
+permalink: /legal/privacy-policy/
 title: "Privacy Policy"
 description: "How The DESI Sikka collects, uses and protects your data, including advertising cookies."
 ---

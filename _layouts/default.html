@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-baseurl="{{ site.baseurl }}">
   {% include head.html %}
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -11,6 +11,8 @@
       {% include footer.html %}
     </div>
 
+    <script src="{{ '/assets/site.js' | relative_url }}" defer></script>
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -21,10 +23,12 @@
       "sameAs": [
         "https://twitter.com/{{ site.twitter_username }}",
         "https://instagram.com/{{ site.instagram_username }}",
-        "https://t.me/{{ site.telegram_username }}"
+        {{ site.telegram_url | jsonify }},
+        "https://github.com/{{ site.github_username }}"
       ]
     }
     </script>
+    {% capture search_template %}{{ site.url }}{{ site.baseurl }}/pages/search/{search_term_string}{% endcapture %}
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -32,7 +36,15 @@
       "name": {{ site.title | jsonify }},
       "url": {{ site.url | append: site.baseurl | jsonify }},
       "description": {{ site.description | strip_html | jsonify }},
-      "inLanguage": "en-IN"
+      "inLanguage": "en-IN",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": {{ search_template | jsonify }}
+        },
+        "query-input": "required name=search_term_string"
+      }
     }
     </script>
   </body>

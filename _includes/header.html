@@ -1,6 +1,6 @@
 <header class="site-header">
   <div class="shell header-inner">
-    <a href="{{ '/' | relative_url }}" class="brand group">
+    <a href="{{ '/' | relative_url }}" class="brand">
       <img src="{{ '/assets/site-images/logo.png' | relative_url }}" alt="The DESI Sikka logo" width="28" height="28">
       <span>The DESI Sikka</span>
     </a>
@@ -13,8 +13,11 @@
     </nav>
 
     <div class="header-actions">
-      <a class="btn btn-outline btn-sm" href="https://t.me/{{ site.telegram_username }}" rel="noopener">Telegram</a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'); document.getElementById('mobile-nav').classList.toggle('open');">
+      <button class="search-toggle" type="button" aria-expanded="false" aria-controls="search-panel" aria-label="Search">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+      </button>
+      <a class="btn btn-outline btn-sm header-telegram" href="{{ site.telegram_url }}" rel="noopener">Telegram</a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav">
         <span class="nav-toggle-bar"></span>
         <span class="nav-toggle-bar"></span>
         <span class="nav-toggle-bar"></span>
@@ -27,6 +30,16 @@
     {% for cat in site.site_categories %}
       <a href="{{ '/category/' | append: cat.slug | relative_url }}">{{ cat.name }}</a>
     {% endfor %}
+    <a href="{{ '/press/' | relative_url }}">Press Releases</a>
+    <a href="{{ '/pages/events/' | relative_url }}">Events</a>
     <a href="{{ '/about/' | relative_url }}">About</a>
+    <a href="{{ '/pages/search/' | relative_url }}">Search</a>
   </nav>
+
+  <div id="search-panel" class="search-panel">
+    <div class="shell search-panel-inner">
+      <input type="search" id="header-search-input" placeholder="Search news&hellip;" autocomplete="off" aria-label="Search news">
+      <div id="header-search-results" class="search-results" role="listbox"></div>
+    </div>
+  </div>
 </header>

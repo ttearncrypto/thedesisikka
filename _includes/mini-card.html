@@ -1,0 +1,9 @@
+{% assign mcat_slug = include.post.categories | first %}
+{% assign mcat = site.site_categories | where: 'slug', mcat_slug | first %}
+<a class="mini-card" href="{{ include.post.url | relative_url }}">
+  <span class="mini-glyph" aria-hidden="true">{{ include.glyph }}</span>
+  <span class="mini-body">
+    <span class="mini-cat">{% if mcat %}{{ mcat.name }}{% else %}News{% endif %} &middot; {{ include.post.date | date: '%b %-d' }}</span>
+    <span class="mini-title">{{ include.post.title | escape }}</span>
+  </span>
+</a>

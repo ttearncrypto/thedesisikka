@@ -1,6 +1,6 @@
 ---
 layout: default
-permalink: /disclaimer/
+permalink: /legal/disclaimer/
 title: "Disclaimer"
 description: "The DESI Sikka publishes news and education, not financial advice."
 ---
@@ -33,8 +33,8 @@ description: "The DESI Sikka publishes news and education, not financial advice.
     <p>We report facts as best we can verify them at publishing time. Markets move after we hit publish. Old posts stay online for reference but may describe conditions that no longer exist.</p>
 
     <h2>Affiliates and ads</h2>
-    <p>The site may run ads through Google AdSense and, if introduced later, affiliate links. Ads don't equal endorsement. Sponsored content, if ever published, will be labeled inside the story itself per our <a href="{{ '/editorial-policy/' | relative_url }}">editorial policy</a>.</p>
+    <p>The site may run ads through Google AdSense and, if introduced later, affiliate links. Ads don't equal endorsement. Sponsored content, if ever published, will be labeled inside the story itself per our <a href="{{ '/legal/editorial-policy/' | relative_url }}">editorial policy</a>.</p>
 
-    <p>Questions? Reach us via the <a href="{{ '/contact/' | relative_url }}">contact page</a>.</p>
+    <p>Questions? Reach us via the <a href="{{ '/pages/contact/' | relative_url }}">contact page</a>.</p>
   </div>
 </section>

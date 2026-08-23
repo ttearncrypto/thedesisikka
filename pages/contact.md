@@ -1,6 +1,6 @@
 ---
 layout: default
-permalink: /contact/
+permalink: /pages/contact/
 title: "Contact The DESI Sikka"
 description: "Reach The DESI Sikka for story tips, corrections, partnerships or press queries."
 ---

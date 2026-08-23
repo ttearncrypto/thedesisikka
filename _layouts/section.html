@@ -1,0 +1,44 @@
+---
+layout: default
+---
+{% assign items = site.tags[page.section_tag] %}
+{% if page.sort == 'newest' %}{% assign items = items | sort: 'date' | reverse %}{% endif %}
+
+<div class="meta-strip compact">
+  <span>{% if page.kicker %}{{ page.kicker }}{% else %}Section{% endif %}</span>
+  <span>{{ items.size }} item{% unless items.size == 1 %}s{% endunless %}</span>
+</div>
+
+<section class="section shell">
+  <header class="page-intro">
+    <span class="mono-label">The DESI Sikka</span>
+    <h1 class="page-title">{{ page.title }}</h1>
+    {% if page.description %}
+      <p class="page-sub">{{ page.description }}</p>
+    {% endif %}
+  </header>
+
+  {% if items.size > 0 %}
+  <div class="post-grid" style="margin-top:2.5rem;">
+    {% for post in items %}
+      {% assign pcat_slug = post.categories | first %}
+      {% assign pcat = site.site_categories | where: 'slug', pcat_slug | first %}
+      <a class="post-card" href="{{ post.url | relative_url }}">
+        <div class="post-card-cover cover-{{ pcat_slug }}">
+          <span class="cover-glyph"></span>
+        </div>
+        <div class="post-card-body">
+          <span class="post-card-cat">{% if pcat %}{{ pcat.name }}{% else %}News{% endif %}</span>
+          <h2 class="post-card-title">{{ post.title | escape }}</h2>
+          <p class="post-card-excerpt">{{ post.description | default: post.excerpt | strip_html | truncatewords: 20 }}</p>
+          <span class="post-card-meta">{{ post.date | date: '%b %-d, %Y' }}</span>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div style="margin-top:2rem;">
+    <p class="empty-note">{{ page.empty_note | default: 'Nothing here yet. First entries land on September 1.' }}</p>
+  </div>
+  {% endif %}
+</section>

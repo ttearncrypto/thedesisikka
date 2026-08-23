@@ -1,0 +1,49 @@
+---
+layout: null
+permalink: /llms-full.txt
+---
+# The DESI Sikka — full content for LLM consumption
+
+{{ site.description | strip_html }}
+
+Publisher: The DESI Sikka (https://ttearncrypto.github.io/thedesisikka/)
+Author: {{ site.default_author.name }} — {{ site.default_author.bio }}
+Language: English (India). Nothing on this site is financial advice.
+
+{% if site.posts.size > 0 %}
+## Stories
+
+{% for post in site.posts %}
+### {{ post.title }}
+- URL: https://ttearncrypto.github.io/thedesisikka{{ post.url }}
+- Published: {{ post.date | date: '%Y-%m-%d' }}
+- Category: {{ post.categories | first | default: 'news' }}
+{% if post.tags.size > 0 %}- Tags: {{ post.tags | join: ', ' }}{% endif %}
+- Summary: {{ post.description | default: post.excerpt | strip_html }}
+
+{% endfor %}
+{% else %}
+## Stories
+
+No stories published yet. First articles are scheduled for September 1, 2026.
+
+## Planned coverage
+
+- Bitcoin and Ethereum market analysis for Indian readers
+- Indian crypto regulation: 30% flat tax, 1% TDS, FIU registration rules
+- Altcoin research and exit-liquidity awareness
+- DeFi yield explainers and airdrop guides
+- Exchange how-tos: INR deposits, P2P safety, tax filing
+
+{% endif %}
+## Site structure
+
+Categories: Bitcoin (/category/bitcoin/), Ethereum (/category/ethereum/), Altcoins (/category/altcoins/), Regulation (/category/regulation/), DeFi & Web3 (/category/defi/), Exchanges & How-to (/category/exchanges/)
+
+Sections: Price Predictions (/pages/predictions/), Featured (/pages/featured/), Press Releases (/press/), Videos (/pages/videos/), Airdrops (/pages/airdrops/), Today's Combo (/pages/todays-combo/), Events (/pages/events/)
+
+Policies: Editorial Policy (/legal/editorial-policy/), Disclaimer (/legal/disclaimer/), Privacy Policy (/legal/privacy-policy/), Terms of Use (/legal/terms/)
+
+Contact: hello@thedesisikka.in | https://twitter.com/ttearncrypto | https://t.me/+CxO1NVTowno2Y2E1 | https://github.com/ttearncrypto
+
+Related project: Dashboards & themes at https://ttearncrypto.github.io/dashboards/themes/calm.html
