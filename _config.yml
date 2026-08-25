@@ -27,7 +27,7 @@ lang: en
 # Author --------------------------------------------------------------------
 default_author:
   name: "F9XR News Desk"
-  avatar: ""   # empty = monogram fallback
+  avatar: "/assets/authors/f9xr.webp"
   bio: >-
     The F9XR News Desk is a team of journalists working around the clock to
     gather, verify and report crypto news, market analysis and policy
