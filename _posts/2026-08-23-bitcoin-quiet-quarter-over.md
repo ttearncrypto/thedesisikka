@@ -10,6 +10,7 @@ summary:
   - "Funding has cooled from earlier spikes, so the breakout is not yet crowded."
   - "Watch weekly closes above the old range for confirmation; one candle proves nothing."
 keywords: "bitcoin price, BTC breakout, crypto market analysis, bitcoin news today"
+image_alt: "Bitcoin price breakout analysis — The DESI Sikka"
 ---
 
 Bitcoin did nothing for weeks. Flat candles, quiet timeline, everyone arguing about memecoins instead.

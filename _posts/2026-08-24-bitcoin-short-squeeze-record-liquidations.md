@@ -10,6 +10,7 @@ summary:
   - "Record ETF inflows, about $2.6 billion across bitcoin and ethereum funds, provided the real-demand layer behind the move."
   - "Holding above $77,000 keeps the move alive; a reclaim of $80,000 extends it. Weekly ETF flows are the tell."
 keywords: "bitcoin short squeeze, bitcoin liquidations, btc price analysis, crypto etf inflows, bitcoin india tax"
+image_alt: "Biggest bitcoin short squeeze since 2021 — The DESI Sikka"
 ---
 
 A bet against bitcoin just became one of the most expensive trades of 2026.

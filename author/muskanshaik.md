@@ -6,6 +6,7 @@ description: "Muskaan Shaik is a Freelancer News Reporter covering crypto and fi
 ---
 
 {% assign author_posts = site.posts | where: "author", "muskanshaik" %}
+{% assign page_author = site.data.authors.muskanshaik %}
 
 <div class="meta-strip compact">
   <span>Muskaan Shaik</span>
@@ -14,13 +15,16 @@ description: "Muskaan Shaik is a Freelancer News Reporter covering crypto and fi
 
 <section class="section shell">
   <header class="author-hero">
-    <span class="author-avatar-lg author-monogram" aria-hidden="true">MS</span>
+    {% if page_author.avatar %}
+      <img class="author-avatar-lg" src="{{ page_author.avatar | relative_url }}" alt="{{ page_author.name }}" width="96" height="96">
+    {% else %}
+      <span class="author-avatar-lg author-monogram" aria-hidden="true">{{ page_author.monogram }}</span>
+    {% endif %}
     <div>
-      <span class="mono-label">Freelancer News Reporter</span>
+      <span class="mono-label">{{ page_author.jobTitle }}</span>
       <h1 class="page-title">Muskaan Shaik (مسکان شیخ)</h1>
-      <p class="page-sub">Freelancer News Reporter</p>
-      <div class="icon-row" style="padding-block:0.5rem 0;">
-      </div>
+      <p class="page-sub">{{ page_author.bio }}</p>
+      {% if page_author.credentials %}<p class="page-sub" style="color:var(--accent);">{{ page_author.credentials }}</p>{% endif %}
     </div>
   </header>
 

@@ -5,7 +5,8 @@ title: "F9XR News Desk"
 description: "F9XR News Desk is the editorial team behind The DESI Sikka, reporting crypto news, market analysis and policy updates around the clock."
 ---
 
-{% assign author_posts = site.posts %}
+{% assign author_posts = site.posts | where: "author", "newsdesk" %}
+{% assign page_author = site.data.authors.newsdesk %}
 
 <div class="meta-strip compact">
   <span>News Desk</span>
@@ -14,20 +15,27 @@ description: "F9XR News Desk is the editorial team behind The DESI Sikka, report
 
 <section class="section shell">
   <header class="author-hero">
-    {% if site.default_author.avatar %}
-      <img class="author-avatar-lg" src="{{ site.default_author.avatar | relative_url }}" alt="{{ site.default_author.name }}" width="96" height="96">
+    {% if page_author.avatar %}
+      <img class="author-avatar-lg" src="{{ page_author.avatar | relative_url }}" alt="{{ page_author.name }}" width="96" height="96">
     {% else %}
-      <span class="author-avatar-lg author-monogram" aria-hidden="true">F9</span>
+      <span class="author-avatar-lg author-monogram" aria-hidden="true">{{ page_author.monogram }}</span>
     {% endif %}
     <div>
       <span class="mono-label">The team behind every story</span>
-      <h1 class="page-title">{{ site.default_author.name }}</h1>
-      <p class="page-sub">{{ site.default_author.bio }}</p>
+      <h1 class="page-title">{{ page_author.name }}</h1>
+      <p class="page-sub">{{ page_author.bio }}</p>
+      {% if page_author.credentials %}<p class="page-sub" style="color:var(--accent);">{{ page_author.credentials }}</p>{% endif %}
       <div class="icon-row" style="padding-block:0.5rem 0;">
-        {% for link in site.author_links %}
-          {% assign icon_name = link.name | downcase %}
-          {% if icon_name == 'website' %}{% assign icon_name = 'globe' %}{% endif %}
-          <a class="icon-btn" href="{{ link.url }}" rel="noopener" title="{{ link.name }}" aria-label="{{ link.name }}">
+        {% for link in page_author.sameAs %}
+          {% assign icon_name = link | split: '/' | slice: 2 | first %}{% assign icon_name = icon_name | remove: 'www.' %}
+          {% if icon_name == 'linkedin.com' %}{% assign icon_name = 'linkedin' %}{% endif %}
+          {% if icon_name == 'github.com' %}{% assign icon_name = 'github' %}{% endif %}
+          {% if icon_name == 'instagram.com' %}{% assign icon_name = 'instagram' %}{% endif %}
+          {% if icon_name == 'x.com' %}{% assign icon_name = 'x' %}{% endif %}
+          {% if icon_name == 'youtube.com' %}{% assign icon_name = 'youtube' %}{% endif %}
+          {% if icon_name == 'pinterest.com' %}{% assign icon_name = 'pinterest' %}{% endif %}
+          {% if icon_name == 'f9xr.github.io' %}{% assign icon_name = 'globe' %}{% endif %}
+          <a class="icon-btn" href="{{ link }}" rel="noopener" title="{{ icon_name }}" aria-label="{{ icon_name }}">
             {% include social-icon.html name=icon_name size="16" %}
           </a>
         {% endfor %}
@@ -66,10 +74,11 @@ description: "F9XR News Desk is the editorial team behind The DESI Sikka, report
   "@type": "ProfilePage",
   "mainEntity": {
     "@type": "Organization",
-    "name": "F9XR News Desk",
-    "description": {{ site.default_author.bio | jsonify }},
-    "url": {{ site.url | append: site.baseurl | append: '/author/f9xr/' | jsonify }},
-    "sameAs": [{% for link in site.author_links %}{{ link.url | jsonify }}{% unless forloop.last %},{% endunless %}{% endfor %}]
+    "name": {{ page_author.name | jsonify }},
+    "description": {{ page_author.bio | jsonify }},
+    "url": {{ page_author.url | absolute_url | jsonify }},
+    "image": {{ page_author.avatar | absolute_url | jsonify }},
+    "sameAs": {{ page_author.sameAs | jsonify }}
   }
 }
 </script>

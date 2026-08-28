@@ -22,7 +22,7 @@ Read these before writing anything; they are the contract:
 - Valid category slugs (from `_config.yml` → `site_categories`): `bitcoin`, `ethereum`, `altcoins`, `regulation`, `defi`, `exchanges`. Exactly one per post.
 - The layout (`_layouts/post.html`) already renders: breadcrumbs, author box (F9XR News Desk), share buttons, copyright + disclaimer boxes, related/further reading, NewsArticle JSON-LD. You do not write any of that.
 - Featured images are not needed. Posts without `cover_image` get an automatic category glyph cover.
-- Do not add `author` or `image` front matter; defaults in `_config.yml` handle both.
+- Do not add `image` front matter; the default in `_config.yml` (`og-default.png`) handles it unless the story needs a custom social card. Set `author` only for named reporters (see optional fields below).
 
 ## Front matter contract
 
@@ -49,6 +49,19 @@ Rules per field:
 - **summary**: 3–5 bullets. Each must be a claim the body actually supports. These feed the "Quick Summary" box.
 - **tags**: `[featured]` plus topic tags only when genuinely useful (e.g. `[featured]` alone is fine). Tags render as search chips.
 - **keywords**: lowercase phrases a reader would actually type.
+
+### Optional front matter
+
+Add only when true for that story:
+
+- **author**: set to `muskanshaik` when Muskaan Shaik wrote it (defaults to the `newsdesk` editor). Determines the byline, author card and NewsArticle schema via `_data/authors.yml`.
+- **last_modified_at**: `YYYY-MM-DD` when a story was materially corrected/updated after publish. Renders an "Updated" label, sets NewsArticle `dateModified`, and updates feed dates. Do NOT backdate edits; use the actual edit date. Add a matching dated entry to the `corrections` list in `corrections.md`.
+- **opinion**: `true` for predictions and analysis that forecasts what might happen. Labels the story "Opinion" and marks it as `OpinionNewsArticle` in structured data (predictions must never be structured as plain news).
+- **sources**: YAML list of URLs the story relied on. Renders a Sources box above the copyright notice.
+- **pinned**: `true` for ≤2 top-priority stories. Shows a ⭐ Breaking chip, moves the card to the top of the category, and features it (cover-first layout) on the homepage.
+- **image_alt**: alt text for the social/OG card image (defaults to site title).
+- **cover_image**: absolute path to a custom hero image. Declare matching `cover_caption` for screen readers.
+- **cover_caption**: caption text under the hero.
 
 ## Pass 1 — Fetch (autonomous mode only)
 

@@ -1,0 +1,45 @@
+---
+layout: null
+permalink: /feed.json
+sitemap: false
+---
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": {{ site.title | jsonify }},
+  "home_page_url": {{ site.url | append: site.baseurl | append: '/' | jsonify }},
+  "feed_url": {{ "/feed.json" | absolute_url | jsonify }},
+  "description": {{ site.description | strip_html | jsonify }},
+  "language": "en",
+  "icon": {{ "/assets/site-images/logo.png" | absolute_url | jsonify }},
+  "favicon": {{ "/assets/site-images/logo.png" | absolute_url | jsonify }},
+  "authors": [
+    {% for pair in site.data.authors %}
+    {
+      "name": {{ pair[1].name | jsonify }},
+      "url": {{ pair[1].url | absolute_url | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ],
+  "items": [
+    {% for post in site.posts limit: 20 %}
+    {% assign json_slug = post.author | default: 'newsdesk' %}{% assign json_author = site.data.authors[json_slug] | default: site.data.authors.newsdesk %}
+    {
+      "id": {{ post.url | absolute_url | jsonify }},
+      "url": {{ post.url | absolute_url | jsonify }},
+      "title": {{ post.title | jsonify }},
+      "summary": {{ post.description | default: post.excerpt | strip_html | jsonify }},
+      "content_html": {{ post.content | jsonify }},
+      "date_published": {{ post.date | date_to_xmlschema | jsonify }},
+      "date_modified": {{ post.last_modified_at | default: post.date | date_to_xmlschema | jsonify }},
+      "authors": [
+        {
+          "name": {{ json_author.name | jsonify }},
+          "url": {{ json_author.url | absolute_url | jsonify }}
+        }
+      ],
+      "tags": {{ post.tags | jsonify }},
+      "image": {{ post.image | absolute_url | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}
