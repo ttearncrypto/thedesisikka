@@ -1,117 +1,93 @@
 ## Overview
 
-Composio's marketing site reads like a serious developer-infrastructure brand — closer to Vercel or Stripe Docs in atmosphere than to a typical AI-tools startup. The base canvas is a near-black `{colors.canvas}` (#0f0f0f) holding white type and a single voltage of **deep electric blue** (`{colors.primary}` — #0007cd) carrying every primary CTA, brand wordmark, and atmospheric spotlight glow that backs the homepage hero.
-
-Type runs **abcDiatype** as the single sans family across display, body, navigation, and captions. Display sits at weight 500 — confident but not bombastic. Code blocks and terminal mockups switch to JetBrains Mono.
-
-The page rhythm is monolithic: dark canvas top to bottom with subtle elevation steps via card surfaces. The brand's strongest visual signature is a **four-pane terminal-style mockup** — a 2×2 grid of dark code/output panels with a central blue spotlight glow behind them.
+The DESI Sikka reads like a serious crypto news publication — closer to CoinDesk or The Hindu BusinessLine in atmosphere than a crypto trading app. Clean white canvas, strong readable type, one trusted blue accent, and category-color coding that makes the site's six beats scannable at a glance. The tagline "Crypto news, zero jargon" drives every choice: text-first, no decoration that gets in the way of reading.
 
 **Key Characteristics:**
-- Single accent: `{colors.primary}` (#0007cd) for primary CTAs, wordmark, spotlight glows.
-- Single sans family: abcDiatype carries everything except code (JetBrains Mono).
-- Dark monolithic canvas: `{colors.canvas}` runs top to bottom; depth from `{colors.surface-card}` and `{colors.surface-card-elevated}` brightness steps.
-- Terminal-mockup hero: 2×2 grid of code/output panes is the brand signature.
-- Compact pill geometry: CTAs sit at `{rounded.md}` (8px), not full pills — developer-tool dialect.
-- Spotlight-glow atmospheric backdrop: a radial blue glow centered behind hero content.
-- 96px section rhythm.
+- Single trusted accent: Google Blue `{colors.primary}` (#1a73e8) for links, CTAs, active states.
+- Category colors carry the wayfinding: each of the six beats (Bitcoin, Ethereum, Altcoins, Regulation, DeFi, Exchanges) owns one color used in badges, section accents, and card chips.
+- Light-first design with a proper dark mode. Headline-focused, generous whitespace.
+- Inter everywhere; monospace only for numbers and code (prices, addresses, code blocks).
+- 8px radii, subtle 1px borders, minimal shadows. Professional, not flashy.
+- Content-first: 680px article column, explicit reserved ad slots, no layout shift.
 
 ## Colors
 
 ### Brand & Accent
-- **Composio Blue** (`{colors.primary}` — #0007cd): Primary CTAs, wordmark, spotlight glow center.
-- **Composio Blue Active** (`{colors.primary-active}` — #0005a3): Press state.
-- **Spotlight Glow Tone** (`{colors.primary-glow}` — #1a26ff): Brighter blue used inside radial atmospheric glows.
-- **Accent Cyan** (`{colors.accent-cyan}` — #00d4ff): Sparingly on data-flow visualizations.
-- **Accent Violet** (`{colors.accent-violet}` — #7b3aed): Inside specific product illustrations only.
+- **Trust Blue** (`{colors.primary}` — #1a73e8): Links, primary CTAs, active states, focus rings.
+- **Trust Blue Active** (`{colors.primary-active}` — #1557b0): Press/hover state.
+- **Trust Blue Soft** (`{colors.primary-soft}` — #e8f0fe): Selection backgrounds, link underlines, tag fill.
 
-### Surface
-- **Canvas** (`{colors.canvas}` — #0f0f0f): Page floor — near-black.
-- **Canvas Deep** (`{colors.canvas-deep}` — #000000): Pure black for terminal mockup grids and code blocks.
-- **Surface Card** (`{colors.surface-card}` — #181818): Default content card.
-- **Surface Card Elevated** (`{colors.surface-card-elevated}` — #222222): Terminal panes, secondary buttons.
-- **Surface Strong** (`{colors.surface-strong}` — #2a2a2a): Dropdown menus.
+### Dark-mode Brand
+- **Trust Blue Light** (`{colors.primary-dark}` — #60a5fa): Links, CTAs on dark backgrounds.
+- **Trust Blue Light Active** (`{colors.primary-dark-active}` — #93bbfd): Press/hover state on dark.
 
-### Hairlines
-- **Hairline** (`{colors.hairline}` — #222222): Default 1px divider.
-- **Hairline Soft** (`{colors.hairline-soft}` — #1a1a1a): Lighter divider.
-- **Hairline Strong** (`{colors.hairline-strong}` — #333333): Stronger panel outline.
+### Category (Beat) Colors
+- **Bitcoin** (`{colors.bitcoin}` — #f7931a): Bitcoin orange.
+- **Ethereum** (`{colors.ethereum}` — #627eea): Ethereum blue.
+- **Altcoins** (`{colors.altcoins}` — #8b5cf6): Purple.
+- **Regulation** (`{colors.regulation}` — #64748b): Slate (serious, governmental).
+- **DeFi** (`{colors.defi}` — #06b6d4): Cyan (tech-forward).
+- **Exchanges** (`{colors.exchanges}` — #10b981): Emerald (money, trading).
+
+### Surface (Light)
+- **Canvas** (`{colors.canvas}` — #ffffff): Page floor.
+- **Surface** (`{colors.surface}` — #f8f9fa): Cards, sidebars, elevated surfaces.
+- **Hairline** (`{colors.hairline}` — #e9ecef): Dividers and card borders.
+
+### Surface (Dark)
+- **Canvas Dark** (`{colors.canvas-dark}` — #0f172a): Dark-mode page floor.
+- **Surface Dark** (`{colors.surface-dark}` — #1e293b): Dark-mode cards.
+- **Hairline Dark** (`{colors.hairline-dark}` — #334155): Dark-mode dividers.
 
 ### Text
-- **Ink** (`{colors.ink}` — #ffffff): Display headlines.
-- **Body** (`{colors.body}` — #a8a8a8): Default running-text — soft gray.
-- **Body Strong** (`{colors.body-strong}` — #ffffff): Same as ink.
-- **Muted** (`{colors.muted}` — #888888): Sub-titles, breadcrumbs.
-- **Muted Soft** (`{colors.muted-soft}` — #666666): Disabled text.
-- **On Primary** (`{colors.on-primary}` — #ffffff): White text on blue CTAs.
+- **Ink** (`{colors.ink}` — #1a1a2e): Headlines and body (light mode).
+- **Body Muted** (`{colors.body-muted}` — #6c757d): Metadata, timestamps, bylines.
+- **Ink Dark** (`{colors.ink-dark}` — #f1f5f9): Headlines and body (dark mode).
+- **Body Muted Dark** (`{colors.body-muted-dark}` — #94a3b8): Dark-mode metadata.
 
 ### Semantic
-- **Success** (`{colors.semantic-success}` — #33d17a): "Online", "active" indicators.
-- **Error** (`{colors.semantic-error}` — #ff4d4d): Validation errors.
+- **Success / Up** (`{colors.success}` — #0d9488 light, #34d399 dark): Positive price movement, verified.
+- **Error / Down** (`{colors.error}` — #dc2626 light, #f87171 dark): Negative price movement, errors.
+- **Warning** (`{colors.warning}` — #f59e0b): Cautions, Opinion labels.
 
 ## Typography
 
 ### Font Family
-The system runs **abcDiatype** (Lineto) across every text role. Code blocks switch to **JetBrains Mono**. Fallback: `ui-sans-serif, system-ui, sans-serif`.
+Inter across every text role. Code, prices, and addresses switch to **JetBrains Mono** (fallback `'Fira Code', monospace`). Fallback: `ui-sans-serif, system-ui, -apple-system, sans-serif`.
 
 ### Hierarchy
 
-| Token | Size | Weight | Line Height | Letter Spacing | Use |
-|---|---|---|---|---|---|
-| `{typography.display-mega}` | 72px | 500 | 1.05 | -2.16px | Homepage hero h1 |
-| `{typography.display-xl}` | 56px | 500 | 1.05 | -1.68px | Subsidiary heroes |
-| `{typography.display-lg}` | 44px | 500 | 1.1 | -1.32px | Section heads |
-| `{typography.display-md}` | 32px | 500 | 1.15 | -0.96px | Sub-section heads |
-| `{typography.display-sm}` | 24px | 500 | 1.25 | -0.5px | Card group titles |
-| `{typography.title-md}` | 18px | 600 | 1.4 | 0 | Component titles |
-| `{typography.title-sm}` | 16px | 600 | 1.4 | 0 | Toolkit card titles |
-| `{typography.body-md}` | 16px | 400 | 1.5 | 0 | Default body |
-| `{typography.body-sm}` | 14px | 400 | 1.5 | 0 | Footer body |
-| `{typography.caption}` | 13px | 400 | 1.4 | 0 | Photo captions |
-| `{typography.caption-uppercase}` | 11px | 600 | 1.4 | 0.88px | Section labels, badge pills |
-| `{typography.code}` | 13px | 400 | 1.5 | 0 | Code blocks — JetBrains Mono |
-| `{typography.button}` | 14px | 500 | 1.0 | 0 | CTA pill labels |
-| `{typography.nav-link}` | 14px | 500 | 1.4 | 0 | Top-nav menu |
+| Token | Size | Weight | Line Height | Use |
+|---|---|---|---|---|
+| `{typography.display}` | 36px | 700 | 1.2 | Homepage hero |
+| `{typography.h1}` | 30px | 700 | 1.25 | Article headline |
+| `{typography.h2}` | 24px | 600 | 1.3 | Section headings |
+| `{typography.h3}` | 20px | 600 | 1.4 | Sub-section headings |
+| `{typography.body}` | 16px | 400 | 1.6 | Article body |
+| `{typography.small}` | 14px | 400 | 1.5 | Metadata, captions |
+| `{typography.tiny}` | 12px | 500 | 1.4 | Badges, labels, timestamps |
+| `{typography.mono}` | 14px | 400 | 1.5 | Prices, addresses, code — JetBrains Mono |
 
 ### Principles
-- **Display weight stays at 500.** Confident but not display-bold.
-- **abcDiatype across every role.** No display/body family split.
-- **JetBrains Mono on every code surface.**
-
-### Note on Font Substitutes
-abcDiatype is a Lineto licensed typeface. Open-source substitute: **Inter** at weight 500 with letter-spacing -1.5%.
+- **Sentence case headings.** "Bitcoin drops 12% after liquidation cascade", not title case.
+- **Body at 16px minimum** to prevent iOS zoom on input focus.
+- **Line height 1.6 for body** — optimized for long-form reading.
+- **`font-variant-numeric: tabular-nums`** on every price and number display.
 
 ## Layout
 
-### Spacing System
-- **Base unit:** 4px.
-- **Tokens:** `{spacing.xxs}` 4px · `{spacing.xs}` 8px · `{spacing.sm}` 12px · `{spacing.base}` 16px · `{spacing.md}` 20px · `{spacing.lg}` 24px · `{spacing.xl}` 32px · `{spacing.xxl}` 48px · `{spacing.section}` 96px.
-- **Section padding:** `{spacing.section}` (96px) for major bands.
-
 ### Grid & Container
-- Max content width: ~1200px.
-- Editorial body: 12-column grid.
-- Terminal mockup grid: 2×2 equal-size panes.
-- Toolkit grid: 4-up at desktop, 2-up tablet, 1-up mobile.
-- Footer: 5-column at desktop.
+- **Max content width:** 1200px.
+- **Article body:** 680px max (optimal reading width).
+- **Sidebar:** 320px on desktop, right side.
+- **Gap:** 32px between content and sidebar.
+- **Section padding:** 64px vertical, responsive down to 32px on mobile.
 
-### Whitespace Philosophy
-The dark canvas creates its own depth — whitespace can stay tight without feeling crowded. 96px between bands; 24px between cards inside a band.
-
-## Elevation & Depth
-
-The system uses **brightness-step elevation**: surfaces step up in brightness instead of casting drop shadows. Combined with subtle radial blue glows, this creates a focused dark-mode atmosphere.
-
-| Level | Treatment | Use |
-|---|---|---|
-| Flat (canvas) | `{colors.canvas}` (#0f0f0f) | Body bands, footer |
-| Recessed | `{colors.canvas-deep}` (#000000) | Terminal mockup grid background, code blocks |
-| Card | `{colors.surface-card}` (#181818) | Default content cards |
-| Card elevated | `{colors.surface-card-elevated}` (#222222) | Terminal panes, secondary buttons |
-| Atmospheric glow | Radial gradient using `{colors.primary-glow}` | Hero spotlight backdrop |
-
-### Decorative Depth
-- **Spotlight glow backdrops** — radial blue gradient centered behind hero content.
-- **Terminal-pane brightness ladder** — 2×2 mockup uses canvas-deep outer + surface-card-elevated panes.
+### Page Templates
+- **Homepage:** Hero (featured story) → category sections (3 cards each) → sidebar (trending + newsletter).
+- **Article:** Full-width hero → 680px body → sidebar (related + ads) → footer.
+- **Category:** Category header → grid of article cards → pagination.
+- **Learn:** Table of contents sidebar → full-width content area.
 
 ## Shapes
 
@@ -120,128 +96,74 @@ The system uses **brightness-step elevation**: surfaces step up in brightness in
 | Token | Value | Use |
 |---|---|---|
 | `{rounded.none}` | 0px | Reserved |
-| `{rounded.xs}` | 4px | Inline tags |
-| `{rounded.sm}` | 6px | Compact rows |
-| `{rounded.md}` | 8px | CTA buttons, form inputs |
-| `{rounded.lg}` | 12px | Toolkit cards, code blocks, terminal panes |
-| `{rounded.xl}` | 16px | Feature cards, terminal mockup grids |
-| `{rounded.pill}` | 9999px | Section-label badges |
-| `{rounded.full}` | 9999px | Avatar plates (rare) |
+| `{rounded.sm}` | 6px | Tags inline |
+| `{rounded.md}` | 8px | Cards, buttons, inputs, share icons |
+| `{rounded.lg}` | 12px | Large cards, code blocks |
+| `{rounded.pill}` | 9999px | Category badges, labels |
 
-Compact developer-ergonomic radii — 8px CTAs, 12-16px cards. Signals "developer tool" rather than "consumer brand."
+Bullet-journal radii — 8px is the default surface radius. Clean and neutral, not pill-happy.
 
 ## Components
 
 ### Top Navigation
+Background `{colors.canvas}`, ink text, 64px. Wordmark left, primary menu (News / Bitcoin / Ethereum / Altcoins / Regulation / DeFi / Exchanges / Learn), search + newsletter right. Collapses to hamburger below 768px.
 
-**`top-nav-dark`** — Default top nav. Background `{colors.canvas}`, text `{colors.body-strong}`, height 64px. Layout: Composio wordmark left, primary horizontal menu (Product / Toolkits / Docs / Pricing / Customers / Blog), GitHub stars + Sign In + "Get started" right.
+### Article Card
+Image (16:9) → category badge → title → 2-line excerpt → meta row (author, date, read time). Hover: subtle shadow + 1.03 image zoom. 1px hairline border, 8px radius, 16px padding.
 
-### Buttons
+### Category Badge
+Pill, `{rounded.pill}`, category color background, white text. 12px font, 4px × 10px padding. Overlaid on card image (bottom-left) or inline with headline.
 
-**`button-primary`** — The signature Composio Blue CTA. Background `{colors.primary}`, text `{colors.on-primary}`, type `{typography.button}` (14px / 500), padding 10px × 18px, height 40px, rounded `{rounded.md}` (8px).
+### Price Ticker
+Symbol + price + change (percent + absolute). Green up / red down with arrow glyphs. Monospace numbers. Smooth transitions, never jarring.
 
-**`button-primary-active`** — Press state. Background `{colors.primary-active}`.
+### Share Buttons
+Icon-only with tooltip, subtle background, 8px radius. Platforms: X, LinkedIn, Facebook, Telegram, WhatsApp, copy link. Fixed right sidebar on desktop, bottom bar on mobile.
 
-**`button-secondary-dark`** — Surface-elevated secondary. Background `{colors.surface-card-elevated}`, text `{colors.body-strong}`.
+### Newsletter Signup
+Headline + description + email input + subscribe button. Card with accent top-border, inline validation, no page reload.
 
-**`button-outline`** — Transparent with 1px hairline-strong border.
+### Ad Slots
+Clearly labeled "Advertisement" above. Explicit reserved height (prevents CLS). Placed after 3rd paragraph, at article end, and in sidebar. Subtle border to distinguish from content.
 
-**`button-tertiary-text`** — Inline text link.
+### Sources Box
+Article-level card listing external citations. Renders above the copyright notice. Inline eyebrow text, hairline top border.
 
-### Hero & Atmospheric
+## Responsive Behavior
 
-**`hero-band`** — Homepage hero. Background `{colors.canvas}`, full-width display headline in `{typography.display-mega}` (72px / 500), subhead, two CTAs, and a spotlight-glow backdrop emanating from behind the centered terminal-mockup grid.
+| Name | Width | Key Changes |
+|---|---|---|
+| Mobile | < 640px | Single column, hamburger nav, stacked cards, share bar bottom |
+| Tablet | 640–1024px | 2-column cards, sidebar below content |
+| Desktop | 1024–1280px | Full layout with sidebar |
+| Wide | > 1280px | Content caps at 1200px centered |
 
-**`terminal-mockup-grid`** — The brand's strongest visual signature. 2×2 grid of dark code/output panels inside a `{rounded.xl}` (16px) container. Background `{colors.canvas-deep}`, padding 32px, gap 16px.
-
-**`terminal-pane`** — Individual code/output panel inside the mockup grid. Background `{colors.surface-card}`, text `{colors.body}` in `{typography.code}`, rounded `{rounded.lg}` (12px), padding 20px.
-
-**`spotlight-glow-card`** — Large feature card with centered display headline and a radial blue glow behind it. Background `{colors.surface-card}`, text `{colors.body-strong}` in `{typography.display-md}`, rounded `{rounded.xl}`, padding 48px.
-
-### Cards
-
-**`feature-card`** — 3-up benefit grid. Background `{colors.surface-card}`, text `{colors.body}`, type `{typography.title-md}`, rounded `{rounded.xl}`, padding 28px.
-
-**`toolkit-card`** — 4-up toolkit grid (Slack, GitHub, Stripe, Notion, Linear, etc.). Background `{colors.surface-card}`, text `{colors.body-strong}`, type `{typography.title-sm}`, rounded `{rounded.lg}`, padding 20px. 40px square `{component.toolkit-icon}` top, toolkit name, one-line description.
-
-**`toolkit-icon`** — Square icon plate. Background `{colors.surface-card-elevated}`, rounded `{rounded.md}`, 40px size.
-
-**`testimonial-card`** — Quote card. Background `{colors.surface-card}`, text `{colors.body}`, rounded `{rounded.lg}`, padding 24px.
-
-### Code
-
-**`code-block`** — Inline code/terminal block. Background `{colors.canvas-deep}`, text `{colors.body}` in `{typography.code}`, rounded `{rounded.lg}`, padding 20px.
-
-### Forms
-
-**`text-input`** — Background `{colors.surface-card}`, text `{colors.body-strong}`, rounded `{rounded.md}` (8px), padding 12px × 16px, height 44px.
-
-**`search-input`** — Compact search field. Same surface and radius, smaller padding, 40px height.
-
-### Tags & Badges
-
-**`badge-pill`** — Small uppercase pill. Background `{colors.surface-card-elevated}`, text `{colors.body-strong}`, type `{typography.caption-uppercase}`, rounded `{rounded.pill}`, padding 4px × 10px.
-
-### CTA / Footer
-
-**`cta-band-spotlight`** — Pre-footer band. Background `{colors.canvas}` with centered radial spotlight glow. Display headline + single primary CTA pill. 96px padding.
-
-**`footer-dark`** — Closing footer. Background `{colors.canvas}`, text `{colors.body}`. 5-column link list. 64×48px padding.
-
-**`footer-link`** — Background transparent, text `{colors.body}`, type `{typography.body-sm}`.
+### Dark Mode
+- `color-scheme: dark` on `<html>`.
+- All surfaces/inks/borders switch via CSS custom properties.
+- Category colors lighten for dark backgrounds.
+- Every color pair meets WCAG AA (4.5:1 body, 3:1 large text).
 
 ## Do's and Don'ts
 
 ### Do
-- Reserve `{colors.primary}` for primary CTAs, wordmark, and spotlight glows.
-- Use `{rounded.md}` (8px) for every CTA — not full pills.
-- Use brightness-step ladder for elevation; avoid drop shadows.
-- Pair every hero with a centered radial blue spotlight glow.
-- Render code, CLI commands in JetBrains Mono via `{typography.code}`.
-- Use the 2×2 terminal-mockup grid as the homepage hero anchor.
+- Use sentence case for all headings.
+- Keep the article body at 680px for readability.
+- Reserve `{colors.primary}` for links and CTAs; keep category colors for wayfinding.
+- Reserve explicit space for ad slots to prevent layout shift.
+- Use monospace (`{typography.mono}`) for every price, address, and number.
+- Provide a full light and dark surface set via tokens.
 
 ### Don't
-- Don't introduce a secondary brand color. Cyan and violet are illustrative-only.
-- Don't use full pills on CTAs.
-- Don't drop display weight to 400.
-- Don't add drop shadow tiers.
-- Don't use canvas-deep (#000000) outside terminal/code surfaces.
-- Don't extract a CTA color from a third-party widget (cookie consent, OneTrust). The brand's CTA color is what appears on actual page CTAs.
-
-## Responsive Behavior
-
-### Breakpoints
-
-| Name | Width | Key Changes |
-|---|---|---|
-| Mobile | < 640px | Hero h1 72→36px; terminal mockup grid collapses to single pane; toolkit grid 1-up; nav hamburger. |
-| Tablet | 640–1024px | Hero h1 56px; terminal mockup grid stays 2×2; toolkit grid 2-up. |
-| Desktop | 1024–1280px | Full hero h1 72px; full 2×2 terminal mockup; toolkit grid 4-up. |
-| Wide | > 1280px | Content caps at 1200px. |
-
-### Touch Targets
-- Primary CTA at 40px height — at WCAG AA, padded for AAA.
-- Search input at 40px.
-
-### Collapsing Strategy
-- Top nav switches to hamburger below 768px.
-- Terminal mockup 2×2 grid collapses to a single pane on mobile.
-- Toolkit grid: 4-up → 2-up → 1-up.
-- Hero spotlight glow stays at every breakpoint.
-
-## Iteration Guide
-
-1. Focus on a single component at a time.
-2. CTAs default to `{rounded.md}` (8px). Cards use `{rounded.lg}` or `{rounded.xl}`.
-3. Variants live as separate entries inside `components:`.
-4. Use `{token.refs}` everywhere — never inline hex.
-5. Hover state never documented.
-6. abcDiatype 500 for display, 400/600 for body. JetBrains Mono on every code surface.
-7. Composio Blue stays scarce.
+- Don't make it look like a crypto trading platform — this is a news site.
+- Don't use title case headings (except the article headline itself if desired).
+- Don't use heavy gradients, neon glows, or excessive shadow tiers.
+- Don't let ads dominate or resemble content.
+- Don't use placeholder images for articles (use category glyph covers).
+- Don't sacrifice reading comfort for visual flair.
 
 ## Known Gaps
 
-- abcDiatype is licensed; Inter is the substitute.
-- Animation timings out of scope.
-- In-product surfaces (toolkit dashboards, agent playground) are behind login walls.
-- Form validation states beyond focus not visible on captured surfaces.
+- Animation timings out of scope (keep motion minimal and `prefers-reduced-motion`-aware).
+- Social card template should be 1200×630 with minimal text overlay.
+- Category hero images for Discover are recommended ≥1200×630.

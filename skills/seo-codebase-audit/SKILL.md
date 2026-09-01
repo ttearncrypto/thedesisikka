@@ -14,6 +14,22 @@ The codebase you're auditing was built by humans who made trade-offs — your jo
 
 Before inspecting a single file, establish the site's identity. Determine the project type (portfolio, e-commerce, SaaS landing page, blog, web app, local business) and its primary target keywords, audience, and geography. State these assumptions upfront — they determine which pillars to weight heavily and which to deprioritize. A local bakery and a SaaS startup should never receive the same audit. If the workspace has existing documentation (README, package.json, site config), use it as your source of truth for context.
 
+## DESI Sikka crypto-news grounding
+
+When auditing this repo (The DESI Sikka crypto news site), treat these as the site's fixed reality:
+
+- **Project type**: crypto news publication (Jekyll static site on GitHub Pages). Target keywords are news-intent and informational crypto queries, with a strong India geo-angle (crypto tax 30% + 1% TDS, RBI, FIU, Indian exchanges).
+- **Categories** (from `_config.yml` `site_categories`): `bitcoin`, `ethereum`, `altcoins`, `regulation`, `defi`, `exchanges`. Audit category pages against thin-content rules and for template-ized duplicate headers.
+- **Money is at stake** → this is YMYL-adjacent content. E-E-A-T, author attribution, dated facts, and disclaimers are Critical, not optional. Price moves must be reported with dates; predictions must be `opinion: true` (OpinionNewsArticle schema).
+- **Google Discover eligibility** matters: audit for factual (non-clickbait) headlines, a clear news hook within 24-48h, ≥1200x630 hero images with descriptive alt, and NewsArticle JSON-LD consistency.
+- **Google AdSense quality** signals: substantive (600+ word) original articles, no scraped/auto-generated content, working nav + About/Contact/Privacy pages, no prohibited promotional crypto content, Core Web Vitals in "Good".
+- **AEO/GEO**: audit whether first paragraphs are AI-extractable direct answers (40-60 words), whether H2s mirror search questions, definition blocks exist for jargon, and entity density (≥3 named entities/100 words) is met.
+- **Feeds**: rss.xml, atom.xml, feed.json must be full-text and current (drives Telegram auto-poster and Discover/Google News ingestion). Audit them for truncation and error.
+- **Structured data**: NewsArticle (or OpinionNewsArticle for predictions) + BreadcrumbList + Organization/WebSite. Audit all `application/ld+json` blocks.
+- **llms.txt / llms-full.txt**: audit for completeness so AI chat engines can discover the site (GEO).
+
+Weight SEO/AEO/GEO and Discover/AdSense pillars heavily; deprioritize e-commerce, local business, and JS-framework pillars that do not apply to this static news stack.
+
 ## Core principles
 
 **Evidence over opinion.** Never flag something because it "feels wrong." Every finding must cite a specific Google guideline, ranking factor, or schema.org specification. If you cannot cite the rule, do not raise the issue.
@@ -281,6 +297,18 @@ Consider removing one finding before delivering. If you have 15 findings, ask wh
 - **Estimated Reading Time:** Recommend adding reading time indicator.
 - **Table of Contents:** For long-form content, recommend anchor-linked table of contents with jump links.
 - **Content Upgrades / Freshness:** Flag posts older than 1 year without `dateModified` signals.
+
+#### 14a. Crypto News Specifics (DESI Sikka)
+- **News Hook Check:** Flag articles published more than 48h after the event they cover without a new development or update. Discover and Google News penalize stale "news."
+- **Headline Factuality:** Flag clickbait or sensational headlines. Discover suppresses misleading titles. Headlines should state the fact, not promise drama.
+- **First-Paragraph Answer Extraction (AEO):** Flag posts whose first paragraph does not answer the core question in 40-60 words. AI Overviews and featured snippets extract from this.
+- **AI-Readable Definitions (AEO):** Flag technical crypto terms (TVL, halving, staking, L2, TDS) used without a 1-sentence definition on first use. Defines are pulled verbatim by AI engines.
+- **Entity Density (GEO):** Flag articles with <3 named entities per 100 words (exchanges, protocols, regulators, people). LLM citation correlates with named-entity richness.
+- **Date/Time Stamps:** Flag news claims without recency signals (dates, times). Freshness is a ranking and Discover factor.
+- **Opinion vs News Separation:** Flag price predictions or speculative analysis NOT marked `opinion: true` (must render OpinionNewsArticle, not NewsArticle).
+- **India Tax Context:** For India-relevant stories, flag inaccurate tax/regulatory references (flat 30% + 1% TDS). Accuracy here is a trust and E-E-A-T signal.
+- **External Sourcing:** Flag unsourced factual claims. Crypto news needs named citations (CoinDesk, Reuters, SEC, RBI, block-explorer data) for E-E-A-T.
+- **Structured Q&A for PAA:** Flag articles with naturally-answerable questions that lack question-formatted H2/Rich Results (FAQPage where appropriate).
 
 ### 15. JavaScript Framework SEO (if framework is detected)
 
@@ -645,6 +673,16 @@ A report is read by engineers who need to fix things and stakeholders who need t
 ### Sitemap URL Inventory Audit
 ```
 @SKILL.md Run a sitemap URL inventory analysis. Categorize every URL in the sitemap by type (homepage, product, category, blog, tag, archive, utility). Detect low-value URL inflation, missing high-value pages, and sitemap bloat. Recommend sitemap cleanup to improve crawl priority distribution.
+```
+
+### Crypto News / Discover / AdSense Audit (DESI Sikka)
+```
+@SKILL.md Run a crypto-news SEO audit of the DESI Sikka. Evaluate each post for: Google Discover eligibility (factual headline, news hook within 48h, 1200x630 hero with descriptive alt, NewsArticle JSON-LD), AdSense quality signals (600+ words, original content, no prohibited crypto promotion, mobile CWV), AEO readiness (first-paragraph answer extraction, AI-readable definitions, question H2s, PAA targeting), and GEO readiness (entity density >=3/100 words, verifiable facts, contradiction-free, llms.txt coverage). Generate a per-post readiness score and prioritized fixes.
+```
+
+### India Crypto SEO Opportunity Audit
+```
+@SKILL.md Run an India-focused crypto SEO opportunity audit. Identify gaps in coverage for India-specific queries (crypto tax 30% + 1% TDS, RBI stance, FIU regulation, Indian exchanges like WazirX/CoinDCX/CoinSwitch/ZebPay, P2P on-ramps). Map existing vs missing pillar/guide content, recommend new article ideas with target keywords, and flag inaccurate India tax/regulatory references already published.
 ```
 
 ---
