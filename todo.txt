@@ -30,3 +30,6 @@ Further Reading section after news article ends
 Option for Pevious News and Next News
 
 
+News article published skill
+
+Coupons docs
