@@ -20,14 +20,35 @@ website_credit_url: "https://ttearncrypto.github.io"
 # SEO / social cards ---------------------------------------------------------
 logo: "/assets/site-images/logo.png"
 social_image: "/assets/site-images/og-default.png"
+image: "/assets/site-images/og-default.png"
+title_separator: "|"
 twitter:
   card: summary_large_image
+  username: "ttearncrypto"
 lang: en
+
+# --- AdSense / Search Console hooks -----------------------------------------
+# After linking the site in Google AdSense / Search Console, paste the HTML-
+# verification token below: the jekyll-seo-tag plugin outputs the
+# <meta name="google-site-verification"> tag from it.
+#   google_site_verification: "PASTE_TOKEN_HERE"
+#
+# Once AdSense is approved and serving, add an ads.txt file in the repo root:
+#   google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+
+# --- Google News / Discover launch checklist (manual) ---------------------------
+# 1. Set the repo Pages source to "GitHub Actions" (Settings > Pages) so
+#    .github/workflows/pages.yml builds and deploys with CI validation.
+# 2. In Search Console: verify the site as a property, then paste the
+#    verification token into `google_site_verification` above and push.
+# 3. Add the site in Google News Publisher Center; wait for the News/Discover
+#    review queue. Requirements already met: Article + free content, robots
+#    allows indexing, full-text feeds, noindex on search/404/feeds.
 
 # Author --------------------------------------------------------------------
 default_author:
   name: "F9XR News Desk"
-  avatar: ""   # empty = monogram fallback
+  avatar: "/assets/authors/f9xr.webp"
   bio: >-
     The F9XR News Desk is a team of journalists working around the clock to
     gather, verify and report crypto news, market analysis and policy
@@ -39,6 +60,31 @@ author_links:
   - { name: YouTube,   url: "https://youtube.com/@QuarterlyLIV" }
   - { name: Pinterest, url: "https://pinterest.com/f9xr" }
   - { name: GitHub,    url: "https://github.com/f9xr" }
+
+# Analytics -------------------------------------------------------------------
+# GoatCounter is a privacy-first, cookie-less analytics service. The id is your
+# subdomain (eg "thedesisikka" for https://thedesisikka.goatcounter.com).
+
+analytics:
+  provider: goatcounter
+  id: "thedesisikka"
+
+# Newsletter (Buttondown) ------------------------------------------------------
+# id is your Buttondown username / page slug, eg https://buttondown.com/thedesisikka
+newsletter:
+  provider: buttondown
+  id: "thedesisikka"
+
+# Ads --------------------------------------------------------------------------
+# After AdSense approval:
+#   1. paste the pub id here, set enabled:true, and add ads.txt in the repo root:
+#      google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+#   2. drop `{% include ad-slot.html slot="NNNNNNNNNN" %}` into _layouts/post.html
+#      (inside .prose after a paragraph) and/or the sidebar; the slot ids come from
+#      each ad unit you create in AdSense. The include renders nothing until enabled.
+ads:
+  enabled: false
+  publisher: ""
 
 # Build ----------------------------------------------------------------------
 markdown: kramdown

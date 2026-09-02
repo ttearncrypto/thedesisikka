@@ -1,0 +1,71 @@
+---
+layout: default
+permalink: /pages/saved/
+title: "Saved Articles"
+description: "Stories you bookmarked for later, stored privately in your browser."
+robots: noindex, follow
+sitemap: false
+---
+
+<div class="meta-strip compact">
+  <span>Your reads</span>
+  <span>Saved in this browser</span>
+</div>
+
+<section class="section shell">
+  <header class="page-intro">
+    <span class="mono-label">Bookmarked for later</span>
+    <h1 class="page-title">Saved articles</h1>
+    <p class="page-sub">Stories you bookmarked live here, stored only in this browser. The list is empty until you <strong>Save</strong> a story from its page — and it clears when you clear site data.</p>
+  </header>
+
+  <div id="saved-list" class="post-grid" style="margin-top:2.5rem;"></div>
+  <div id="saved-empty" class="empty-note" style="margin-top:2.5rem;">No saved stories yet. Hit the bookmark icon on any article to keep it here.</div>
+  <noscript><p class="empty-note" style="margin-top:1.5rem;">This page needs JavaScript to read your saved list.</p></noscript>
+</section>
+
+<script type="application/json" id="saved-search-url">{{ '/search.json' | relative_url }}</script>
+<script>
+(function () {
+  "use strict";
+  var base = document.documentElement.getAttribute("data-baseurl") || "";
+  var urlPath = decodeURIComponent(document.getElementById("saved-search-url").textContent.trim());
+  var list = document.getElementById("saved-list");
+  var empty = document.getElementById("saved-empty");
+
+  function savedSet() {
+    try { return JSON.parse(localStorage.getItem("tds-saved") || "[]"); }
+    catch (e) { return []; }
+  }
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (ch) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch];
+    });
+  }
+
+  fetch(base + urlPath)
+    .then(function (r) { return r.json(); })
+    .then(function (items) {
+      var saved = savedSet();
+      var order = {};
+      saved.forEach(function (s, i) { order[s.url] = i; });
+      var hits = items.filter(function (it) { return order[it.url] !== undefined; })
+        .sort(function (a, b) { return order[a.url] - order[b.url]; });
+
+      if (!hits.length) { empty.style.display = "block"; return; }
+      empty.style.display = "none";
+      list.innerHTML = hits.map(function (it) {
+        return '<a class="post-card" href="' + it.url + '">' +
+          '<div class="post-card-cover cover-' + esc(it.cat) + '"><span class="cover-glyph"></span></div>' +
+          '<div class="post-card-body">' +
+          '<span class="post-card-cat">' + esc(it.cat) + '</span>' +
+          '<h3 class="post-card-title">' + esc(it.title) + '</h3>' +
+          '<p class="post-card-excerpt">' + esc(it.text || "") + '</p>' +
+          '<span class="post-card-meta">' + esc(it.date) + '</span>' +
+          '</div></a>';
+      }).join("");
+    })
+    .catch(function () { empty.textContent = "Could not load the saved list — try again in a moment."; });
+})();
+</script>

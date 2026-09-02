@@ -1,0 +1,29 @@
+newsdesk:
+  name: "F9XR News Desk"
+  type: "Organization"
+  slug: newsdesk
+  url: "/author/f9xr/"
+  email: "hello@thedesisikka.in"
+  avatar: "/assets/authors/f9xr.webp"
+  monogram: "F9"
+  bio: >-
+    The F9XR News Desk is a team of journalists working around the clock to
+    gather, verify and report crypto news, market analysis and policy
+    updates. One desk, every timezone.
+  sameAs:
+    - "https://f9xr.github.io/"
+    - "https://linkedin.com/company/f9xrteam"
+    - "https://instagram.com/f9xrteam"
+    - "https://youtube.com/@QuarterlyLIV"
+    - "https://pinterest.com/f9xr"
+    - "https://github.com/f9xr"
+
+muskanshaik:
+  name: "Muskaan Shaik"
+  type: "Person"
+  slug: muskanshaik
+  url: "/author/muskanshaik/"
+  alternateName: "مسکان شیخ"
+  jobTitle: "Freelancer News Reporter"
+  monogram: "MS"
+  bio: "Freelance news reporter covering crypto and finance for The DESI Sikka."

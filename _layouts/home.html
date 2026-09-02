@@ -20,11 +20,14 @@ layout: default
   {% for cat in site.site_categories %}
     <a class="chip" href="{{ '/category/' | append: cat.slug | relative_url }}">{{ cat.name }}</a>
   {% endfor %}
+  <a class="chip" href="{{ '/pages/learn/' | relative_url }}">Learn</a>
   <a class="chip" href="{{ '/press/' | relative_url }}">Press Releases</a>
   <a class="chip" href="{{ '/pages/events/' | relative_url }}">Events</a>
 </div>
 
 {% assign all_posts = site.posts %}
+{% assign pinned = all_posts | where: 'pinned', true %}
+{% assign latest = all_posts | where_exp: 'p', 'p.pinned != true' %}
 
 {% comment %} ---------- Latest Crypto News ---------- {% endcomment %}
 <section class="section shell" id="latest">
@@ -35,7 +38,10 @@ layout: default
 
   {% if all_posts.size > 0 %}
   <div class="post-grid">
-    {% for post in all_posts limit: 6 %}
+    {% for post in pinned limit: 2 %}
+      {% include post-card.html post=post featured=true %}
+    {% endfor %}
+    {% for post in latest limit: 6 %}
       {% include post-card.html post=post %}
     {% endfor %}
   </div>
@@ -170,6 +176,11 @@ layout: default
   {% endif %}
 </section>
 
+{% comment %} ---------- Newsletter ---------- {% endcomment %}
+<section class="section shell section-alt" id="newsletter">
+  {% include newsletter-form.html %}
+</section>
+
 {% comment %} ---------- About Us Box ---------- {% endcomment %}
 <section class="section shell" id="about-box">
   <div class="about-box">
@@ -184,7 +195,7 @@ layout: default
     </div>
     <div class="about-box-side">
       {% if site.default_author.avatar %}
-        <img src="{{ site.default_author.avatar | relative_url }}" alt="{{ site.default_author.name }}" width="56" height="56">
+        <img src="{{ site.default_author.avatar | relative_url }}" alt="{{ site.default_author.name }}" width="56" height="56" loading="lazy" decoding="async">
       {% else %}
         <span class="author-avatar author-monogram" aria-hidden="true" style="width:56px;height:56px;font-size:18px;">F9</span>
       {% endif %}
@@ -213,3 +224,24 @@ layout: default
     <noscript><a class="section-link" href="{{ '/archive/' | relative_url }}">Open full archive &rarr;</a></noscript>
   </div>
 </section>
+
+{% if all_posts.size > 0 %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Latest Crypto News",
+  "url": {{ '/' | absolute_url | jsonify }},
+  "itemListElement": [
+    {% for post in all_posts limit: 10 %}
+    {
+      "@type": "ListItem",
+      "position": {{ forloop.index }},
+      "url": {{ post.url | absolute_url | jsonify }},
+      "name": {{ post.title | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endif %}

@@ -518,6 +518,35 @@ a {
   background: currentColor;
 }
 
+.card-breaking {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.14rem 0.5rem;
+  margin-left: 0.5rem;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #0a0a0c;
+  background: linear-gradient(90deg, #f97316, #ef4444);
+}
+
+.updated-label {
+  color: var(--accent);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.opinion-label {
+  color: var(--accent);
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 500;
+}
+
 .post-card-title {
   margin: 0;
   font-size: 1.05rem;
@@ -580,6 +609,26 @@ a {
 }
 
 .featured-card:hover .post-card-title { color: var(--accent); }
+
+/* Reading progress bar (post pages only, injected via JS) ----------------------------------------- */
+
+.progress-track {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 1200;
+  pointer-events: none;
+  background: transparent;
+}
+
+.progress-bar {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent), #38bdf8);
+}
 
 /* Article layout ------------------------------------------------------------------------ */
 
@@ -901,6 +950,55 @@ a {
 
 .side-card .btn { width: 100%; margin-top: 1rem; }
 
+/* Newsletter ------------------------------------------------------------------ */
+
+.newsletter-box {
+  max-width: 34rem;
+  border: 1px solid var(--hairline);
+  border-radius: 16px;
+  background: var(--surface);
+  padding: 1.5rem;
+}
+
+.newsletter-title {
+  margin: 0.4rem 0 0.25rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ink);
+}
+
+.newsletter-sub {
+  margin: 0 0 1rem;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.newsletter-form {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.newsletter-form input[type="email"] {
+  flex: 1 1 14rem;
+  min-width: 0;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--hairline-strong);
+  border-radius: 10px;
+  background: var(--surface-elevated);
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+}
+
+.newsletter-form input[type="email"]:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
 /* Share row (replaces legacy inline styles) -------------------------------------------------- */
 
 .share-row {
@@ -1168,6 +1266,23 @@ a {
   letter-spacing: 0.04em;
   color: var(--faint);
 }
+
+.footer-risk {
+  margin: 0 0 2rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--hairline);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--body-text) 3%, transparent);
+}
+
+.footer-risk p {
+  margin: 0 0 0.5rem;
+  font-size: 11.5px;
+  line-height: 1.55;
+  color: var(--faint);
+}
+
+.footer-risk p:last-child { margin-bottom: 0; }
 
 /* Search ------------------------------------------------------------------ */
 
@@ -1713,6 +1828,9 @@ a {
 }
 
 .tool-btn svg { flex: none; }
+
+.tool-save.active svg,
+.tool-save[aria-pressed="true"] svg { fill: currentColor; }
 
 /* Quick Summary + AI chips ------------------------------------------------------------ */
 

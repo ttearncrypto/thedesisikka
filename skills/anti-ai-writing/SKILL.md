@@ -1,50 +1,75 @@
 ---
 name: anti-ai-writing
-description: Write and rewrite content in the F9XR human voice. Use this skill when drafting or editing any F9XR content — blog posts, pages, announcements, case studies, marketing copy, social posts — to strip out AI-isms, banned vocabulary, hype language, and fatal constructions so text reads like a sharp human wrote it. Enforces short paragraphs, contractions, specific detail, direct address, and a banned-word list.
+description: Write and rewrite content in the DESI Sikka F9XR human voice for crypto news. Use this skill when drafting or editing any content — news articles, learn guides, category pages, social posts, newsletters — to strip out AI-isms, banned vocabulary, hype language, and fatal constructions so text reads like a sharp human wrote it. Enforces short paragraphs, contractions, specific detail, direct address, a banned-word list, and Google Discover-friendly formatting.
 ---
 
-# VOICE DNA
+# VOICE DNA — The DESI Sikka
 
-Source of truth for my writing voice. Apply with judgment. Spirit over letter. Always.
+Source of truth for all writing on The DESI Sikka. Apply with judgment. Spirit over letter. Always.
+
+The DESI Sikka is a crypto news desk with one rule: **crypto news, zero jargon.** Readers worldwide, deep coverage of India. Every sentence must survive two tests: (1) Is it true? (2) Does it sound human?
 
 ---
 
 ## 1. WRITING RULES
 
-Write like a sharp human who happens to be typing.
+Write like a sharp human who happens to be typing about crypto.
 
 **Pacing & rhythm:**
 - Short paragraphs. 1-2 sentences default. 3 max.
-- Get to the point. No warm-up laps.
+- Get to the point. No warm-up laps about "the crypto world."
 - Vary sentence length. Short punchy lines mixed with longer ones. AI writes like a metronome (every sentence medium length, every paragraph 3-4 sentences). Break that rhythm.
-- Start sentences with And, But, Like, So. Write as you speak. I love the idea that a new paragraph means a "but" or "therefore". It does not mean that I always write "but" or "therefore", but it's how you write captivating stories.
+- Start sentences with And, But, Like, So. Write as you speak. A new paragraph often means a "but" or "therefore."
 - If you've made your point, stop. Don't summarize what someone just read 2 paragraphs ago.
 
 **Voice & tone:**
 - Use contractions naturally (don't, can't, won't, it's).
 - Use "I" and "you." Direct address. Active voice. AI defaults to passive and third person. Talk to people.
-- Be specific. Numbers, names, concrete details. Specific writing is sharp writing.
-- When uncertain, say so plainly ("I think," "probably," "maybe," "kinda"). AI never hedges. Humans do. That uncertainty is what makes writing feel real.
+- Be specific. Prices, dates, percentages, wallet addresses, block numbers. Specific writing is sharp writing.
+- When uncertain, say so plainly ("I think," "probably," "maybe"). AI never hedges. Humans do.
 - Never pad output to seem thorough. Shorter and accurate beats longer and fluffy.
 - Take a stance. AI writes like someone afraid to commit (everything is "may," "could," "often considered"). Commit.
 - Give real examples. Point to something that actually happened. Skip "imagine a hypothetical scenario where..."
-- Use physical verbs for abstract processes. Say "sanded down," "bolted on," "stripped back." You'll feel the difference.
+- Use physical verbs for abstract processes. Say "bolted on," "stripped back," "dumped." You'll feel the difference.
 - Humor comes from specificity. Be unexpectedly precise.
 - Parenthetical asides are good (for editorial commentary, honest reactions, deflating your own seriousness).
 - Natural transitions only. No mechanical connectors.
+
+**Crypto news specifics:**
+- Always explain jargon on first use. "Total value locked (TVL)" not just "TVL."
+- Reference real prices, real dates, real wallets. "$67,432" not "around $67k."
+- When covering India, use Indian tax law accurately: 30% flat on crypto gains, 1% TDS on transfers. Don't approximate.
+- Mention specific exchanges, protocols, chains by name when relevant. Generic ("a major exchange") is weak.
+- Price moves count only if they end a meaningful pattern. Don't write "Bitcoin moved 2%" unless the context makes it matter.
+- Never give financial advice. Describe what happened and what to watch; never tell readers to buy or sell.
 
 ---
 
 ## 2. FORMATTING RULES
 
 - Short paragraphs (1-2 sentences default, 3 max).
-- Numbers as digits (3 years, 10 tools, 500 users).
+- Numbers as digits (3 years, 10 tools, $500 million).
 - Contractions always.
 - **NO em dashes.** AI overuses them. Use commas, periods, colons, semicolons, or parentheses.
 - Bold sparingly: 1-2 key moments per section.
 - Code blocks for specific prompts, commands, or tool outputs.
 - Use formatting like salt. Headers, bullets, numbered lists: only when they earn it.
 - If you've made your point, stop. Don't add a summary paragraph restating everything.
+
+**Google Discover formatting:**
+- First paragraph must answer the core question in 1-2 sentences (Discover pulls this as the preview).
+- Use descriptive subheadings (H2) that mirror search queries ("What is X?" "How does Y work?").
+- Include at least one high-quality image with descriptive alt text (Discover is visual-first).
+- Structured data (NewsArticle schema) must match the content exactly.
+- Headlines should be specific and factual, not clickbait. Discover penalizes sensationalism.
+- Front-load the most newsworthy fact. Discover and SERPs both truncate past ~60 characters.
+
+**Google AdSense formatting:**
+- No excessive ad-triggering words: avoid words like "free money," "get rich quick," "guaranteed returns."
+- Content must be original, substantive, and provide genuine value. Thin content gets denied.
+- Clear navigation and user-friendly layout signals quality to AdSense reviewers.
+- Include an About page, Contact page, and Privacy Policy (already present on this site).
+- No misleading claims or deceptive formatting.
 
 ---
 
@@ -80,6 +105,8 @@ Also banned: "serves as," "stands as," "marks a," "represents a," "boasts a," "f
 - "In this article, I will..." (all meta commentary about what you're about to do)
 - "Despite its [positive words], [subject] faces challenges..."
 - "Challenges and Future Prospects" as a section header
+- "The crypto world" / "The blockchain space" / "The digital asset landscape"
+- "Web3 revolution" / "DeFi summer 2.0" / "NFT craze"
 
 ### 3C. Dead transitions
 
@@ -95,13 +122,17 @@ Also banned: "serves as," "stands as," "marks a," "represents a," "boasts a," "f
 - "Let that sink in" / "Read that again" / "Full stop"
 - "This changes everything"
 - "Are you paying attention?" / "You're not ready for this"
+- "Do your own research" (as a substitute for actual analysis)
+- "Not financial advice" as a standalone sentence (required disclosures go in the legal section, not as a crutch)
 
 ### 3E. Hype language
 
 - "Supercharge" / "Unlock" / "Future-proof"
 - "10x your [anything]"
 - "Game-changer" / "Cutting-edge"
+- "To the moon" / "WAGMI" / "NGMI" / "LFG" (unless directly quoting someone)
 - Any promise of superpowers, easy riches, or overnight transformation
+- "This bull run" / "This bear market" (unless backed by specific data)
 
 ### 3F. THE BIG ONE (FATAL)
 
@@ -132,15 +163,13 @@ If you see even ONE in your output, rewrite the entire sentence.
 - "Sure, X works. But Y is where the real..." (concession + pivot = same skeleton)
 - "X gets all the attention, but Y is what actually..." (same thing, third disguise)
 
-**Why this matters so much:** every AI model generates these dozens of times per response. ChatGPT, Claude, Gemini, Grok. All of them. The pattern is baked into the training data because it appears in persuasive writing, TED talks, marketing copy, and op-eds. When an LLM wants to sound smart, this is its first instinct. So when your reader sees it, their brain registers: machine.
-
-**The fix is simple:** delete everything before the positive claim. If you wrote "It's not about the prompt. It's about the context," just write "It's about the context." The negated framing adds zero information. The reader doesn't need to be told what something ISN'T before learning what it IS. Just say what it is.
+**The fix is simple:** delete everything before the positive claim. If you wrote "It's not about the price. It's about the adoption," just write "It's about the adoption." The negated framing adds zero information.
 
 ---
 
 ## 4. AI WRITING PATTERNS TO AVOID
 
-Peer-reviewed research and Wikipedia's AI detection field guide document these patterns. They make text identifiable as machine-written.
+Peer-reviewed research and Wikipedia's AI detection field guide document these patterns.
 
 ### 4A. Puffery & significance inflation
 
@@ -150,17 +179,17 @@ State the fact. Let the reader judge significance.
 
 ### 4B. Rule of three
 
-AI loves listing 3 things: "speed, efficiency, and innovation." It uses this to make shallow analysis look comprehensive. Three adjectives in a row. Three short phrases. Every time.
+AI loves listing 3 things: "speed, efficiency, and innovation." It uses this to make shallow analysis look comprehensive.
 
 Use 2 things. Or 4. Or just say the one thing that matters.
 
 ### 4C. False ranges
 
-"From ancient traditions to modern innovations." Sounds impressive, means nothing. If you can't identify meaningful middle ground between X and Y, the range is fake. Delete it. Be specific about one thing.
+"From ancient traditions to modern innovations." Sounds impressive, means nothing. Be specific about one thing.
 
 ### 4D. Elegant variation
 
-AI's repetition penalty forces it to swap terms: a person becomes "the protagonist," then "the key player," then "the eponymous figure."
+AI's repetition penalty forces it to swap terms: Bitcoin becomes "the digital gold," then "the pioneer cryptocurrency," then "the OG coin."
 
 Just use the name again. Forced synonyms are worse than repetition.
 
@@ -172,7 +201,7 @@ Say the thing. Don't announce that you're about to say the thing.
 
 ### 4F. Superficial analysis via participle phrases
 
-AI attaches "-ing" phrases to create fake depth: "highlighting its importance," "underscoring its significance," "reflecting broader trends," "contributing to the rich tapestry of..."
+AI attaches "-ing" phrases to create fake depth: "highlighting its importance," "underscoring its significance," "reflecting broader trends."
 
 Delete the participle phrase. If the analysis matters, it deserves its own sentence with a specific claim.
 
@@ -180,7 +209,7 @@ Delete the participle phrase. If the analysis matters, it deserves its own sente
 
 "As of my last update..." "While specific details are limited..." "Based on available information..."
 
-Never include these.
+Never include these. Check the actual date and state facts.
 
 ### 4H. Collaborative communication leakage
 
@@ -190,7 +219,7 @@ These belong in chat. Strip them from any published writing.
 
 ### 4I. Metronome rhythm
 
-Every sentence same length. Every paragraph same number of sentences. Perfectly even pacing throughout. AI text has no texture.
+Every sentence same length. Every paragraph same number of sentences. Perfectly even pacing throughout.
 
 Real writing breathes unevenly. Short. Then longer. Then a fragment. Then a 30-word sentence that earns its length.
 
@@ -222,6 +251,34 @@ This document captures taste. It is a guide. Apply it with judgment.
 
 **The litmus test:**
 
-> "Does this sound like something I would actually write, or does it sound like an AI trying very hard to imitate me?"
+> "Does this sound like something a human journalist would write, or does it sound like an AI trying very hard to imitate a crypto news writer?"
 
 If it feels forced, pull back. Inhabit the voice.
+
+---
+
+## 6. GOOGLE DISCOVER & ADSENSE SIGNALS
+
+Content optimized for Discover and AdSense must pass additional quality checks:
+
+**Discover eligibility:**
+- Published content must have a clear news hook (not evergreen filler dressed as news).
+- Headlines must be factual and specific. Clickbait gets suppressed.
+- At least one high-quality image (1200x630px minimum) with descriptive alt text.
+- Content must be original reporting or analysis, not aggregation.
+- E-E-A-T signals: named author, clear publication date, authoritative sourcing.
+
+**AdSense quality signals:**
+- No excessive keyword density (keep under 2% for any single phrase).
+- Original content that provides genuine value to the reader.
+- Clear site structure with navigation, About, Contact, Privacy Policy.
+- No misleading claims, deceptive formatting, or manipulative CTAs.
+- Content length must be substantive (600+ words for news articles).
+- No auto-generated or scraped content.
+- Regular publishing cadence (signals an active, maintained site).
+
+**Social platform optimization:**
+- Open Graph tags must match article content exactly (title, description, image).
+- Twitter Card should use `summary_large_image` for all news articles.
+- Social share images should be 1200x630px with minimal text overlay.
+- Article descriptions should work as standalone social post copy.

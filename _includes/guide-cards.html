@@ -1,0 +1,11 @@
+{% if site.data.guides.size > 0 %}
+<div class="side-card">
+  <h3>India Guides</h3>
+  <ul class="toc-list">
+    {% for guide in site.data.guides limit: 4 %}
+      <li><a href="{{ '/pages/learn/' | append: guide.slug | append: '/' | relative_url }}">{{ guide.title | escape }}</a></li>
+    {% endfor %}
+  </ul>
+  <p style="margin:0.75rem 0 0;"><a class="section-link" href="{{ '/pages/learn/' | relative_url }}">All guides &rarr;</a></p>
+</div>
+{% endif %}

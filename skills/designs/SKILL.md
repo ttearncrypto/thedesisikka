@@ -1,55 +1,198 @@
 ---
-name: frontend-design
-description: Guidance for distinctive, intentional visual design when building new UI or reshaping an existing one. Helps with aesthetic direction, typography, and making choices that don't read as templated defaults.
-license: Complete terms in LICENSE.txt
+name: designs
+description: Guidance for building distinctive, accessible UIs for The DESI Sikka crypto news site. Covers brand identity, typography, layout, components, responsive design, dark/light mode, and performance. Use when building new pages, redesigning components, or creating social share graphics for the site.
+license: MIT
 ---
 
-# Frontend Design
+# Frontend Design — The DESI Sikka
 
-Approach this as the design lead at a small studio known for giving every client a visual identity that could not be mistaken for anyone else's. This client has already rejected proposals that felt templated, and is paying for a distinctive point of view: make deliberate, opinionated choices about palette, typography, and layout that are specific to this brief, and take one real aesthetic risk you can justify.
+Approach this as the design lead for a crypto news publication that needs to look trustworthy, modern, and readable across every device. The DESI Sikka's visual identity must communicate: serious journalism, accessible to everyone, zero jargon walls. The design should feel like a premium news outlet, not a crypto bro blog.
 
-## Ground it in the subject
+## Brand identity
 
-If the brief does not pin down what the product or subject is, pin it yourself before designing: name one concrete subject, its audience, and the page's single job, and state your choice. If there's any information in your memory about the human's preferences, context about what they're building, or designs you've made before – use that as a hint. The subject's own world, its materials, instruments, artifacts, and vernacular, is where distinctive choices come from. Build with the brief's real content and subject matter throughout.
+**The DESI Sikka** is a crypto news publication with the tagline "Crypto news, zero jargon." The design must balance:
+- **Trustworthiness**: Clean typography, generous whitespace, professional layout. Readers should feel this is a credible news source, not a hype machine.
+- **Accessibility**: High contrast, readable fonts, clear hierarchy. Content-first design that prioritizes reading experience.
+- **Modernity**: Subtle animations, dark mode support, contemporary component design. Not stuck in 2015, but not chasing every trend.
+- **Crypto-native**: Enough visual sophistication to signal expertise without alienating newcomers.
 
-## Design principles
+## Color system
 
-For web designs, the hero is a thesis. Open with the most characteristic thing in the subject's world, in whatever form makes sense for it: a headline, an image, an animation, a live demo, an interactive moment. Be deliberate with your choice: a big number with a small label, supporting stats, and a gradient accent is the template answer, only use if that's truly the best option.
+### Light mode (default)
+- **Background**: `#ffffff` (white) — clean, professional, AdSense-friendly
+- **Surface**: `#f8f9fa` (light gray) — cards, sidebars, elevated surfaces
+- **Border**: `#e9ecef` (subtle gray) — dividers, card borders
+- **Text primary**: `#1a1a2e` (near-black) — headlines, body text
+- **Text secondary**: `#6c757d` (gray) — metadata, timestamps, bylines
+- **Accent primary**: `#1a73e8` (Google Blue) — links, CTAs, active states
+- **Accent hover**: `#1557b0` (darker blue) — hover states
+- **Success**: `#0d9488` (teal) — positive price movement, verified badges
+- **Error**: `#dc2626` (red) — negative price movement, errors
+- **Warning**: `#f59e0b` (amber) — cautions, opinion labels
 
-Typography carries the personality of the page. Pair the display and body faces deliberately, not the same families you would reach for on any other project, and set a clear type scale with intentional weights, widths, and spacing. Make the type treatment itself a memorable part of the design, not a neutral delivery vehicle for the content.
+### Dark mode
+- **Background**: `#0f172a` (dark navy) — reduces eye strain for evening reading
+- **Surface**: `#1e293b` (slate) — cards, elevated surfaces
+- **Border**: `#334155` (slate border) — dividers
+- **Text primary**: `#f1f5f9` (light gray) — headlines, body text
+- **Text secondary**: `#94a3b8` (muted) — metadata, timestamps
+- **Accent primary**: `#60a5fa` (lighter blue) — links, CTAs (adjusted for dark bg contrast)
+- **Accent hover**: `#93bbfd` — hover states
+- **Success**: `#34d399` — positive price movement
+- **Error**: `#f87171` — negative price movement
 
-Structure is information. Structural devices, numbering, eyebrows, dividers, labels, should encode something true about the content, not decorate it. Many generic designs use numbered markers (01 / 02 / 03), but that's only appropriate if the content actually is a sequence - like a real process or a typed timeline where order carries information the reader needs. Question if choices like numbered markers actually make sense before incorporating them.
+### Category colors (used for category badges, section accents)
+- Bitcoin: `#f7931a` (Bitcoin orange)
+- Ethereum: `#627eea` (Ethereum blue)
+- Altcoins: `#8b5cf6` (purple)
+- Regulation: `#64748b` (slate — serious, governmental)
+- DeFi & Web3: `#06b6d4` (cyan — tech-forward)
+- Exchanges: `#10b981` (emerald — money, trading)
 
-Leverage motion deliberately. Think about where and if animation can serve the subject: a page-load sequence, a scroll-triggered reveal, hover micro-interactions, ambient atmosphere. An orchestrated moment usually lands harder than scattered effects; choose what the direction calls for. However, sometimes less is more, and extra animation contributes to the feeling that the design is AI-generated.
+## Typography
 
-Match complexity to the vision. Maximalist directions need elaborate execution; minimal directions need precision in spacing, type, and detail. Elegance is executing the chosen vision well.
+### Font stack
+- **Headlines**: `Inter, system-ui, -apple-system, sans-serif` at weight 700
+- **Body**: `Inter, system-ui, -apple-system, sans-serif` at weight 400
+- **Meta/data**: `Inter, system-ui, -apple-system, sans-serif` at weight 500
+- **Code/numbers**: `'JetBrains Mono', 'Fira Code', monospace` (for prices, addresses, code blocks)
 
-Consider written content carefully. Often a design brief may not contain real content, and it's up to you to come up with copy. Copy can make a design feel as templated as the design itself. See the below section on writing for more guidance.
+### Type scale
+| Role | Size | Weight | Line Height | Use |
+|---|---|---|---|---|
+| Display | 36px / 2.25rem | 700 | 1.2 | Homepage hero headline |
+| H1 | 30px / 1.875rem | 700 | 1.25 | Article headline |
+| H2 | 24px / 1.5rem | 600 | 1.3 | Section headings |
+| H3 | 20px / 1.25rem | 600 | 1.4 | Sub-section headings |
+| Body | 16px / 1rem | 400 | 1.6 | Article body text |
+| Small | 14px / 0.875rem | 400 | 1.5 | Metadata, captions |
+| Tiny | 12px / 0.75rem | 500 | 1.4 | Badges, labels, timestamps |
 
-## Process: brainstorm, explore, plan, critique, build, critique again
+### Principles
+- **Sentence case for headings**: "Bitcoin drops 12% after liquidation cascade" not "Bitcoin Drops 12% After Liquidation Cascade"
+- **Body text at 16px minimum**: Prevents iOS zoom on input focus
+- **Line height 1.6 for body**: Optimized for long-form reading
+- **Tabular nums for prices**: `font-variant-numeric: tabular-nums` on all price/number displays
 
-For calibration: AI-generated design right now clusters around three looks: (1) a warm cream background (near #F4F1EA) with a high-contrast serif display and a terracotta accent; (2) a near-black background with a single bright acid-green or vermilion accent; (3) a broadsheet-style layout with hairline rules, zero border-radius, and dense newspaper-like columns. All three are legitimate for some briefs, but they are defaults rather than choices, and they appear regardless of subject. Where the brief pins down a visual direction, follow it exactly — the brief's own words always win, including when it asks for one of these looks. Where it leaves an axis free, don't spend that freedom on one of these defaults. Just like a human designer who's hired, there's often a careful balance between doing what you're good at and taking each project as a chance to experiment and learn.
+## Layout
 
-Work in two passes. First, brainstorm a short design plan based on the human's design brief: create a compact token system with color, type, layout, and signature. Color: describe the palette as 4–6 named hex values. Type: the typefaces for 2+ roles (a characterful display face that's used with restraint, a complementary body face, and a utility face for captions or data if needed). Layout: a layout concept, using one-sentence prose descriptions and ASCII wireframes to ideate and compare. Signature: the single unique element this page will be remembered by that embodies the brief in an appropriate way.
+### Grid
+- **Max content width**: 1200px
+- **Article body**: 680px max (optimal reading width)
+- **Sidebar**: 320px (on desktop, right side)
+- **Gap**: 32px between content and sidebar
+- **Section padding**: 64px vertical, responsive down to 32px on mobile
 
-Then review that plan against the brief before building: if any part of it reads like the generic default you would produce for any similar page (work through a similar prompt to see if you arrive somewhere similar) rather than a choice made for this specific brief — revise that part, say what you changed and why. Only after you've confirmed the relative uniqueness of your design plan should you start to write the code, following the revised plan exactly and deriving every color and type decision from it.
+### Page templates
+- **Homepage**: Hero (featured story) → Category sections (3 cards each) → Sidebar (trending + newsletter)
+- **Article**: Full-width hero → 680px body → Sidebar (related + ads) → Footer
+- **Category**: Category header → Grid of article cards → Pagination
+- **Learn**: Table of contents sidebar → Full-width content area
 
-When writing the code, be careful of structuring your CSS selector specificities. It's easy to generate CSS classes that cancel each other out (especially with a type-based selector like .section and a element-based selector like .cta). This can happen often with paddings/margins between sections.
+### Responsive breakpoints
+| Name | Width | Layout changes |
+|---|---|---|
+| Mobile | < 640px | Single column, hamburger nav, stacked cards |
+| Tablet | 640–1024px | 2-column cards, sidebar below content |
+| Desktop | 1024–1280px | Full layout with sidebar |
+| Wide | > 1280px | Content caps at 1200px centered |
 
-Try to do a lot of this planning and iteration in your thinking, and only show ideas to the user when you have higher confidence it'll delight them.
+## Components
 
-## Restraint and self-critique
+### Article card
+- **Layout**: Image (16:9 aspect) → Category badge → Title → Excerpt (2 lines max) → Meta row (author + date + read time)
+- **Hover**: Subtle shadow elevation + image zoom (scale 1.03)
+- **Border**: 1px solid border-radius: 8px
+- **Spacing**: 16px internal padding
 
-Spend your boldness in one place. Let the signature element be the one memorable thing, keep everything around it quiet and disciplined, and cut any decoration that does not serve the brief. Not taking a risk can be a risk itself! Build to a quality floor without announcing it: responsive down to mobile, visible keyboard focus, reduced motion respected. Critique your own work as you build, taking screenshots if your environment supports it – a picture is worth 1000 tokens. Consider Chanel's advice: before leaving the house, take a look in the mirror and remove one accessory. Human creators have memory and always try to do something new, so if you have a space to quickly jot down notes about what you've tried, it can help you in future passes.
+### Category badge
+- **Style**: Pill shape (border-radius: 9999px), category color background, white text
+- **Size**: 12px font, 4px × 10px padding
+- **Position**: Overlaid on article card image (bottom-left) or inline with headline
 
-## More on writing in design
+### Price ticker
+- **Format**: Symbol + Price + Change (% + absolute)
+- **Colors**: Green for positive, red for negative
+- **Font**: Monospace for numbers (`JetBrains Mono`)
+- **Animation**: Smooth number transitions, not jarring updates
 
-Words appear in a design for one reason: to make it easier to understand, and therefore easier to use. They are design material, not decoration. Bring the same intentionality to copy that you would bring to spacing and color. Before writing anything, ask what the design needs to say, and how it can best be said to help the person navigate the experience.
+### Share buttons
+- **Platforms**: Twitter/X, LinkedIn, Facebook, Telegram, WhatsApp, Copy Link
+- **Style**: Icon-only with tooltip labels, subtle background, rounded (8px)
+- **Position**: Fixed right sidebar on desktop, bottom bar on mobile
 
-Write from the end user's side of the screen. Name things by what people control and recognize, never by how the system is built. A person manages notifications, not webhook config. Describe what something does in plain terms rather than selling it. Being specific is always better than being clever.
+### Newsletter signup
+- **Layout**: Headline + description + email input + subscribe button
+- **Style**: Card with accent border-top, clean input field
+- **Validation**: Inline error messages, no page reload
 
-Use active voice as default. A control should say exactly what happens when it's used: "Save changes," not "Submit." An action keeps the same name through the whole flow, so the button that says "Publish" produces a toast that says "Published." The vocabulary of an interface is the signposting for someone navigating the product. Cohesion and consistency are how people learn their way around.
+### Ad slots
+- **Design**: Clearly labeled "Advertisement" above the slot
+- **Reserved space**: Explicit height to prevent CLS (Cumulative Layout Shift)
+- **Placement**: After 3rd paragraph in article body, bottom of article, sidebar
+- **Styling**: Subtle border to distinguish from content
 
-Treat failure and emptiness as moments for direction, not mood. Explain what went wrong and how to fix it, in the interface's voice rather than a person's. Errors don't apologize, and they are never vague about what happened. An empty screen is an invitation to act.
+## Dark mode
 
-Keep the register conversational and tuned: plain verbs, sentence case, no filler, with tone matched to the brand and the audience. Let each element do exactly one job. A label labels, an example demonstrates, and nothing quietly does double duty.
+- Implement with `prefers-reduced-motion` respect and `color-scheme: dark` on `<html>`
+- Use CSS custom properties for all colors (switch via `[data-theme="dark"]` or media query)
+- Ensure all text meets WCAG AA contrast ratios (4.5:1 for body, 3:1 for large text)
+- Category colors must be adjusted for dark backgrounds (lighter variants)
+- Images should have subtle border or shadow to separate from dark backgrounds
+
+## Performance
+
+- **Images**: Use WebP format with `<picture>` fallback. Always set `width` and `height` to prevent CLS.
+- **Lazy loading**: `loading="lazy"` on all below-fold images. Never lazy-load the hero/LCP image.
+- **Fonts**: Preload Inter (primary font). Use `font-display: swap` to prevent FOIT.
+- **CSS**: Inline critical CSS. Defer non-critical. No render-blocking stylesheets in `<head>`.
+- **JavaScript**: Defer all non-essential JS. Use `async` for analytics. No render-blocking scripts.
+- **CLS prevention**: Explicit dimensions on all media, reserved ad slots, font-display: swap.
+
+## Accessibility
+
+- Full keyboard navigation with visible focus rings (`:focus-visible`)
+- Skip-to-content link as first focusable element
+- All images have descriptive alt text
+- Color is never the only indicator (price changes have arrows + text)
+- `aria-label` on all icon-only buttons
+- `prefers-reduced-motion` disables all animations
+- Form inputs have associated labels
+- Touch targets ≥ 44px on mobile
+
+## E-E-A-T design signals
+
+- **Author bylines** prominently displayed with author photo and bio link
+- **Publication date** clearly visible, formatted as "Published August 24, 2026"
+- **Sources box** for articles with external citations
+- **Related articles** section to demonstrate topical depth
+- **About page** linked from footer and navigation
+- **Corrections page** linked from footer (transparency signal)
+
+## AdSense-friendly design
+
+- Content must be the primary focus (ads are secondary, clearly labeled)
+- No deceptive ad placement (ads must not look like content)
+- Clear navigation structure (main nav + footer links)
+- Responsive layout that works on all devices
+- Fast loading (Core Web Vitals in "Good" range)
+- No intrusive interstitials or pop-ups
+- Privacy policy, terms, and contact pages accessible from footer
+
+## Do's and Don'ts
+
+### Do
+- Use sentence case for all headings
+- Keep article body at 680px max for readability
+- Use category colors consistently across badges, accents, and section headers
+- Implement dark mode with proper contrast ratios
+- Reserve explicit space for ad slots to prevent layout shift
+- Use monospace fonts for all numerical/price displays
+
+### Don't
+- Use title case for headings (unless it's the article headline itself)
+- Make the design look like a crypto trading platform (this is a news site)
+- Use excessive gradients, glows, or neon effects
+- Sacrifice readability for visual flair
+- Use placeholder images for articles (use category glyph covers)
+- Let ads dominate the layout (content first, always)

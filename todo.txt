@@ -10,6 +10,7 @@ https://www.bitdegree.org/
 
 
 
+
 in footer add this:
 Not investment advice. Digital assets and related products are high risk. Consult your professional advisor and trade responsibly. Services are available to eligible customers in select locations. 
 

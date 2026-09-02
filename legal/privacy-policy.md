@@ -25,7 +25,7 @@ description: "How The DESI Sikka collects, uses and protects your data."
     <p>We set one small preference in your browser's local storage (your preferred article font size) so the site remembers it between visits. It never leaves your device.</p>
 
     <h2>Analytics</h2>
-    <p>If we enable traffic analytics later, it will be aggregate data only (page views, referrers, country). No individual profiles.</p>
+    <p>We use GoatCounter, a privacy-first analytics service. It counts page views with a small script but sets no cookies and tracks no individuals — only aggregate numbers like page views and referrers. You can opt out by blocking the script; nothing here ties data to your identity. See <a href="https://www.goatcounter.com/help/privacy" rel="noopener" target="_blank">GoatCounter's privacy policy</a>.</p>
 
     <h2>External links</h2>
     <p>We link to exchanges, protocols and government sites. Once you leave this site, their privacy rules apply, not ours. Check them before entering personal data anywhere.</p>

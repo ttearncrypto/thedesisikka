@@ -1,0 +1,12 @@
+{% if site.newsletter and site.newsletter.id and site.newsletter.provider == 'buttondown' %}
+<div class="newsletter-box" id="newsletter">
+  <span class="mono-label">The DESI Sikka daily</span>
+  <h3 class="newsletter-title">Market moves, regulation updates, one airdrop.</h3>
+  <p class="newsletter-sub">A short reading-list email on trading days. Free, no spam, unsubscribe anytime.</p>
+  <form class="newsletter-form" action="https://buttondown.com/api/emails/embed-subscribe/{{ site.newsletter.id }}" method="post" target="popupwindow" onsubmit="window.open('https://buttondown.com/{{ site.newsletter.id }}','popupwindow','scrollbars=yes,width=800,height=600');return true;">
+    <label for="newsletter-email" class="visually-hidden">Email address</label>
+    <input type="email" name="email" id="newsletter-email" placeholder="you@example.com" required aria-label="Email address">
+    <button type="submit" class="btn btn-primary btn-sm">Subscribe</button>
+  </form>
+</div>
+{% endif %}

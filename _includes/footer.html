@@ -6,6 +6,7 @@
         <span>The DESI Sikka</span>
       </a>
       <p>{{ site.description | strip_html | truncatewords: 26 }}</p>
+      {% include newsletter-form.html %}
       <div class="footer-social">
         <a href="https://twitter.com/{{ site.twitter_username }}" rel="noopener" title="Twitter / X" aria-label="Twitter / X">{% include social-icon.html name="x" size="15" %}</a>
         <a href="{{ site.telegram_url }}" rel="noopener" title="Telegram" aria-label="Telegram">{% include social-icon.html name="telegram" size="15" %}</a>
@@ -26,6 +27,7 @@
       <a href="{{ '/' | relative_url }}">Latest news</a>
       <a href="{{ '/pages/predictions/' | relative_url }}">Price predictions</a>
       <a href="{{ '/pages/airdrops/' | relative_url }}">Airdrops</a>
+      <a href="{{ '/pages/learn/' | relative_url }}">Learn</a>
       <a href="{{ '/pages/todays-combo/' | relative_url }}">Today's combo</a>
       <a href="{{ '/press/' | relative_url }}">Press releases</a>
       <a href="{{ '/pages/events/' | relative_url }}">Events</a>
@@ -36,6 +38,7 @@
       <a href="{{ '/about/' | relative_url }}">About</a>
       <a href="{{ '/author/f9xr/' | relative_url }}">F9XR News Desk</a>
       <a href="{{ '/archive/' | relative_url }}">Archive</a>
+      <a href="{{ '/pages/saved/' | relative_url }}">Saved</a>
       <a href="{{ '/pages/search/' | relative_url }}">Search</a>
       <a href="{{ '/pages/contact/' | relative_url }}">Contact</a>
       <a href="{{ '/rss.xml' | relative_url }}">RSS feed</a>
@@ -44,6 +47,8 @@
     <div class="footer-col">
       <h3>Trust &amp; Legal</h3>
       <a href="{{ '/legal/editorial-policy/' | relative_url }}">Editorial policy</a>
+      <a href="{{ '/legal/disclosures/' | relative_url }}">Disclosures</a>
+      <a href="{{ '/corrections/' | relative_url }}">Corrections</a>
       <a href="{{ '/legal/disclaimer/' | relative_url }}">Disclaimer</a>
       <a href="{{ '/legal/privacy-policy/' | relative_url }}">Privacy policy</a>
       <a href="{{ '/legal/terms/' | relative_url }}">Terms of use</a>

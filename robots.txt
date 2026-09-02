@@ -1,4 +1,26 @@
 User-agent: *
 Allow: /
+Disallow: /pages/search/
+Disallow: /search.json
+Disallow: /404.html
+Disallow: /feed.xml
+Disallow: /rss.xml
+Disallow: /atom.xml
+
+# AI crawlers may read llms.txt / llms-full.txt and index content
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
 
 Sitemap: https://ttearncrypto.github.io/thedesisikka/sitemap.xml

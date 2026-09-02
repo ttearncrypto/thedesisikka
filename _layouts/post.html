@@ -3,6 +3,8 @@ layout: default
 ---
 {% assign cat_slug = page.categories | first %}
 {% assign cat = site.site_categories | where: 'slug', cat_slug | first %}
+{% assign author_slug = page.author | default: 'newsdesk' %}
+{% assign post_author = site.data.authors[author_slug] | default: site.data.authors.newsdesk %}
 {% capture abs_url %}{{ site.url }}{{ site.baseurl }}{{ page.url }}{% endcapture %}
 {% capture summary_prompt %}Summarize this article in clear key points: {{ abs_url }}{% endcapture %}
 
@@ -20,7 +22,7 @@ layout: default
 
   <article class="article-column" data-slug="{{ page.slug }}">
     <header class="article-header">
-      <span class="mono-label">{{ page.date | date: '%d.%m.%Y' }} · {% if cat %}{{ cat.name }}{% else %}News{% endif %} · F9XR News Desk</span>
+      <span class="mono-label">{{ page.date | date: '%d.%m.%Y' }}{% if page.last_modified_at %} · <span class="updated-label">Updated {{ page.last_modified_at | date: '%d.%m.%Y' }}</span>{% endif %} · {% if cat %}{{ cat.name }}{% else %}News{% endif %}{% if page.opinion %} · <span class="opinion-label">Opinion</span>{% endif %} · {{ post_author.name }}</span>
       <h1 itemprop="headline">{{ page.title | escape }}</h1>
       {% if page.description %}
         <p class="article-lead">{{ page.description }}</p>
@@ -30,7 +32,7 @@ layout: default
     {% comment %} ---- Featured image space ---- {% endcomment %}
     <figure class="article-cover cover-{{ cat_slug }}">
       {% if page.cover_image %}
-        <img src="{{ page.cover_image | relative_url }}" alt="{{ page.title | escape }}">
+        <img src="{{ page.cover_image | relative_url }}" alt="{{ page.title | escape }}" loading="eager" fetchpriority="high" decoding="async">
         {% if page.cover_caption %}<figcaption class="cover-caption">{{ page.cover_caption }}</figcaption>{% endif %}
       {% else %}
         <span class="cover-glyph" aria-hidden="true"></span>
@@ -43,9 +45,13 @@ layout: default
       <span class="tool-meta">
         {% assign words = page.content | strip_html | number_of_words %}
         {% if words > 0 %}<strong>{{ words | divided_by: 180 | plus: 1 }} min read</strong> ·{% endif %}
-        By <a class="author-link" href="{{ '/author/f9xr/' | relative_url }}">{{ site.default_author.name }}</a>
+        By <a class="author-link" href="{{ post_author.url | relative_url }}">{{ post_author.name }}</a>
       </span>
       <span class="tool-buttons">
+        <button type="button" id="save-btn" class="tool-btn tool-save" data-title="{{ page.title | escape }}" data-url="{{ page.url | relative_url }}" aria-pressed="false" title="Save for later" aria-label="Save for later">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+          <span id="save-label">Save</span>
+        </button>
         <button type="button" id="listen-btn" class="tool-btn" aria-pressed="false" title="Listen to this article">
           {% include social-icon.html name="listen" size="14" %}
           Listen
@@ -86,9 +92,21 @@ layout: default
     <div class="prose" id="article-body" itemprop="articleBody">
       {{ content }}
 
+      {% comment %} ---- Sources ---- {% endcomment %}
+      {% if page.sources %}
+      <div class="legal-box sources-box">
+        <p><strong>Sources:</strong></p>
+        <ul>
+          {% for src in page.sources %}
+            <li><a href="{{ src | strip }}" rel="nofollow noopener" target="_blank">{{ src | strip | replace: 'https://', '' | replace: 'http://', '' | replace: 'www.', '' | split: '/' | first }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
       {% comment %} ---- Copyright box ---- {% endcomment %}
       <div class="legal-box copyright-box">
-        <p>&copy; {{ site.time | date: '%Y' }} F9XR Team. All rights reserved. Published by staff journalists unless otherwise noted. Spotted an error? Visit our <a href="{{ '/pages/contact/' | relative_url }}">contact page</a>.</p>
+        <p>&copy; {{ site.time | date: '%Y' }} F9XR Team. All rights reserved. Published by staff journalists unless otherwise noted. Spotted an error? Check the <a href="{{ '/corrections/' | relative_url }}">corrections register</a> or visit our <a href="{{ '/pages/contact/' | relative_url }}">contact page</a>.</p>
       </div>
 
       {% comment %} ---- Disclaimer box ---- {% endcomment %}
@@ -135,19 +153,20 @@ layout: default
     {% comment %} ---- Author box ---- {% endcomment %}
     <section class="author-box">
       <div class="author-box-head">
-        <a href="{{ '/author/f9xr/' | relative_url }}">
-          {% if site.default_author.avatar %}
-            <img class="author-avatar-lg" src="{{ site.default_author.avatar | relative_url }}" alt="{{ site.default_author.name }}">
+        <a href="{{ post_author.url | relative_url }}">
+          {% if post_author.avatar %}
+            <img class="author-avatar-lg" src="{{ post_author.avatar | relative_url }}" alt="{{ post_author.name }}" loading="lazy" decoding="async">
           {% else %}
-            <span class="author-avatar-lg author-monogram" aria-hidden="true">F9</span>
+            <span class="author-avatar-lg author-monogram" aria-hidden="true">{{ post_author.monogram }}</span>
           {% endif %}
         </a>
         <div>
           <p class="mono-label">Written by</p>
-          <h2><a class="author-link author-link-lg" href="{{ '/author/f9xr/' | relative_url }}">{{ site.default_author.name }}</a></h2>
+          <h2><a class="author-link author-link-lg" href="{{ post_author.url | relative_url }}">{{ post_author.name }}</a></h2>
         </div>
       </div>
-      <p class="author-box-bio">{{ site.default_author.bio }}</p>
+      <p class="author-box-bio">{{ post_author.bio | default: site.default_author.bio }}</p>
+      {% if author_slug == 'newsdesk' %}
       <div class="icon-row">
         {% for link in site.author_links %}
           {% assign icon_name = link.name | downcase %}
@@ -156,8 +175,9 @@ layout: default
             {% include social-icon.html name=icon_name size="16" %}
           </a>
         {% endfor %}
-        <a class="icon-btn icon-btn-wide" href="{{ '/author/f9xr/' | relative_url }}">All stories {% include social-icon.html name="chevron" size="13" %}</a>
+        <a class="icon-btn icon-btn-wide" href="{{ post_author.url | relative_url }}">All stories {% include social-icon.html name="chevron" size="13" %}</a>
       </div>
+      {% endif %}
     </section>
 
     {% comment %} ---- Related news (same category) ---- {% endcomment %}
@@ -201,19 +221,19 @@ layout: default
     <div class="sidebar-sticky">
 
       <div class="author-card">
-        <a href="{{ '/author/f9xr/' | relative_url }}">
-          {% if site.default_author.avatar %}
-            <img class="author-avatar" src="{{ site.default_author.avatar | relative_url }}" alt="{{ site.default_author.name }}">
+        <a href="{{ post_author.url | relative_url }}">
+          {% if post_author.avatar %}
+            <img class="author-avatar" src="{{ post_author.avatar | relative_url }}" alt="{{ post_author.name }}" loading="lazy" decoding="async">
           {% else %}
-            <span class="author-avatar author-monogram" aria-hidden="true">F9</span>
+            <span class="author-avatar author-monogram" aria-hidden="true">{{ post_author.monogram }}</span>
           {% endif %}
         </a>
         <div>
           <p class="mono-label">Written by</p>
-          <h2 class="author-name"><a href="{{ '/author/f9xr/' | relative_url }}">{{ site.default_author.name }}</a></h2>
+          <h2 class="author-name"><a href="{{ post_author.url | relative_url }}">{{ post_author.name }}</a></h2>
         </div>
       </div>
-      <p class="author-bio">{{ site.default_author.bio }}</p>
+      <p class="author-bio">{{ post_author.bio | default: site.default_author.bio }}</p>
 
       {% if related.size > 0 %}
       <div class="side-card">
@@ -226,6 +246,8 @@ layout: default
       </div>
       {% endif %}
 
+      {% include guide-cards.html %}
+
       <div class="side-card">
         <h3>The DESI Sikka daily</h3>
         <p style="margin:0 0 0.75rem;font-size:13px;color:#71717a;">Market moves, regulation updates and airdrops. Straight to your Telegram, free.</p>
@@ -235,6 +257,8 @@ layout: default
         </div>
         <a class="btn btn-primary btn-sm" href="{{ site.telegram_url }}" rel="noopener">Join the channel &rarr;</a>
       </div>
+
+      {% include newsletter-form.html %}
 
     </div>
   </aside>
@@ -256,29 +280,30 @@ layout: default
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "NewsArticle",
+  "@type": "{% if page.opinion %}OpinionNewsArticle{% else %}NewsArticle{% endif %}",
   "headline": {{ page.title | jsonify }},
   "description": {{ page.description | default: page.excerpt | strip_html | jsonify }},
+  "wordCount": {{ page.content | strip_html | number_of_words }},
   "datePublished": {{ page.date | date_to_xmlschema | jsonify }},
-  "dateModified": {{ page.date | date_to_xmlschema | jsonify }},
-  "mainEntityOfPage": {{ abs_url | jsonify }},
+  "dateModified": {{ page.last_modified_at | default: page.date | date_to_xmlschema | jsonify }},
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": {{ abs_url | jsonify }}
+  },
   "image": [{{ site.url | append: site.baseurl | append: page.image | jsonify }}],
+  "thumbnailUrl": {{ site.url | append: site.baseurl | append: page.image | jsonify }},
   "keywords": {{ page.keywords | default: page.tags | join: ', ' | jsonify }},
   "articleSection": "{% if cat %}{{ cat.name }}{% else %}News{% endif %}",
   "inLanguage": "en",
   "author": {
-    "@type": "Organization",
-    "name": {{ site.default_author.name | jsonify }},
-    "url": {{ site.url | append: site.baseurl | append: '/author/f9xr/' | jsonify }},
-    "logo": {{ site.url | append: site.baseurl | append: site.default_author.avatar | jsonify }},
-    "sameAs": [
-      "https://f9xr.github.io/",
-      "https://linkedin.com/company/f9xrteam",
-      "https://instagram.com/f9xrteam",
-      "https://youtube.com/@QuarterlyLIV",
-      "https://pinterest.com/f9xr",
-      "https://github.com/f9xr"
-    ]
+    "@type": {{ post_author.type | default: 'Organization' | jsonify }},
+    "name": {{ post_author.name | jsonify }},
+    "url": {{ site.url | append: site.baseurl | append: post_author.url | jsonify }},
+    "email": {{ post_author.email | default: site.email | jsonify }}{% if post_author.jobTitle %},
+    "jobTitle": {{ post_author.jobTitle | jsonify }}{% endif %}{% if post_author.alternateName %},
+    "alternateName": {{ post_author.alternateName | jsonify }}{% endif %}{% if post_author.avatar %},
+    "logo": {{ site.url | append: site.baseurl | append: post_author.avatar | jsonify }}{% endif %}{% if post_author.sameAs %},
+    "sameAs": {{ post_author.sameAs | jsonify }}{% endif %}
   },
   "publisher": {
     "@type": "NewsMediaOrganization",
@@ -294,6 +319,20 @@ layout: default
     ]
   },
   "isAccessibleForFree": true
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": {{ abs_url | jsonify }},
+  "url": {{ abs_url | jsonify }},
+  "name": {{ page.title | jsonify }},
+  "inLanguage": "en",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [".article-lead", ".prose"]
+  }
 }
 </script>
 <script type="application/ld+json">

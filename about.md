@@ -45,3 +45,15 @@ description: "Who we are, what we cover and why The DESI Sikka exists."
     <p>Read, question, verify. Then decide with your own head.</p>
   </div>
 </section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About The DESI Sikka",
+  "url": {{ '/about/' | absolute_url | jsonify }},
+  "isPartOf": {{ '/' | absolute_url | jsonify }},
+  "description": {{ site.description | strip_html | jsonify }},
+  "inLanguage": "en"
+}
+</script>

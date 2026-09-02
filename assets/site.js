@@ -235,6 +235,70 @@
     document.body.removeChild(ta);
   }
 
+  /* ================= Saved articles ================= */
+  (function () {
+    function getSaved() {
+      try { return JSON.parse(localStorage.getItem("tds-saved") || "[]"); }
+      catch (e) { return []; }
+    }
+    function setSaved(list) {
+      localStorage.setItem("tds-saved", JSON.stringify(list));
+    }
+    var btn = document.getElementById("save-btn");
+    if (btn) {
+      var title = btn.getAttribute("data-title") || "";
+      var url = btn.getAttribute("data-url") || "";
+      var label = document.getElementById("save-label");
+      function refresh() {
+        var hit = getSaved().some(function (s) { return s.url === url; });
+        btn.setAttribute("aria-pressed", hit ? "true" : "false");
+        btn.classList.toggle("active", hit);
+        if (label) label.textContent = hit ? "Saved" : "Save";
+      }
+      btn.addEventListener("click", function () {
+        var saved = getSaved();
+        var hit = saved.some(function (s) { return s.url === url; });
+        if (hit) {
+          setSaved(saved.filter(function (s) { return s.url !== url; }));
+        } else {
+          saved.push({ title: title, url: url });
+          setSaved(saved);
+        }
+        refresh();
+      });
+      refresh();
+    }
+  })();
+
+  /* ================= Reading progress bar ================= */
+  (function () {
+    var body = document.getElementById("article-body");
+    if (!body) return;
+    var track = document.createElement("div");
+    track.className = "progress-track";
+    track.setAttribute("aria-hidden", "true");
+    var bar = document.createElement("div");
+    bar.className = "progress-bar";
+    track.appendChild(bar);
+    document.body.appendChild(track);
+
+    var ticking = false;
+    function update() {
+      var rect = body.getBoundingClientRect();
+      var total = rect.height - window.innerHeight;
+      var scrolled = -rect.top;
+      var pct = total > 0 ? Math.min(1, Math.max(0, scrolled / total)) : 1;
+      bar.style.width = (pct * 100).toFixed(2) + "%";
+      ticking = false;
+    }
+    function onScroll() {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    update();
+  })();
+
   /* ================= Also Read injector ================= */
   if (body) {
     var dataEl = document.getElementById("also-read-data");

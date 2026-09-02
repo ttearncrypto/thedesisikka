@@ -1,9 +1,10 @@
 ---
 layout: null
 permalink: /rss.xml
+sitemap: false
 ---
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>{{ site.title | xml_escape }}</title>
     <link>{{ site.url }}{{ site.baseurl }}/</link>
@@ -17,13 +18,18 @@ permalink: /rss.xml
       <link>{{ site.url }}{{ site.baseurl }}/</link>
     </image>
     {% for post in site.posts limit: 20 %}
+    {% assign rss_slug = post.author | default: 'newsdesk' %}{% assign rss_author = site.data.authors[rss_slug] | default: site.data.authors.newsdesk %}
     <item>
       <title>{{ post.title | xml_escape }}</title>
       <link>{{ site.url }}{{ site.baseurl }}{{ post.url }}</link>
       <guid isPermaLink="true">{{ site.url }}{{ site.baseurl }}{{ post.url }}</guid>
       <pubDate>{{ post.date | date: "%a, %-d %b %Y %H:%M:%S %z" }}</pubDate>
-      <description>{{ post.description | default: post.excerpt | strip_html | xml_escape }}</description>
+      {% if post.last_modified_at %}<dc:date>{{ post.last_modified_at | date: "%a, %-d %b %Y %H:%M:%S %z" }}</dc:date>{% endif %}
+      <author>{{ rss_author.email | default: site.email | xml_escape }} ({{ rss_author.name | xml_escape }})</author>
+      <dc:creator>{{ rss_author.name | xml_escape }}</dc:creator>
       <category>{{ post.categories | first | default: 'news' | xml_escape }}</category>
+      <description>{{ post.description | default: post.excerpt | strip_html | xml_escape }}</description>
+      <content:encoded><![CDATA[{{ post.content }}]]></content:encoded>
     </item>
     {% endfor %}
   </channel>

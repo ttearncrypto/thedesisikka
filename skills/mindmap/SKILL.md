@@ -1,24 +1,24 @@
 ---
 name: mindmap
-description: Create interactive, visual mind maps as standalone HTML files. Use this skill whenever the user asks for a mind map, site map, topic map, content hierarchy, knowledge map, org chart, sitemap visualization, content cluster diagram, SEO architecture map, brainstorming map, or any request to visualize relationships between topics/pages/ideas as a spatial branching diagram. Also trigger when the user asks to "map out", "visualize the structure of", "show connections between", or wants to understand how pages/topics/ideas relate to each other. Works with sitemaps, URLs, uploaded data, or freeform topics. Always produces a single .html file with pan, zoom, drag-to-rearrange, and clickable nodes.
+description: Create interactive, visual mind maps as standalone HTML files for crypto news content architecture. Use this skill whenever the user asks for a mind map, site map, topic map, content hierarchy, knowledge map, content cluster diagram, SEO architecture map, or any request to visualize relationships between crypto topics/pages/ideas. Also trigger for "map out", "visualize the structure of", "show connections between" crypto topics. Always produces a single .html file with pan, zoom, drag-to-rearrange, and clickable nodes.
 ---
 
-# Mind Map Skill
+# Mind Map Skill — DESI Sikka Crypto Content Architecture
 
 Create beautiful, interactive mind maps rendered as standalone `.html` files. The maps look and feel like Miro/FigJam — white canvas, dot grid, colored curved rope connections, draggable nodes, tap-to-expand branches, and clickable leaf nodes.
 
 ## When to Use
 
-- User asks for a **mind map**, **site map visualization**, **topic map**, or **content hierarchy**
-- User wants to **visualize a sitemap** (XML, URL list, or website structure)
-- User wants to see **how pages/topics connect** to each other
+- User asks for a **content architecture map** for crypto topics
+- User wants to **visualize the site's topic clusters** (bitcoin, ethereum, altcoins, regulation, defi, exchanges)
+- User wants to see **how crypto topics connect** to each other
 - User asks for an **SEO content architecture** or **content cluster map**
-- User asks to **map out** ideas, **brainstorm visually**, or show **org structure**
-- User provides a list of topics/pages and wants them **organized spatially**
+- User wants to **map out** crypto coverage areas or **brainstorm visually**
+- User provides a list of crypto topics/pages and wants them **organized spatially**
 
 ## Output
 
-Always a single `.html` file saved to `/mnt/user-data/outputs/`. Never JSX or React — pure HTML + inline CSS + inline JS. No external dependencies.
+Always a single `.html` file saved to the workspace root. Never JSX or React — pure HTML + inline CSS + inline JS. No external dependencies.
 
 ## Step-by-Step Process
 
@@ -26,8 +26,8 @@ Always a single `.html` file saved to `/mnt/user-data/outputs/`. Never JSX or Re
 
 Determine the data source:
 
-- **Sitemap URL**: Fetch the sitemap XML → extract all URLs → categorize into clusters
-- **Uploaded file**: Read the file → extract topics/pages/hierarchy
+- **Site structure**: Read `_posts/` and `_config.yml` to map existing content
+- **Category structure**: The site has 6 categories: bitcoin, ethereum, altcoins, regulation, defi, exchanges
 - **Freeform request**: Ask clarifying questions if the structure is ambiguous, otherwise infer a logical hierarchy
 - **URL list**: Group URLs by path segments into parent/child relationships
 
@@ -36,26 +36,56 @@ Determine the data source:
 Structure the data into this mental model:
 
 ```
-Root (center node)
-├── Silo 1 (colored pill node)
-│   ├── Pillar/Hub (border card node)
-│   ├── Sub-topic A (card node)
-│   │   ├── Leaf 1 (small card, clickable)
-│   │   ├── Leaf 2
-│   │   └── Leaf 3
-│   └── Sub-topic B
-│       ├── Leaf 4
-│       └── Leaf 5
-├── Silo 2
-│   └── ...
-└── Silo N
+Root: The DESI Sikka
+├── Bitcoin (orange)
+│   ├── Price & Market Analysis
+│   │   ├── Daily price movements
+│   │   ├── Technical analysis
+│   │   └── On-chain metrics
+│   ├── Mining & Network
+│   │   ├── Hash rate
+│   │   ├── Halving events
+│   │   └── Mining difficulty
+│   ├── Institutional
+│   │   ├── ETF updates
+│   │   ├── Corporate treasuries
+│   │   └── Whale movements
+│   └── India angle
+│       ├── Tax implications (30% + 1% TDS)
+│       ├── RBI stance
+│       └── Indian exchanges
+├── Ethereum (blue)
+│   ├── Layer 2 ecosystem
+│   ├── DeFi on Ethereum
+│   ├── NFTs & tokens
+│   └── Upgrade roadmap
+├── Altcoins (purple)
+│   ├── Solana ecosystem
+│   ├── Layer 1 competitors
+│   ├── Meme coins
+│   └── Token launches
+├── Regulation (slate)
+│   ├── India regulation
+│   ├── US SEC/CFTC
+│   ├── EU MiCA
+│   └── Global policy
+├── DeFi & Web3 (cyan)
+│   ├── Protocols & TVL
+│   ├── Yield & staking
+│   ├── Cross-chain bridges
+│   └── DAOs & governance
+└── Exchanges & How-to (green)
+    ├── Exchange reviews
+    ├── P2P trading
+    ├── Wallet security
+    └── On-ramps for India
 ```
 
 **Hierarchy rules:**
-- **Max 4 levels deep**: Root → Silo → Hub → Leaf
+- **Max 4 levels deep**: Root → Category → Topic → Article/Leaf
 - **Group by topic similarity**, not just URL path
-- **7–15 silos** is the sweet spot for the top ring
-- **3–8 hubs per silo** to avoid visual overcrowding
+- **6 main silos** (matching site categories) is the standard top ring
+- **3–6 hubs per silo** to avoid visual overcrowding
 - **Up to ~15 leaves per hub** (they fan out radially)
 
 ### Step 3: Build the HTML
@@ -64,83 +94,82 @@ Read the template at `templates/mindmap-template.html` in this skill's directory
 
 1. **Copy the template** to your working directory
 2. **Replace the `SILOS` data array** with the actual organized data
-3. **Adjust colors** — assign each silo a distinct color from the palette
+3. **Adjust colors** — use category colors: Bitcoin #f7931a, Ethereum #627eea, Altcoins #8b5cf6, Regulation #64748b, DeFi #06b6d4, Exchanges #10b981
 4. **Adjust radii** if needed (R1/R2/R3 for the three rings)
 5. **Set the initial expanded state** — expand 1–2 silos so the user sees ropes immediately
-6. **Update the title and header** to match the user's domain/topic
-7. Save to `/mnt/user-data/outputs/<name>-mindmap.html`
+6. **Update the title and header** to "The DESI Sikka — Content Architecture"
+7. Save to workspace root as `<name>-mindmap.html`
 
 ### Step 4: Present the File
 
-Call `present_files` with the output HTML path.
+Present the output HTML file to the user.
 
 ### Step 2.5: Content Gap Analysis
 
 For every hub/branch, analyze what's missing and suggest new topics. This is the key value-add that makes the mind map an SEO strategy tool.
 
-**How to find gaps — check each cluster for these content archetypes:**
+**How to find gaps — check each crypto category for these content archetypes:**
 
 1. **Pillar / Definition post** — "What Is [Topic]?" (every silo MUST have one)
 2. **Beginner guide** — "[Topic] for Beginners / First-Timers"
-3. **Dosage / How-to guide** — "[Topic] Dosage Chart" or "How to Use [Topic]"
-4. **Comparison posts** — "[Topic A] vs [Topic B]" for each pair of related products/topics
-5. **Legal guide** — "Is [Topic] Legal?" with state-by-state info
-6. **Safety / Side effects** — "[Topic] Side Effects" or "Is [Topic] Safe?"
-7. **Duration / Detection** — "How Long Does [Topic] Last / Stay in System"
-8. **Best-of listicle** — "Best [Topic Products] [Year]"
-9. **Near-me / Commercial** — "[Topic] Near Me" or "Buy [Topic] Online"
-10. **Use-case posts** — "[Topic] for Sleep / Pain / Anxiety / Focus"
+3. **India-specific guide** — "[Topic] Tax in India" or "India Regulation Guide"
+4. **Comparison posts** — "[Exchange A] vs [Exchange B]" for each pair of related platforms
+5. **Legal/regulatory guide** — "Is [Topic] Legal in India?" with current status
+6. **Price prediction** — "[Asset] Price Prediction [Year]" (labeled as Opinion)
+7. **How-to guide** — "How to Buy [Asset] in India"
+8. **Best-of listicle** — "Best [Category] [Year]"
+9. **Explainer** — "How [Protocol/Technology] Works"
+10. **News analysis** — "[Event]: What It Means for [Audience]"
 
 For each missing archetype, create a gap entry with target keyword and priority:
-- **High priority**: Missing pillar page, missing comparison vs a direct competitor topic, high-volume "best of" listicle, or a gap that blocks internal linking
-- **Medium priority**: Missing use-case post, missing how-to, or supplementary comparison
+- **High priority**: Missing pillar page, missing comparison vs a direct competitor topic, high-volume "best of" listicle
+- **Medium priority**: Missing use-case post, missing how-to, supplementary comparison
 - **Low priority**: Nice-to-have niche content, long-tail variations
 
 ### Step 2.6: Internal Linking Map
 
 For every existing post, determine which other pages it should link to. Follow these rules:
 
-1. **Every post links UP to its pillar** — always
-2. **Every post links ACROSS to relevant product pages** — especially buying guides and comparisons
-3. **Comparison posts link SIDEWAYS** — to the other topic's pillar page (e.g., "THCA vs Delta 9" links to both the THCA pillar and the Delta 9 pillar)
-4. **"Near me" and commercial posts link to the shop page**
-5. **How-to posts link to the products** they reference
-6. **Related posts within the same hub should cross-link** (e.g., "Drug Test" post ↔ "How Long in System" post)
-7. **Product pages link DOWN to their best blog content** (reverse direction)
+1. **Every post links UP to its category pillar** — always
+2. **Every post links ACROSS to related category content** — especially cross-category stories
+3. **Comparison posts link SIDEWAYS** — to both compared entities' pillar pages
+4. **How-to posts link to the exchanges/tools** they reference
+5. **India-specific posts link to the India regulation guide**
+6. **Related posts within the same hub should cross-link**
+7. **Learn guides link DOWN to relevant articles** (reverse direction)
 
-Represent links as an array of target labels: `ln: ["Pillar", "Flower Products", "D9 Silo"]`
+Represent links as an array of target labels: `ln: ["Bitcoin Pillar", "India Regulation", "Exchange Reviews"]`
 
 ## Data Format
 
-The `SILOS` array in the template follows this enhanced structure:
+The `SILOS` array follows this structure:
 
 ```javascript
 const SILOS = [
   {
-    id: "unique-id",
-    n: "Display Name",
-    c: "#16a34a",
+    id: "bitcoin",
+    n: "Bitcoin",
+    c: "#f7931a",
     p: {
-      t: "Pillar Page Title",
-      u: "/url-path/"
+      t: "Bitcoin News & Analysis",
+      u: "/category/bitcoin/"
     },
     b: [
       {
-        h: "Hub Name",
-        lk: "→ Links to X",
+        h: "Price & Market",
+        lk: "→ Bitcoin Pillar",
         ps: [
           {
-            t: "Leaf Title",
-            u: "/url-path/",
-            ln: ["Pillar", "Product Page", "Related Silo"],  // internal link targets
-            w: "Warning text"   // optional
+            t: "Bitcoin drops 12% in liquidation cascade",
+            u: "/news/bitcoin-liquidation-cascade/",
+            ln: ["Bitcoin Pillar", "Exchanges", "India Tax Guide"]
           }
         ],
-        gaps: [  // suggested new content
+        gaps: [
           {
-            t: "Suggested Article Title",
-            kw: "target seo keyword",     // shown on the node
-            pri: "high"                   // "high", "med", or "low"
+            t: "Bitcoin Price Prediction 2026",
+            kw: "bitcoin price prediction 2026",
+            pri: "high"
           }
         ]
       }
@@ -151,18 +180,14 @@ const SILOS = [
 
 ## Color Palette
 
-Assign each silo a distinct color. Recommended palette (12 colors):
+Use category-specific colors:
 
 ```
-#16a34a  green      #7c3aed  purple     #dc2626  red
-#ea580c  orange     #0284c7  blue       #db2777  pink
-#ca8a04  amber      #0d9488  teal       #6366f1  indigo
-#b45309  brown      #9333ea  violet     #475569  slate
+#f7931a  Bitcoin orange    #627eea  Ethereum blue   #8b5cf6  Altcoins purple
+#64748b  Regulation slate  #06b6d4  DeFi cyan       #10b981  Exchanges green
 ```
 
 ## Visual Design Rules
-
-These rules ensure every mind map looks professional and human-crafted:
 
 ### Canvas
 - **White background** (#fff) with a **dot grid** (radial-gradient dots, 28px spacing, subtle gray)
@@ -170,10 +195,10 @@ These rules ensure every mind map looks professional and human-crafted:
 
 ### Ropes (Connection Lines)
 - **SVG bezier curves** using cubic bezier (S-curve shape)
-- The SVG element MUST be positioned at `left:0; top:0; width:1px; height:1px; overflow:visible` — this ensures coordinates match node positions exactly. **Never offset the SVG** with large negative positions.
+- The SVG element MUST be positioned at `left:0; top:0; width:1px; height:1px; overflow:visible`
 - Each rope has **two layers**: a thick transparent glow layer + the main colored line
-- **Endpoint dots** (small circles) at both ends of each rope
-- Width hierarchy: Root→Silo: 5px, Silo→Hub: 3.5px, Hub→Leaf: 2px
+- **Endpoint dots** at both ends of each rope
+- Width hierarchy: Root→Category: 5px, Category→Hub: 3.5px, Hub→Leaf: 2px
 - Opacity: 0.55 for main rope, 0.08 for glow
 - `stroke-linecap: round` always
 
@@ -187,31 +212,22 @@ function bezier(x1, y1, x2, y2) {
 
 ### Nodes
 - **Root**: Dark rounded rect (140×70px), centered, bold white text, border glow
-- **Silo**: Colored pill (border-radius: 25px), white bold text, drop shadow matching silo color. Shows post count + gap count when gaps are ON.
-- **Pillar**: White card with thick colored border, "★ PILLAR" or "⚠ MISSING" tag
-- **Hub**: White card with 5px colored left border, shows "→ links to" tag + green "+N gaps" badge when gaps are ON
-- **Post/Leaf**: Small white card with colored dot, "↗ Open" link text, optional ⚠ warning. **Now includes blue "→Target" link pills** showing where the page should link to.
-- **Gap (NEW)**: Green dashed-border card with "+" circle icon. Shows suggested title, target keyword (monospace with 🎯), and priority badge (red=high, amber=medium, green=low). Connected to parent hub with dashed green rope.
-
-### Link Pills on Posts
-Every post node displays its `ln` array as small blue pills: `→Pillar`, `→Flower Products`, etc. These show at a glance which pages each post should link to. This is the internal linking map made visual.
-
-### Gap Toggle
-Include a toggle button (fixed, bottom-right above zoom controls) that switches gap nodes ON/OFF. When OFF, only existing content shows. When ON, suggested gaps appear with dashed green connections. The button text toggles between "✦ Gaps ON" and "✦ Gaps OFF".
+- **Category**: Colored pill (border-radius: 25px), white bold text, drop shadow matching category color
+- **Hub**: White card with 5px colored left border, shows "→ links to" tag
+- **Post/Leaf**: Small white card with colored dot, "↗ Open" link text
+- **Gap (NEW)**: Green dashed-border card with "+" circle icon. Shows suggested title, target keyword, and priority badge
 
 ### Layout Algorithm
-- Radial layout: silos evenly spaced in a circle around center
-- R1 = 340–360px (center to silos)
-- R2 = 260–270px (silo to hubs) — hubs fan within the silo's angular allocation
-- R3 = 175–185px (hub to leaves) — leaves fan within the hub's angular allocation
-- Fan angle per silo = `2π / siloCount`
-- Hub spread = 80% of silo's angle allocation
-- Leaf spread = proportional to hub's angle allocation
+- Radial layout: categories evenly spaced in a circle around center
+- R1 = 340–360px (center to categories)
+- R2 = 260–270px (category to hubs)
+- R3 = 175–185px (hub to leaves)
+- Fan angle per category = `2π / categoryCount`
 
 ### Interactions
-- **Tap silo** → expand/collapse its branches (hubs + pillar)
+- **Tap category** → expand/collapse its branches
 - **Tap hub** → expand/collapse its leaves
-- **Tap leaf** → open URL in new tab (`window.open(url, '_blank')`)
+- **Tap leaf** → open URL in new tab
 - **Drag node** → move it + all descendants, ropes redraw in real-time
 - **Drag background** → pan the viewport
 - **Pinch** → zoom (touch devices)
@@ -219,31 +235,15 @@ Include a toggle button (fixed, bottom-right above zoom controls) that switches 
 - **↺ button** → reset view
 
 ### Click vs Drag Detection
-This is CRITICAL — the #1 bug in mind map implementations:
 ```javascript
 let totalMoved = 0;
 // On pointer move: totalMoved += Math.abs(delta)
 // On pointer up: if (totalMoved < 10) → treat as click; else → was a drag
 ```
-Use `pointerdown/pointermove/pointerup` events. Track `totalMoved` as cumulative pixel distance. Threshold of **10px** separates click from drag.
-
-### Descendant Dragging
-When a node is dragged, ALL its descendants must move with it:
-```javascript
-function getDescendants(id, childMap) {
-  const result = [];
-  (childMap[id] || []).forEach(kid => {
-    result.push(kid);
-    result.push(...getDescendants(kid, childMap));
-  });
-  return result;
-}
-```
-On drag start, snapshot all positions. On move, apply delta to the dragged node + all descendants.
 
 ### Top Bar
 - Fixed position, white with backdrop blur, bottom border
-- Title (domain or topic name), one-line instruction text
+- Title: "The DESI Sikka — Content Architecture"
 - z-index above everything
 
 ### Controls
@@ -253,33 +253,17 @@ On drag start, snapshot all positions. On move, apply delta to the dragged node 
 ## Common Customizations
 
 ### For SEO / Sitemap Maps
-- Add warning badges (`w` field) for URL issues (orphans, duplicates, wrong silo)
-- Show "→ links to" tags on hubs indicating internal linking strategy
-- Pillar pages get the special "★ PILLAR PAGE" tag
+- Add warning badges for URL issues (orphans, duplicates, wrong category)
+- Show "→ links to" tags indicating internal linking strategy
+- Category pillar pages get "★ PILLAR PAGE" tag
 - Missing pillars get "⚠ MISSING PILLAR" in orange
 
-### For Brainstorming / Topic Maps
-- Remove URL fields and "↗ Open page" text
-- Replace with descriptive subtitles or notes
-- Use the `lk` field for relationship descriptions ("relates to", "depends on")
+### For Content Planning
+- Show gap nodes with suggested articles and target keywords
+- Color-code by content priority (red=high, amber=medium, green=low)
+- Include search volume estimates where available
 
-### For Org Charts / Hierarchies
-- Root = Company/Department
-- Silos = Teams/Divisions
-- Hubs = Roles/Projects
-- Leaves = People/Tasks
-
-## Troubleshooting
-
-### Ropes not visible
-The SVG MUST be: `position:absolute; left:0; top:0; width:1px; height:1px; overflow:visible;`
-**Never** use large dimensions or negative offsets. The bezier coordinates must be in the same coordinate space as the node positions.
-
-### Clicks not working
-Must track `totalMoved` and only fire click actions when `totalMoved < 10`. Use `pointerdown`/`pointermove`/`pointerup` — not `click` events (which conflict with drag).
-
-### Nodes overlapping
-Increase R1/R2/R3 values, or reduce the number of silos. For 15+ silos, set R1 to 450+.
-
-### Mobile touch issues
-Include `touch-action: none` on the body and viewport. Use passive:false on touchstart/touchmove for pinch zoom.
+### For Editorial Calendar
+- Add date nodes for planned publication dates
+- Show content pipeline: draft → review → published
+- Link to existing articles in `_posts/`
