@@ -7,7 +7,7 @@ description: "Terms governing use of The DESI Sikka website and its content."
 
 <div class="meta-strip compact">
   <span>Legal</span>
-  <span>Last updated: August 2026</span>
+  <span>Last updated: September 2026</span>
 </div>
 
 <section class="section shell">

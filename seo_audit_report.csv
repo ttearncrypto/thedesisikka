@@ -1,0 +1,19 @@
+#,Pillar,Issue,Severity,File,Effort,Traffic Impact,Revenue Impact,Time to Impact,Status
+1,10 (Images),No favicon anywhere in repo — browser 404s on every page,HIGH,Repository root + head.html,30 min,Low (indirect),Medium (AdSense reviewer),Immediate,Fixed
+2,7/16 (E-E-A-T/YMYL),About page grammar: "a exit-liquidity" → "an exit-liquidity",HIGH,about.md:31,1 min,Low (indirect),Medium (AdSense review),Immediate,Fixed
+3,16 (YMYL),predict.fun post missing "not financial advice" body disclaimer,HIGH,_posts/2026-09-01-predict-fun-developer-dashboard.md,5 min,Low (indirect),HIGH (AdSense gate),Immediate,Fixed
+4,7/16 (E-E-A-T/YMYL),Muskaan Shaik author page weak E-E-A-T — no photo/credentials/schema,HIGH,_data/authors.yml + author/muskanshaik.md,1–2 hrs,Low (indirect),HIGH (AdSense gate),1–2 hrs,Fixed
+5,6 (On-Page),website_credit_url still points to ttearncrypto.github.io,MEDIUM,_config.yml:18,1 min,None,Low (brand consistency),Immediate,Fixed
+6,7 (E-E-A-T),Privacy Policy and Terms stale dates (August → September),MEDIUM,legal/privacy-policy.md:11 + legal/terms.md:11,2 min,None,Medium (AdSense review),Immediate,Fixed
+7,7/16 (Content/YMYL),About page lists 5 coverage sections but site has 7 categories,MEDIUM,about.md:29-35,5 min,None,Low,Immediate,Fixed
+8,3 (CWV),Cover images lack explicit width/height — CLS risk,MEDIUM,_layouts/post.html:35,2 min,Low (CWV signal),Low,Immediate,Fixed
+9,3 (CWV),Logo.png is 639KB (1408×768) displayed at 28×28,MEDIUM,assets/site-images/logo.png,10 min,Minimal,Low,Immediate,Fixed
+10,10/14 (Images/News),Learn guides lack cover images — fall back to og-default.png,MEDIUM,pages/learn/*.md,1–2 hrs,Medium (Discover),Medium,1–2 hrs,Fixed
+11,3 (CWV),Unminified CSS (49KB) and JS (15KB),LOW,assets/main.css + assets/main.js,30 min,Minimal,Low,Immediate,Deferred — GitHub Pages serves compressed; manual minification risks breakage
+12,3 (CWV),Google Fonts render-blocking (preconnect exists but stylesheet blocks),LOW,_includes/head.html:58-60,30 min,Minimal,Low,Immediate,Fixed
+13,9 (Indexing),No IndexNow implementation,LOW,N/A (missing),1–2 hrs,Low (Bing/Yandex),Low,1–2 hrs,Deferred — subpath deployment blocks domain-root key placement
+14,18 (AI/SGE),llms-full.txt header promises full content but has summaries,LOW,llms-full.txt:1,1 min (header fix),Low,Low,Immediate,Fixed
+15,20 (Accessibility),No skip-to-content link,LOW,_includes/header.html,10 min,None,Low,Immediate,Fixed — already existed in default.html:5
+16,11 (Internal Linking),No related posts or "More from" section,LOW,_layouts/post.html,30 min,Medium (as content grows),Low,30 min,Fixed — already existed in post.html:197-221
+17,8 (Schema),About page missing datePublished/dateModified in schema,LOW,about.md,5 min,None,Low,Immediate,Fixed
+18,8/17 (Schema),Learn guide Article schema missing datePublished front matter,LOW,pages/learn/*.md,5 min,Minimal,Low,Immediate,Fixed

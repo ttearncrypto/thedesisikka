@@ -1,7 +1,7 @@
 # Site identity -----------------------------------------------------------
 title: "The DESI Sikka"
 tagline: "Crypto news, zero jargon"
-email: "hello@thedesisikka.in"
+email: "hello@f9xr.org"
 description: >-
   The DESI Sikka covers crypto for readers worldwide: bitcoin and ethereum
   news, altcoin moves, DeFi explainers, exchange guides and the regulation
@@ -15,7 +15,7 @@ baseurl: "/thedesisikka"
 twitter_username: "ttearncrypto"
 telegram_url: "https://t.me/+CxO1NVTowno2Y2E1"
 github_username: "ttearncrypto"
-website_credit_url: "https://ttearncrypto.github.io"
+website_credit_url: "https://f9xr.org"
 
 # SEO / social cards ---------------------------------------------------------
 logo: "/assets/site-images/logo.png"
@@ -54,7 +54,7 @@ default_author:
     gather, verify and report crypto news, market analysis and policy
     updates. One desk, every timezone.
 author_links:
-  - { name: Website,   url: "https://f9xr.github.io/" }
+  - { name: Website,   url: "https://f9xr.org/" }
   - { name: LinkedIn,  url: "https://linkedin.com/company/f9xrteam" }
   - { name: Instagram, url: "https://instagram.com/f9xrteam" }
   - { name: YouTube,   url: "https://youtube.com/@QuarterlyLIV" }
@@ -101,8 +101,6 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
 
-rss: rss
-
 titles_from_headings:
   strip_title: true
   collections: true
@@ -115,6 +113,8 @@ site_categories:
   - { slug: regulation, name: "Regulation" }
   - { slug: defi,       name: "DeFi & Web3" }
   - { slug: exchanges,  name: "Exchanges & How-to" }
+  - { slug: todays-combo, name: "Today's Combo" }
+  - { slug: press, name: "Press Releases" }
 
 # Defaults ---------------------------------------------------------------------
 defaults:
@@ -130,7 +130,7 @@ defaults:
       path: ""
       type: pages
     values:
-      layout: page
+      layout: default
       image: /assets/site-images/og-default.png
 
 # Exclude from build -------------------------------------------------------------

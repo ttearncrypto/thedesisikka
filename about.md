@@ -28,10 +28,12 @@ description: "Who we are, what we cover and why The DESI Sikka exists."
 
     <ul>
       <li><strong>Bitcoin &amp; Ethereum:</strong> price moves explained, not predicted</li>
-      <li><strong>Altcoins:</strong> what's building and what's a exit-liquidity trap</li>
+      <li><strong>Altcoins:</strong> what's building and what's an exit-liquidity trap</li>
       <li><strong>Regulation:</strong> SEC, MiCA and global policy, plus deep India coverage (RBI, Income Tax dept, FIU) that hits your wallet</li>
       <li><strong>DeFi &amp; Web3:</strong> yield, airdrops and self-custody guides</li>
       <li><strong>Exchanges &amp; How-to:</strong> deposits, P2P safety, tax filing steps</li>
+      <li><strong>Today's Combo:</strong> one daily card — top story, key level, tax note, airdrop</li>
+      <li><strong>Press Releases:</strong> company announcements, labeled separately from reporting</li>
     </ul>
 
     <h2>Who writes this</h2>
@@ -54,6 +56,8 @@ description: "Who we are, what we cover and why The DESI Sikka exists."
   "url": {{ '/about/' | absolute_url | jsonify }},
   "isPartOf": {{ '/' | absolute_url | jsonify }},
   "description": {{ site.description | strip_html | jsonify }},
+  "datePublished": "2026-09-01",
+  "dateModified": {{ site.time | date_to_xmlschema | jsonify }},
   "inLanguage": "en"
 }
 </script>

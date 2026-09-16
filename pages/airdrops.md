@@ -6,5 +6,7 @@ section_tag: airdrop
 sort: newest
 kicker: Airdrops
 description: "Live airdrops, eligibility guides, claim deadlines and scam warnings. Farm smart, stay safe."
-empty_note: "Airdrop tracker starts September 1."
+empty_note: "The airdrop tracker is warming up. Live airdrops, eligibility guides and scam warnings will land here."
+robots: "noindex, follow"
+sitemap: false
 ---

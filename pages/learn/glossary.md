@@ -4,6 +4,9 @@ permalink: /pages/learn/glossary/
 title: "Crypto Glossary: Every Term Explained in Plain English"
 description: "Plain-English definitions of the crypto terms every news story assumes you already know — from ATH to yield farming."
 last_modified_at: 2026-08-28
+date: 2026-08-28
+cover_image: /assets/articles-images/learn-glossary.png
+image_alt: "Crypto Glossary — plain-English terms guide cover"
 ---
 
 <div class="meta-strip compact">

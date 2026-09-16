@@ -3,7 +3,7 @@ newsdesk:
   type: "Organization"
   slug: newsdesk
   url: "/author/f9xr/"
-  email: "hello@thedesisikka.in"
+  email: "hello@f9xr.org"
   avatar: "/assets/authors/f9xr.webp"
   monogram: "F9"
   bio: >-
@@ -11,7 +11,7 @@ newsdesk:
     gather, verify and report crypto news, market analysis and policy
     updates. One desk, every timezone.
   sameAs:
-    - "https://f9xr.github.io/"
+    - "https://f9xr.org/"
     - "https://linkedin.com/company/f9xrteam"
     - "https://instagram.com/f9xrteam"
     - "https://youtube.com/@QuarterlyLIV"
@@ -24,6 +24,22 @@ muskanshaik:
   slug: muskanshaik
   url: "/author/muskanshaik/"
   alternateName: "مسکان شیخ"
-  jobTitle: "Freelancer News Reporter"
+  jobTitle: "Freelance Crypto Reporter"
+  email: "hello@f9xr.org"
+  avatar: "/assets/authors/muskaan.png"
   monogram: "MS"
-  bio: "Freelance news reporter covering crypto and finance for The DESI Sikka."
+  bio: >-
+    Freelance crypto reporter covering exchange products, daily trading
+    campaigns and quick-turn explainers for The DESI Sikka. Fact-checks every
+    number against the primary source before filing, and skips the jargon so
+    readers can act on what they read.
+  credentials: >-
+    Reports under The DESI Sikka editorial policy: no paid coverage, no
+    undisclosed conflicts, and corrections logged publicly when facts change.
+  sameAs:
+    - "https://github.com/muskanshaik"
+  knowsAbout:
+    - "crypto exchanges"
+    - "trading campaigns"
+    - "crypto taxes in India"
+    - "prediction markets"

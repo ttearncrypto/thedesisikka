@@ -6,6 +6,7 @@ Disallow: /404.html
 Disallow: /feed.xml
 Disallow: /rss.xml
 Disallow: /atom.xml
+Disallow: /feed.json
 
 # AI crawlers may read llms.txt / llms-full.txt and index content
 User-agent: GPTBot

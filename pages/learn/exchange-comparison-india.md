@@ -4,6 +4,9 @@ permalink: /pages/learn/exchange-comparison-india/
 title: "Buying Crypto in India: How to Compare Exchanges in 2026"
 description: "UPI crypto deposits stopped years ago. Today it's bank transfer and P2P. A practical checklist for comparing Indian exchanges on spreads, limits and withdrawal."
 last_modified_at: 2026-08-28
+date: 2026-08-28
+cover_image: /assets/articles-images/learn-exchange-comparison-india.png
+image_alt: "Buying Crypto in India — exchange comparison guide cover"
 sources:
   - https://www.rbi.org.in/
   - https://fiuindia.gov.in/

@@ -3,13 +3,13 @@
 /* TEAM */
 
 Writer & Analyst: F9XR News Desk
-Contact: tontufytservices@gmail.com
+Contact: hello@f9xr.org
 Twitter: @ttearncrypto
 GitHub: https://github.com/ttearncrypto
 From: Worldwide
 
 Design & Build: F9XR Team
-Site: https://f9xr.github.io/
+Site: https://f9xr.org/
 
 /* SITE */
 

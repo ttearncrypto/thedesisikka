@@ -19,7 +19,18 @@
       "@type": "Organization",
       "name": {{ site.title | jsonify }},
       "url": {{ site.url | append: site.baseurl | jsonify }},
-      "logo": {{ site.url | append: site.baseurl | append: site.logo | jsonify }},
+      "logo": {
+        "@type": "ImageObject",
+        "url": {{ site.url | append: site.baseurl | append: site.logo | jsonify }},
+        "width": 1408,
+        "height": 768
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "email": {{ site.email | jsonify }},
+        "url": {{ site.url | append: site.baseurl | append: '/pages/contact/' | jsonify }}
+      },
       "sameAs": [
         "https://twitter.com/{{ site.twitter_username }}",
         {{ site.telegram_url | jsonify }},

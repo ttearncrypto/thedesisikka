@@ -2,7 +2,7 @@
 layout: default
 permalink: /author/muskanshaik/
 title: "Muskaan Shaik (مسکان شیخ)"
-description: "Muskaan Shaik is a Freelancer News Reporter covering crypto and finance for The DESI Sikka."
+description: "Muskaan Shaik is a freelance crypto reporter covering exchange products, trading campaigns and quick-turn explainers for The DESI Sikka."
 ---
 
 {% assign author_posts = site.posts | where: "author", "muskanshaik" %}
@@ -61,8 +61,17 @@ description: "Muskaan Shaik is a Freelancer News Reporter covering crypto and fi
     "@type": "Person",
     "name": "Muskaan Shaik",
     "alternateName": "مسکان شیخ",
-    "jobTitle": "Freelancer News Reporter",
-    "url": {{ site.url | append: site.baseurl | append: '/author/muskanshaik/' | jsonify }}
+    "jobTitle": "Freelance Crypto Reporter",
+    "description": {{ page_author.bio | jsonify }},
+    "url": {{ site.url | append: site.baseurl | append: '/author/muskanshaik/' | jsonify }},
+    "image": {{ site.url | append: site.baseurl | append: page_author.avatar | jsonify }},
+    "sameAs": {{ page_author.sameAs | jsonify }},
+    "knowsAbout": {{ page_author.knowsAbout | jsonify }},
+    "worksFor": {
+      "@type": "Organization",
+      "name": {{ site.title | jsonify }},
+      "url": {{ site.url | append: site.baseurl | jsonify }}
+    }
   }
 }
 </script>

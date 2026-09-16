@@ -7,7 +7,7 @@ description: "How The DESI Sikka collects, uses and protects your data."
 
 <div class="meta-strip compact">
   <span>Legal</span>
-  <span>Last updated: August 2026</span>
+  <span>Last updated: September 2026</span>
 </div>
 
 <section class="section shell">

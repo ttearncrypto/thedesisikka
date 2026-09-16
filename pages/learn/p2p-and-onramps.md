@@ -4,6 +4,9 @@ permalink: /pages/learn/p2p-and-onramps/
 title: "P2P Crypto Trading in India: On-Ramps, DIN Checks and TDS"
 description: "Peer-to-peer crypto trading in India works without UPI: how P2P on-ramps work, the DIN check that keeps you safe, and why 1% TDS applies on peer trades."
 last_modified_at: 2026-08-28
+date: 2026-08-28
+cover_image: /assets/articles-images/learn-p2p-and-onramps.png
+image_alt: "P2P Trading in India — on-ramps, DIN checks and TDS guide cover"
 sources:
   - https://www.rbi.org.in/
   - https://fiuindia.gov.in/

@@ -4,6 +4,9 @@ permalink: /pages/learn/wallet-and-security/
 title: "Crypto Wallets & Security: Exchange vs Self-Custody"
 description: "Custody, seed phrases, hardware wallets and the scams draining Indian crypto accounts. The plain-English security guide every holder should read."
 last_modified_at: 2026-08-28
+date: 2026-08-28
+cover_image: /assets/articles-images/learn-wallet-and-security.png
+image_alt: "Crypto Wallets and Security guide cover"
 sources:
   - https://www.rbi.org.in/
 ---

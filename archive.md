@@ -29,6 +29,6 @@ description: "Every story The DESI Sikka has published, newest first."
       </div>
     {% endfor %}
   {% else %}
-  <p class="empty-note">The archive opens with our first stories on September 1. Check back soon.</p>
+  <p class="empty-note">The archive fills as stories publish. Check back soon.</p>
   {% endif %}
 </section>

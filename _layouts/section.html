@@ -27,7 +27,7 @@ layout: default
   {% if items.size > 40 %}<p class="empty-note" style="margin-top:1.5rem;">Showing the 40 most recent items. Older entries appear in the <a href="{{ '/archive/' | relative_url }}">full archive</a>.</p>{% endif %}
   {% else %}
   <div style="margin-top:2rem;">
-    <p class="empty-note">{{ page.empty_note | default: 'Nothing here yet. First entries land on September 1.' }}</p>
+    <p class="empty-note">{{ page.empty_note | default: 'Nothing here yet. New entries land here as we publish them.' }}</p>
   </div>
   {% endif %}
 </section>

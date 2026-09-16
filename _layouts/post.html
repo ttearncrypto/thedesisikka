@@ -22,7 +22,8 @@ layout: default
 
   <article class="article-column" data-slug="{{ page.slug }}">
     <header class="article-header">
-      <span class="mono-label">{{ page.date | date: '%d.%m.%Y' }}{% if page.last_modified_at %} · <span class="updated-label">Updated {{ page.last_modified_at | date: '%d.%m.%Y' }}</span>{% endif %} · {% if cat %}{{ cat.name }}{% else %}News{% endif %}{% if page.opinion %} · <span class="opinion-label">Opinion</span>{% endif %} · {{ post_author.name }}</span>
+      {% assign meta_pub = page.date | date: '%Y-%m-%d' %}{% assign meta_upd = page.last_modified_at | date: '%Y-%m-%d' %}
+      <span class="mono-label">{{ page.date | date: '%d.%m.%Y' }}{% if page.last_modified_at and meta_upd != meta_pub %} · <span class="updated-label">Updated {{ page.last_modified_at | date: '%d.%m.%Y' }}</span>{% endif %} · {% if cat %}{{ cat.name }}{% else %}News{% endif %}{% if page.opinion %} · <span class="opinion-label">Opinion</span>{% endif %} · {{ post_author.name }}</span>
       <h1 itemprop="headline">{{ page.title | escape }}</h1>
       {% if page.description %}
         <p class="article-lead">{{ page.description }}</p>
@@ -32,7 +33,7 @@ layout: default
     {% comment %} ---- Featured image space ---- {% endcomment %}
     <figure class="article-cover cover-{{ cat_slug }}">
       {% if page.cover_image %}
-        <img src="{{ page.cover_image | relative_url }}" alt="{{ page.title | escape }}" loading="eager" fetchpriority="high" decoding="async">
+        <img src="{{ page.cover_image | relative_url }}" alt="{{ page.title | escape }}" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async">
         {% if page.cover_caption %}<figcaption class="cover-caption">{{ page.cover_caption }}</figcaption>{% endif %}
       {% else %}
         <span class="cover-glyph" aria-hidden="true"></span>
@@ -89,8 +90,21 @@ layout: default
       {% include sharelinks.html %}
     </div>
 
-    <div class="prose" id="article-body" itemprop="articleBody">
+    <div class="prose{% if page.large_text %} prose-large{% endif %}" id="article-body" itemprop="articleBody">
       {{ content }}
+
+      {% comment %} ---- Visible FAQ (matches the FAQPage schema) ---- {% endcomment %}
+      {% if page.faq and page.faq.size > 0 %}
+      <div class="faq-box">
+        <h2>Frequently asked questions</h2>
+        {% for item in page.faq %}
+        <details class="faq-item">
+          <summary>{{ item.q }}</summary>
+          <p>{{ item.a }}</p>
+        </details>
+        {% endfor %}
+      </div>
+      {% endif %}
 
       {% comment %} ---- Sources ---- {% endcomment %}
       {% if page.sources %}
@@ -248,6 +262,8 @@ layout: default
 
       {% include guide-cards.html %}
 
+      {% include newsletter-form.html %}
+
       <div class="side-card">
         <h3>The DESI Sikka daily</h3>
         <p style="margin:0 0 0.75rem;font-size:13px;color:#71717a;">Market moves, regulation updates and airdrops. Straight to your Telegram, free.</p>
@@ -257,8 +273,6 @@ layout: default
         </div>
         <a class="btn btn-primary btn-sm" href="{{ site.telegram_url }}" rel="noopener">Join the channel &rarr;</a>
       </div>
-
-      {% include newsletter-form.html %}
 
     </div>
   </aside>
@@ -290,8 +304,8 @@ layout: default
     "@type": "WebPage",
     "@id": {{ abs_url | jsonify }}
   },
-  "image": [{{ site.url | append: site.baseurl | append: page.image | jsonify }}],
-  "thumbnailUrl": {{ site.url | append: site.baseurl | append: page.image | jsonify }},
+  "image": [{% if page.cover_image %}{{ page.cover_image | absolute_url | jsonify }}{% elsif page.image %}{{ page.image | absolute_url | jsonify }}{% else %}{{ site.image | absolute_url | jsonify }}{% endif %}],
+  "thumbnailUrl": {% if page.cover_image %}{{ page.cover_image | absolute_url | jsonify }}{% elsif page.image %}{{ page.image | absolute_url | jsonify }}{% else %}{{ site.image | absolute_url | jsonify }}{% endif %},
   "keywords": {{ page.keywords | default: page.tags | join: ', ' | jsonify }},
   "articleSection": "{% if cat %}{{ cat.name }}{% else %}News{% endif %}",
   "inLanguage": "en",
@@ -321,6 +335,26 @@ layout: default
   "isAccessibleForFree": true
 }
 </script>
+{% if page.faq and page.faq.size > 0 %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for item in page.faq %}
+    {
+      "@type": "Question",
+      "name": {{ item.q | jsonify }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ item.a | jsonify }}
+      }
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endif %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",

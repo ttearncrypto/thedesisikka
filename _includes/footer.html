@@ -2,11 +2,10 @@
   <div class="shell footer-inner">
     <div class="footer-brand">
       <a href="{{ '/' | relative_url }}" class="brand">
-        <img src="{{ '/assets/site-images/logo.png' | relative_url }}" alt="" width="24" height="24">
+        <img src="{{ '/assets/site-images/logo-square.png' | relative_url }}" alt="" width="24" height="24">
         <span>The DESI Sikka</span>
       </a>
       <p>{{ site.description | strip_html | truncatewords: 26 }}</p>
-      {% include newsletter-form.html %}
       <div class="footer-social">
         <a href="https://twitter.com/{{ site.twitter_username }}" rel="noopener" title="Twitter / X" aria-label="Twitter / X">{% include social-icon.html name="x" size="15" %}</a>
         <a href="{{ site.telegram_url }}" rel="noopener" title="Telegram" aria-label="Telegram">{% include social-icon.html name="telegram" size="15" %}</a>
@@ -52,7 +51,7 @@
       <a href="{{ '/legal/disclaimer/' | relative_url }}">Disclaimer</a>
       <a href="{{ '/legal/privacy-policy/' | relative_url }}">Privacy policy</a>
       <a href="{{ '/legal/terms/' | relative_url }}">Terms of use</a>
-      <a href="/humans.txt">humans.txt</a>
+      <a href="{{ '/humans.txt' | relative_url }}">humans.txt</a>
     </div>
   </div>
 
@@ -63,6 +62,6 @@
 
   <div class="shell footer-legal">
     <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }} · Published by the F9XR Team.</p>
-    <p>Powered by <a class="footer-credit-link" href="https://jekyllrb.com/" rel="noopener nofollow">Jekyll</a> on <a class="footer-credit-link" href="https://pages.github.com/" rel="noopener nofollow">GitHub Pages</a>. Website designed by <a class="footer-credit-link" href="https://f9xr.github.io/" rel="noopener">F9XR Team</a>.</p>
+    <p>Powered by <a class="footer-credit-link" href="https://jekyllrb.com/" rel="noopener nofollow">Jekyll</a> on <a class="footer-credit-link" href="https://pages.github.com/" rel="noopener nofollow">GitHub Pages</a>. Website designed by <a class="footer-credit-link" href="https://f9xr.org/" rel="noopener">F9XR Team</a>.</p>
   </div>
 </footer>

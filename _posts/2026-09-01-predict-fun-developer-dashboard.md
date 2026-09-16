@@ -2,7 +2,7 @@
 title: "Predict.fun Launches Self-Service Developer Dashboard"
 date: 2026-09-01
 categories: [defi]
-tags: [featured]
+tags: []
 description: "Predict.fun's new developer dashboard lets builders create apps, generate API keys, monitor usage, and manage rate limits without manual support requests."
 summary:
   - "Predict.fun launched a self-service developer dashboard on September 1, 2026, replacing Discord support tickets for API access."
@@ -10,6 +10,9 @@ summary:
   - "New trade burst limits cap order creation and cancellation calls per second, on by default for every new application."
   - "The BNB Chain platform has processed over $1.8 billion in volume since its December 2025 launch."
 keywords: "predict.fun developer dashboard, predict.fun api key, prediction market api, trade burst limits, prediction market developers"
+cover_image: /assets/articles-images/predictfun-developer-dashboard-hero.jpg
+image_alt: "Predict.fun prediction market platform on BNB Chain"
+cover_caption: "Predict.fun's self-service developer dashboard runs on BNB Chain."
 sources:
   - "https://x.com/predictdotfun/status/2094802487706612216"
   - "https://developers.predict.fun/"
@@ -20,6 +23,10 @@ sources:
 Predict.fun launched a self-service developer dashboard on September 1, 2026. Builders can now create applications, generate API keys, monitor usage, and manage rate limits without opening a Discord support ticket. The BNB Chain prediction market is betting that third-party apps keep its $1.8 billion book growing.
 
 Until now, getting a key meant joining Discord and filing a support ticket. That loop is gone for new apps. Teams with existing integrations can import their old keys and run everything from one screen, per the [announcement on X](https://x.com/predictdotfun/status/2094802487706612216).
+
+<div class="legal-box disclaimer-box">
+  <p><strong>Not financial advice:</strong> Predict.fun is a prediction market — real money trades on real-world outcomes. This article reports platform and developer features; it is not investment advice and predicts no outcome or position. Markets carry real risk of loss. Check your local rules before trading.</p>
+</div>
 
 ## What the dashboard actually does
 

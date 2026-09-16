@@ -34,9 +34,6 @@ description: "The DESI Sikka's guides: India crypto tax, exchange comparison, P2
   </div>
   {% endif %}
 
-  {% comment %} ---- Newsletter signup (Tier 4) ---- {% endcomment %}
-  {% include newsletter-form.html %}
-
   <div style="margin-top:2rem;max-width:46rem;">
     <p>Can't find a term or a how-to? <a href="{{ '/pages/contact/' | relative_url }}">Ask us</a> — the glossary is updated from real reader questions.</p>
   </div>

@@ -6,5 +6,5 @@ section_tag: combo
 sort: newest
 kicker: Daily Combo
 description: "Your daily combo: the day's top story, key level to watch, tax/regulation note and one airdrop worth checking. One card, every morning."
-empty_note: "The first daily combo drops September 1 morning, IST."
+empty_note: "The next daily combo drops tomorrow morning, IST. One card daily: top story, key level, tax note, one airdrop."
 ---

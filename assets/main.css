@@ -90,7 +90,12 @@ a {
   flex-direction: column;
 }
 
-.site-main { flex: 1; }
+.site-main {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+  background: var(--canvas);
+}
 
 .shell {
   padding-inline: 1.25rem;
@@ -721,6 +726,15 @@ a {
   color: #d4d4d8;
 }
 
+.prose.prose-large {
+  font-size: 20.5px;
+  line-height: 1.85;
+}
+
+.prose.prose-large h2 { font-size: clamp(1.65rem, 3.4vw, 2.05rem); }
+.prose.prose-large h3 { font-size: 1.45rem; }
+.prose.prose-large li { line-height: 1.85; }
+
 .prose > * + * { margin-top: 1.5rem; }
 
 .prose h2, .prose h3, .prose h4 {
@@ -1182,6 +1196,9 @@ a {
 /* Footer --------------------------------------------------------------------------------------------- */
 
 .site-footer {
+  position: sticky;
+  bottom: 0;
+  background: var(--canvas-deep);
   border-top: 1px solid var(--hairline);
   margin-top: 0;
 }
@@ -1957,6 +1974,48 @@ a {
 
 .disclaimer-box { border-style: dashed; }
 
+/* FAQ box (rendered from post front-matter `faq`, matches FAQPage schema) --------------- */
+
+.faq-box {
+  margin-block: 2rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--hairline);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.faq-box h2 {
+  margin-top: 0;
+  font-size: 1.15rem;
+}
+
+.faq-item {
+  border-top: 1px solid var(--hairline);
+  padding-block: 0.65rem;
+}
+
+.faq-item:first-of-type { border-top: none; }
+
+.faq-item summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--ink);
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker { display: none; }
+
+.faq-item summary::before {
+  content: "＋";
+  display: inline-block;
+  width: 1.4em;
+  color: var(--accent);
+}
+
+.faq-item[open] summary::before { content: "−"; }
+
+.faq-item p { margin: 0.5rem 0 0 1.4em; }
+
 /* Author box ------------------------------------------------------------------------------ */
 
 .author-box {
@@ -2221,4 +2280,46 @@ a {
   a { color: #111111 !important; }
 
   h2.section-title { color: #000000 !important; }
+}
+
+/* ==========================================================================
+   View Transitions API — cross-document page transitions (Chromium 126+)
+   Both pseudo-elements get custom animations; specifying only one would
+   leave the other on the UA default crossfade.
+   ========================================================================== */
+
+@supports (view-transition-name: root) {
+  @view-transition {
+    navigation: auto;
+  }
+
+  ::view-transition-old(root) {
+    animation: ds-exit 0.28s ease-in both;
+  }
+
+  ::view-transition-new(root) {
+    animation: ds-enter 0.36s ease-out both;
+  }
+
+  @keyframes ds-exit {
+    to {
+      opacity: 0;
+      transform: scale(0.985);
+    }
+  }
+
+  @keyframes ds-enter {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root),
+  ::view-transition-group(root) {
+    animation: none !important;
+  }
 }

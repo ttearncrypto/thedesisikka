@@ -14,7 +14,7 @@ import xml.etree.ElementTree as ET
 SITE = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else "_site")
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 
-VALID_CATS = {"bitcoin", "ethereum", "altcoins", "regulation", "defi", "exchanges"}
+VALID_CATS = {"bitcoin", "ethereum", "altcoins", "regulation", "defi", "exchanges", "todays-combo", "press"}
 errors = []
 
 

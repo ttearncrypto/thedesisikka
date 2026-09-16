@@ -34,7 +34,7 @@ description: "F9XR News Desk is the editorial team behind The DESI Sikka, report
           {% if icon_name == 'x.com' %}{% assign icon_name = 'x' %}{% endif %}
           {% if icon_name == 'youtube.com' %}{% assign icon_name = 'youtube' %}{% endif %}
           {% if icon_name == 'pinterest.com' %}{% assign icon_name = 'pinterest' %}{% endif %}
-          {% if icon_name == 'f9xr.github.io' %}{% assign icon_name = 'globe' %}{% endif %}
+          {% if icon_name == 'f9xr.org' %}{% assign icon_name = 'globe' %}{% endif %}
           <a class="icon-btn" href="{{ link }}" rel="noopener" title="{{ icon_name }}" aria-label="{{ icon_name }}">
             {% include social-icon.html name=icon_name size="16" %}
           </a>
@@ -63,7 +63,7 @@ description: "F9XR News Desk is the editorial team behind The DESI Sikka, report
   </div>
   {% else %}
   <div style="margin-top:2rem;">
-    <p class="empty-note">First stories publish September 1.</p>
+    <p class="empty-note">New stories from the desk land here as they publish.</p>
   </div>
   {% endif %}
 </section>

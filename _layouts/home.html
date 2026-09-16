@@ -46,7 +46,7 @@ layout: default
     {% endfor %}
   </div>
   {% else %}
-  <p class="empty-note">We go live September 1 with the first batch of stories. Join us on Telegram so you don't miss the drop.</p>
+  <p class="empty-note">New stories land here daily. Join us on Telegram so you don't miss the drop.</p>
   {% endif %}
 </section>
 
@@ -64,7 +64,7 @@ layout: default
     {% endfor %}
   </div>
   {% else %}
-  <p class="empty-note">One card every morning: top story, key level, tax note, one airdrop. Starts September 1.</p>
+  <p class="empty-note">One card every morning: top story, key level, tax note, one airdrop. New combos land here daily.</p>
   {% endif %}
 </section>
 
@@ -82,7 +82,7 @@ layout: default
     {% endfor %}
   </div>
   {% else %}
-  <p class="empty-note">Analyst targets and scenario ranges, published as opinion with sources. First batch on September 1.</p>
+  <p class="empty-note">Analyst targets and scenario ranges, published as opinion with sources. When the desk publishes these, they land here.</p>
   {% endif %}
 </section>
 
@@ -100,7 +100,7 @@ layout: default
     {% endfor %}
   </div>
   {% else %}
-  <p class="empty-note">Deep dives and must-reads, hand-picked by the editor. Coming September 1.</p>
+  <p class="empty-note">Deep dives and must-reads, hand-picked by the editor. The first pick lands when a story earns it.</p>
   {% endif %}
 </section>
 
@@ -136,7 +136,7 @@ layout: default
     {% endfor %}
   </div>
   {% else %}
-  <p class="empty-note">Market recaps and explainers on video. Channel goes live September 1.</p>
+  <p class="empty-note">Market recaps and explainers on video. The video section warms up as soon as we hit record.</p>
   {% endif %}
 </section>
 
@@ -154,7 +154,7 @@ layout: default
     {% endfor %}
   </div>
   {% else %}
-  <p class="empty-note">Live airdrops, eligibility guides and scam warnings. Tracker starts September 1.</p>
+  <p class="empty-note">Live airdrops, eligibility guides and scam warnings. The tracker warms up when fresh drops land.</p>
   {% endif %}
 </section>
 
@@ -172,13 +172,8 @@ layout: default
     {% endfor %}
   </div>
   {% else %}
-  <p class="empty-note">Conferences, hackathons, meetups and unlock dates worth your calendar. Launching September 1.</p>
+  <p class="empty-note">Conferences, hackathons, meetups and unlock dates worth your calendar. The calendar fills as events get announced.</p>
   {% endif %}
-</section>
-
-{% comment %} ---------- Newsletter ---------- {% endcomment %}
-<section class="section shell section-alt" id="newsletter">
-  {% include newsletter-form.html %}
 </section>
 
 {% comment %} ---------- About Us Box ---------- {% endcomment %}
@@ -206,6 +201,10 @@ layout: default
   </div>
 </section>
 
+<section class="section shell">
+  {% include newsletter-form.html %}
+</section>
+
 {% comment %} ---------- Archive dropdown by month ---------- {% endcomment %}
 <section class="section shell" id="archive-months">
   <div class="archive-bar">
@@ -218,7 +217,7 @@ layout: default
           <option value="{{ m.name }}">{{ m.items[0].date | date: '%B %Y' }} ({{ m.items.size }})</option>
         {% endfor %}
       {% else %}
-        <option value="">Archives open September 2026</option>
+        <option value="">Archives open as news piles up</option>
       {% endif %}
     </select>
     <noscript><a class="section-link" href="{{ '/archive/' | relative_url }}">Open full archive &rarr;</a></noscript>

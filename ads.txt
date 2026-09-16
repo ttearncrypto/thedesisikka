@@ -1,0 +1,2 @@
+# Google AdSense ads.txt — paste the real publisher line here after AdSense approval:
+# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
