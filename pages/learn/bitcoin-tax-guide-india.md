@@ -2,6 +2,7 @@
 layout: default
 permalink: /pages/learn/bitcoin-tax-guide-india/
 title: "Bitcoin Tax in India: 30% Rate, 1% TDS and the Rules That Apply"
+seo_title: "Bitcoin Tax in India: 30% Rate & 1% TDS"
 description: "Bitcoin and other virtual digital assets are taxed at 30% in India with a 1% TDS on every transfer. Here's how the rules work, in plain English."
 last_modified_at: 2026-08-28
 date: 2026-08-28

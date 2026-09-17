@@ -1,7 +1,8 @@
 ---
 title: "Hyundai Plans to Scale Stablecoin Payments on Avalanche"
+seo_title: "Hyundai Stablecoin Payments on Avalanche"
 date: 2026-09-17
-categories: [defi]
+categories: [defi, news]
 tags: [featured]
 description: "Hyundai Card plans to scale stablecoin payments on Avalanche after a live $20,000 USDT treasury wire settled in seven minutes. No wide rollout date yet."
 summary:
@@ -11,6 +12,9 @@ summary:
   - "A European test using local currencies with Circle and Visa was scheduled for late July but has not been publicly confirmed as completed."
   - "Hyundai has not set a group-wide deployment date."
 keywords: "hyundai stablecoin payments, hyundai avalanche stablecoin, usdt treasury transfer, corporate stablecoin payments, avalanche enterprise payments"
+cover_image: /assets/articles-images/hyundai-stablecoin-avalanche-hero.jpg
+image_alt: "Cars parked in shadow, representing the Hyundai Motor Group that is piloting stablecoin treasury payments on Avalanche"
+cover_caption: "Hyundai Motor Group is scaling its stablecoin treasury pilot on Avalanche. Photo by @named_ aashutosh on Unsplash"
 sources:
   - "https://crypto.news/hyundai-card-eyes-larger-avalanche-stablecoin-rollout/"
   - "https://en.cryptonomist.ch/2026/09/17/hyundai-avalanche-stablecoin-pilot/"

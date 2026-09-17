@@ -107,14 +107,15 @@ titles_from_headings:
 
 # Categories used across the site --------------------------------------------
 site_categories:
-  - { slug: bitcoin,    name: "Bitcoin" }
-  - { slug: ethereum,   name: "Ethereum" }
-  - { slug: altcoins,   name: "Altcoins" }
-  - { slug: regulation, name: "Regulation" }
+  - { slug: news,       name: "News" }
+  - { slug: bitcoin,    name: "Bitcoin", indexable: false }
+  - { slug: ethereum,   name: "Ethereum", indexable: false }
+  - { slug: altcoins,   name: "Altcoins", indexable: false }
+  - { slug: regulation, name: "Regulation", indexable: false }
   - { slug: defi,       name: "DeFi & Web3" }
-  - { slug: exchanges,  name: "Exchanges & How-to" }
-  - { slug: todays-combo, name: "Today's Combo" }
-  - { slug: press, name: "Press Releases" }
+  - { slug: exchanges,  name: "Exchanges & How-to", indexable: false }
+  - { slug: todays-combo, name: "Today's Combo", indexable: false }
+  - { slug: press, name: "Press Releases", indexable: false }
 
 # Defaults ---------------------------------------------------------------------
 defaults:
@@ -140,3 +141,12 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
+  - opencode.json
+  - seo_audit_report.md
+  - seo_audit_report.csv
+  - scripts/
+  - bharat-by-day.html
+  - .github/
+
+include:
+  - .well-known

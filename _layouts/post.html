@@ -5,6 +5,9 @@ layout: default
 {% assign cat = site.site_categories | where: 'slug', cat_slug | first %}
 {% assign author_slug = page.author | default: 'newsdesk' %}
 {% assign post_author = site.data.authors[author_slug] | default: site.data.authors.newsdesk %}
+{% assign page_tags = page.tags | join: '|' | downcase %}
+{% assign is_opinion = page.opinion %}
+{% unless is_opinion %}{% if page_tags contains 'prediction' %}{% assign is_opinion = true %}{% endif %}{% endunless %}
 {% capture abs_url %}{{ site.url }}{{ site.baseurl }}{{ page.url }}{% endcapture %}
 {% capture summary_prompt %}Summarize this article in clear key points: {{ abs_url }}{% endcapture %}
 
@@ -23,7 +26,7 @@ layout: default
   <article class="article-column" data-slug="{{ page.slug }}">
     <header class="article-header">
       {% assign meta_pub = page.date | date: '%Y-%m-%d' %}{% assign meta_upd = page.last_modified_at | date: '%Y-%m-%d' %}
-      <span class="mono-label">{{ page.date | date: '%d.%m.%Y' }}{% if page.last_modified_at and meta_upd != meta_pub %} · <span class="updated-label">Updated {{ page.last_modified_at | date: '%d.%m.%Y' }}</span>{% endif %} · {% if cat %}{{ cat.name }}{% else %}News{% endif %}{% if page.opinion %} · <span class="opinion-label">Opinion</span>{% endif %} · {{ post_author.name }}</span>
+      <span class="mono-label">{{ page.date | date: '%d.%m.%Y' }}{% if page.last_modified_at and meta_upd != meta_pub %} · <span class="updated-label">Updated {{ page.last_modified_at | date: '%d.%m.%Y' }}</span>{% endif %} · {% if cat %}{{ cat.name }}{% else %}News{% endif %}{% if is_opinion %} · <span class="opinion-label">Opinion</span>{% endif %} · {{ post_author.name }}</span>
       <h1 itemprop="headline">{{ page.title | escape }}</h1>
       {% if page.description %}
         <p class="article-lead">{{ page.description }}</p>
@@ -194,6 +197,16 @@ layout: default
       {% endif %}
     </section>
 
+    {% comment %} ---- WOTD hub crosslink (only on Binance WOTD posts) ---- {% endcomment %}
+    {% if page.title contains 'Binance WOTD' %}
+    <section class="post-section wotd-hub-strip">
+      <div class="summary-box">
+        <h2>All Binance WOTD answers, one place</h2>
+        <p>Bookmark the <a href="{{ '/pages/binance-wotd-answers/' | relative_url }}">Binance WOTD answer hub</a> to browse and compare every daily word list for the current cycle in a single view.</p>
+      </div>
+    </section>
+    {% endif %}
+
     {% comment %} ---- Related news (same category) ---- {% endcomment %}
     {% assign related = site.categories[cat_slug] | where_exp: 'item', 'item.slug != page.slug' %}
     {% if related.size > 0 %}
@@ -202,19 +215,6 @@ layout: default
       <div class="card-row">
         {% for post in related limit: 3 %}
           {% include mini-card.html post=post glyph="🗂" %}
-        {% endfor %}
-      </div>
-    </section>
-    {% endif %}
-
-    {% comment %} ---- Further reading (everywhere else) ---- {% endcomment %}
-    {% assign further = site.posts | where_exp: 'item', 'item.slug != page.slug' | reject: 'categories', cat_slug %}
-    {% if further.size > 0 %}
-    <section class="post-section">
-      <h2 class="section-title">Further Reading</h2>
-      <div class="card-row">
-        {% for post in further limit: 4 %}
-          {% include mini-card.html post=post glyph="📖" %}
         {% endfor %}
       </div>
     </section>
@@ -294,7 +294,7 @@ layout: default
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "{% if page.opinion %}OpinionNewsArticle{% else %}NewsArticle{% endif %}",
+  "@type": "{% if is_opinion %}OpinionNewsArticle{% else %}NewsArticle{% endif %}",
   "headline": {{ page.title | jsonify }},
   "description": {{ page.description | default: page.excerpt | strip_html | jsonify }},
   "wordCount": {{ page.content | strip_html | number_of_words }},

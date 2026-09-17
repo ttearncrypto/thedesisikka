@@ -2,6 +2,7 @@
 layout: default
 permalink: /pages/learn/wallet-and-security/
 title: "Crypto Wallets & Security: Exchange vs Self-Custody"
+seo_title: "Crypto Wallets: Exchange vs Self-Custody"
 description: "Custody, seed phrases, hardware wallets and the scams draining Indian crypto accounts. The plain-English security guide every holder should read."
 last_modified_at: 2026-08-28
 date: 2026-08-28

@@ -9,12 +9,14 @@ Language: English
 ## Main sections
 
 - [Latest Crypto News](https://ttearncrypto.github.io/thedesisikka/): newest stories on the homepage
+- [News](https://ttearncrypto.github.io/thedesisikka/category/news/): every crypto news story in one place
 - [Bitcoin](https://ttearncrypto.github.io/thedesisikka/category/bitcoin/): BTC moves, halvings, ETF flows
 - [Ethereum](https://ttearncrypto.github.io/thedesisikka/category/ethereum/): ETH upgrades, staking, L2s
 - [Altcoins](https://ttearncrypto.github.io/thedesisikka/category/altcoins/): SOL, XRP, memecoins and what is actually building
 - [Regulation](https://ttearncrypto.github.io/thedesisikka/category/regulation/): global policy plus RBI, Income Tax, TDS, FIU updates for India
 - [DeFi & Web3](https://ttearncrypto.github.io/thedesisikka/category/defi/): yield, protocols, self-custody
 - [Exchanges & How-to](https://ttearncrypto.github.io/thedesisikka/category/exchanges/): INR on-ramps, P2P safety, tax filing steps
+- [Binance WOTD Answers](https://ttearncrypto.github.io/thedesisikka/pages/binance-wotd-answers/): daily Binance Word of the Day answer lists in one hub
 - [Price Predictions](https://ttearncrypto.github.io/thedesisikka/pages/predictions/): analyst calls as clearly-labeled opinion
 - [Featured Articles](https://ttearncrypto.github.io/thedesisikka/pages/featured/): editor's picks
 - [Press Releases](https://ttearncrypto.github.io/thedesisikka/press/): company announcements, labeled separately from reporting

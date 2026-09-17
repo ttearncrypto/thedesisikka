@@ -2,6 +2,7 @@
 layout: default
 permalink: /pages/learn/glossary/
 title: "Crypto Glossary: Every Term Explained in Plain English"
+seo_title: "Crypto Glossary: Key Terms Explained Simply"
 description: "Plain-English definitions of the crypto terms every news story assumes you already know — from ATH to yield farming."
 last_modified_at: 2026-08-28
 date: 2026-08-28

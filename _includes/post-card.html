@@ -1,10 +1,17 @@
 {% assign ccat_slug = include.post.categories | first %}
 {% assign ccat = site.site_categories | where: 'slug', ccat_slug | first %}
 {% if include.post.author %}{% assign p_author = site.data.authors[include.post.author] %}{% endif %}
+{% assign cover_img = include.post.cover_image | default: include.post.image %}
 <a class="post-card{% if include.featured %} featured-card{% endif %}" href="{{ include.post.url | relative_url }}">
-  <div class="post-card-cover cover-{{ ccat_slug }}">
-    <span class="cover-glyph"></span>
-  </div>
+  {% if cover_img %}
+    <div class="post-card-cover has-image">
+      <img src="{{ cover_img | relative_url }}" alt="{{ include.post.image_alt | default: include.post.title | escape }}" loading="lazy" decoding="async" width="1200" height="675">
+    </div>
+  {% else %}
+    <div class="post-card-cover cover-{{ ccat_slug }}">
+      <span class="cover-glyph"></span>
+    </div>
+  {% endif %}
   <div class="post-card-body">
     <span class="post-card-cat">{% if ccat %}{{ ccat.name }}{% else %}News{% endif %}{% if include.post.pinned %} <span class="card-breaking">&#9733; Breaking</span>{% endif %}</span>
     <h3 class="post-card-title">{{ include.post.title | escape }}</h3>

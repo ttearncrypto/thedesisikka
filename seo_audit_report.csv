@@ -1,19 +1,18 @@
-#,Pillar,Issue,Severity,File,Effort,Traffic Impact,Revenue Impact,Time to Impact,Status
-1,10 (Images),No favicon anywhere in repo — browser 404s on every page,HIGH,Repository root + head.html,30 min,Low (indirect),Medium (AdSense reviewer),Immediate,Fixed
-2,7/16 (E-E-A-T/YMYL),About page grammar: "a exit-liquidity" → "an exit-liquidity",HIGH,about.md:31,1 min,Low (indirect),Medium (AdSense review),Immediate,Fixed
-3,16 (YMYL),predict.fun post missing "not financial advice" body disclaimer,HIGH,_posts/2026-09-01-predict-fun-developer-dashboard.md,5 min,Low (indirect),HIGH (AdSense gate),Immediate,Fixed
-4,7/16 (E-E-A-T/YMYL),Muskaan Shaik author page weak E-E-A-T — no photo/credentials/schema,HIGH,_data/authors.yml + author/muskanshaik.md,1–2 hrs,Low (indirect),HIGH (AdSense gate),1–2 hrs,Fixed
-5,6 (On-Page),website_credit_url still points to ttearncrypto.github.io,MEDIUM,_config.yml:18,1 min,None,Low (brand consistency),Immediate,Fixed
-6,7 (E-E-A-T),Privacy Policy and Terms stale dates (August → September),MEDIUM,legal/privacy-policy.md:11 + legal/terms.md:11,2 min,None,Medium (AdSense review),Immediate,Fixed
-7,7/16 (Content/YMYL),About page lists 5 coverage sections but site has 7 categories,MEDIUM,about.md:29-35,5 min,None,Low,Immediate,Fixed
-8,3 (CWV),Cover images lack explicit width/height — CLS risk,MEDIUM,_layouts/post.html:35,2 min,Low (CWV signal),Low,Immediate,Fixed
-9,3 (CWV),Logo.png is 639KB (1408×768) displayed at 28×28,MEDIUM,assets/site-images/logo.png,10 min,Minimal,Low,Immediate,Fixed
-10,10/14 (Images/News),Learn guides lack cover images — fall back to og-default.png,MEDIUM,pages/learn/*.md,1–2 hrs,Medium (Discover),Medium,1–2 hrs,Fixed
-11,3 (CWV),Unminified CSS (49KB) and JS (15KB),LOW,assets/main.css + assets/main.js,30 min,Minimal,Low,Immediate,Deferred — GitHub Pages serves compressed; manual minification risks breakage
-12,3 (CWV),Google Fonts render-blocking (preconnect exists but stylesheet blocks),LOW,_includes/head.html:58-60,30 min,Minimal,Low,Immediate,Fixed
-13,9 (Indexing),No IndexNow implementation,LOW,N/A (missing),1–2 hrs,Low (Bing/Yandex),Low,1–2 hrs,Deferred — subpath deployment blocks domain-root key placement
-14,18 (AI/SGE),llms-full.txt header promises full content but has summaries,LOW,llms-full.txt:1,1 min (header fix),Low,Low,Immediate,Fixed
-15,20 (Accessibility),No skip-to-content link,LOW,_includes/header.html,10 min,None,Low,Immediate,Fixed — already existed in default.html:5
-16,11 (Internal Linking),No related posts or "More from" section,LOW,_layouts/post.html,30 min,Medium (as content grows),Low,30 min,Fixed — already existed in post.html:197-221
-17,8 (Schema),About page missing datePublished/dateModified in schema,LOW,about.md,5 min,None,Low,Immediate,Fixed
-18,8/17 (Schema),Learn guide Article schema missing datePublished front matter,LOW,pages/learn/*.md,5 min,Minimal,Low,Immediate,Fixed
+#,Pillar,Detected Issue,Severity,Target File(s),Effort,Est Traffic Impact,Est Revenue Impact,Time to Impact,Business Value
+1,Indexability,"Empty indexable /category/bitcoin/ (0 posts) plus thin /category/defi/ (2 posts) and /category/press/ (1 post) while empty sibling categories (ethereum, altcoins, exchanges, regulation) are correctly noindexed",Critical,category/bitcoin.md; category/defi.md; category/press.md,S (<4h),Indexation safety / avoids thin-content risk,Medium,Immediate,Risk
+2,On-Page,"Cross-page cannibalization: /press/ vs /category/press/ and /pages/todays-combo/ vs /category/todays-combo/ - two indexable URLs serve identical post lists",High,press/index.md; category/press.md; pages/todays-combo.md; category/todays-combo.md,S (<4h),Clean query mapping,Low,1-4 weeks,Traffic
+3,On-Page,"Title-tag truncation on 8+ indexable pages (60-80 chars with '| The DESI Sikka' suffix): 5 learn guides (69-80), hyundai post (72), predict-fun post (70), welcome post (69); all WOTD posts borderline (61-62)",High,pages/learn/*.md (5 files); _posts/2026-09-17-hyundai-*; _posts/2026-09-01-predict-*; _posts/2026-09-01-welcome-*,S (<4h),Campaign CTR,Medium,Immediate,Traffic
+4,Content,"15 near-duplicate Binance WOTD posts target one query cluster (Binance WOTD Answers Sept N, 2026) with identical bodies and shared cover image - cannibalization + thin differentiation",High,_posts/binance-wotd-*.md (15 files),M (1-3d),Featured-snippet share on cluster,Medium,1-4 weeks,Traffic
+5,Schema/Freshness,"dateModified and article:modified_time never render because no post sets last_modified_at - freshness signal dead for Google News/Discover",Medium,_layouts/post.html; _includes/head.html; all _posts/*.md,S (<4h),Freshness signal in News/Discover,Low,Medium-term,Traffic
+6,Feeds/Discover,"RSS/Atom/JSON feeds have no per-item image (media:content/enclosure); Atom autodiscovery points to plugin feed.xml not the custom atom.xml",Medium,rss.xml; atom.xml; feed.json; _includes/head.html,S (<4h),Discover card eligibility,Medium,Launch-gated,Traffic
+7,Social,"og:image:width/height only emitted for site default image; post covers omit dimensions",Medium,_includes/head.html,S (<4h),Social CTR minor,Low,Immediate,Brand
+8,Compliance,"opinion: true is policy-only; no enforcement. A future prediction post ships as plain NewsArticle without Opinion label",Medium,_layouts/post.html; front-matter convention,S (<4h),Risk reduction,Medium,When predictions ship,Risk
+9,Config/Crawl,"Build artifacts published to production site root: opencode.json, seo_audit_report.md/csv, scripts/ plus orphan bharat-by-day.html demo (only page-level noindex, not robots-disallowed)",Medium,_config.yml (exclude list),S (<4h),Crawl hygiene,Low,Immediate,Risk
+10,Linking,"4 noindex, empty category pages (ethereum, altcoins, regulation, exchanges) still linked in global footer and llms.txt - wasted crawl and link equity",Medium,_includes/footer.html; llms.txt,S (<4h),Equity nit,Low,Immediate,Brand
+11,Performance,"Heavy images: logo.png 624.6 KB (og/publisher-schema/welcome cover) and predictfun-developer-dashboard-hero.jpg 366.3 KB (LCP on that post)",Medium,assets/site-images/logo.png; assets/articles-images/predictfun-*.jpg,M (1-3d),CWV LCP/CLS,Medium,1-4 weeks,Revenue
+12,On-Page,"Homepage title is bare brand 'The DESI Sikka' (14 chars) - no keyword or CTR value",Medium,index.md,S (<4h),Home CTR,Low,Immediate,Traffic
+13,Sitemap,"sitemap.xml lacks lastmod on category/static/author/legal/hub entries",Low,_config.yml / sitemap logic,S (<4h),Negligible,None,Immediate,Brand
+14,Security/SEO,"security.txt Canonical points to /thedesisikka/.well-known/security.txt which 404s because Jekyll drops dot-directories from _config includes",Low,_config.yml (include .well-known) or security.txt,S (<4h),None (security hygiene),None,Immediate,Risk
+15,Performance,"Unminified CSS (52 KB) and JS (16 KB) - no build-time minification",Low,assets/main.css; assets/site.js; CI,M (1-3d),LCP/FCP marginal,Low,1-4 weeks,Revenue
+16,GEO/AEO,"llms.txt category list stale (missing new News category); Welcome post first paragraph (24 words) fails the 40-60-word direct-answer AEO test",Low,llms.txt; _posts/2026-09-01-welcome-*.md,S (<4h),GEO nit,Low,Medium-term,Brand
+17,Taxonomy,"2 posts have empty tags (2026-09-01); tag taxonomy under-used beyond combo/featured",Low,_posts/2026-09-01-*.md (2 files),S (<4h),Negligible,None,Immediate,Brand

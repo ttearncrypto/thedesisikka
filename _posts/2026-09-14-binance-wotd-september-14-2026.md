@@ -1,7 +1,8 @@
 ---
 title: "Binance WOTD Answers Sept 14, 2026: Full List"
+seo_title: "Binance WOTD Answers Sept 14, 2026"
 date: 2026-09-14
-categories: [todays-combo]
+categories: [todays-combo, news]
 tags: [combo]
 author: muskanshaik
 large_text: true

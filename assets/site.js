@@ -132,11 +132,39 @@
 
   /* ================= Mobile nav ================= */
   var navToggle = document.querySelector(".nav-toggle");
-  if (navToggle) {
+  var mobileNav = document.getElementById("mobile-nav");
+  var navOpen = false;
+
+  function closeNav() {
+    if (!navOpen) return;
+    navOpen = false;
+    navToggle.setAttribute("aria-expanded", "false");
+    mobileNav.classList.remove("open");
+    document.body.classList.remove("menu-open");
+  }
+
+  function openNav() {
+    navOpen = true;
+    navToggle.setAttribute("aria-expanded", "true");
+    mobileNav.classList.add("open");
+    document.body.classList.add("menu-open");
+  }
+
+  if (navToggle && mobileNav) {
     navToggle.addEventListener("click", function () {
-      var open = navToggle.getAttribute("aria-expanded") === "true";
-      navToggle.setAttribute("aria-expanded", open ? "false" : "true");
-      document.getElementById("mobile-nav").classList.toggle("open");
+      if (navOpen) closeNav(); else openNav();
+    });
+
+    mobileNav.addEventListener("click", function (e) {
+      if (e.target.closest("a")) closeNav();
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeNav();
+    });
+
+    window.addEventListener("resize", function () {
+      if (window.innerWidth >= 900) closeNav();
     });
   }
 

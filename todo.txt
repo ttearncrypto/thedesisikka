@@ -2,13 +2,9 @@ Insipirations:
 https://miningcombo.com
 https://www.coingabbar.com
 https://www.bitrue.com/blog
-https://www.hokanews.com/
-https://www.quiknotes.in/
-https://www.bitdegree.org/
-
-
-
-
+https://www.hokanews.com
+https://www.quiknotes.in
+https://www.bitdegree.org
 
 
 in footer add this:

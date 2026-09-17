@@ -1,8 +1,9 @@
 ---
 title: "Welcome to The DESI Sikka: Your New Crypto News Desk"
+seo_title: "Welcome to The DESI Sikka"
 date: 2026-09-01
-categories: [press]
-tags: []
+categories: [press, news]
+tags: [launch, editorial]
 description: "The DESI Sikka launches as a global crypto news desk with one rule: zero jargon. Bitcoin, altcoin, and regulation coverage in plain English."
 summary:
   - "The DESI Sikka is a new crypto news desk built around one idea: crypto news, zero jargon."
@@ -15,9 +16,7 @@ image_alt: "The DESI Sikka logo"
 cover_caption: "The DESI Sikka: crypto news, zero jargon."
 ---
 
-Crypto news moves fast. Most of it reads like it was written for people who already know the jargon. The DESI Sikka flips that.
-
-We're a new crypto news desk with one rule: crypto news, zero jargon. You get the story, the numbers, and the context. No glossary required.
+The DESI Sikka is a new global crypto news desk that launched on September 1, 2026 with one rule: crypto news, zero jargon. We cover bitcoin, ethereum and altcoin moves, DeFi and Web3 explainers, exchange guides, regulation and daily trading combos in plain English, with deep coverage of India. Every story runs through a fact-check, a voice-check, and a clarity pass before it ships.
 
 ## What The DESI Sikka covers
 

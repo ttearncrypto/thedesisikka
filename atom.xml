@@ -4,7 +4,7 @@ permalink: /atom.xml
 sitemap: false
 ---
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
   <title>{{ site.title | xml_escape }}</title>
   <subtitle>{{ site.description | strip_html | xml_escape }}</subtitle>
   <link href="{{ site.url }}{{ site.baseurl }}/atom.xml" rel="self"/>
@@ -18,6 +18,7 @@ sitemap: false
   </author>
   {% for post in site.posts limit: 20 %}
   {% assign atom_slug = post.author | default: 'newsdesk' %}{% assign atom_author = site.data.authors[atom_slug] | default: site.data.authors.newsdesk %}
+  {% assign atom_img = post.cover_image | default: post.image | default: site.image %}
   <entry>
     <title>{{ post.title | xml_escape }}</title>
     <link href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" rel="alternate"/>
@@ -31,6 +32,9 @@ sitemap: false
     </author>
     <category term="{{ post.categories | first | default: 'news' }}"/>
     <summary>{{ post.description | default: post.excerpt | strip_html | xml_escape }}</summary>
+    {% assign atom_img_abs = atom_img | absolute_url %}
+    <media:content url="{{ atom_img_abs }}" medium="image" type="image/{{ atom_img | downcase | split: '.' | last | xml_escape }}"/>
+    {% if post.image_alt %}<media:description type="plain">{{ post.image_alt | xml_escape }}</media:description>{% endif %}
     <content type="html"><![CDATA[{{ post.content }}]]></content>
   </entry>
   {% endfor %}

@@ -4,7 +4,7 @@ permalink: /rss.xml
 sitemap: false
 ---
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>{{ site.title | xml_escape }}</title>
     <link>{{ site.url }}{{ site.baseurl }}/</link>
@@ -19,6 +19,7 @@ sitemap: false
     </image>
     {% for post in site.posts limit: 20 %}
     {% assign rss_slug = post.author | default: 'newsdesk' %}{% assign rss_author = site.data.authors[rss_slug] | default: site.data.authors.newsdesk %}
+    {% assign rss_img = post.cover_image | default: post.image | default: site.image %}
     <item>
       <title>{{ post.title | xml_escape }}</title>
       <link>{{ site.url }}{{ site.baseurl }}{{ post.url }}</link>
@@ -29,6 +30,11 @@ sitemap: false
       <dc:creator>{{ rss_author.name | xml_escape }}</dc:creator>
       <category>{{ post.categories | first | default: 'news' | xml_escape }}</category>
       <description>{{ post.description | default: post.excerpt | strip_html | xml_escape }}</description>
+      {% assign rss_img_abs = rss_img | absolute_url %}
+      {% assign rss_img_ext = rss_img | downcase | split: '.' | last %}
+      <media:content url="{{ rss_img_abs }}" medium="image" type="image/{{ rss_img_ext | xml_escape }}"/>
+      <enclosure url="{{ rss_img_abs }}" type="image/{{ rss_img_ext | xml_escape }}" length="0"/>
+      {% if post.image_alt %}<media:description type="plain"><![CDATA[{{ post.image_alt | xml_escape }}]]></media:description>{% endif %}
       <content:encoded><![CDATA[{{ post.content }}]]></content:encoded>
     </item>
     {% endfor %}

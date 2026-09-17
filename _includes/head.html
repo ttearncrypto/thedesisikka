@@ -3,7 +3,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   {% comment %} ---- Title + description (explicit; replaces jekyll-seo-tag) ---- {% endcomment %}
-  {% if page.title and page.title != site.title %}
+  {% if page.seo_title %}
+    <title>{{ page.seo_title | escape }}</title>
+  {% elsif page.title and page.title != site.title %}
     <title>{{ page.title | escape }}{% if site.title_separator %} {{ site.title_separator }} {% endif %}{{ site.title | escape }}</title>
   {% else %}
     <title>{{ site.title | escape }}</title>
@@ -34,7 +36,7 @@
   {% endif %}
 
   {% comment %} ---- Open Graph ---- {% endcomment %}
-  {% assign og_title = page.title | default: site.title %}
+  {% assign og_title = page.seo_title | default: page.title | default: site.title %}
   <meta property="og:type" content="{% if page.date %}article{% else %}website{% endif %}">
   <meta property="og:title" content="{{ og_title | escape }}">
   <meta property="og:description" content="{% if page.description %}{{ page.description | strip_html | escape | truncate: 200 }}{% else %}{{ site.description | strip_html | escape | truncate: 200 }}{% endif %}">
@@ -42,7 +44,7 @@
   <meta property="og:site_name" content="{{ site.title }}">
   <meta property="og:locale" content="en_US">
   {% if page.date %}<meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">{% endif %}
-  {% if page.last_modified_at %}<meta property="article:modified_time" content="{{ page.last_modified_at | date_to_xmlschema }}">{% endif %}
+  {% if page.date %}<meta property="article:modified_time" content="{{ page.last_modified_at | default: page.date | date_to_xmlschema }}">{% endif %}
   {% if page.categories.size > 0 %}
     {% assign og_art_slug = page.categories | first %}
     {% assign og_cat = site.site_categories | where: 'slug', og_art_slug | first %}
@@ -74,6 +76,9 @@
   {% if og_image == site.image or og_image == site.social_image %}
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  {% else %}
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="675">
   {% endif %}
   <meta property="og:image:alt" content="{% if page.image_alt %}{{ page.image_alt | escape }}{% else %}{{ site.title }} — {{ site.tagline }}{% endif %}">
 
@@ -88,7 +93,7 @@
 
   {% comment %} ---- Feed + sitemap autodiscovery ---- {% endcomment %}
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }} RSS" href="{{ '/rss.xml' | absolute_url }}">
-  <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Atom" href="{{ '/feed.xml' | absolute_url }}">
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Atom" href="{{ '/atom.xml' | absolute_url }}">
   <link rel="alternate" type="application/feed+json" title="{{ site.title }} JSON Feed" href="{{ '/feed.json' | absolute_url }}">
   <link rel="sitemap" type="application/xml" href="{{ '/sitemap.xml' | absolute_url }}">
   <link rel="llms" href="{{ '/llms.txt' | absolute_url }}">

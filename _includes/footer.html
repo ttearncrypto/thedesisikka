@@ -17,7 +17,9 @@
     <div class="footer-col">
       <h3>Categories</h3>
       {% for cat in site.site_categories %}
+        {% unless cat.indexable == false %}
         <a href="{{ '/category/' | append: cat.slug | relative_url }}">{{ cat.name }}</a>
+        {% endunless %}
       {% endfor %}
     </div>
 

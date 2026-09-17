@@ -1,8 +1,9 @@
 ---
 title: "Predict.fun Launches Self-Service Developer Dashboard"
+seo_title: "Predict.fun Developer Dashboard & API Keys"
 date: 2026-09-01
-categories: [defi]
-tags: []
+categories: [defi, news]
+tags: [defi]
 description: "Predict.fun's new developer dashboard lets builders create apps, generate API keys, monitor usage, and manage rate limits without manual support requests."
 summary:
   - "Predict.fun launched a self-service developer dashboard on September 1, 2026, replacing Discord support tickets for API access."
