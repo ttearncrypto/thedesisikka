@@ -1,0 +1,42 @@
+name: Binance WOTD daily autopilot
+
+on:
+  schedule:
+    - cron: "0 7 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: wotd-daily
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      WOTD_SHIP: "1"
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install deps
+        run: python -m pip install --quiet pyyaml
+
+      - name: Publish today's Binance WOTD post
+        run: python scripts/wotd-daily.py
+
+      - name: Report abort reason
+        if: failure()
+        run: |
+          echo "::notice::No WOTD post was published. Re-run manually or use the binance-wotd-autopilot skill."
