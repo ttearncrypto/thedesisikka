@@ -26,7 +26,12 @@ also "Also Read" section auto added in between of articles at random places
 Further Reading section after news article ends
 Option for Pevious News and Next News
 
+News article publisher skill is great, but what i want is I will give u the headline and your have draft a news article based on that headline , and you have to draft that article into a very professional journalist way. 
 
-News article published skill
+use dropdown menu in navbar
+
 
 Coupons docs
+
+
+
