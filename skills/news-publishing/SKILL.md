@@ -19,7 +19,7 @@ Read these before writing anything; they are the contract:
 
 - Posts live in `_posts/YYYY-MM-DD-kebab-slug.md`. Permalink is `/news/:slug/`, so the filename slug becomes the public URL.
 - Post date is the publish date in `Asia/Kolkata`. Never date a post in the future relative to that timezone.
-- Valid category slugs (from `_config.yml` → `site_categories`): `bitcoin`, `ethereum`, `altcoins`, `regulation`, `defi`, `exchanges`. Exactly one per post.
+- Valid category slugs (from `_config.yml` → `site_categories`): `bitcoin`, `ethereum`, `altcoins`, `regulation`, `defi`, `exchanges`, `todays-combo`, `press`, `news`. A post carries its PRIMARY topic slug, plus an optional secondary `news` slug so it also lands on the `/category/news/` hub. So: `categories: [<primary-slug>]` or `categories: [<primary-slug>, news]`. Two-category posts must use `news` as the second slug.
 - The layout (`_layouts/post.html`) already renders: breadcrumbs, author box (F9XR News Desk), share buttons, copyright + disclaimer boxes, related/further reading, NewsArticle JSON-LD. You do not write any of that.
 - Featured images are not needed. Posts without `cover_image` get an automatic category glyph cover.
 - Do not add `image` front matter; the default in `_config.yml` (`og-default.png`) handles it unless the story needs a custom social card. Set `author` only for named reporters (see optional fields below).
@@ -32,7 +32,7 @@ Every post uses exactly this shape (fields in this order):
 ---
 title: "<headline>"
 date: YYYY-MM-DD
-categories: [one-valid-slug]
+categories: [<primary-slug>]
 tags: [featured]
 description: "<150–160 char lead shown under the headline and used as meta description>"
 summary:
