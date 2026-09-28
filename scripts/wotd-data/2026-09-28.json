@@ -1,0 +1,26 @@
+{
+  "date": "2026-09-28",
+  "theme": "IPOs Are Moving On-Chain",
+  "campaign_start": "2026-09-28",
+  "campaign_end": "2026-10-04",
+  "cycle_day": 1,
+  "confirmed": null,
+  "reward": "10,000 USDC",
+  "reward_detail": "For the IPOs Are Moving On-Chain cycle, Binance lists a 10,000 USDC pool, and the activity runs from September 28 to October 4. Five correct words plus $50 in equivalent trading volume qualifies you for a share. Check the live campaign page in-app for the current terms.",
+  "two_games": false,
+  "words": {
+    "3": ["IPO", "KYC", "WEB"],
+    "4": ["DEFI", "COIN", "FUND"],
+    "5": ["OFFER", "PRICE", "SHARE", "ASSET", "ISSUE", "CHAIN", "VALUE", "TOKEN", "STOCK", "TRADE"],
+    "6": ["EQUITY", "MARKET", "ACCESS"],
+    "7": ["TRADING", "CAPITAL"],
+    "8": ["INVESTOR", "ISSUANCE"]
+  },
+  "_sources": [
+    "https://www.quiknotes.in/binance-word-of-the-day-answer-today-28-september-2026/",
+    "https://www.coingabbar.com/en/binance-word-of-the-day-answer-28-september-2026-full-wotd-list",
+    "https://www.bittime.com/en/blog/jawaban-binance-word-of-the-day-28-29-september-2026",
+    "https://cryptopanic.com/news/33459628/Binance-Launches-New-Word-of-the-Day-Game-With-10000-USDC-Rewards"
+  ],
+  "_verified": "2026-09-28 by binance-wotd-autopilot; theme and all six word lists agreed across quiknotes, coingabbar and bittime; pool, activity window and five-word/$50 unlock from the Binance announcement relayed on Binance Square. Tier-by-tier split not published in a readable source for this cycle, so two_games is unconfirmed and the post tells readers to read the split in-app."
+}
