@@ -168,6 +168,90 @@
     });
   }
 
+  /* ================= Nav dropdowns ================= */
+  (function () {
+    var dropdowns = Array.prototype.slice.call(document.querySelectorAll("[data-nav-dropdown]"));
+    if (!dropdowns.length) return;
+
+    var canHover = window.matchMedia("(hover: hover) and (pointer: fine)");
+
+    function setOpen(dd, open) {
+      var btn = dd.querySelector(".nav-dropdown-toggle");
+      var panel = dd.querySelector(".nav-dropdown-panel");
+      if (!btn || !panel) return;
+      dd.classList.toggle("open", open);
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+      if (open) panel.removeAttribute("hidden");
+      else panel.setAttribute("hidden", "");
+    }
+
+    function closeAll(except) {
+      dropdowns.forEach(function (dd) { if (dd !== except) setOpen(dd, false); });
+    }
+
+    dropdowns.forEach(function (dd) {
+      var btn = dd.querySelector(".nav-dropdown-toggle");
+      var panel = dd.querySelector(".nav-dropdown-panel");
+      if (!btn || !panel) return;
+
+      btn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var open = !dd.classList.contains("open");
+        closeAll(dd);
+        setOpen(dd, open);
+      });
+
+      if (canHover.matches) {
+        dd.addEventListener("mouseenter", function () { closeAll(dd); setOpen(dd, true); });
+        dd.addEventListener("mouseleave", function () { setOpen(dd, false); });
+      }
+
+      panel.addEventListener("click", function (e) {
+        if (e.target.closest("a")) {
+          setOpen(dd, false);
+          var mobileNav = document.getElementById("mobile-nav");
+          if (mobileNav && mobileNav.contains(dd) && mobileNav.classList.contains("open")) {
+            var navToggle = document.querySelector(".nav-toggle");
+            if (navToggle) navToggle.click();
+          }
+        }
+      });
+
+      panel.addEventListener("keydown", function (e) {
+        var links = Array.prototype.slice.call(panel.querySelectorAll("a"));
+        var i = links.indexOf(document.activeElement);
+        if (e.key === "ArrowDown") { e.preventDefault(); (links[i + 1] || links[0]).focus(); }
+        else if (e.key === "ArrowUp") { e.preventDefault(); (links[i - 1] || links[links.length - 1]).focus(); }
+        else if (e.key === "Home") { e.preventDefault(); links[0].focus(); }
+        else if (e.key === "End") { e.preventDefault(); links[links.length - 1].focus(); }
+      });
+
+      btn.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowDown") {
+          e.preventDefault();
+          closeAll(dd);
+          setOpen(dd, true);
+          var first = panel.querySelector("a");
+          if (first) first.focus();
+        }
+      });
+
+      document.addEventListener("click", function (e) {
+        if (!dd.contains(e.target)) setOpen(dd, false);
+      });
+
+      document.addEventListener("focusin", function (e) {
+        if (!dd.contains(e.target)) setOpen(dd, false);
+      });
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key !== "Escape" || !dd.classList.contains("open")) return;
+        setOpen(dd, false);
+        btn.focus();
+      });
+    });
+  })();
+
   /* ================= Article tools ================= */
   var body = document.getElementById("article-body");
 

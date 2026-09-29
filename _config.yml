@@ -117,6 +117,39 @@ site_categories:
   - { slug: todays-combo, name: "Today's Combo", indexable: false }
   - { slug: press, name: "Press Releases", indexable: false }
 
+# Header navigation ---------------------------------------------------------
+# `inline` sits in the bar. Everything else collapses into the "More" dropdown,
+# grouped so the panel reads as columns instead of a flat list. Add new
+# categories or pages here instead of hardcoding links in _includes/header.html.
+header_nav:
+  inline:
+    - { name: "News",        url: "/category/news/" }
+    - { name: "DeFi & Web3", url: "/category/defi/" }
+  dropdown:
+    label: "More"
+    groups:
+      - name: "Markets"
+        links:
+          - { name: "Bitcoin",             url: "/category/bitcoin/" }
+          - { name: "Ethereum",            url: "/category/ethereum/" }
+          - { name: "Altcoins",            url: "/category/altcoins/" }
+          - { name: "Regulation",          url: "/category/regulation/" }
+          - { name: "Exchanges & How-to",  url: "/category/exchanges/" }
+      - name: "Tools"
+        links:
+          - { name: "Today's Combo",       url: "/category/todays-combo/" }
+          - { name: "Price Predictions",   url: "/pages/predictions/" }
+          - { name: "Airdrops",            url: "/pages/airdrops/" }
+          - { name: "Videos",              url: "/pages/videos/" }
+      - name: "Site"
+        links:
+          - { name: "Learn",               url: "/pages/learn/" }
+          - { name: "Events",              url: "/pages/events/" }
+          - { name: "Press Releases",      url: "/press/" }
+          - { name: "Archive",             url: "/archive/" }
+          - { name: "About",               url: "/about/" }
+          - { name: "Contact",             url: "/pages/contact/" }
+
 # Defaults ---------------------------------------------------------------------
 defaults:
   - scope:

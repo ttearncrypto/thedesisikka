@@ -28,10 +28,6 @@ Option for Pevious News and Next News
 
 News article publisher skill is great, but what i want is I will give u the headline and your have draft a news article based on that headline , and you have to draft that article into a very professional journalist way. 
 
-use dropdown menu in navbar
 
 
 Coupons docs
-
-
-
