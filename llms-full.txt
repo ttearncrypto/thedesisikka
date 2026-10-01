@@ -6,7 +6,7 @@ permalink: /llms-full.txt
 
 {{ site.description | strip_html }}
 
-Publisher: The DESI Sikka (https://ttearncrypto.github.io/thedesisikka/)
+Publisher: The DESI Sikka (https://ttearncrypto.f9xr.org/thedesisikka/)
 Author: {{ site.default_author.name }} — {{ site.default_author.bio }}
 Language: English. Nothing on this site is financial advice.
 
@@ -15,7 +15,7 @@ Language: English. Nothing on this site is financial advice.
 
 {% for post in site.posts %}
 ### {{ post.title }}
-- URL: https://ttearncrypto.github.io/thedesisikka{{ post.url }}
+- URL: https://ttearncrypto.f9xr.org/thedesisikka{{ post.url }}
 - Published: {{ post.date | date: '%Y-%m-%d' }}
 - Category: {{ post.categories | first | default: 'news' }}
 {% if post.tags.size > 0 %}- Tags: {{ post.tags | join: ', ' }}{% endif %}

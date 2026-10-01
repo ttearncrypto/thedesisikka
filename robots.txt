@@ -25,4 +25,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://ttearncrypto.github.io/thedesisikka/sitemap.xml
+Sitemap: https://ttearncrypto.f9xr.org/thedesisikka/sitemap.xml

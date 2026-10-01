@@ -1,6 +1,6 @@
 ---
 name: binance-wotd-autopilot
-description: Auto-publish the daily Binance Word of the Day (WOTD) answer post for The DESI Sikka, one post per day on autopilot. Use when asked to "publish today's Binance WOTD", "post the Binance word of the day answers for <date>", "run the WOTD autopilot", "catch up missed WOTD days", or "binance wotd answers today". Covers fetching and cross-checking the daily theme and 3 to 8 letter word lists from community trackers, drafting the post in the exact established front matter plus body template, running the anti-AI writing and SEO/AEO/GEO audits, verifying with jekyll build, and committing plus pushing to main when deployment is requested. Also covers rescue of the scheduled runner when scripts/wotd-daily.py aborts, and backfilling missing days.
+description: Draft and publish the daily Binance Word of the Day (WOTD) answer post for The DESI Sikka. There is no scheduled runner — posts ship when a person or an agent session triggers this skill. Use when asked to "publish today's Binance WOTD", "post the Binance word of the day answers for <date>", "run the WOTD autopilot", "catch up missed WOTD days", or "binance wotd answers today". Covers fetching and cross-checking the daily theme and 3 to 8 letter word lists from community trackers, drafting the post in the exact established front matter plus body template, running the anti-AI writing and SEO/AEO/GEO audits, verifying with jekyll build, and committing plus pushing to main when deployment is requested. Also covers rescuing an aborted local scripts/wotd-daily.py run, and backfilling missing days.
 version: 1.0.0-desikka
 license: private
 metadata:
@@ -21,7 +21,7 @@ The word list data is community-sourced and changes by account. You NEVER invent
 - "binance wotd answers for <date>" or "wotd for <Month> <D>, <YYYY>"
 - "run the WOTD autopilot"
 - "catch up missed WOTD days" (backfill mode)
-- "the scheduled WOTD run failed" (runner rescue mode)
+- "the scheduled WOTD run failed" (runner rescue mode — only if a local `scripts/wotd-daily.py` run aborts)
 
 ## Mandatory layers
 
@@ -163,11 +163,11 @@ Run all three before touching `_posts/`. Fix and re-run until clean.
 1. Write `_posts/<YYYY>-<MM>-<DD>-binance-wotd-<month>-<D>-<YYYY>.md`. The filename slug is the established form (`2026-09-24-binance-wotd-september-24-2026`), keep it identical in shape.
 2. Build locally: `jekyll build`. Must finish with zero errors.
 3. Verify: `_site/news/binance-wotd-<month>-<D>-<YYYY>/index.html` exists; the headline appears in the NewsArticle JSON-LD; all FAQ pairs render; the hub page `pages/binance-wotd-answers.md` lists the post (it auto-includes any post whose title contains "Binance WOTD", so you do not edit the hub).
-4. Deploy (only if the user asked for deployment, or in scheduled-runner mode where the policy is commit+push): `git add` only the new post file, commit as `news: Binance WOTD answers <Month> <D> <YYYY>`, push to `main`. GitHub Pages deploys on push. Never commit other dangling files.
+4. Deploy (only if the user asked for deployment): `git add` only the new post file, commit as `news: Binance WOTD answers <Month> <D> <YYYY>`, push to `main`. GitHub Pages deploys on push. Never commit other dangling files.
 
-## Scheduled-runner rescue mode
+## Local-runner rescue mode
 
-`scripts/wotd-daily.py` runs on a cron and can abort when tracker pages fail (429, layout drift, zero agreement). When the user reports a failed run:
+There is no scheduled runner any more — `.github/workflows/binance-wotd-daily.yml` was removed, so posts ship only when a person (or an agent session) runs them. `scripts/wotd-daily.py` is still there for manual runs and can abort when tracker pages fail (429, layout drift, zero agreement). When a run fails:
 
 - Confirm the target date has no post yet.
 - Run the research pass yourself (websearch), which handles flaky pages far better than the scraper.

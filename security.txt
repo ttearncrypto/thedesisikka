@@ -1,5 +1,5 @@
 Contact: mailto:hello@f9xr.org
 Expires: 2027-08-23T00:00:00.000Z
 Preferred-Languages: en, hi
-Canonical: https://ttearncrypto.github.io/thedesisikka/.well-known/security.txt
-Policy: https://ttearncrypto.github.io/thedesisikka/legal/editorial-policy/
+Canonical: https://ttearncrypto.f9xr.org/thedesisikka/.well-known/security.txt
+Policy: https://ttearncrypto.f9xr.org/thedesisikka/legal/editorial-policy/

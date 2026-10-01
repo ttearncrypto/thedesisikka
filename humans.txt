@@ -14,14 +14,14 @@ Site: https://f9xr.org/
 /* SITE */
 
 Name: The DESI Sikka
-Site: https://ttearncrypto.github.io/thedesisikka/
+Site: https://ttearncrypto.f9xr.org/thedesisikka/
 Mission: Crypto news for everyone. Bitcoin to policy shifts, with deep India coverage, minus the jargon walls.
 Launched: 2026
 Language: English
 Doctype: HTML5
 Stack: Jekyll on GitHub Pages
 Components: Inter, JetBrains Mono
-Editorial standards: https://ttearncrypto.github.io/thedesisikka/legal/editorial-policy/
+Editorial standards: https://ttearncrypto.f9xr.org/thedesisikka/legal/editorial-policy/
 
 /* ELSEWHERE */
 

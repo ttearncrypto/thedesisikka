@@ -8,7 +8,13 @@ description: >-
   updates that matter, with deep coverage of India. Plain English, no jargon
   walls.
 
-url: "https://ttearncrypto.github.io"
+# NOTE: `url` must be the host that actually serves this site. The custom domain
+# ttearncrypto.f9xr.org is the live origin; ttearncrypto.github.io/thedesisikka
+# only 301-redirects to it. Pointing `url` at the redirecting host makes every
+# absolute URL we emit (sitemap <loc>, canonical, og:url, JSON-LD @id, feed
+# links) resolve through a redirect, and Google Search Console then rejects the
+# whole sitemap with "URL not allowed for a Sitemap at this location".
+url: "https://ttearncrypto.f9xr.org"
 baseurl: "/thedesisikka"
 
 # Social -------------------------------------------------------------------

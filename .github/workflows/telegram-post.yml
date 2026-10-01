@@ -11,7 +11,7 @@ jobs:
     env:
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
       TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-      SITE_RSS: "https://ttearncrypto.github.io/thedesisikka/rss.xml"
+      SITE_RSS: "https://ttearncrypto.f9xr.org/thedesisikka/rss.xml"
     steps:
       - name: Checkout
         uses: actions/checkout@v4

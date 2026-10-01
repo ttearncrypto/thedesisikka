@@ -17,7 +17,7 @@ import xml.etree.ElementTree as ET
 
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
 CHAT = os.getenv("TELEGRAM_CHAT_ID", "").strip()
-RSS_URL = os.getenv("SITE_RSS", "https://ttearncrypto.github.io/thedesisikka/rss.xml").strip()
+RSS_URL = os.getenv("SITE_RSS", "https://ttearncrypto.f9xr.org/thedesisikka/rss.xml").strip()
 STATE_FILE = os.getenv("STATE_FILE", "telegram-state.json").strip()
 
 if not TOKEN or not CHAT:
