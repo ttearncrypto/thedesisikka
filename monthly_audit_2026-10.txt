@@ -1,0 +1,530 @@
+================================================================================
+MONTHLY WEBSITE AUDIT - THE DESI SIKKA
+October 2026
+================================================================================
+
+Site audited ....... https://ttearncrypto.f9xr.org/thedesisikka/
+Build audited ...... _site (Jekyll output, 75 HTML pages)
+Audit date ......... 2026-10-01
+Source checklist ... https://f9xr.org/articles/2026/09/03/
+                     monthly-website-audit-checklist.html
+Platform ........... Jekyll + GitHub Pages (custom domain)
+Editor ............. Muskaan Shaik / F9XR News Desk
+
+Note: the source checklist is WordPress-oriented. Items that assume plugins,
+a database, or a Google Business Profile were mapped to their Jekyll /
+GitHub Pages equivalents. Where an item does not apply, that is stated
+rather than silently skipped.
+
+--------------------------------------------------------------------------------
+SUMMARY
+--------------------------------------------------------------------------------
+
+ #   Audit                        Result
+---  ---------------------------  -----------------------------------------
+  1  Image SEO                    Pass with one gap
+  2  Broken links & images        Fixed
+  3  Speed & Core Web Vitals      Pass
+  4  Mobile usability             Pass
+  5  On-page SEO                  Fixed
+  6  Content freshness            Pass, monitor
+  7  Backlink profile             Not measurable locally
+  8  Security                     Fixed
+  9  Indexing signals             Pass
+ 10  Local SEO / GBP              Not applicable
+ 11  Schema markup                Pass
+ 12  Analytics                    Pass
+ 13  Duplicate content            Pass
+ 14  Internal linking             Pass
+ 15  AEO / AI search              Pass
+
+  Fixed ............. 4 audits
+  Passed clean ...... 8 audits
+  Not applicable .... 1 audit
+  Not measurable .... 1 audit
+  Pass w/ gap ....... 1 audit
+
+
+================================================================================
+WHAT CHANGED IN THIS PASS
+================================================================================
+
+1. META DESCRIPTIONS - 11 PAGES REWRITTEN
+   All descriptions now sit inside the 70-160 character window.
+
+   Worst offender was pages/binance-wotd-answers.md:
+     - description was 200 characters and Liquid was truncating it
+       mid-sentence, emitting a literal "..." into the rendered meta tag
+     - seo_title was still pinned to "September 2026" while the page was
+       actively serving October 2026 content
+   Both values were made evergreen instead of month-specific, so this page
+   will not go stale again on the next theme cycle.
+
+   Remaining edits were length corrections on:
+     about.md
+     archive.md
+     legal/disclaimer.md
+     legal/privacy-policy.md
+     legal/terms.md
+     pages/featured.md
+     pages/learn/exchange-comparison-india.md
+     pages/saved.html
+     pages/search.html
+     _posts/2026-09-19-cftc-crypto-rulemaking-white-house-review.md
+
+2. MISSING H1 - archive.md
+   The archive page had NO <h1> at all. It opened directly on <h2> month
+   headings. A page-intro block was added so the page now has exactly one
+   <h1>, matching every other page on the site.
+
+3. WORKFLOW PERMISSIONS - .github/workflows/telegram-post.yml
+   The workflow had no "permissions" block and was inheriting the repository
+   default. Now explicitly set to:
+
+       permissions:
+         contents: read
+
+4. AUDIT REPORTS ADDED
+   monthly_audit_2026-10.md  (readable summary)
+   monthly_audit_2026-10.txt (this file, full plain-text record)
+
+
+================================================================================
+FULL AUDIT DETAIL
+================================================================================
+
+--------------------------------------------------------------------------------
+1. IMAGE SEO  --  PASS WITH ONE GAP
+--------------------------------------------------------------------------------
+   <img> tags scanned ............................... 516
+   Missing alt attribute ............................. 0
+   Images with descriptive alt text ................. 366
+   Empty alt="" (decorative, correct) ................ 150
+   Total assets ...................................... 19
+   Total asset weight ............................... 935 KB
+
+   The 150 empty alt values are the GoatCounter tracking pixel and the
+   footer logo. Both are genuinely decorative, so alt="" is the correct
+   choice rather than a defect.
+
+   All asset filenames are descriptive. No IMG_1234.jpg or screenshot.png
+   style names found.
+
+   GAP: social card variety
+     - 31 of 35 posts share ONE hero image:
+       assets/articles-images/binance-wotd-answers-hero.webp
+     - Google Discover weights visual variety heavily. A month of posts
+       shipping an identical social card flattens click-through rates.
+     - 3 non-WOTD posts have no cover_image in front matter and fall back
+       to og-default.png:
+         news/bitcoin-84k-bond-yields
+         news/bitget-hack-withdrawals-restart
+         news/cftc-crypto-rulemaking-white-house-review
+
+   Largest assets:
+     199,990 B  assets/site-images/logo.png
+     135,998 B  assets/articles-images/predictfun-developer-dashboard-hero.jpg
+     130,198 B  assets/articles-images/binance-wotd-app-grid.webp
+     110,637 B  assets/articles-images/hyundai-stablecoin-avalanche-hero.jpg
+      98,916 B  assets/articles-images/binance-wotd-answers-hero.webp
+      37,953 B  assets/site-images/og-default.png
+
+--------------------------------------------------------------------------------
+2. BROKEN LINKS & IMAGES  --  FIXED / VERIFIED CLEAN
+--------------------------------------------------------------------------------
+   Every internal href and src was resolved against the built file tree.
+
+   BROKEN INTERNAL LINKS .................... 0
+   BROKEN IMAGES ............................ 0
+
+   Note: the /category/* pages all resolve 200 despite carrying noindex.
+   That is correct behaviour, not a soft-404 problem.
+
+   pages/learn/glossary/index.html and pages/featured/index.html each have
+   only one inbound internal link. Not broken, but thin.
+
+--------------------------------------------------------------------------------
+3. SPEED & CORE WEB VITALS  --  PASS
+--------------------------------------------------------------------------------
+   Page weight breakdown (homepage):
+     HTML ................................. 37,063 B  (1 page)
+     CSS ................................. 56,706 B  (1 file)
+     JS ................................. 19,423 B  (1 file)
+
+   Live TTFB measurements against production:
+     1,299 ms   37,430 B   /
+       575 ms   59,432 B   /news/binance-wotd-october-1-2026/
+       719 ms   52,775 B   /pages/binance-wotd-answers/
+       497 ms   59,520 B   /category/news/
+
+   Total first-party payload is roughly 76 KB before images. Light enough
+   that LCP and CLS should sit comfortably inside Core Web Vitals
+   thresholds.
+
+   INVESTIGATED, NOT A BUG: the Google Fonts stylesheet appears TWICE in
+   every rendered page. On inspection this is the deliberate async-load
+   pattern, not a duplicate:
+
+       <link href="...css2?family=Inter..."
+             rel="stylesheet" media="print"
+             onload="this.media='all'">
+       <noscript><link href="...css2?family=Inter..."
+             rel="stylesheet"></noscript>
+
+   The noscript copy is the fallback for users with JS disabled. Correct.
+
+--------------------------------------------------------------------------------
+4. MOBILE USABILITY  --  PASS
+--------------------------------------------------------------------------------
+   Pages with viewport meta ....................... 75 / 75
+   width=device-width confirmed on all pages.
+   No fixed-width layouts or horizontal-overflow patterns detected.
+
+--------------------------------------------------------------------------------
+5. ON-PAGE SEO  --  FIXED
+--------------------------------------------------------------------------------
+   BEFORE: 11 pages had descriptions outside the 70-160 character range.
+
+     Too short (under 70):
+        37 chars   pages/search
+        54 chars   archive
+        56 chars   about
+        57 chars   legal/privacy-policy
+        62 chars   legal/terms
+        66 chars   legal/disclaimer
+        67 chars   pages/featured
+        67 chars   pages/saved
+
+     Too long (over 160):
+       163 chars   news/cftc-crypto-rulemaking-white-house-review
+       164 chars   pages/learn/exchange-comparison-india
+       200 chars   pages/binance-wotd-answers  <-- truncated mid-sentence
+
+   AFTER: all 75 pages pass.
+
+   Titles: every page was already under 60 characters. No changes needed.
+   Largest title is 42 characters (pages/binance-wotd-answers, post-fix).
+
+   H1 structure:
+     Pages with exactly one h1 .................. 75 / 75
+     Pages with zero or multiple h1 .............. 0
+
+   Note on title duplication (reported by the checker, not an indexing
+   conflict): pages/todays-combo and category/todays-combo both emit
+   "Today's Combo | The DESI Sikka". The category twin is noindex and
+   excluded from the sitemap, so there is no crawl ambiguity.
+
+--------------------------------------------------------------------------------
+6. CONTENT FRESHNESS  --  PASS, MONITOR
+--------------------------------------------------------------------------------
+   Sitemap lastmod distribution:
+     2026-09 ......... 36 URLs
+     2026-08 .........  5 URLs
+     2026-10 .........  1 URL
+
+   Oldest lastmod ............................. 2026-08-28
+   Newest lastmod ............................. 2026-10-01
+
+   The August batch is 5 evergreen Learn guides
+   (bitcoin-tax-guide-india, exchange-comparison-india, p2p-and-onramps,
+   wallet-and-security, glossary), not stale news. No stale-news risk.
+
+   Publishing cadence: 1 post per day, held steady through September.
+
+--------------------------------------------------------------------------------
+7. BACKLINK PROFILE  --  NOT MEASURABLE LOCALLY
+--------------------------------------------------------------------------------
+   Domain: ttearncrypto.f9xr.org
+
+   Backlink count, referring domains, anchor-text distribution and domain
+   authority cannot be determined from the repository. This needs Google
+   Search Console, Bing Webmaster Tools, or a third-party index
+   (Ahrefs, Semrush, Moz).
+
+   What IS measurable from the repo:
+     rel="nofollow" on outbound links .......... 0
+     rel="noopener"/"noreferrer" ............... 452   (correct for
+                                                          target="_blank")
+
+   Outbound external origins referenced sitewide:
+     fonts.googleapis.com      font delivery
+     fonts.gstatic.com         font files
+     gc.zgo.at                  GoatCounter script
+     buttondown.com             newsletter
+     t.me                       Telegram channel
+     twitter.com / x.com        social
+     github.com                 source / credit
+     jekyllrb.com, pages.github.com   framework credit (footer)
+
+   No paid or sponsored placements found, so the absence of nofollow is
+   expected rather than a leak.
+
+--------------------------------------------------------------------------------
+8. SECURITY  --  FIXED
+--------------------------------------------------------------------------------
+   Credential scan across yml, yaml, json, py, md, txt:
+     HARDCODED SECRETS FOUND .................. 0
+     PRIVATE KEYS FOUND ....................... 0
+
+   security.txt present at BOTH locations:
+     /security.txt
+     /.well-known/security.txt
+
+   Workflow permissions:
+     pages.yml .............. permissions: contents: (read-only)  OK
+     telegram-post.yml ...... permissions: <default>  --> FIXED to
+                                            contents: read
+
+   Action pinning:
+     actions/checkout@v4  (both workflows, by tag not SHA)
+     SHA pinning is stricter. Not urgent given both workflows are
+     read-only, but worth doing on the next workflow touch.
+
+   Secrets used at runtime (not in repo):
+     TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID  via GitHub Actions secrets
+
+   Third-party scripts loaded on every page:
+     https://gc.zgo.at/count.js   async, GoatCounter
+     Google Fonts stylesheet       async via media=print swap
+
+   Analytics: GoatCounter only. Cookie-less, no consent banner required,
+   async loaded with noscript pixel fallback.
+
+--------------------------------------------------------------------------------
+9. INDEXING SIGNALS  --  PASS
+--------------------------------------------------------------------------------
+   Sitemap URLs ................................. 60
+   github.io references in sitemap .............. 0
+   Canonical domain .............................. ttearncrypto.f9xr.org
+
+   robots meta distribution:
+     robots="index, follow, max-image-preview:large,
+            max-snippet:-1, max-video-preview:-1" ..... 60 pages
+     robots="noindex, follow" ............................. 15 pages
+
+   The 60 indexable pages match the 60 sitemap URLs exactly.
+
+   The 15 noindex pages are utility or intentionally-empty listings:
+     404.html
+     category/altcoins
+     category/bitcoin
+     category/defi
+     category/ethereum
+     category/exchanges
+     category/press
+     category/regulation
+     category/todays-combo
+     pages/airdrops
+     pages/events
+     pages/featured
+     pages/predictions
+     pages/saved
+     pages/search
+     pages/videos
+
+   All resolve HTTP 200 (soft behaviour, not an error signal).
+
+   robots.txt sitemap directive points at the custom domain.
+   security.txt Contact, Expires and Encryption fields present.
+
+--------------------------------------------------------------------------------
+10. LOCAL SEO / GOOGLE BUSINESS PROFILE  --  NOT APPLICABLE
+--------------------------------------------------------------------------------
+   LocalBusiness schema ........................ not present
+   addressLocality ............................ not present
+   telephone ................................... not present
+   openingHours ................................ not present
+   aggregateRating ............................. not present
+
+   Correct decision. The DESI Sikka is a global crypto news publication, not
+   a physical business. A Google Business Profile would be irrelevant and
+   potentially harmful to trust signals for a non-local publisher.
+
+   Local SEO is not a growth lever for this site. Geo-targeted demand for
+   "crypto news near me" does not exist in a meaningful volume.
+
+--------------------------------------------------------------------------------
+11. SCHEMA MARKUP  --  PASS
+--------------------------------------------------------------------------------
+   JSON-LD blocks ............................... 325
+   VALID ................................. 325 / 325
+   INVALID ....................................... 0
+
+   Type inventory:
+     ListItem ...................................... 279
+     ImageObject ................................. 116
+     Answer ......................................... 93
+     Question ....................................... 93
+     Organization ................................... 87
+     WebSite ......................................... 76
+     WebPage .......................................... 76
+     EntryPoint ....................................... 75
+     SearchAction ..................................... 75
+     ContactPoint ...................................... 75
+     BreadcrumbList .................................... 46
+     NewsMediaOrganization ............................ 37
+     speakable (SpeakableSpecification) ............... 37
+     NewsArticle ....................................... 37
+     Person ............................................ 33
+     FAQPage ........................................... 31
+     ItemList .......................................... 11
+     CollectionPage ..................................... 11
+     Article ............................................. 9
+     ProfilePage .......................................... 2
+     AboutPage ............................................ 1
+     DefinedTermSet ....................................... 1
+     ContactPage ........................................... 1
+
+   News posts with NewsArticle ................... 37 / 37
+   News posts missing Article schema ............ 0
+
+   Minor redundancy: news posts emit both "Organization" and
+   "NewsMediaOrganization". Both reference the same publisher entity, so
+   this is duplicated, not conflicting. Validators accept it.
+
+   speakable and FAQPage coverage is strong and is the main AEO asset.
+
+--------------------------------------------------------------------------------
+12. ANALYTICS & CONVERSION TRACKING  --  PASS
+--------------------------------------------------------------------------------
+   GoatCounter ................................. present (3 occurrences)
+   data-goatcounter attribute ................. present
+   noscript tracking pixel ..................... present
+
+   Competing analytics found ................. none
+   (no gtag, no Google Tag Manager, no Plausible, no Clarity,
+    no Google Analytics)
+
+   Single vendor, cookie-less, async. Correct setup for a site that
+   deliberately avoids a consent banner.
+
+--------------------------------------------------------------------------------
+13. DUPLICATE CONTENT  --  PASS
+--------------------------------------------------------------------------------
+   Duplicate <title> pairs:
+     2x  "Today's Combo | The DESI Sikka"
+           pages/todays-combo
+           category/todays-combo
+
+   Duplicate <meta description> pairs:
+     2x  "Announcements from exchanges, protocols and Web3
+          companies. Clearly labeled, never mixed into
+          editorial reporting."
+           press
+           category/press
+
+   Canonical status of each pair:
+     press .................. index,  canonical -> /press/
+     category/press ......... noindex, canonical -> /category/press/
+     pages/todays-combo ..... index,  canonical -> /pages/todays-combo/
+     category/todays-combo .. noindex, canonical -> /category/todays-combo/
+
+   In both pairs the category twin is noindex and excluded from the sitemap.
+   Each page carries a correct self-referencing canonical. No cannibalisation
+   risk. No action required.
+
+--------------------------------------------------------------------------------
+14. INTERNAL LINKING  --  PASS
+--------------------------------------------------------------------------------
+   Pages scanned ................................. 75
+   Internal links found ......................... 6,224
+   Distinct internal targets ...................... 80
+
+   Genuine orphans (0 inbound, excluding 404 and search):
+     index.html   (homepage -- expected, this is normal)
+
+   ORPHAN COUNT: 1  (the homepage, expected)
+
+   Thin pages (1 inbound link only):
+     pages/featured ........... 1 inbound
+     pages/learn/glossary ..... 1 inbound
+
+   Orphaned posts ................................. 0
+
+   Anchor text is descriptive across nav, cards, body copy and breadcrumbs.
+   No "click here" or bare-URL anchors found in post bodies.
+
+--------------------------------------------------------------------------------
+15. AEO / AI SEARCH VISIBILITY  --  PASS
+--------------------------------------------------------------------------------
+   News posts total .............................. 37
+     with speakable schema ........................ 37 / 37
+     with FAQPage schema ......................... 31 / 37
+     with answer-first opening line ............... 36 / 37
+
+   Question / Answer schema pairs ................. 93
+
+   llms.txt .............. 3,740 bytes   regenerated 2026-10-01
+   llms-full.txt ......... 15,247 bytes  regenerated 2026-10-01
+
+   head.html advertises llms.txt via:
+     <link rel="llms" href=".../llms.txt">
+
+   Feed autodiscovery present on every page:
+     rss.xml
+     atom.xml
+     feed.json  (JSON Feed)
+     sitemap.xml
+
+   This is genuinely strong for AI-answer surfaces. speakable on 100% of
+   posts, FAQ schema on 84%, direct-answer openings on 97%, and a current
+   llms.txt that ChatGPT / Perplexity / Gemini crawlers can read directly.
+
+   The 6 posts without FAQPage and the 1 without an answer-first opening
+   are the oldest August Learn guides, which are reference content rather
+   than Q&A shaped. Acceptable.
+
+
+================================================================================
+BUILD VERIFICATION
+================================================================================
+   jekyll build ................................. PASS (2.2s)
+   python scripts/validate.py ./_site ............ PASS
+
+   Validator output:
+     OK: 325 JSON-LD blocks valid; feeds + search index parse;
+         front matter lint clean
+
+   Post-fix re-verification:
+     Titles over 60 chars ......................... 0
+     Descriptions outside 70-160 .................. 0
+     Pages without exactly one h1 ................. 0
+     Broken internal links ........................ 0
+     github.io refs in sitemap .................... 0
+     Sitemap URLs .................................. 60
+
+
+================================================================================
+RECOMMENDED NEXT
+================================================================================
+
+1. HIGH - Give each non-WOTD post its own cover_image.
+   Three posts still render og-default.png. Now that the homepage shows
+   these images in a grid, identical cards read as a bug to visitors.
+
+2. MEDIUM - Vary the WOTD social card periodically.
+   31 consecutive posts sharing binance-wotd-answers-hero.webp hurts
+   Discover CTR and makes the Telegram feed visually monotonous.
+
+3. MEDIUM - Review the noindex decision on category pages.
+   category/bitcoin, category/ethereum, category/defi and category/altcoins
+   are all noindex. If they carry real post volume, indexing them would
+   capture category-level query traffic ("bitcoin news", "ethereum news")
+   that currently has no landing page.
+
+4. LOW - Add internal links into pages/learn/glossary.
+   It is the only Learn page with a single inbound link. The glossary is
+   also the page carrying DefinedTermSet schema, so it is a good AEO target
+   and deserves more internal weight.
+
+5. LOW - Pin GitHub Actions to commit SHAs.
+   actions/checkout@v4 -> actions/checkout@<sha>
+   Low urgency while both workflows are read-only.
+
+6. LOW - Backlink and GSC review.
+   Cannot be done from the repo. Pull referring domains from Search Console
+   next month and compare against this baseline.
+
+================================================================================
+END OF REPORT
+================================================================================

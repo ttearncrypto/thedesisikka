@@ -5,7 +5,7 @@ date: 2026-09-19
 categories: [regulation, news]
 tags: [featured]
 author: muskanshaik
-description: "The CFTC sent its crypto market rules to the White House for review two days after Senate blocked the CLARITY Act in a 49-50 vote. Draft text isn't public yet."
+description: "The CFTC sent its crypto market rules to the White House for review, two days after Senate blocked the CLARITY Act 49-50. Draft text isn't public yet."
 summary:
   - "The CFTC filed a prerule titled Regulation Crypto Asset Transactions and Regulation Crypto Asset Markets, RIN 3038-AF80, with the White House's OIRA on September 17, two days after the Senate failed to advance the CLARITY Act in a 49-50 vote."
   - "The filing is an early-stage prerule, so the text is not public and it creates no compliance duties yet."

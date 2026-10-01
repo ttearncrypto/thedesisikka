@@ -2,7 +2,7 @@
 layout: default
 permalink: /legal/disclaimer/
 title: "Disclaimer"
-description: "The DESI Sikka publishes news and education, not financial advice."
+description: "The DESI Sikka publishes crypto news and education, not financial advice. Read this before acting on anything you find here."
 ---
 
 <div class="meta-strip compact">

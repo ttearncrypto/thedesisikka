@@ -2,7 +2,7 @@
 layout: default
 permalink: /legal/privacy-policy/
 title: "Privacy Policy"
-description: "How The DESI Sikka collects, uses and protects your data."
+description: "How The DESI Sikka collects, uses and protects your data, what analytics we run, and how to opt out."
 ---
 
 <div class="meta-strip compact">

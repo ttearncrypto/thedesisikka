@@ -2,7 +2,7 @@
 layout: default
 permalink: /archive/
 title: "Archive"
-description: "Every story The DESI Sikka has published, newest first."
+description: "Every story The DESI Sikka has published, grouped by month and listed newest first."
 ---
 
 <div class="meta-strip compact">
@@ -11,6 +11,12 @@ description: "Every story The DESI Sikka has published, newest first."
 </div>
 
 <section class="section shell" style="padding-top:2rem;">
+  <header class="page-intro">
+    <span class="mono-label">Archive</span>
+    <h1 class="page-title">Every story we have published.</h1>
+    <p class="page-sub">All {{ site.posts.size }} stories, grouped by month and newest first.</p>
+  </header>
+
   {% if site.posts.size > 0 %}
     {% assign by_month = site.posts | group_by_exp: "post", "post.date | date: '%Y-%m'" %}
     {% for m in by_month %}

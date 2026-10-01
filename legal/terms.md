@@ -2,7 +2,7 @@
 layout: default
 permalink: /legal/terms/
 title: "Terms of Use"
-description: "Terms governing use of The DESI Sikka website and its content."
+description: "The terms that govern your use of The DESI Sikka website and the content published on it."
 ---
 
 <div class="meta-strip compact">
