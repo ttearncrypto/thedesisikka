@@ -1,4 +1,4 @@
-/* The DESI Sikka — site JS: search, clock, archive, nav, reader tools, shortcuts */
+/* The DESI Sikka: site JS: search, clock, archive, nav, reader tools, shortcuts */
 (function () {
   "use strict";
 

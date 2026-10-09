@@ -9,7 +9,7 @@ summary:
   - "The DESI Sikka is a new crypto news desk built around one idea: crypto news, zero jargon."
   - "We cover bitcoin, ethereum, altcoins, DeFi, exchanges, regulation, and daily trading combos worldwide, in plain English."
   - "Every story passes a fact-check, a voice-check, and a clarity pass before it ships."
-  - "No financial advice and no paid shilling — every source is named, every correction is logged."
+  - "No financial advice and no paid shilling. Every source is named, every correction is logged."
 keywords: "the desi sikka, crypto news, bitcoin news, ethereum news, crypto explained simply"
 cover_image: /assets/site-images/logo.png
 image_alt: "The DESI Sikka logo"

@@ -7,7 +7,7 @@ description: "Bitcoin and other virtual digital assets are taxed at 30% in India
 last_modified_at: 2026-08-28
 date: 2026-08-28
 cover_image: /assets/articles-images/learn-bitcoin-tax-guide-india.png
-image_alt: "Bitcoin Tax in India — 30% flat rate, 1% TDS guide cover"
+image_alt: "Bitcoin Tax in India: 30% flat rate, 1% TDS guide cover"
 sources:
   - https://www.incometax.gov.in/iec/foportal/help/tds-on-crypto-currencies-virtual-digital-assets
   - https://www.incometax.gov.in/
@@ -27,7 +27,7 @@ sources:
 
   <div class="prose" style="max-width:46rem;">
     <h2>First, the vocabulary</h2>
-    <p>Indian law doesn't say "crypto". It calls digital assets <strong>Virtual Digital Assets (VDAs)</strong> — defined under <strong>Section 2(47A)</strong> of the Income-tax Act. Bitcoin, Ethereum and most tokens qualify. Non-fungible tokens and some specific tokens fall outside in certain conditions, but for everyday trading, treat your coins as VDAs.</p>
+    <p>Indian law doesn't say "crypto". It calls digital assets <strong>Virtual Digital Assets (VDAs)</strong>, defined under <strong>Section 2(47A)</strong> of the Income-tax Act. Bitcoin, Ethereum and most tokens qualify. Non-fungible tokens and some specific tokens fall outside in certain conditions, but for everyday trading, treat your coins as VDAs.</p>
 
     <h2>The 30% flat rate</h2>
     <p>Income from transferring a VDA is taxed at a flat <strong>30%</strong> plus applicable surcharge and cess, under <strong>Section 115BBH</strong>. The three consequences most people miss:</p>
@@ -38,24 +38,24 @@ sources:
     </ul>
 
     <h2>The 1% TDS</h2>
-    <p>Anyone transferring a VDA must deduct <strong>1% TDS</strong> on the consideration under <strong>Section 194S</strong> — even if the tax already covers the buyer and seller. In practice this means:</p>
+    <p>Anyone transferring a VDA must deduct <strong>1% TDS</strong> on the consideration under <strong>Section 194S</strong>, even if the tax already covers the buyer and seller. In practice this means:</p>
     <ul>
       <li>An exchange or platform handling your sale deducts the 1% at source and reports it to the Tax Department.</li>
-      <li>In <strong>peer-to-peer trades</strong>, the buyer is responsible for deducting and depositing the TDS. If a buyer doesn't bother, you're not automatically off the hook — keep records of every P2P trade.</li>
+      <li>In <strong>peer-to-peer trades</strong>, the buyer is responsible for deducting and depositing the TDS. If a buyer doesn't bother, you're not automatically off the hook. Keep records of every P2P trade.</li>
       <li>Minors buying via a guardian and custodians get special substitution rules; for most readers, the 1% applies on the full consideration.</li>
     </ul>
 
     <h2>What's taxable</h2>
     <ul>
-      <li><strong>Selling crypto for rupees</strong> — profit is income under 115BBH.</li>
-      <li><strong>Trading crypto for crypto</strong> — the fair market value of the asset received counts as consideration, and the TDS rules apply to it.</li>
-      <li><strong>Receiving crypto as goods/services</strong> — for a business, the VDA can become business income instead of VDA income, which is usually worse. Check how your income is classified.</li>
-      <li><strong>Gifts</strong> — a gift of crypto above the exemption limit can be taxable in the recipient's hands; the giver's cost basis rules are stricter than for cash gifts.</li>
+      <li><strong>Selling crypto for rupees</strong>: profit is income under 115BBH.</li>
+      <li><strong>Trading crypto for crypto</strong>: the fair market value of the asset received counts as consideration, and the TDS rules apply to it.</li>
+      <li><strong>Receiving crypto as goods/services</strong>: for a business, the VDA can become business income instead of VDA income, which is usually worse. Check how your income is classified.</li>
+      <li><strong>Gifts</strong>: a gift of crypto above the exemption limit can be taxable in the recipient's hands; the giver's cost basis rules are stricter than for cash gifts.</li>
     </ul>
 
     <h2>The filing checklist</h2>
     <ul>
-      <li>Summarise every trade (buy/sell/gift) with date, value and counterparty — even the tiny ones.</li>
+      <li>Summarise every trade (buy/sell/gift) with date, value and counterparty, even the tiny ones.</li>
       <li>Reconcile the 1% TDS your exchange deducted (check Form 26AS / AIS) so you don't pay it twice.</li>
       <li>Report gains under the correct schedule for VDAs; the ITR forms have a dedicated place for 115BBH income.</li>
       <li>Keep records for the full seven-year retention window.</li>

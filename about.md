@@ -2,7 +2,7 @@
 layout: default
 permalink: /about/
 title: "About The DESI Sikka"
-description: "About The DESI Sikka — who we are, what we cover, why we exist, and how we report crypto news."
+description: "About The DESI Sikka: who we are, what we cover, why we exist, and how we report crypto news."
 ---
 
 <div class="meta-strip compact">
@@ -32,7 +32,7 @@ description: "About The DESI Sikka — who we are, what we cover, why we exist, 
       <li><strong>Regulation:</strong> SEC, MiCA and global policy, plus the India rules (RBI, Income Tax dept, FIU) where they hit your wallet</li>
       <li><strong>DeFi &amp; Web3:</strong> yield, airdrops and self-custody guides</li>
       <li><strong>Exchanges &amp; How-to:</strong> deposits, P2P safety, tax filing steps</li>
-      <li><strong>Today's Combo:</strong> one daily card — top story, key level, tax note, airdrop</li>
+      <li><strong>Today's Combo:</strong> one daily card: top story, key level, tax note, airdrop</li>
       <li><strong>Press Releases:</strong> company announcements, labeled separately from reporting</li>
     </ul>
 

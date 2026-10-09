@@ -2,12 +2,12 @@
 layout: null
 permalink: /llms-full.txt
 ---
-# The DESI Sikka — site overview and content summaries for LLM consumption
+# The DESI Sikka: site overview and content summaries for LLM consumption
 
 {{ site.description | strip_html }}
 
 Publisher: The DESI Sikka (https://ttearncrypto.f9xr.org/thedesisikka/)
-Author: {{ site.default_author.name }} — {{ site.default_author.bio }}
+Author: {{ site.default_author.name }} - {{ site.default_author.bio }}
 Language: English. Nothing on this site is financial advice.
 
 {% if site.posts.size > 0 %}

@@ -2,7 +2,7 @@
 layout: default
 permalink: /corrections/
 title: "Corrections"
-description: "The DESI Sikka's public log of corrections, clarifications and factual updates — dated and linked to the corrected stories."
+description: "The DESI Sikka's public log of corrections, clarifications and factual updates, dated and linked to the corrected stories."
 corrections: []
 ---
 

@@ -21,7 +21,7 @@ sources:
   <header class="page-intro">
     <span class="mono-label">Security guide</span>
     <h1 class="page-title">Wallets, custody and the scams to avoid.</h1>
-    <p class="page-sub">The single biggest risk in crypto isn't the market — it's where you store the coins and what you click. Here's the framework, as of {{ page.last_modified_at | date: '%B %Y' }}.</p>
+    <p class="page-sub">The single biggest risk in crypto is where you store your coins and what you click. Here's the framework, as of {{ page.last_modified_at | date: '%B %Y' }}.</p>
   </header>
 
   <div class="prose" style="max-width:46rem;">
@@ -32,20 +32,20 @@ sources:
     <ul>
       <li><strong>Exchange (custodial):</strong> easy to buy and sell, but you don't control the keys. Fine for small active balances; treat as a current account, not a vault.</li>
       <li><strong>Software wallet (self-custodial):</strong> app on your phone or desktop where you hold the private keys. Good for medium amounts you actively use.</li>
-      <li><strong>Hardware wallet (cold):</strong> a dedicated device that keeps keys offline. The right place for anything you're not trading this week. In India, buy only from the official store or an authorised distributor — tampered hardware wallets are a known attack.</li>
+      <li><strong>Hardware wallet (cold):</strong> a dedicated device that keeps keys offline. The right place for anything you're not trading this week. In India, buy only from the official store or an authorised distributor. Tampered hardware wallets are a known attack.</li>
     </ul>
 
     <h2>Seed phrases, invented once</h2>
     <ul>
-      <li>Write the 12–24 word recovery phrase on paper (or metal) and store it somewhere only you can access. Never photograph it, never paste it into a chat, never "sync" it to a cloud service.</li>
-      <li>One phrase per wallet. Share it with nobody — support agents, "verification" bots and "official recovery" sites never need it.</li>
+      <li>Write the 12-24 word recovery phrase on paper (or metal) and store it somewhere only you can access. Never photograph it, never paste it into a chat, never "sync" it to a cloud service.</li>
+      <li>One phrase per wallet. Share it with nobody: support agents, "verification" bots and "official recovery" sites never need it.</li>
       <li>Anyone with your phrase owns your coins, instantly and irreversibly.</li>
     </ul>
 
     <h2>The scams draining accounts in 2026</h2>
     <ul>
       <li><strong>Pig-butchering:</strong> "trading mentor" sends you to a fake exchange app. You can't withdraw until you deposit "tax to unlock". The money and the "tax" both disappear.</li>
-      <li><strong>Fake airdrops:</strong> a free token that requires you to "connect wallet" to claim — the connect is a signature-stealer that empties your wallet.</li>
+      <li><strong>Fake airdrops:</strong> a free token that requires you to "connect wallet" to claim. The connect is a signature-stealer that empties your wallet.</li>
       <li><strong>SIM swap &amp; 2FA reset:</strong> keep 2FA in an authenticator app, not SMS, and disable SMS recovery where your bank allows.</li>
       <li><strong>Seeded recovery sites:</strong> give the phrase to any website and it is gone; there is no legitimate "sync your backup" service.</li>
     </ul>

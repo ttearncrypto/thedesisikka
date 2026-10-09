@@ -1,4 +1,4 @@
-# humans.txt — the people behind The DESI Sikka
+# humans.txt: the people behind The DESI Sikka
 
 /* TEAM */
 

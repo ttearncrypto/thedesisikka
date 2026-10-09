@@ -34,7 +34,7 @@ description: "The DESI Sikka's disclosure policy: holdings, paid coverage, affil
     <p>When we get something wrong, we fix it, mark the article as updated, and log it in the public <a href="{{ '/corrections/' | relative_url }}">corrections register</a>.</p>
 
     <h2>Report a conflict</h2>
-    <p>If you believe a story has an undisclosed conflict, tell us at <a href="mailto:{{ site.email }}">{{ site.email }}</a> — we investigate and publish any finding.</p>
+    <p>If you believe a story has an undisclosed conflict, tell us at <a href="mailto:{{ site.email }}">{{ site.email }}</a>. We investigate and publish any finding.</p>
   </div>
 </section>
 

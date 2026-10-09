@@ -7,7 +7,7 @@ description: "UPI crypto deposits stopped years ago. Today it's bank transfer an
 last_modified_at: 2026-08-28
 date: 2026-08-28
 cover_image: /assets/articles-images/learn-exchange-comparison-india.png
-image_alt: "Buying Crypto in India — exchange comparison guide cover"
+image_alt: "Buying Crypto in India: exchange comparison guide cover"
 sources:
   - https://www.rbi.org.in/
   - https://fiuindia.gov.in/
@@ -22,7 +22,7 @@ sources:
   <header class="page-intro">
     <span class="mono-label">Money guide</span>
     <h1 class="page-title">How to compare exchanges before you buy.</h1>
-    <p class="page-sub">UPI-based buying on major Indian exchanges ended in 2023–24, which is why so many beginners get confused. Here's how people actually buy in India today and what to compare before signing up — as of {{ page.last_modified_at | date: '%B %Y' }}.</p>
+    <p class="page-sub">UPI-based buying on major Indian exchanges ended in 2023-24, which is why so many beginners get confused. Here's how people actually buy in India today and what to compare before signing up, as of {{ page.last_modified_at | date: '%B %Y' }}.</p>
   </header>
 
   <div class="prose" style="max-width:46rem;">
@@ -38,14 +38,14 @@ sources:
     <ul>
       <li><strong>Spread, not just fees.</strong> An exchange that shows "zero fees" but quotes a 1.5% wider price is the expensive option. Compare the INR buy price against the international spot price.</li>
       <li><strong>1% TDS handling.</strong> All registered Indian platforms deduct 1% TDS on your sells automatically. A platform that doesn't mention 194S is a red flag, not a bargain.</li>
-      <li><strong>Withdrawal reliability.</strong> Read recent reviews of withdrawal times — a good price is worthless if INR is stuck in the app.</li>
+      <li><strong>Withdrawal reliability.</strong> Read recent reviews of withdrawal times. A good price is worthless if INR is stuck in the app.</li>
       <li><strong>KYC friction.</strong> Expect PAN, Aadhaar, bank and selfie verification. "No KYC" platforms in India are either grey-zone P2P markets or scams.</li>
       <li><strong>FIU compliance.</strong> India's financial intelligence unit requires VDA service providers to register. Prefer platforms that are proudly FIU-registered.</li>
       <li><strong>Liquidity for your coin.</strong> Thin order books mean your market buy moves the price. Stick to exchanges with real volume on the coin you want.</li>
     </ul>
 
     <h2>Start small</h2>
-    <p>Whatever you compare, make your first deposit tiny. Confirm a full round trip — deposit, buy, withdraw to your own wallet, withdraw back to INR — before you move meaningful money anywhere. Exchanges fail; your process shouldn't.</p>
+    <p>Whatever you compare, make your first deposit tiny. Confirm a full round trip (deposit, buy, withdraw to your own wallet, withdraw back to INR) before you move meaningful money anywhere. Exchanges fail; your process shouldn't.</p>
 
     <div class="legal-box disclaimer-box">
       <p>Exchange availability and payment methods change frequently. Verify current options directly with the platform and your bank before transacting. Information, not financial advice.</p>

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   The DESI Sikka — dark editorial design system
+   The DESI Sikka: dark editorial design system
    Canvas #0A0A0C · zinc hairlines · sky accent · Inter / JetBrains Mono
    ========================================================================== */
 
@@ -2515,7 +2515,7 @@ body.menu-open {
 }
 
 /* ==========================================================================
-   View Transitions API — cross-document page transitions (Chromium 126+)
+   View Transitions API: cross-document page transitions (Chromium 126+)
    Both pseudo-elements get custom animations; specifying only one would
    leave the other on the UA default crossfade.
    ========================================================================== */

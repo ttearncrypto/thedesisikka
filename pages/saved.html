@@ -16,7 +16,7 @@ sitemap: false
   <header class="page-intro">
     <span class="mono-label">Bookmarked for later</span>
     <h1 class="page-title">Saved articles</h1>
-    <p class="page-sub">Stories you bookmarked live here, stored only in this browser. The list is empty until you <strong>Save</strong> a story from its page — and it clears when you clear site data.</p>
+    <p class="page-sub">Stories you bookmarked live here, stored only in this browser. The list is empty until you <strong>Save</strong> a story from its page, and it clears when you clear site data.</p>
   </header>
 
   <div id="saved-list" class="post-grid" style="margin-top:2.5rem;"></div>
@@ -66,6 +66,6 @@ sitemap: false
           '</div></a>';
       }).join("");
     })
-    .catch(function () { empty.textContent = "Could not load the saved list — try again in a moment."; });
+    .catch(function () { empty.textContent = "Could not load the saved list. Try again in a moment."; });
 })();
 </script>

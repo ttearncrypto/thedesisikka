@@ -5,7 +5,7 @@ crypto news, price predictions, learn guides, press releases and daily combos
 for readers worldwide.
 
 - Live site: https://ttearncrypto.f9xr.org/thedesisikka/
-- Publisher: TTEarnCrypto — https://ttearncrypto.f9xr.org
+- Publisher: TTEarnCrypto (https://ttearncrypto.f9xr.org)
 - Contact: hello@f9xr.org
 
 ## What's in here
