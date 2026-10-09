@@ -5,8 +5,7 @@ email: "hello@f9xr.org"
 description: >-
   The DESI Sikka covers crypto for readers worldwide: bitcoin and ethereum
   news, altcoin moves, DeFi explainers, exchange guides and the regulation
-  updates that matter, with deep coverage of India. Plain English, no jargon
-  walls.
+  updates that matter. Plain English, no jargon walls.
 
 # NOTE: `url` must be the host that actually serves this site. The custom domain
 # ttearncrypto.f9xr.org is the live origin; ttearncrypto.github.io/thedesisikka
@@ -147,6 +146,7 @@ header_nav:
           - { name: "Price Predictions",   url: "/pages/predictions/" }
           - { name: "Airdrops",            url: "/pages/airdrops/" }
           - { name: "Videos",              url: "/pages/videos/" }
+          - { name: "Crypto Tools",        url: "https://f9xr.org/troolify/tools/crypto/" }
       - name: "Site"
         links:
           - { name: "Learn",               url: "/pages/learn/" }

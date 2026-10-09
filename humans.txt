@@ -8,6 +8,9 @@ Twitter: @ttearncrypto
 GitHub: https://github.com/ttearncrypto
 From: Worldwide
 
+Publisher: TTEarnCrypto
+Publisher site: https://ttearncrypto.f9xr.org
+
 Design & Build: F9XR Team
 Site: https://f9xr.org/
 
@@ -15,7 +18,7 @@ Site: https://f9xr.org/
 
 Name: The DESI Sikka
 Site: https://ttearncrypto.f9xr.org/thedesisikka/
-Mission: Crypto news for everyone. Bitcoin to policy shifts, with deep India coverage, minus the jargon walls.
+Mission: Crypto news for everyone, worldwide. Bitcoin to policy shifts, minus the jargon walls.
 Launched: 2026
 Language: English
 Doctype: HTML5

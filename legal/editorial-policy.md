@@ -35,7 +35,7 @@ description: "How The DESI Sikka reports, sources and corrects crypto news for r
     <p>Mistakes get fixed visibly. Factual corrections carry an editor's note at the top or bottom of the story stating what changed. Email <a href="mailto:{{ site.email }}">{{ site.email }}</a> with the link and issue; verified fixes land within days, not weeks.</p>
 
     <h2>AI use</h2>
-    <p>Drafts may be assisted by tools, but every published story is researched, checked and edited by a human who takes responsibility for what's in it.</p>
+    <p>Drafts may be assisted by tools, but every published story is researched, checked and edited by a human who takes responsibility for what's in it. Read the full <a href="{{ '/legal/ai-usage/' | relative_url }}">AI usage disclaimer</a>.</p>
 
     <h2>Your rights as a reader</h2>
     <p>You can challenge any story publicly. We answer criticism in public channels rather than deleting comments or blocking accounts for disagreeing with us.</p>

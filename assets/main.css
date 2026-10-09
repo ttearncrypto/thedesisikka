@@ -228,6 +228,17 @@ a {
   box-shadow: 0 18px 40px -14px rgba(0, 0, 0, 0.9);
 }
 
+/* Invisible bridge across the gap between the toggle and the panel so the
+   pointer can travel from button to menu without the dropdown closing. */
+.nav-dropdown-panel::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -0.75rem;
+  height: 0.75rem;
+}
+
 .nav-dropdown-panel[hidden] { display: none; }
 
 .nav-dropdown-heading {

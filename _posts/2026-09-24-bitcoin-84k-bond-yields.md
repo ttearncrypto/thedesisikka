@@ -3,7 +3,6 @@ title: "Bitcoin Falls to $84K as Bond Yields Hit 2007 High After $1.7B ETF Rally
 seo_title: "Bitcoin Falls to $84K as Bond Yields Hit 2007 High"
 date: 2026-09-24
 categories: [bitcoin, news]
-tags: [featured]
 author: newsdesk
 description: "Bitcoin fell to about $84,340 on September 24 as Treasury yields hit a 2007 high, sending long liquidations to $444 million in a single day, per CoinGlass."
 summary:

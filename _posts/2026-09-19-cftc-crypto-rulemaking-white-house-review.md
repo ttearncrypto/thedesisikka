@@ -3,7 +3,6 @@ title: "CFTC Sends Crypto Market Rulemaking to White House for Review as CLARITY
 seo_title: "CFTC Crypto Rulemaking Heads to White House Review"
 date: 2026-09-19
 categories: [regulation, news]
-tags: [featured]
 author: muskanshaik
 description: "The CFTC sent its crypto market rules to the White House for review, two days after Senate blocked the CLARITY Act 49-50. Draft text isn't public yet."
 summary:

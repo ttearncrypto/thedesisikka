@@ -1,6 +1,6 @@
 # The DESI Sikka
 
-> The DESI Sikka is a crypto news and updates site for readers worldwide, with deep coverage of India. It covers bitcoin, ethereum, altcoins, crypto regulation (global policy plus Indian specifics: 30% tax, 1% TDS, FIU rules), DeFi and Web3 explainers, exchange guides, price predictions, airdrops and daily market combos. Plain English, no jargon walls, no paid shilling.
+> The DESI Sikka is a crypto news and updates site for readers worldwide. It covers bitcoin, ethereum, altcoins, crypto regulation (global policy, plus Indian specifics such as the 30% tax, 1% TDS and FIU rules where relevant), DeFi and Web3 explainers, exchange guides, price predictions, airdrops and daily market combos. Plain English, no jargon walls, no paid shilling.
 
 Site: https://ttearncrypto.f9xr.org/thedesisikka/
 Author: F9XR News Desk (https://ttearncrypto.f9xr.org/thedesisikka/author/f9xr/)

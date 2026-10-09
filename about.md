@@ -22,14 +22,14 @@ description: "About The DESI Sikka — who we are, what we cover, why we exist, 
 
     <p>We do it differently.</p>
 
-    <p>Short stories. Plain English (with a little desi flavor where it belongs). Real numbers, named sources, and zero paid shilling. If a coin is trash, we say so. If regulation is confusing, we break it down line by line, with extra depth on India where rules change fast.</p>
+    <p>Short stories. Plain English (with a little desi flavor where it belongs). Real numbers, named sources, and zero paid shilling. If a coin is trash, we say so. If regulation is confusing, we break it down line by line, from SEC and MiCA filings to the India tax desk where rules change fast.</p>
 
     <h2>What we cover</h2>
 
     <ul>
       <li><strong>Bitcoin &amp; Ethereum:</strong> price moves explained, not predicted</li>
       <li><strong>Altcoins:</strong> what's building and what's an exit-liquidity trap</li>
-      <li><strong>Regulation:</strong> SEC, MiCA and global policy, plus deep India coverage (RBI, Income Tax dept, FIU) that hits your wallet</li>
+      <li><strong>Regulation:</strong> SEC, MiCA and global policy, plus the India rules (RBI, Income Tax dept, FIU) where they hit your wallet</li>
       <li><strong>DeFi &amp; Web3:</strong> yield, airdrops and self-custody guides</li>
       <li><strong>Exchanges &amp; How-to:</strong> deposits, P2P safety, tax filing steps</li>
       <li><strong>Today's Combo:</strong> one daily card — top story, key level, tax note, airdrop</li>
@@ -42,7 +42,7 @@ description: "About The DESI Sikka — who we are, what we cover, why we exist, 
 
     <h2>One promise</h2>
 
-    <p>We will never tell you a coin is a guaranteed win. Nothing here is financial advice. Crypto moves fast, taxes in India move faster, and anyone promising you certainty is selling something.</p>
+    <p>We will never tell you a coin is a guaranteed win. Nothing here is financial advice. Crypto moves fast, tax rules move faster, and anyone promising you certainty is selling something.</p>
 
     <p>Read, question, verify. Then decide with your own head.</p>
   </div>

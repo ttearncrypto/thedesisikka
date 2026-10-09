@@ -3,7 +3,6 @@ title: "Bitget Hack: Ethereum Withdrawals Reopen Sept 29, USDT Waits Until Sept 
 seo_title: "Bitget Hack: ETH Withdrawals Reopen, USDT Waits"
 date: 2026-09-29
 categories: [exchanges, news]
-tags: [featured]
 author: newsdesk
 description: "Bitget reopened Ethereum withdrawals on September 29 after a $387.5M hot wallet hack. USDT follows September 30, with all remaining assets due October 2."
 summary:

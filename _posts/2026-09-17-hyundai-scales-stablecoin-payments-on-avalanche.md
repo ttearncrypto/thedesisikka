@@ -3,7 +3,6 @@ title: "Hyundai Plans to Scale Stablecoin Payments on Avalanche"
 seo_title: "Hyundai Stablecoin Payments on Avalanche"
 date: 2026-09-17
 categories: [defi, news]
-tags: [featured]
 description: "Hyundai Card plans to scale stablecoin payments on Avalanche after a live $20,000 USDT treasury wire settled in seven minutes. No wide rollout date yet."
 summary:
   - "Hyundai Card is moving to a scale-testing phase for its Avalanche stablecoin payments experiment after a live $20,000 intercompany transfer settled in about seven minutes in July."

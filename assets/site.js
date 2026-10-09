@@ -202,8 +202,15 @@
       });
 
       if (canHover.matches) {
-        dd.addEventListener("mouseenter", function () { closeAll(dd); setOpen(dd, true); });
-        dd.addEventListener("mouseleave", function () { setOpen(dd, false); });
+        var hoverTimer = null;
+        function cancelHoverClose() {
+          if (hoverTimer) { clearTimeout(hoverTimer); hoverTimer = null; }
+        }
+        dd.addEventListener("mouseenter", function () { cancelHoverClose(); closeAll(dd); setOpen(dd, true); });
+        dd.addEventListener("mouseleave", function () {
+          cancelHoverClose();
+          hoverTimer = setTimeout(function () { setOpen(dd, false); }, 260);
+        });
       }
 
       panel.addEventListener("click", function (e) {

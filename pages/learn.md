@@ -2,7 +2,7 @@
 layout: default
 permalink: /pages/learn/
 title: "Learn: Crypto Guides in Plain English"
-description: "The DESI Sikka's guides: India crypto tax, exchange comparison, P2P on-ramps, wallet security and a plain-English glossary."
+description: "The DESI Sikka's guides: crypto tax, exchange comparison, on-ramps, wallet security and a plain-English glossary."
 ---
 
 <div class="meta-strip compact">
