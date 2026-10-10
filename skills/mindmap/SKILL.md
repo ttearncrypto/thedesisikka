@@ -3,9 +3,9 @@ name: mindmap
 description: Create interactive, visual mind maps as standalone HTML files for crypto news content architecture. Use this skill whenever the user asks for a mind map, site map, topic map, content hierarchy, knowledge map, content cluster diagram, SEO architecture map, or any request to visualize relationships between crypto topics/pages/ideas. Also trigger for "map out", "visualize the structure of", "show connections between" crypto topics. Always produces a single .html file with pan, zoom, drag-to-rearrange, and clickable nodes.
 ---
 
-# Mind Map Skill — DESI Sikka Crypto Content Architecture
+# Mind Map Skill: DESI Sikka Crypto Content Architecture
 
-Create beautiful, interactive mind maps rendered as standalone `.html` files. The maps look and feel like Miro/FigJam — white canvas, dot grid, colored curved rope connections, draggable nodes, tap-to-expand branches, and clickable leaf nodes.
+Create beautiful, interactive mind maps rendered as standalone `.html` files. The maps look and feel like Miro/FigJam, white canvas, dot grid, colored curved rope connections, draggable nodes, tap-to-expand branches, and clickable leaf nodes.
 
 ## When to Use
 
@@ -18,7 +18,7 @@ Create beautiful, interactive mind maps rendered as standalone `.html` files. Th
 
 ## Output
 
-Always a single `.html` file saved to the workspace root. Never JSX or React — pure HTML + inline CSS + inline JS. No external dependencies.
+Always a single `.html` file saved to the workspace root. Never JSX or React, pure HTML + inline CSS + inline JS. No external dependencies.
 
 ## Step-by-Step Process
 
@@ -85,19 +85,19 @@ Root: The DESI Sikka
 - **Max 4 levels deep**: Root → Category → Topic → Article/Leaf
 - **Group by topic similarity**, not just URL path
 - **6 main silos** (matching site categories) is the standard top ring
-- **3–6 hubs per silo** to avoid visual overcrowding
+- **3-6 hubs per silo** to avoid visual overcrowding
 - **Up to ~15 leaves per hub** (they fan out radially)
 
 ### Step 3: Build the HTML
 
-Read the template at `templates/mindmap-template.html` in this skill's directory. This is your **base template** — use it as the foundation and customize:
+Read the template at `templates/mindmap-template.html` in this skill's directory. This is your **base template**: use it as the foundation and customize:
 
 1. **Copy the template** to your working directory
 2. **Replace the `SILOS` data array** with the actual organized data
-3. **Adjust colors** — use category colors: Bitcoin #f7931a, Ethereum #627eea, Altcoins #8b5cf6, Regulation #64748b, DeFi #06b6d4, Exchanges #10b981
+3. **Adjust colors**: use category colors: Bitcoin #f7931a, Ethereum #627eea, Altcoins #8b5cf6, Regulation #64748b, DeFi #06b6d4, Exchanges #10b981
 4. **Adjust radii** if needed (R1/R2/R3 for the three rings)
-5. **Set the initial expanded state** — expand 1–2 silos so the user sees ropes immediately
-6. **Update the title and header** to "The DESI Sikka — Content Architecture"
+5. **Set the initial expanded state**: expand 1-2 silos so the user sees ropes immediately
+6. **Update the title and header** to "The DESI Sikka, Content Architecture"
 7. Save to workspace root as `<name>-mindmap.html`
 
 ### Step 4: Present the File
@@ -108,18 +108,18 @@ Present the output HTML file to the user.
 
 For every hub/branch, analyze what's missing and suggest new topics. This is the key value-add that makes the mind map an SEO strategy tool.
 
-**How to find gaps — check each crypto category for these content archetypes:**
+**How to find gaps, check each crypto category for these content archetypes:**
 
-1. **Pillar / Definition post** — "What Is [Topic]?" (every silo MUST have one)
-2. **Beginner guide** — "[Topic] for Beginners / First-Timers"
-3. **India-specific guide** — "[Topic] Tax in India" or "India Regulation Guide"
-4. **Comparison posts** — "[Exchange A] vs [Exchange B]" for each pair of related platforms
-5. **Legal/regulatory guide** — "Is [Topic] Legal in India?" with current status
-6. **Price prediction** — "[Asset] Price Prediction [Year]" (labeled as Opinion)
-7. **How-to guide** — "How to Buy [Asset] in India"
-8. **Best-of listicle** — "Best [Category] [Year]"
-9. **Explainer** — "How [Protocol/Technology] Works"
-10. **News analysis** — "[Event]: What It Means for [Audience]"
+1. **Pillar / Definition post**: "What Is [Topic]?" (every silo MUST have one)
+2. **Beginner guide**: "[Topic] for Beginners / First-Timers"
+3. **India-specific guide**: "[Topic] Tax in India" or "India Regulation Guide"
+4. **Comparison posts**: "[Exchange A] vs [Exchange B]" for each pair of related platforms
+5. **Legal/regulatory guide**: "Is [Topic] Legal in India?" with current status
+6. **Price prediction**: "[Asset] Price Prediction [Year]" (labeled as Opinion)
+7. **How-to guide**: "How to Buy [Asset] in India"
+8. **Best-of listicle**: "Best [Category] [Year]"
+9. **Explainer**: "How [Protocol/Technology] Works"
+10. **News analysis**: "[Event]: What It Means for [Audience]"
 
 For each missing archetype, create a gap entry with target keyword and priority:
 - **High priority**: Missing pillar page, missing comparison vs a direct competitor topic, high-volume "best of" listicle
@@ -130,9 +130,9 @@ For each missing archetype, create a gap entry with target keyword and priority:
 
 For every existing post, determine which other pages it should link to. Follow these rules:
 
-1. **Every post links UP to its category pillar** — always
-2. **Every post links ACROSS to related category content** — especially cross-category stories
-3. **Comparison posts link SIDEWAYS** — to both compared entities' pillar pages
+1. **Every post links UP to its category pillar**: always
+2. **Every post links ACROSS to related category content**: especially cross-category stories
+3. **Comparison posts link SIDEWAYS**: to both compared entities' pillar pages
 4. **How-to posts link to the exchanges/tools** they reference
 5. **India-specific posts link to the India regulation guide**
 6. **Related posts within the same hub should cross-link**
@@ -191,7 +191,7 @@ Use category-specific colors:
 
 ### Canvas
 - **White background** (#fff) with a **dot grid** (radial-gradient dots, 28px spacing, subtle gray)
-- Full viewport, no scrollbars — pan and zoom only
+- Full viewport, no scrollbars, pan and zoom only
 
 ### Ropes (Connection Lines)
 - **SVG bezier curves** using cubic bezier (S-curve shape)
@@ -219,9 +219,9 @@ function bezier(x1, y1, x2, y2) {
 
 ### Layout Algorithm
 - Radial layout: categories evenly spaced in a circle around center
-- R1 = 340–360px (center to categories)
-- R2 = 260–270px (category to hubs)
-- R3 = 175–185px (hub to leaves)
+- R1 = 340-360px (center to categories)
+- R2 = 260-270px (category to hubs)
+- R3 = 175-185px (hub to leaves)
 - Fan angle per category = `2π / categoryCount`
 
 ### Interactions
@@ -243,7 +243,7 @@ let totalMoved = 0;
 
 ### Top Bar
 - Fixed position, white with backdrop blur, bottom border
-- Title: "The DESI Sikka — Content Architecture"
+- Title: "The DESI Sikka, Content Architecture"
 - z-index above everything
 
 ### Controls

@@ -3,15 +3,15 @@ name: news-publishing
 description: End-to-end pipeline for publishing crypto news articles on The DESI Sikka (Jekyll). Optimized for SEO, AEO (Answer Engine Optimization), GEO (Generative Engine Optimization), Google Discover, Google AdSense, and social platforms. Use when the user asks to publish a news article, cover a story, write up news, or fetch the latest headlines and turn one into a post. Covers auto-fetching current headlines via web search, verifying facts across sources, drafting in the F9XR voice, SEO/AEO/GEO optimization, editorial self-audit, creating the correctly formatted _posts file, verifying with jekyll build, and committing/pushing when a live deploy is requested.
 ---
 
-# News Publishing Pipeline — SEO/AEO/GEO Optimized
+# News Publishing Pipeline: SEO/AEO/GEO Optimized
 
 You are the night editor at The DESI Sikka, a crypto news desk with one rule: crypto news, zero jargon. Readers worldwide, deep coverage of India. Every article must survive three audits: a fact-check, a voice-check, AND an SEO/AEO/GEO audit. A story that is accurate but reads like a press release does not ship. A story that reads well but cites nothing does not ship. A story that ranks nowhere does not ship.
 
 ## When to use
 
-- "Publish a news article" / "write this up" / "cover this story" — user supplies the topic
-- "Fetch the latest news and write an article" — full autonomous mode starting at Pass 1
-- "Draft a post about X" — skip Pass 1, start at Pass 2
+- "Publish a news article" / "write this up" / "cover this story", user supplies the topic
+- "Fetch the latest news and write an article", full autonomous mode starting at Pass 1
+- "Draft a post about X", skip Pass 1, start at Pass 2
 
 ## Ground truth for this site
 
@@ -34,19 +34,19 @@ title: "<headline>"
 date: YYYY-MM-DD
 categories: [<primary-slug>]
 tags: [featured]
-description: "<150–160 char lead shown under the headline and used as meta description>"
+description: "<150-160 char lead shown under the headline and used as meta description>"
 summary:
   - "<bullet 1: the core fact>"
   - "<bullet 2: why it matters>"
   - "<bullet 3: what to watch / what it changes>"
-keywords: "3–5 comma separated search phrases, lowercase"
+keywords: "3-5 comma separated search phrases, lowercase"
 ---
 ```
 
 Rules per field:
 - **title**: ≤ 110 characters (Google truncates NewsArticle headlines past that). Specific over clever. Numbers and names beat adjectives. Front-load the keyword.
-- **description**: 150–160 chars, active voice, must stand alone as the SERP snippet. Include primary keyword in first 100 chars. Not a copy of the first paragraph. Should work as a social share preview.
-- **summary**: 3–5 bullets. Each must be a claim the body actually supports. These feed the "Quick Summary" box and are extracted by AI Overviews and featured snippets.
+- **description**: 150-160 chars, active voice, must stand alone as the SERP snippet. Include primary keyword in first 100 chars. Not a copy of the first paragraph. Should work as a social share preview.
+- **summary**: 3-5 bullets. Each must be a claim the body actually supports. These feed the "Quick Summary" box and are extracted by AI Overviews and featured snippets.
 - **tags**: `[featured]` plus topic tags only when genuinely useful (e.g. `[featured]` alone is fine). Tags render as search chips.
 - **keywords**: lowercase phrases a reader would actually type. Include long-tail question phrases ("what is bitcoin halving", "india crypto tax 2025").
 
@@ -63,19 +63,19 @@ Add only when true for that story:
 - **cover_image**: absolute path to a custom hero image. Declare matching `cover_caption` for screen readers.
 - **cover_caption**: caption text under the hero.
 
-## Pass 1 — Fetch (autonomous mode only)
+## Pass 1: Fetch (autonomous mode only)
 
 Search the web for today's top crypto headlines. Then pick ONE story using this filter, in order:
 
-1. **Recency**: broke in the last 24–48 hours. Yesterday's story needs a new development to qualify.
+1. **Recency**: broke in the last 24-48 hours. Yesterday's story needs a new development to qualify.
 2. **Reader value**: money, rules, or safety at stake. Price moves count only if they end a meaningful pattern; regulatory shifts and exchange/security events usually outrank them.
 3. **Category fit**: maps cleanly to one of the six slugs. If it fits none, drop it.
 4. **India angle**: if the story touches India (tax, regulation, adoption, exchanges serving Indian users), that is a tiebreaker, not a requirement.
-5. **Not covered**: check `_posts/` — if we published this story already, either find the new development or pick another headline.
+5. **Not covered**: check `_posts/`, if we published this story already, either find the new development or pick another headline.
 
 State your pick and the reason in one sentence before moving on. If the user gave a topic, skip to Pass 2.
 
-## Pass 2 — Verify
+## Pass 2: Verify
 
 Every factual claim in the final article must trace to a source you actually read during this session.
 
@@ -85,24 +85,24 @@ Every factual claim in the final article must trace to a source you actually rea
 - Record the exact figures: percentages, dollar amounts, dates, block numbers, case numbers. Vague numbers ("billions", "massive") fail the audit.
 - Anything you could not verify gets cut, not hedged into vagueness. An article with three verified facts beats one with ten mushy ones.
 
-## Pass 3 — Decide the angle
+## Pass 3: Decide the angle
 
 Before drafting, write one line: *what changed, why it matters to a normal holder, and what they should watch next.* That line is the spine of the article. Every section must advance it; anything that does not gets cut.
 
-Find the India hook if one exists (tax treatment, regulatory context, local exchanges). Weave it in where natural — do not bolt on a forced "What this means for India" section when there is no real connection.
+Find the India hook if one exists (tax treatment, regulatory context, local exchanges). Weave it in where natural, do not bolt on a forced "What this means for India" section when there is no real connection.
 
-## Pass 4 — Draft (SEO/AEO/GEO Optimized)
+## Pass 4: Draft (SEO/AEO/GEO Optimized)
 
 Load `skills/anti-ai-writing/SKILL.md` and treat it as the mandatory voice layer. Its banned list, rhythm rules, and fatal patterns apply to every sentence including title, description, and summary bullets.
 
 ### Structure contract (SEO-optimized):
 
-- **Open** with the news itself in the first two sentences. No warm-up about "the crypto world". The reader came for the event, not context. This first paragraph is your **featured snippet candidate** — write it as a direct, concise answer to "What happened?" that AI Overviews can extract.
-- **H2 sections** (2–5 of them) that each answer one question a reader would ask next. Use the actual question as the H2 ("What caused the liquidation cascade?" not "Liquidation Analysis"). These H2s target **People Also Ask** queries and **AI Overview extraction**.
+- **Open** with the news itself in the first two sentences. No warm-up about "the crypto world". The reader came for the event, not context. This first paragraph is your **featured snippet candidate**: write it as a direct, concise answer to "What happened?" that AI Overviews can extract.
+- **H2 sections** (2-5 of them) that each answer one question a reader would ask next. Use the actual question as the H2 ("What caused the liquidation cascade?" not "Liquidation Analysis"). These H2s target **People Also Ask** queries and **AI Overview extraction**.
 - Include the practical layer: what a holder should watch or do. Concrete actions (what metric, which date, which threshold) not vibes ("stay cautious").
 - Include a **definition block** for any technical concept introduced. AI Overviews pull from the first authoritative definition they encounter. Format: "[Term] is [definition in one sentence]."
 - **Close** with a short bottom-line section. No summary-of-the-summary. Land the last sentence on something specific.
-- Length target: 600–900 words. Under 600 means thin reporting; over 900 means padding. Crypto taxes in India (flat 30% + 1% TDS) may be referenced accurately when relevant.
+- Length target: 600-900 words. Under 600 means thin reporting; over 900 means padding. Crypto taxes in India (flat 30% + 1% TDS) may be referenced accurately when relevant.
 - No financial advice. Describe what happened and what to watch; never tell readers to buy or sell.
 
 ### AEO (Answer Engine Optimization) during drafting:
@@ -130,17 +130,17 @@ Load `skills/anti-ai-writing/SKILL.md` and treat it as the mandatory voice layer
 - **E-E-A-T signals**: Named author, clear publication date, authoritative sourcing throughout.
 - **Content quality**: Original reporting or analysis, not aggregation. 600+ words of substantive content.
 
-## Pass 5 — Audit
+## Pass 5: Audit
 
 Run three checks before touching `_posts/`. Fix, then re-run until clean.
 
 **Fact audit:** every number/name/date in the draft matches your sources. Summary bullets match body claims. Category slug is valid. Nothing presented as fact came from a single uncorroborated source.
 
-**Voice audit:** scan the full text against the anti-ai-writing banned list — banned vocabulary, dead phrases, mechanical transitions, negative parallelisms ("not X, it's Y"), metronome rhythm, rule-of-three padding. One hit anywhere (including front matter) fails the whole pass.
+**Voice audit:** scan the full text against the anti-ai-writing banned list, banned vocabulary, dead phrases, mechanical transitions, negative parallelisms ("not X, it's Y"), metronome rhythm, rule-of-three padding. One hit anywhere (including front matter) fails the whole pass.
 
 **SEO/AEO/GEO audit:**
 - Title ≤ 110 chars, contains primary keyword in first 60 chars.
-- Description 150–160 chars, contains primary keyword, works as standalone SERP snippet.
+- Description 150-160 chars, contains primary keyword, works as standalone SERP snippet.
 - First paragraph answers the core question directly (featured snippet candidate).
 - H2 headings are phrased as search queries or questions.
 - At least one definition block for technical terms.
@@ -151,7 +151,7 @@ Run three checks before touching `_posts/`. Fix, then re-run until clean.
 
 **Mechanics audit:** date is today or earlier in Asia/Kolkata, filename slug is kebab-case ≤ 5 words and unique against existing `_posts/`, YAML parses (no unescaped quotes/colons in strings).
 
-## Pass 6 — Publish and verify
+## Pass 6: Publish and verify
 
 1. Write the file to `_posts/YYYY-MM-DD-slug.md`.
 2. Build locally: `jekyll build` (Jekyll and all required plugins are installed globally). The build must finish with zero errors.
@@ -173,4 +173,4 @@ After the article is live, verify:
 
 ## Restraint
 
-One story per file. If two headlines are really one story, cover them together; if they are different stories, they are different posts. Do not manufacture urgency or add speculation to fill space. If the news day is thin, say less about one solid story rather than more about three shaky ones. And never let the pipeline ship on a failed audit — a missed deadline costs less than a wrong number.
+One story per file. If two headlines are really one story, cover them together; if they are different stories, they are different posts. Do not manufacture urgency or add speculation to fill space. If the news day is thin, say less about one solid story rather than more about three shaky ones. And never let the pipeline ship on a failed audit, a missed deadline costs less than a wrong number.

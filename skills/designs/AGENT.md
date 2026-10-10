@@ -24,7 +24,7 @@ Concise rules for building accessible, fast, delightful UIs. Use MUST/SHOULD/NEV
 - MUST: Loading buttons show spinner and keep original label
 - MUST: Enter submits focused input; in `<textarea>`, ⌘/Ctrl+Enter submits
 - MUST: Keep submit enabled until request starts; then disable with spinner
-- MUST: Accept free text, validate after—don't block typing
+- MUST: Accept free text, validate after, don't block typing
 - MUST: Allow incomplete form submission to surface validation
 - MUST: Errors inline next to fields; on submit, focus first error
 - MUST: `autocomplete` + meaningful `name`; correct `type` and `inputmode`
@@ -68,7 +68,7 @@ Concise rules for building accessible, fast, delightful UIs. Use MUST/SHOULD/NEV
 - SHOULD: Prefer CSS > Web Animations API > JS libraries
 - MUST: Animate compositor-friendly props (`transform`, `opacity`) only
 - NEVER: Animate layout props (`top`, `left`, `width`, `height`)
-- NEVER: `transition: all`—list properties explicitly
+- NEVER: `transition: all`, list properties explicitly
 - SHOULD: Animate only to clarify cause/effect or add deliberate delight
 - SHOULD: Choose easing to match the change (size/distance/trigger)
 - MUST: Animations interruptible and input-driven; autoplay only for muted, non-essential loops
@@ -79,7 +79,7 @@ Concise rules for building accessible, fast, delightful UIs. Use MUST/SHOULD/NEV
 ## Layout
 
 - SHOULD: Optical alignment; adjust ±1px when perception beats geometry
-- MUST: Deliberate alignment to grid/baseline/edges—no accidental placement
+- MUST: Deliberate alignment to grid/baseline/edges, no accidental placement
 - SHOULD: Balance icon/text lockups (weight/size/spacing/color)
 - MUST: Verify mobile, laptop, ultra-wide (simulate ultra-wide at 50% zoom)
 - MUST: Respect safe areas (`env(safe-area-inset-*)`)
@@ -98,7 +98,7 @@ Concise rules for building accessible, fast, delightful UIs. Use MUST/SHOULD/NEV
 - MUST: Redundant status cues (not color-only); icons have text labels
 - MUST: Accessible names exist even when visuals omit labels
 - MUST: Use `…` character (not `...`)
-- MUST: `scroll-margin-top` on headings; "Skip to content" link; hierarchical `<h1>`–`<h6>`
+- MUST: `scroll-margin-top` on headings; "Skip to content" link; hierarchical `<h1>`-`<h6>`
 - MUST: Resilient to user-generated content (short/avg/very long)
 - MUST: Locale-aware dates/times/numbers (`Intl.DateTimeFormat`, `Intl.NumberFormat`)
 - SHOULD: `translate="no"` on brand names, code tokens, & identifiers to prevent garbled auto-translation
@@ -112,7 +112,7 @@ Concise rules for building accessible, fast, delightful UIs. Use MUST/SHOULD/NEV
 
 - MUST: Text containers handle long content (`truncate`, `line-clamp-*`, `break-words`)
 - MUST: Flex children need `min-w-0` to allow truncation
-- MUST: Handle empty states—no broken UI for empty strings/arrays
+- MUST: Handle empty states, no broken UI for empty strings/arrays
 
 ## Performance
 
@@ -149,7 +149,7 @@ Concise rules for building accessible, fast, delightful UIs. Use MUST/SHOULD/NEV
 - SHOULD: Nested radii: child ≤ parent; concentric
 - SHOULD: Hue consistency: tint borders/shadows/text toward bg hue
 - MUST: Accessible charts (color-blind-friendly palettes)
-- MUST: Meet contrast—prefer [APCA](https://apcacontrast.com/) over WCAG 2
+- MUST: Meet contrast, prefer [APCA](https://apcacontrast.com/) over WCAG 2
 - MUST: Increase contrast on `:hover`/`:active`/`:focus`
 - SHOULD: Match browser UI to bg
 - SHOULD: Avoid dark color gradient banding (use background images when needed)

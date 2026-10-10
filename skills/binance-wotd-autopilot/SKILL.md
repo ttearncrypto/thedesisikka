@@ -1,6 +1,6 @@
 ---
 name: binance-wotd-autopilot
-description: Draft and publish the daily Binance Word of the Day (WOTD) answer post for The DESI Sikka. There is no scheduled runner — posts ship when a person or an agent session triggers this skill. Use when asked to "publish today's Binance WOTD", "post the Binance word of the day answers for <date>", "run the WOTD autopilot", "catch up missed WOTD days", or "binance wotd answers today". Covers fetching and cross-checking the daily theme and 3 to 8 letter word lists from community trackers, drafting the post in the exact established front matter plus body template, running the anti-AI writing and SEO/AEO/GEO audits, verifying with jekyll build, and committing plus pushing to main when deployment is requested. Also covers rescuing an aborted local scripts/wotd-daily.py run, and backfilling missing days.
+description: Draft and publish the daily Binance Word of the Day (WOTD) answer post for The DESI Sikka. There is no scheduled runner, posts ship when a person or an agent session triggers this skill. Use when asked to "publish today's Binance WOTD", "post the Binance word of the day answers for <date>", "run the WOTD autopilot", "catch up missed WOTD days", or "binance wotd answers today". Covers fetching and cross-checking the daily theme and 3 to 8 letter word lists from community trackers, drafting the post in the exact established front matter plus body template, running the anti-AI writing and SEO/AEO/GEO audits, verifying with jekyll build, and committing plus pushing to main when deployment is requested. Also covers rescuing an aborted local scripts/wotd-daily.py run, and backfilling missing days.
 version: 1.0.0-desikka
 license: private
 metadata:
@@ -9,7 +9,7 @@ metadata:
   agentskills_spec: "1.0"
 ---
 
-# Binance WOTD Autopilot — Daily Answer Post Pipeline
+# Binance WOTD Autopilot: Daily Answer Post Pipeline
 
 You are the WOTD desk at The DESI Sikka. Every day there is exactly one Binance Word of the Day puzzle, and the site publishes exactly one answer post for it. When invoked, you go from zero to a shipped, verified post without asking for help, unless a guardrail below says otherwise.
 
@@ -21,14 +21,14 @@ The word list data is community-sourced and changes by account. You NEVER invent
 - "binance wotd answers for <date>" or "wotd for <Month> <D>, <YYYY>"
 - "run the WOTD autopilot"
 - "catch up missed WOTD days" (backfill mode)
-- "the scheduled WOTD run failed" (runner rescue mode — only if a local `scripts/wotd-daily.py` run aborts)
+- "the scheduled WOTD run failed" (runner rescue mode, only if a local `scripts/wotd-daily.py` run aborts)
 
 ## Mandatory layers
 
 Load these two skills and treat them as the contract for every run:
 
-1. `news-publishing` — front matter contract, verification rules, SEO/AEO/GEO audit.
-2. `anti-ai-writing` — the F9XR voice: banned list, rhythm rules, no negative parallelisms, no hype.
+1. `news-publishing`, front matter contract, verification rules, SEO/AEO/GEO audit.
+2. `anti-ai-writing`, the F9XR voice: banned list, rhythm rules, no negative parallelisms, no hype.
 
 The VDA posts use the combo template, not the standard news template. Do not confuse the two.
 
@@ -37,7 +37,7 @@ The VDA posts use the combo template, not the standard news template. Do not con
 Run these in order before anything else:
 
 1. Resolve the target date. Manual runs date the post by **Asia/Kolkata calendar day**. `Get-Date -Format yyyy-MM-dd` on the machine is local time; if the box is not on IST, compute IST explicitly (IST = UTC + 5:30). Never date a post in the future relative to IST.
-2. Idempotency. Check `_posts/*binance-wotd-*<YYYY>-<MM>-<DD>-*.md` for the target date (the filename embeds the date). If a post for that date exists, STOP and report "already published today" — never overwrite or duplicate without the user asking.
+2. Idempotency. Check `_posts/*binance-wotd-*<YYYY>-<MM>-<DD>-*.md` for the target date (the filename embeds the date). If a post for that date exists, STOP and report "already published today", never overwrite or duplicate without the user asking.
 3. Backlog. If running on a day missing posts after a gap, list every missing date and run backfill mode (see below).
 4. Git. Confirm the working tree is on `main` and note uncommitted files; you stage only the file you create.
 
@@ -52,12 +52,12 @@ Search the web with these case templates, swapping the date:
 
 Trusted trackers (priority order, all are community lists, not Binance):
 
-- quiknotes.in — `/binance-word-of-the-day-answer-today-<D>-<month>-<year>/`
-- coingabbar.com — `/en/binance-word-of-the-day-answer-<D>-<month>-<year>-full-wotd-list`
-- bittime.com — `/en/blog/binance-word-of-the-day-<ranges>-<month>-<year>`
-- bitrue.com — `/blog/binance-word-of-the-day-*`
-- followchain.org — `/binance-<theme-kebab>-wotd-answers/` (theme-based, not date-based)
-- kriptocity.hu — `/binance-word-of-the-day-wotd-answers/`
+- quiknotes.in, `/binance-word-of-the-day-answer-today-<D>-<month>-<year>/`
+- coingabbar.com, `/en/binance-word-of-the-day-answer-<D>-<month>-<year>-full-wotd-list`
+- bittime.com, `/en/blog/binance-word-of-the-day-<ranges>-<month>-<year>`
+- bitrue.com, `/blog/binance-word-of-the-day-*`
+- followchain.org, `/binance-<theme-kebab>-wotd-answers/` (theme-based, not date-based)
+- kriptocity.hu, `/binance-word-of-the-day-wotd-answers/`
 
 For reward pool numbers (the legally load-bearing figures), prefer the exchange's own announcement reporting: `en.coinqm.com/news/*` quoting the activity page, or the official `binance.com/activity/word-of-the-day/*` page. Community "500,000 BNB" figures are stale copy from 2021-era campaigns and must be corrected, exactly like the existing posts do.
 
@@ -79,7 +79,7 @@ reward_detail: "<the full pool/number structure for the 'How much can you earn' 
 
 Every field must be sourced. `words` lists take the union of tracker lists per length, keeping the majority/common entries first. If two trackers disagree on the theme, treat the theme as unverified and either resolve with a third tracker or hold (see Guardrails).
 
-## Draft — the template
+## Draft: the template
 
 Benchmark file: `_posts/2026-09-24-binance-wotd-september-24-2026.md`. Match its structure exactly: front matter order, section order, word lists as a bold list plus a table, FAQ of exactly three Q&A pairs.
 
@@ -121,14 +121,14 @@ faq:
 2. **Cycle framing** (1-2 sentences, never restated from the previous day's post): streak math, first day, or final-day urgency. Vary it daily.
 3. **Confirmation line**: `No confirmed single-word answer is public yet for today. Work from the candidate list below and match it to your tile count.` OR `Confirmed answer(if a tracker logs one): <word> (<length>), per community trackers.` Keep the candidate-list caveat either way.
 4. **The catch paragraph** (verbatim-ish, one of the few evergreen blocks): different accounts get different puzzles; count tiles.
-5. **Image** — the word grid:
+5. **Image**: the word grid:
    `![Binance WOTD word grid in the mobile app]({{ '/assets/articles-images/binance-wotd-app-grid.webp' | relative_url }} "Binance WOTD color-coded guessing grid")`
-6. **H2 `## What are the Binance WOTD answers for <Month> <D>, <YYYY>?`** — per-length bold lists (3..8) then the markdown table with the same data.
-7. **H2 `## What is Binance Word of the Day?`** — evergreen definition of WOTD + the color system.
-8. **H2 `## How do I play Binance Word of the Day?`** — menu path (More → Gifts and Campaigns → Word of the Day), official link, sharing for extra attempts; adjust the extra-attempts sentence when the cycle's "two games a day / Get A New WOTD" mechanic is active.
-9. **H2 `## How much can you earn from Binance WOTD?`** — the `reward_detail` facts with source attribution, the stale-copy correction (the 500,000 BNB figure), and the change-anytime + tax + verify-in-app disclaimer.
-10. **H2 `## Why do some users see different Binance WOTD answers?`** — evergreen explanation paragraph.
-11. **H2 `## Bottom line`** — recap the date, theme, close date, pool number, no-notice disclaimer, and end with the learn-guides link: `If this is your first time on the desk, we explain crypto basics without the jargon in our [learn guides]({{ '/pages/learn/' | relative_url }}).`
+6. **H2 `## What are the Binance WOTD answers for <Month> <D>, <YYYY>?`**: per-length bold lists (3..8) then the markdown table with the same data.
+7. **H2 `## What is Binance Word of the Day?`**: evergreen definition of WOTD + the color system.
+8. **H2 `## How do I play Binance Word of the Day?`**: menu path (More → Gifts and Campaigns → Word of the Day), official link, sharing for extra attempts; adjust the extra-attempts sentence when the cycle's "two games a day / Get A New WOTD" mechanic is active.
+9. **H2 `## How much can you earn from Binance WOTD?`**: the `reward_detail` facts with source attribution, the stale-copy correction (the 500,000 BNB figure), and the change-anytime + tax + verify-in-app disclaimer.
+10. **H2 `## Why do some users see different Binance WOTD answers?`**: evergreen explanation paragraph.
+11. **H2 `## Bottom line`**: recap the date, theme, close date, pool number, no-notice disclaimer, and end with the learn-guides link: `If this is your first time on the desk, we explain crypto basics without the jargon in our [learn guides]({{ '/pages/learn/' | relative_url }}).`
 
 Body word count: 600-900 words, matching the existing WOTD posts (they run ~800-880).
 
@@ -167,11 +167,11 @@ Run all three before touching `_posts/`. Fix and re-run until clean.
 
 ## Local-runner rescue mode
 
-There is no scheduled runner any more — `.github/workflows/binance-wotd-daily.yml` was removed, so posts ship only when a person (or an agent session) runs them. `scripts/wotd-daily.py` is still there for manual runs and can abort when tracker pages fail (429, layout drift, zero agreement). When a run fails:
+There is no scheduled runner any more, `.github/workflows/binance-wotd-daily.yml` was removed, so posts ship only when a person (or an agent session) runs them. `scripts/wotd-daily.py` is still there for manual runs and can abort when tracker pages fail (429, layout drift, zero agreement). When a run fails:
 
 - Confirm the target date has no post yet.
 - Run the research pass yourself (websearch), which handles flaky pages far better than the scraper.
-- Check `scripts/wotd-data/<date>.json` — a hand-verified data file that always wins over scraping.
+- Check `scripts/wotd-data/<date>.json`, a hand-verified data file that always wins over scraping.
 - Draft, audit, build, and ship as normal.
 
 If the runner published nothing but opened a GitHub issue about the failure, close that issue after the manual post ships and link the post.

@@ -4,7 +4,7 @@ description: Guidance for building distinctive, accessible UIs for The DESI Sikk
 license: MIT
 ---
 
-# Frontend Design — The DESI Sikka
+# Frontend Design: The DESI Sikka
 
 Approach this as the design lead for a crypto news publication that needs to look trustworthy, modern, and readable across every device. The DESI Sikka's visual identity must communicate: serious journalism, accessible to everyone, zero jargon walls. The design should feel like a premium news outlet, not a crypto bro blog.
 
@@ -19,35 +19,35 @@ Approach this as the design lead for a crypto news publication that needs to loo
 ## Color system
 
 ### Light mode (default)
-- **Background**: `#ffffff` (white) — clean, professional, AdSense-friendly
-- **Surface**: `#f8f9fa` (light gray) — cards, sidebars, elevated surfaces
-- **Border**: `#e9ecef` (subtle gray) — dividers, card borders
-- **Text primary**: `#1a1a2e` (near-black) — headlines, body text
-- **Text secondary**: `#6c757d` (gray) — metadata, timestamps, bylines
-- **Accent primary**: `#1a73e8` (Google Blue) — links, CTAs, active states
-- **Accent hover**: `#1557b0` (darker blue) — hover states
-- **Success**: `#0d9488` (teal) — positive price movement, verified badges
-- **Error**: `#dc2626` (red) — negative price movement, errors
-- **Warning**: `#f59e0b` (amber) — cautions, opinion labels
+- **Background**: `#ffffff` (white): clean, professional, AdSense-friendly
+- **Surface**: `#f8f9fa` (light gray): cards, sidebars, elevated surfaces
+- **Border**: `#e9ecef` (subtle gray): dividers, card borders
+- **Text primary**: `#1a1a2e` (near-black): headlines, body text
+- **Text secondary**: `#6c757d` (gray): metadata, timestamps, bylines
+- **Accent primary**: `#1a73e8` (Google Blue): links, CTAs, active states
+- **Accent hover**: `#1557b0` (darker blue): hover states
+- **Success**: `#0d9488` (teal): positive price movement, verified badges
+- **Error**: `#dc2626` (red): negative price movement, errors
+- **Warning**: `#f59e0b` (amber): cautions, opinion labels
 
 ### Dark mode
-- **Background**: `#0f172a` (dark navy) — reduces eye strain for evening reading
-- **Surface**: `#1e293b` (slate) — cards, elevated surfaces
-- **Border**: `#334155` (slate border) — dividers
-- **Text primary**: `#f1f5f9` (light gray) — headlines, body text
-- **Text secondary**: `#94a3b8` (muted) — metadata, timestamps
-- **Accent primary**: `#60a5fa` (lighter blue) — links, CTAs (adjusted for dark bg contrast)
-- **Accent hover**: `#93bbfd` — hover states
-- **Success**: `#34d399` — positive price movement
-- **Error**: `#f87171` — negative price movement
+- **Background**: `#0f172a` (dark navy): reduces eye strain for evening reading
+- **Surface**: `#1e293b` (slate): cards, elevated surfaces
+- **Border**: `#334155` (slate border): dividers
+- **Text primary**: `#f1f5f9` (light gray): headlines, body text
+- **Text secondary**: `#94a3b8` (muted): metadata, timestamps
+- **Accent primary**: `#60a5fa` (lighter blue): links, CTAs (adjusted for dark bg contrast)
+- **Accent hover**: `#93bbfd`, hover states
+- **Success**: `#34d399`, positive price movement
+- **Error**: `#f87171`, negative price movement
 
 ### Category colors (used for category badges, section accents)
 - Bitcoin: `#f7931a` (Bitcoin orange)
 - Ethereum: `#627eea` (Ethereum blue)
 - Altcoins: `#8b5cf6` (purple)
-- Regulation: `#64748b` (slate — serious, governmental)
-- DeFi & Web3: `#06b6d4` (cyan — tech-forward)
-- Exchanges: `#10b981` (emerald — money, trading)
+- Regulation: `#64748b` (slate, serious, governmental)
+- DeFi & Web3: `#06b6d4` (cyan, tech-forward)
+- Exchanges: `#10b981` (emerald, money, trading)
 
 ## Typography
 
@@ -93,8 +93,8 @@ Approach this as the design lead for a crypto news publication that needs to loo
 | Name | Width | Layout changes |
 |---|---|---|
 | Mobile | < 640px | Single column, hamburger nav, stacked cards |
-| Tablet | 640–1024px | 2-column cards, sidebar below content |
-| Desktop | 1024–1280px | Full layout with sidebar |
+| Tablet | 640-1024px | 2-column cards, sidebar below content |
+| Desktop | 1024-1280px | Full layout with sidebar |
 | Wide | > 1280px | Content caps at 1200px centered |
 
 ## Components

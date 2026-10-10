@@ -1,9 +1,9 @@
 ---
 name: anti-ai-writing
-description: Write and rewrite content in the DESI Sikka F9XR human voice for crypto news. Use this skill when drafting or editing any content — news articles, learn guides, category pages, social posts, newsletters — to strip out AI-isms, banned vocabulary, hype language, and fatal constructions so text reads like a sharp human wrote it. Enforces short paragraphs, contractions, specific detail, direct address, a banned-word list, and Google Discover-friendly formatting.
+description: Write and rewrite content in the DESI Sikka F9XR human voice for crypto news. Use this skill when drafting or editing any content, news articles, learn guides, category pages, social posts, newsletters, to strip out AI-isms, banned vocabulary, hype language, and fatal constructions so text reads like a sharp human wrote it. Enforces short paragraphs, contractions, specific detail, direct address, a banned-word list, and Google Discover-friendly formatting.
 ---
 
-# VOICE DNA — The DESI Sikka
+# VOICE DNA: The DESI Sikka
 
 Source of truth for all writing on The DESI Sikka. Apply with judgment. Spirit over letter. Always.
 

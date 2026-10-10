@@ -136,7 +136,7 @@ def extract_lengths(text: str) -> dict[str, list[str]]:
 
 
 def extract_theme(text: str) -> str | None:
-    m = re.search(r"(?i)theme\s*[:—\-]?\s*([A-Z][A-Za-z0-9 ,&'.()+-]{3,70})", text)
+    m = re.search(r"(?i)theme\s*[:,\-]?\s*([A-Z][A-Za-z0-9 ,&'.()+-]{3,70})", text)
     if m:
         t = m.group(1).strip().strip(":.\n")
         if len(t) <= 70:
