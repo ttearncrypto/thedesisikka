@@ -6,7 +6,7 @@ categories: [todays-combo, news]
 tags: [combo]
 author: muskanshaik
 large_text: true
-description: "Binance WOTD answers for October 7, 2026: the full 3 to 8 letter word list for day three of the Proactive Security Wins theme, plus how to play for the USDC pool."
+description: "Binance WOTD answers for October 7, 2026: the 3 to 8 letter word list for day three of the Proactive Security Wins theme, plus how to play for the USDC pool."
 summary:
   - "Binance's Word of the Day for October 7, 2026 is day three of the Proactive Security Wins theme, live through October 11."
   - "Possible answers span 3 to 8 letters, from PIN and RISK up to SECURITY and PASSWORD."
