@@ -9,13 +9,13 @@ metadata:
   agentskills_spec: "1.0"
 ---
 
-# Avoid AI Writing — Audit & Rewrite (DESI Sikka Edition)
+# Avoid AI Writing: Audit & Rewrite (DESI Sikka Edition)
 
 You are editing crypto news content to remove AI writing patterns ("AI-isms") that make text sound machine-generated. This edition is calibrated for The DESI Sikka: a crypto news publication targeting Google Discover, Google AdSense, AI Overview extraction, and social platform distribution.
 
 ## What this skill is and isn't
 
-This is a **writing-quality tool**, not a verdict. The patterns flagged here are statistically more common in LLM output, but humans on autopilot — especially writing under deadline pressure, in unfamiliar genres, or in a second language — produce the same shapes.
+This is a **writing-quality tool**, not a verdict. The patterns flagged here are statistically more common in LLM output, but humans on autopilot, especially writing under deadline pressure, in unfamiliar genres, or in a second language, produce the same shapes.
 
 In short: signals, not proof. Worth acting on; not worth ruining someone's day over.
 
@@ -23,14 +23,14 @@ In short: signals, not proof. Worth acting on; not worth ruining someone's day o
 
 This skill operates in one of three modes:
 
-**`rewrite`** (default) — Flag AI-isms and rewrite the text to fix them.
+**`rewrite`** (default): Flag AI-isms and rewrite the text to fix them.
 
-**`detect`** — Flag AI-isms only. No rewriting. Use this when:
+**`detect`**: Flag AI-isms only. No rewriting. Use this when:
 - The writer wants to see what's flagged and decide what to fix themselves
 - You're auditing text you don't want altered (published content, someone else's writing)
 - You want a quick scan without waiting for a full rewrite
 
-**`edit`** — Edit a file in place rather than returning rewritten text. Use this when the writer points you at a file ("clean up `draft.md`", "fix the AI-isms in this file directly") and wants the file changed. Make **minimal, targeted edits** with the Edit tool — change the flagged spans, not the whole document.
+**`edit`**: Edit a file in place rather than returning rewritten text. Use this when the writer points you at a file ("clean up `draft.md`", "fix the AI-isms in this file directly") and wants the file changed. Make **minimal, targeted edits** with the Edit tool, change the flagged spans, not the whole document.
 
 Trigger detect mode when the user says "detect," "flag only," "audit only," "just flag," "scan." Trigger edit mode when the user names a file and asks you to fix or clean it in place. Default to rewrite mode if not specified.
 
@@ -47,7 +47,7 @@ In **rewrite** mode, your job is to:
 ## What to remove or fix
 
 ### Formatting
-- **Em dashes (— and --)**: Replace with commas, periods, parentheses, or rewrite as two sentences. Target: zero. Hard max: one per 1,000 words.
+- **Em dashes (the long dash and --)**: Replace with commas, periods, parentheses, or rewrite as two sentences. Target: zero. Hard max: one per 1,000 words.
 - **Bold overuse**: Strip bold from most phrases. One bolded phrase per major section at most, or none.
 - **Emoji in headers**: Remove entirely. Social posts may use one or two emoji sparingly.
 - **Excessive bullet lists**: Convert bullet-heavy sections into prose paragraphs. Bullets only for genuinely list-like content.
@@ -61,7 +61,7 @@ In **rewrite** mode, your job is to:
 
 ### Words and phrases to replace
 
-#### Tier 1 — Always flag (crypto-specific additions)
+#### Tier 1: Always flag (crypto-specific additions)
 
 | Replace | With |
 |---|---|
@@ -84,7 +84,7 @@ In **rewrite** mode, your job is to:
 | transformative | (describe what changed and how) |
 | unprecedented | (name what happened that hasn't happened before) |
 
-#### Tier 2 — Flag when 2+ appear in the same paragraph
+#### Tier 2: Flag when 2+ appear in the same paragraph
 
 | Replace | With |
 |---|---|
@@ -100,7 +100,7 @@ In **rewrite** mode, your job is to:
 | disruption | (describe the specific change) |
 | innovation | (describe what's actually new) |
 
-#### Tier 3 — Flag only at high density
+#### Tier 3: Flag only at high density
 
 | Word | What to do |
 |---|---|
@@ -141,23 +141,23 @@ In **rewrite** mode, your job is to:
 - Fix: pick the falsifiable version. "Ethereum L2 fees may drop below $0.01 by Q4 2026" is a prediction. "Layer 2s may become one of the most important narratives" is not.
 
 ### Chatbot artifacts
-- "I hope this helps!", "Certainly!", "Absolutely!", "Great question!" — remove entirely.
-- "In this article, we will explore..." — cut or rewrite with a direct opening.
+- "I hope this helps!", "Certainly!", "Absolutely!", "Great question!", remove entirely.
+- "In this article, we will explore...", cut or rewrite with a direct opening.
 
 ### Generic conclusions
-- "The future looks bright," "Only time will tell," "One thing is certain" — these are filler. Cut them.
+- "The future looks bright," "Only time will tell," "One thing is certain", these are filler. Cut them.
 
 ---
 
 ## Severity tiers
 
-### P0 — Credibility killers (fix immediately)
+### P0: Credibility killers (fix immediately)
 - Cutoff disclaimers ("As of my last update")
 - Chatbot artifacts ("I hope this helps!", "Great question!")
 - Vague attributions without sources ("Experts believe")
 - Significance inflation on routine events
 
-### P1 — Obvious AI smell (fix before publishing)
+### P1: Obvious AI smell (fix before publishing)
 - Word-list violations (delve, leverage, harness, robust, etc.)
 - Template phrases and slot-fill constructions
 - "Let's" transition openers
@@ -168,7 +168,7 @@ In **rewrite** mode, your job is to:
 - Generic future-narrative closers
 - Hedge-stacked predictions ("could potentially," "may eventually")
 
-### P2 — Stylistic polish (fix when time allows)
+### P2: Stylistic polish (fix when time allows)
 - Generic conclusions ("The future looks bright")
 - Compulsive rule of three
 - Uniform paragraph length
@@ -179,13 +179,13 @@ In **rewrite** mode, your job is to:
 
 ## Context profiles for DESI Sikka
 
-**`news`** — Default. Standard crypto news article. All rules apply at full strength. SEO/AEO/GEO structure required.
+**`news`**: Default. Standard crypto news article. All rules apply at full strength. SEO/AEO/GEO structure required.
 
-**`learn`** — Educational/explainer content. Technical terms get defined on first use. Slightly longer paragraphs OK. Still strict on AI tells.
+**`learn`**: Educational/explainer content. Technical terms get defined on first use. Slightly longer paragraphs OK. Still strict on AI tells.
 
-**`social`** — Short-form social posts. Em dashes relaxed. Emoji at end of line OK. Still strict on banned vocabulary.
+**`social`**: Short-form social posts. Em dashes relaxed. Emoji at end of line OK. Still strict on banned vocabulary.
 
-**`newsletter`** — Email edition. Conversational but factual. Can be slightly warmer in tone. Strict on accuracy.
+**`newsletter`**: Email edition. Conversational but factual. Can be slightly warmer in tone. Strict on accuracy.
 
 ---
 
@@ -234,8 +234,8 @@ Confirm you re-read the file and the flagged patterns are resolved.
 The goal is writing that sounds like a person wrote it. Direct. Specific. The writing should demonstrate confidence, not assert it.
 
 Five principles for human-sounding crypto rewrites:
-1. **Vary sentence length** — mix short with long. Fragments are fine.
-2. **Be concrete** — replace vague claims with numbers, names, dates, or examples.
-3. **Have a voice** — state preferences, show reactions, take positions.
-4. **Cut the neutrality** — humans have opinions about markets. If the piece is supposed to take a position, take it.
-5. **Earn your emphasis** — don't tell the reader something is important. Make it important with facts.
+1. **Vary sentence length**: mix short with long. Fragments are fine.
+2. **Be concrete**: replace vague claims with numbers, names, dates, or examples.
+3. **Have a voice**: state preferences, show reactions, take positions.
+4. **Cut the neutrality**: humans have opinions about markets. If the piece is supposed to take a position, take it.
+5. **Earn your emphasis**: don't tell the reader something is important. Make it important with facts.

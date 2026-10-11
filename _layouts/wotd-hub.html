@@ -1,0 +1,62 @@
+---
+layout: default
+---
+{% assign wotd_posts = site.posts | where_exp: 'p', 'p.title contains "Binance WOTD"' | sort: 'date' | reverse %}
+
+<div class="meta-strip compact">
+  <span>{{ page.kicker | default: 'Section' }}</span>
+  <span>{{ wotd_posts.size }} answer{% unless wotd_posts.size == 1 %}s{% endunless %}</span>
+</div>
+
+<section class="section shell">
+  <header class="page-intro">
+    <span class="mono-label">The DESI Sikka</span>
+    <h1 class="page-title">{{ page.title }}</h1>
+    {% if page.description %}
+      <p class="page-sub">{{ page.description }}</p>
+    {% endif %}
+  </header>
+
+  <div class="prose">
+    {{ content }}
+  </div>
+
+  {% if wotd_posts.size > 0 %}
+  <div class="post-grid" style="margin-top:2.5rem;">
+    {% for post in wotd_posts limit: 60 %}
+      {% include post-card.html post=post %}
+    {% endfor %}
+  </div>
+  {% if wotd_posts.size > 60 %}<p class="empty-note" style="margin-top:1.5rem;">Older daily answers appear in the <a href="{{ '/archive/' | relative_url }}">full archive</a>.</p>{% endif %}
+  {% else %}
+  <div style="margin-top:2rem;">
+    <p class="empty-note">{{ page.empty_note | default: 'Nothing here yet. New answers land here as we publish them.' }}</p>
+  </div>
+  {% endif %}
+</section>
+
+{% if wotd_posts.size > 0 %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": {{ page.title | jsonify }},
+  "url": {{ site.url | append: site.baseurl | append: page.url | jsonify }},
+  "isPartOf": {{ site.url | append: site.baseurl | append: '/' | jsonify }},
+  "inLanguage": "en",
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {% for post in wotd_posts limit: 60 %}
+      {
+        "@type": "ListItem",
+        "position": {{ forloop.index }},
+        "url": {{ site.url | append: site.baseurl | append: post.url | jsonify }},
+        "name": {{ post.title | jsonify }}
+      }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ]
+  }
+}
+</script>
+{% endif %}

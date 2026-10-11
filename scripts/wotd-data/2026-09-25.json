@@ -1,0 +1,25 @@
+{
+  "date": "2026-09-25",
+  "theme": "Keeps AI Agents in Check",
+  "campaign_start": "2026-09-21",
+  "campaign_end": "2026-09-27",
+  "cycle_day": 5,
+  "confirmed": null,
+  "reward": "10,000 USDC",
+  "reward_detail": "For the Keeps AI Agents in Check cycle, Binance lists a 10,000 USDC pool split in two: a 3,000 USDC pool for five correct answers and a 7,000 USDC pool for users who also do $50 in trading volume, capped at 5 USDC per user. Check the live campaign page in-app for the current terms.",
+  "two_games": true,
+  "words": {
+    "3": ["LOG", "RUN", "KEY"],
+    "4": ["RISK", "RULE", "SAFE", "MODE"],
+    "5": ["LIMIT", "GUARD", "CHECK", "AUDIT"],
+    "6": ["WALLET", "SAFETY", "POLICY", "VERIFY"],
+    "7": ["BALANCE", "FEATURE", "KEYLESS", "CONTROL"],
+    "8": ["INTERACT", "SECURITY"]
+  },
+  "_sources": [
+    "https://www.quiknotes.in/binance-word-of-the-day-answer-today-25-september-2026/",
+    "https://www.coingabbar.com/en/binance-word-of-the-day-answer-25-september-2026-full-wotd-list",
+    "https://en.coinqm.com/news/318748.html"
+  ],
+  "_verified": "2026-09-28 by binance-wotd-autopilot; theme and all six word lists agreed across quiknotes and coingabbar; pool terms from coinqm quoting the Binance announcement"
+}

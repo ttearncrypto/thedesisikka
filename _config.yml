@@ -5,10 +5,15 @@ email: "hello@f9xr.org"
 description: >-
   The DESI Sikka covers crypto for readers worldwide: bitcoin and ethereum
   news, altcoin moves, DeFi explainers, exchange guides and the regulation
-  updates that matter, with deep coverage of India. Plain English, no jargon
-  walls.
+  updates that matter. Plain English, no jargon walls.
 
-url: "https://ttearncrypto.github.io"
+# NOTE: `url` must be the host that actually serves this site. The custom domain
+# ttearncrypto.f9xr.org is the live origin; ttearncrypto.github.io/thedesisikka
+# only 301-redirects to it. Pointing `url` at the redirecting host makes every
+# absolute URL we emit (sitemap <loc>, canonical, og:url, JSON-LD @id, feed
+# links) resolve through a redirect, and Google Search Console then rejects the
+# whole sitemap with "URL not allowed for a Sitemap at this location".
+url: "https://ttearncrypto.f9xr.org"
 baseurl: "/thedesisikka"
 
 # Social -------------------------------------------------------------------
@@ -107,14 +112,49 @@ titles_from_headings:
 
 # Categories used across the site --------------------------------------------
 site_categories:
-  - { slug: bitcoin,    name: "Bitcoin" }
-  - { slug: ethereum,   name: "Ethereum" }
-  - { slug: altcoins,   name: "Altcoins" }
-  - { slug: regulation, name: "Regulation" }
+  - { slug: news,       name: "News" }
+  - { slug: bitcoin,    name: "Bitcoin", indexable: false }
+  - { slug: ethereum,   name: "Ethereum", indexable: false }
+  - { slug: altcoins,   name: "Altcoins", indexable: false }
+  - { slug: regulation, name: "Regulation", indexable: false }
   - { slug: defi,       name: "DeFi & Web3" }
-  - { slug: exchanges,  name: "Exchanges & How-to" }
-  - { slug: todays-combo, name: "Today's Combo" }
-  - { slug: press, name: "Press Releases" }
+  - { slug: exchanges,  name: "Exchanges & How-to", indexable: false }
+  - { slug: todays-combo, name: "Today's Combo", indexable: false }
+  - { slug: press, name: "Press Releases", indexable: false }
+
+# Header navigation ---------------------------------------------------------
+# `inline` sits in the bar. Everything else collapses into the "More" dropdown,
+# grouped so the panel reads as columns instead of a flat list. Add new
+# categories or pages here instead of hardcoding links in _includes/header.html.
+header_nav:
+  inline:
+    - { name: "News",        url: "/category/news/" }
+    - { name: "DeFi & Web3", url: "/category/defi/" }
+  dropdown:
+    label: "More"
+    groups:
+      - name: "Markets"
+        links:
+          - { name: "Bitcoin",             url: "/category/bitcoin/" }
+          - { name: "Ethereum",            url: "/category/ethereum/" }
+          - { name: "Altcoins",            url: "/category/altcoins/" }
+          - { name: "Regulation",          url: "/category/regulation/" }
+          - { name: "Exchanges & How-to",  url: "/category/exchanges/" }
+      - name: "Tools"
+        links:
+          - { name: "Today's Combo",       url: "/category/todays-combo/" }
+          - { name: "Price Predictions",   url: "/pages/predictions/" }
+          - { name: "Airdrops",            url: "/pages/airdrops/" }
+          - { name: "Videos",              url: "/pages/videos/" }
+          - { name: "Crypto Tools",        url: "https://f9xr.org/troolify/tools/crypto/" }
+      - name: "Site"
+        links:
+          - { name: "Learn",               url: "/pages/learn/" }
+          - { name: "Events",              url: "/pages/events/" }
+          - { name: "Press Releases",      url: "/press/" }
+          - { name: "Archive",             url: "/archive/" }
+          - { name: "About",               url: "/about/" }
+          - { name: "Contact",             url: "/pages/contact/" }
 
 # Defaults ---------------------------------------------------------------------
 defaults:
@@ -140,3 +180,12 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - README.md
+  - opencode.json
+  - seo_audit_report.md
+  - seo_audit_report.csv
+  - scripts/
+  - bharat-by-day.html
+  - .github/
+
+include:
+  - .well-known

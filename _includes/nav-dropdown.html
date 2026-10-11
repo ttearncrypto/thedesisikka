@@ -1,0 +1,25 @@
+{% comment %}
+  Accessible nav dropdown. Pass `menu` (label + groups), a unique `id`, and
+  `mobile=true` to render the inline/accordion variant used in #mobile-nav.
+  Requires site.js; without JS the panel is hidden and the inline links still work.
+{% endcomment %}
+{% assign panel_id = include.id | append: "-panel" %}
+<div class="nav-dropdown{% if include.mobile %} nav-dropdown-mobile{% endif %}" data-nav-dropdown>
+  <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="{{ panel_id }}">
+    <span>{{ include.menu.label }}</span>
+    <svg class="nav-dropdown-caret" viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+  </button>
+
+  <div class="nav-dropdown-panel" id="{{ panel_id }}" hidden>
+    {% for group in include.menu.groups %}
+      <div class="nav-dropdown-group">
+        <p class="nav-dropdown-heading">{{ group.name }}</p>
+        <ul>
+          {% for link in group.links %}
+            <li><a href="{{ link.url | relative_url }}"{% if page.url == link.url %} aria-current="page"{% endif %}>{{ link.name }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+  </div>
+</div>

@@ -1,6 +1,6 @@
 {% if site.data.guides.size > 0 %}
 <div class="side-card">
-  <h3>India Guides</h3>
+  <h3>Crypto Guides</h3>
   <ul class="toc-list">
     {% for guide in site.data.guides limit: 4 %}
       <li><a href="{{ '/pages/learn/' | append: guide.slug | append: '/' | relative_url }}">{{ guide.title | escape }}</a></li>

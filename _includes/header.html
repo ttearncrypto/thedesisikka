@@ -6,10 +6,10 @@
     </a>
 
     <nav class="site-nav" aria-label="Primary">
-      {% for cat in site.site_categories %}
-        <a href="{{ '/category/' | append: cat.slug | relative_url }}">{{ cat.name }}</a>
+      {% for item in site.header_nav.inline %}
+        <a href="{{ item.url | relative_url }}">{{ item.name }}</a>
       {% endfor %}
-      <a href="{{ '/about/' | relative_url }}">About</a>
+      {% include nav-dropdown.html menu=site.header_nav.dropdown id="nav-more" %}
     </nav>
 
     <div class="header-actions">
@@ -27,13 +27,10 @@
   </div>
 
   <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile">
-    {% for cat in site.site_categories %}
-      <a href="{{ '/category/' | append: cat.slug | relative_url }}">{{ cat.name }}</a>
+    {% for item in site.header_nav.inline %}
+      <a href="{{ item.url | relative_url }}">{{ item.name }}</a>
     {% endfor %}
-    <a href="{{ '/press/' | relative_url }}">Press Releases</a>
-    <a href="{{ '/pages/learn/' | relative_url }}">Learn</a>
-    <a href="{{ '/pages/events/' | relative_url }}">Events</a>
-    <a href="{{ '/about/' | relative_url }}">About</a>
+    {% include nav-dropdown.html menu=site.header_nav.dropdown id="mobile-nav-more" mobile=true %}
     <a href="{{ '/pages/search/' | relative_url }}">Search</a>
   </nav>
 

@@ -2,7 +2,7 @@
 layout: default
 permalink: /legal/disclaimer/
 title: "Disclaimer"
-description: "The DESI Sikka publishes news and education, not financial advice."
+description: "The DESI Sikka publishes crypto news and education, not financial advice. Read this before acting on anything you find here."
 ---
 
 <div class="meta-strip compact">
@@ -31,6 +31,9 @@ description: "The DESI Sikka publishes news and education, not financial advice.
 
     <h2>No guarantees</h2>
     <p>We report facts as best we can verify them at publishing time. Markets move after we hit publish. Old posts stay online for reference but may describe conditions that no longer exist.</p>
+
+    <h2>AI tools</h2>
+    <p>We use AI tools for research, drafting and editing, with a human editor checking every story before it publishes. The details are in our <a href="{{ '/legal/ai-usage/' | relative_url }}">AI usage disclaimer</a>.</p>
 
     <h2>Affiliates and ads</h2>
     <p>We may introduce affiliate links later. If we do, they won't influence our coverage. Sponsored content, if ever published, will be labeled inside the story itself per our <a href="{{ '/legal/editorial-policy/' | relative_url }}">editorial policy</a>. Ads, if any, don't equal endorsement.</p>

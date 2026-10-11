@@ -6,11 +6,11 @@ layout: default
     <div class="hero-inner">
       <span class="hero-badge">{{ site.tagline }}</span>
       <h1 class="hero-title">Crypto news that speaks your language.</h1>
-      <p class="hero-sub">Bitcoin to policy shifts, altcoin moves to exchange how-tos. We cover what actually matters worldwide, with deep coverage of India. No jargon walls.</p>
+      <p class="hero-sub">Bitcoin to policy shifts, altcoin moves to exchange how-tos. We cover what actually matters, worldwide. No jargon walls.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#latest">Read the latest</a>
         <a class="btn btn-outline" href="{{ site.telegram_url }}" rel="noopener">Join us on Telegram</a>
-        <span class="clock-chip" id="live-clock" aria-label="Current time in India">Loading IST&hellip;</span>
+        <span class="clock-chip" id="live-clock" aria-label="Current time (IST)">Loading IST&hellip;</span>
       </div>
     </div>
   </div>
@@ -25,9 +25,29 @@ layout: default
   <a class="chip" href="{{ '/pages/events/' | relative_url }}">Events</a>
 </div>
 
-{% assign all_posts = site.posts %}
-{% assign pinned = all_posts | where: 'pinned', true %}
-{% assign latest = all_posts | where_exp: 'p', 'p.pinned != true' %}
+{% comment %}
+  "Latest Crypto News" carries reported news only. Posts that belong to a
+  dedicated section (Today's Combo, price predictions, press releases,
+  airdrops, videos, events) are filtered out so they surface only in their own
+  section and never double as news.
+{% endcomment %}
+{% assign section_tags = "combo,prediction,airdrop,video,event,press" | split: "," %}
+{% assign section_cats = "todays-combo,press" | split: "," %}
+{% assign news_posts = "" | split: "" %}
+{% for p in site.posts %}
+  {% assign is_section = false %}
+  {% assign p_tags = p.tags | join: "," | downcase %}
+  {% for t in section_tags %}
+    {% if p_tags contains t %}{% assign is_section = true %}{% endif %}
+  {% endfor %}
+  {% assign p_cats = p.categories | join: "," | downcase %}
+  {% for c in section_cats %}
+    {% if p_cats contains c %}{% assign is_section = true %}{% endif %}
+  {% endfor %}
+  {% unless is_section %}{% assign news_posts = news_posts | push: p %}{% endunless %}
+{% endfor %}
+{% assign pinned = news_posts | where: 'pinned', true %}
+{% assign latest = news_posts | where_exp: 'p', 'p.pinned != true' %}
 
 {% comment %} ---------- Latest Crypto News ---------- {% endcomment %}
 <section class="section shell" id="latest">
@@ -36,7 +56,7 @@ layout: default
     <a class="section-link" href="{{ '/archive/' | relative_url }}">Full archive &rarr;</a>
   </div>
 
-  {% if all_posts.size > 0 %}
+  {% if news_posts.size > 0 %}
   <div class="post-grid">
     {% for post in pinned limit: 2 %}
       {% include post-card.html post=post featured=true %}
@@ -182,7 +202,7 @@ layout: default
     <div class="about-box-main">
       <span class="mono-label">About us</span>
       <h2 class="section-title" style="margin-top:0.5rem;">News for everyone, minus the noise.</h2>
-      <p>The DESI Sikka covers crypto for readers everywhere: bitcoin and ethereum moves, regulation that hits your wallet, DeFi explainers and exchange how-tos, with deep coverage of India. Short stories, plain English, zero paid shilling.</p>
+      <p>The DESI Sikka covers crypto for readers everywhere: bitcoin and ethereum moves, regulation that hits your wallet, DeFi explainers and exchange how-tos. Short stories, plain English, zero paid shilling.</p>
       <div class="hero-actions">
         <a class="btn btn-primary btn-sm" href="{{ '/about/' | relative_url }}">Read our story</a>
         <a class="btn btn-outline btn-sm" href="{{ '/legal/editorial-policy/' | relative_url }}">Editorial policy</a>
@@ -209,7 +229,7 @@ layout: default
 <section class="section shell" id="archive-months">
   <div class="archive-bar">
     <span class="mono-label">Browse by month</span>
-    {% assign months = all_posts | group_by_exp: "post", "post.date | date: '%Y-%m'" %}
+    {% assign months = site.posts | group_by_exp: "post", "post.date | date: '%Y-%m'" %}
     <select id="archive-select" aria-label="Archive by month" {% unless months.size > 0 %}disabled{% endunless %}>
       {% if months.size > 0 %}
         <option value="">Select a month&hellip;</option>
@@ -224,7 +244,7 @@ layout: default
   </div>
 </section>
 
-{% if all_posts.size > 0 %}
+{% if news_posts.size > 0 %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -232,7 +252,7 @@ layout: default
   "name": "Latest Crypto News",
   "url": {{ '/' | absolute_url | jsonify }},
   "itemListElement": [
-    {% for post in all_posts limit: 10 %}
+    {% for post in news_posts limit: 10 %}
     {
       "@type": "ListItem",
       "position": {{ forloop.index }},

@@ -14,7 +14,10 @@ import xml.etree.ElementTree as ET
 SITE = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else "_site")
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 
-VALID_CATS = {"bitcoin", "ethereum", "altcoins", "regulation", "defi", "exchanges", "todays-combo", "press"}
+VALID_CATS = {
+    "bitcoin", "ethereum", "altcoins", "regulation", "defi", "exchanges",
+    "todays-combo", "press", "news",
+}
 errors = []
 
 
@@ -103,10 +106,18 @@ else:
             errors.append(f"{post.name}: missing date")
 
         cats = list(fm.get("categories") or [])
-        if len(cats) != 1:
-            errors.append(f"{post.name}: expected exactly one category (got {len(cats)})")
-        elif cats[0] not in VALID_CATS:
-            errors.append(f"{post.name}: unknown category '{cats[0]}'")
+        if not cats:
+            errors.append(f"{post.name}: missing categories")
+        elif len(cats) > 2:
+            errors.append(f"{post.name}: too many categories (got {len(cats)})")
+        else:
+            for c in cats:
+                if c not in VALID_CATS:
+                    errors.append(f"{post.name}: unknown category '{c}'")
+            if len(cats) == 2 and cats[1] != "news":
+                errors.append(
+                    f"{post.name}: two-category posts must use [<primary>, news]"
+                )
 
         desc = (fm.get("description") or "").strip()
         if not desc:

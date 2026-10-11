@@ -38,7 +38,7 @@ sitemap: false
         }
       ],
       "tags": {{ post.tags | jsonify }},
-      "image": {{ post.image | absolute_url | jsonify }}
+      "image": {{ post.cover_image | default: post.image | absolute_url | jsonify }}
     }{% unless forloop.last %},{% endunless %}
     {% endfor %}
   ]

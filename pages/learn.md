@@ -2,7 +2,7 @@
 layout: default
 permalink: /pages/learn/
 title: "Learn: Crypto Guides in Plain English"
-description: "The DESI Sikka's guides: India crypto tax, exchange comparison, P2P on-ramps, wallet security and a plain-English glossary."
+description: "The DESI Sikka's guides: crypto tax, exchange comparison, on-ramps, wallet security and a plain-English glossary."
 ---
 
 <div class="meta-strip compact">
@@ -14,7 +14,7 @@ description: "The DESI Sikka's guides: India crypto tax, exchange comparison, P2
   <header class="page-intro">
     <span class="mono-label">No jargon walls</span>
     <h1 class="page-title">Learn crypto without the homework.</h1>
-    <p class="page-sub">Money questions answered in plain English — updated as the rules change. If a news story confused you, the answer probably lives here.</p>
+    <p class="page-sub">Money questions answered in plain English, updated as the rules change. If a news story confused you, the answer probably lives here.</p>
   </header>
 
   {% if site.data.guides.size > 0 %}
@@ -35,7 +35,7 @@ description: "The DESI Sikka's guides: India crypto tax, exchange comparison, P2
   {% endif %}
 
   <div style="margin-top:2rem;max-width:46rem;">
-    <p>Can't find a term or a how-to? <a href="{{ '/pages/contact/' | relative_url }}">Ask us</a> — the glossary is updated from real reader questions.</p>
+    <p>Can't find a term or a how-to? <a href="{{ '/pages/contact/' | relative_url }}">Ask us</a>. The glossary is updated from real reader questions.</p>
   </div>
 </section>
 

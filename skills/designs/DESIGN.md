@@ -1,6 +1,6 @@
 ## Overview
 
-The DESI Sikka reads like a serious crypto news publication — closer to CoinDesk or The Hindu BusinessLine in atmosphere than a crypto trading app. Clean white canvas, strong readable type, one trusted blue accent, and category-color coding that makes the site's six beats scannable at a glance. The tagline "Crypto news, zero jargon" drives every choice: text-first, no decoration that gets in the way of reading.
+The DESI Sikka reads like a serious crypto news publication, closer to CoinDesk or The Hindu BusinessLine in atmosphere than a crypto trading app. Clean white canvas, strong readable type, one trusted blue accent, and category-color coding that makes the site's six beats scannable at a glance. The tagline "Crypto news, zero jargon" drives every choice: text-first, no decoration that gets in the way of reading.
 
 **Key Characteristics:**
 - Single trusted accent: Google Blue `{colors.primary}` (#1a73e8) for links, CTAs, active states.
@@ -13,42 +13,42 @@ The DESI Sikka reads like a serious crypto news publication — closer to CoinDe
 ## Colors
 
 ### Brand & Accent
-- **Trust Blue** (`{colors.primary}` — #1a73e8): Links, primary CTAs, active states, focus rings.
-- **Trust Blue Active** (`{colors.primary-active}` — #1557b0): Press/hover state.
-- **Trust Blue Soft** (`{colors.primary-soft}` — #e8f0fe): Selection backgrounds, link underlines, tag fill.
+- **Trust Blue** (`{colors.primary}`, #1a73e8): Links, primary CTAs, active states, focus rings.
+- **Trust Blue Active** (`{colors.primary-active}`, #1557b0): Press/hover state.
+- **Trust Blue Soft** (`{colors.primary-soft}`, #e8f0fe): Selection backgrounds, link underlines, tag fill.
 
 ### Dark-mode Brand
-- **Trust Blue Light** (`{colors.primary-dark}` — #60a5fa): Links, CTAs on dark backgrounds.
-- **Trust Blue Light Active** (`{colors.primary-dark-active}` — #93bbfd): Press/hover state on dark.
+- **Trust Blue Light** (`{colors.primary-dark}`, #60a5fa): Links, CTAs on dark backgrounds.
+- **Trust Blue Light Active** (`{colors.primary-dark-active}`, #93bbfd): Press/hover state on dark.
 
 ### Category (Beat) Colors
-- **Bitcoin** (`{colors.bitcoin}` — #f7931a): Bitcoin orange.
-- **Ethereum** (`{colors.ethereum}` — #627eea): Ethereum blue.
-- **Altcoins** (`{colors.altcoins}` — #8b5cf6): Purple.
-- **Regulation** (`{colors.regulation}` — #64748b): Slate (serious, governmental).
-- **DeFi** (`{colors.defi}` — #06b6d4): Cyan (tech-forward).
-- **Exchanges** (`{colors.exchanges}` — #10b981): Emerald (money, trading).
+- **Bitcoin** (`{colors.bitcoin}`, #f7931a): Bitcoin orange.
+- **Ethereum** (`{colors.ethereum}`, #627eea): Ethereum blue.
+- **Altcoins** (`{colors.altcoins}`, #8b5cf6): Purple.
+- **Regulation** (`{colors.regulation}`, #64748b): Slate (serious, governmental).
+- **DeFi** (`{colors.defi}`, #06b6d4): Cyan (tech-forward).
+- **Exchanges** (`{colors.exchanges}`, #10b981): Emerald (money, trading).
 
 ### Surface (Light)
-- **Canvas** (`{colors.canvas}` — #ffffff): Page floor.
-- **Surface** (`{colors.surface}` — #f8f9fa): Cards, sidebars, elevated surfaces.
-- **Hairline** (`{colors.hairline}` — #e9ecef): Dividers and card borders.
+- **Canvas** (`{colors.canvas}`, #ffffff): Page floor.
+- **Surface** (`{colors.surface}`, #f8f9fa): Cards, sidebars, elevated surfaces.
+- **Hairline** (`{colors.hairline}`, #e9ecef): Dividers and card borders.
 
 ### Surface (Dark)
-- **Canvas Dark** (`{colors.canvas-dark}` — #0f172a): Dark-mode page floor.
-- **Surface Dark** (`{colors.surface-dark}` — #1e293b): Dark-mode cards.
-- **Hairline Dark** (`{colors.hairline-dark}` — #334155): Dark-mode dividers.
+- **Canvas Dark** (`{colors.canvas-dark}`, #0f172a): Dark-mode page floor.
+- **Surface Dark** (`{colors.surface-dark}`, #1e293b): Dark-mode cards.
+- **Hairline Dark** (`{colors.hairline-dark}`, #334155): Dark-mode dividers.
 
 ### Text
-- **Ink** (`{colors.ink}` — #1a1a2e): Headlines and body (light mode).
-- **Body Muted** (`{colors.body-muted}` — #6c757d): Metadata, timestamps, bylines.
-- **Ink Dark** (`{colors.ink-dark}` — #f1f5f9): Headlines and body (dark mode).
-- **Body Muted Dark** (`{colors.body-muted-dark}` — #94a3b8): Dark-mode metadata.
+- **Ink** (`{colors.ink}`, #1a1a2e): Headlines and body (light mode).
+- **Body Muted** (`{colors.body-muted}`, #6c757d): Metadata, timestamps, bylines.
+- **Ink Dark** (`{colors.ink-dark}`, #f1f5f9): Headlines and body (dark mode).
+- **Body Muted Dark** (`{colors.body-muted-dark}`, #94a3b8): Dark-mode metadata.
 
 ### Semantic
-- **Success / Up** (`{colors.success}` — #0d9488 light, #34d399 dark): Positive price movement, verified.
-- **Error / Down** (`{colors.error}` — #dc2626 light, #f87171 dark): Negative price movement, errors.
-- **Warning** (`{colors.warning}` — #f59e0b): Cautions, Opinion labels.
+- **Success / Up** (`{colors.success}`, #0d9488 light, #34d399 dark): Positive price movement, verified.
+- **Error / Down** (`{colors.error}`, #dc2626 light, #f87171 dark): Negative price movement, errors.
+- **Warning** (`{colors.warning}`, #f59e0b): Cautions, Opinion labels.
 
 ## Typography
 
@@ -66,12 +66,12 @@ Inter across every text role. Code, prices, and addresses switch to **JetBrains 
 | `{typography.body}` | 16px | 400 | 1.6 | Article body |
 | `{typography.small}` | 14px | 400 | 1.5 | Metadata, captions |
 | `{typography.tiny}` | 12px | 500 | 1.4 | Badges, labels, timestamps |
-| `{typography.mono}` | 14px | 400 | 1.5 | Prices, addresses, code — JetBrains Mono |
+| `{typography.mono}` | 14px | 400 | 1.5 | Prices, addresses, code, JetBrains Mono |
 
 ### Principles
 - **Sentence case headings.** "Bitcoin drops 12% after liquidation cascade", not title case.
 - **Body at 16px minimum** to prevent iOS zoom on input focus.
-- **Line height 1.6 for body** — optimized for long-form reading.
+- **Line height 1.6 for body**: optimized for long-form reading.
 - **`font-variant-numeric: tabular-nums`** on every price and number display.
 
 ## Layout
@@ -101,7 +101,7 @@ Inter across every text role. Code, prices, and addresses switch to **JetBrains 
 | `{rounded.lg}` | 12px | Large cards, code blocks |
 | `{rounded.pill}` | 9999px | Category badges, labels |
 
-Bullet-journal radii — 8px is the default surface radius. Clean and neutral, not pill-happy.
+Bullet-journal radii, 8px is the default surface radius. Clean and neutral, not pill-happy.
 
 ## Components
 
@@ -134,8 +134,8 @@ Article-level card listing external citations. Renders above the copyright notic
 | Name | Width | Key Changes |
 |---|---|---|
 | Mobile | < 640px | Single column, hamburger nav, stacked cards, share bar bottom |
-| Tablet | 640–1024px | 2-column cards, sidebar below content |
-| Desktop | 1024–1280px | Full layout with sidebar |
+| Tablet | 640-1024px | 2-column cards, sidebar below content |
+| Desktop | 1024-1280px | Full layout with sidebar |
 | Wide | > 1280px | Content caps at 1200px centered |
 
 ### Dark Mode
@@ -155,7 +155,7 @@ Article-level card listing external citations. Renders above the copyright notic
 - Provide a full light and dark surface set via tokens.
 
 ### Don't
-- Don't make it look like a crypto trading platform — this is a news site.
+- Don't make it look like a crypto trading platform, this is a news site.
 - Don't use title case headings (except the article headline itself if desired).
 - Don't use heavy gradients, neon glows, or excessive shadow tiers.
 - Don't let ads dominate or resemble content.
