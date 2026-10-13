@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-12",
+  "theme": "Binance Intelligence Makes Finance Smarter",
+  "campaign_start": "2026-10-12",
+  "campaign_end": "2026-10-18",
+  "cycle_day": 1,
+  "confirmed": null,
+  "reward": "10,000 USDC",
+  "reward_detail": "Rewards change by round, so treat any number you read elsewhere with suspicion. The Binance Intelligence Makes Finance Smarter cycle runs October 12 to October 18 with a 10,000 USDC pool for players who log at least five correct words, plus $50 of equivalent trading volume. Some trackers still print a 500,000 Binance Points figure, and that copy comes from older campaigns. Check the live campaign page in-app for the current terms.",
+  "two_games": false,
+  "words": {
+    "3": ["BOT", "API", "PIN"],
+    "4": ["DATA", "RISK", "COIN", "FUND", "AUTO"],
+    "5": ["MODEL", "ALERT", "AGENT", "TRADE", "SKILL", "SMART"],
+    "6": ["SMARTS", "MARKET", "SIGNAL", "PROFIT"],
+    "7": ["INSIGHT", "FINANCE", "TRADING", "DIGITAL"],
+    "8": ["STRATEGY", "AUTOMATE", "WORKFLOW", "ANALYSTS"]
+  },
+  "_sources": [
+    "https://www.bitrue.com/blog/binance-word-of-the-day-wotd-october-12-13-2026",
+    "https://smartwallet.com.ua/en/blog/new-wotd-from-binance-correct-answers-are-always-updated-answers-from-today",
+    "https://miningcombo.com/binance-word-of-the-day/",
+    "https://incomopedia.com/binance-word-of-the-day-answers-today/",
+    "https://www.bittime.com/en/blog/binance-word-of-the-day-13-14-oktober-2026-binance-intelligence-makes-finance-smarter"
+  ],
+  "_verified": "2026-10-14 by binance-wotd-autopilot; day one of the new Binance Intelligence Makes Finance Smarter cycle (Oct 12-18). Theme and the six length groups agree across bitrue, smartwallet, miningcombo, incomopedia and bittime. Tracker typos (PROTFOLIO, DATE for DATA) were dropped; ANALYSTS is listed as an 8-letter candidate. No confirmed single answer logged."
+}

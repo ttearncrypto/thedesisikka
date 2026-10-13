@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-11",
+  "theme": "Proactive Security Wins",
+  "campaign_start": "2026-10-05",
+  "campaign_end": "2026-10-11",
+  "cycle_day": 7,
+  "confirmed": null,
+  "reward": "10,000 USDC",
+  "reward_detail": "Rewards change by round, so treat any number you read elsewhere with suspicion. The Proactive Security Wins cycle runs October 5 to October 11 with a 10,000 USDC pool for players who log at least five correct words, plus $50 of equivalent trading volume. Some trackers still print a 500,000 BNB or Binance Points figure, and that copy comes from 2021-era campaigns. Check the live campaign page in-app for the current terms.",
+  "two_games": false,
+  "words": {
+    "3": ["PIN"],
+    "4": ["RISK", "SAFE", "AUTH"],
+    "5": ["TRUST", "SAFER", "ALERT", "GUARD"],
+    "6": ["FREEZE", "SAFETY", "VERIFY", "SHIELD", "BLOCKS"],
+    "7": ["MONITOR", "DEFENSE", "PRIVACY"],
+    "8": ["SECURITY", "PASSWORD"]
+  },
+  "_sources": [
+    "https://www.coingabbar.com/en/binance-word-of-the-day-answer-11-october-2026",
+    "https://www.bitrue.com/blog/binance-word-of-the-day-october-9-10-11-2026"
+  ],
+  "_verified": "2026-10-14 by binance-wotd-autopilot; final day of the Proactive Security Wins cycle (Oct 5-11). CoinGabbar lists the theme and the same six length groups carried all week; Bitrue confirms the cycle window and theme. No single confirmed answer logged, so the post presents candidates. Pool story carried over from the cycle's 10,000 USDC structure."
+}
