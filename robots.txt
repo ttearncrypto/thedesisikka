@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Disallow: /pages/search/
 Disallow: /search.json
 Disallow: /404.html
@@ -26,3 +27,4 @@ User-agent: Google-Extended
 Allow: /
 
 Sitemap: https://ttearncrypto.f9xr.org/thedesisikka/sitemap.xml
+Agentmap: https://ttearncrypto.f9xr.org/thedesisikka/.well-known/ai-catalog.json

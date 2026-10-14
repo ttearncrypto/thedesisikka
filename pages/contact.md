@@ -2,7 +2,7 @@
 layout: default
 permalink: /pages/contact/
 title: "Contact The DESI Sikka"
-description: "Reach The DESI Sikka for story tips, corrections, partnerships or press queries."
+description: "Contact The DESI Sikka for story tips, corrections, press releases, partnerships or advertising. We read every message and reply within two business days."
 ---
 
 <div class="meta-strip compact">

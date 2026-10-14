@@ -1,5 +1,6 @@
 ---
 title: "Circle Arc Mainnet Goes Live: Wall Street Onchain"
+seo_title: "Circle Arc Mainnet Goes Live: Wall Street Onchain"
 date: 2026-09-16
 categories: [altcoins]
 tags: [featured, circle, arc-blockchain, usdc, stablecoins, layer-1, tokenization, agentic-payments, defi, crcl, genius-act]

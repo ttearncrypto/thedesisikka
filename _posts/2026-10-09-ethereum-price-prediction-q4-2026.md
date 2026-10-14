@@ -1,5 +1,6 @@
 ---
 title: "Ethereum Price Prediction: Can ETH Climb Back to $3,000 in Q4 2026?"
+seo_title: "Ethereum Price Prediction Q4 2026: Back to $3,000?"
 date: 2026-10-09
 categories: [ethereum]
 tags: [prediction]

@@ -5,7 +5,7 @@ title: "Crypto Press Releases"
 section_tag: press
 sort: newest
 kicker: Press
-description: "Announcements from exchanges, protocols and Web3 companies. Clearly labeled, never mixed into editorial reporting."
+description: "Press releases and company announcements from exchanges, protocols and Web3 projects, published as supplied and clearly labeled as promotional."
 empty_note: "No press releases published yet."
 ---
 

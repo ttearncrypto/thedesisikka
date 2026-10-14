@@ -2,7 +2,7 @@
 layout: default
 permalink: /about/
 title: "About The DESI Sikka"
-description: "About The DESI Sikka: who we are, what we cover, why we exist, and how we report crypto news."
+description: "About The DESI Sikka: who we are, the crypto topics we cover, why we started, and the plain-English editorial standards behind every story."
 ---
 
 <div class="meta-strip compact">

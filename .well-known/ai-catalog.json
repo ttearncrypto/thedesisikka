@@ -1,0 +1,40 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "The DESI Sikka",
+    "identifier": "did:web:ttearncrypto.f9xr.org"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:ttearncrypto.f9xr.org:content:news-feed",
+      "displayName": "The DESI Sikka news feed (JSON Feed)",
+      "type": "application/feed+json",
+      "url": "https://ttearncrypto.f9xr.org/thedesisikka/feed.json",
+      "representativeQueries": [
+        "latest crypto news today",
+        "bitcoin and ethereum news updates",
+        "crypto regulation news India"
+      ]
+    },
+    {
+      "identifier": "urn:air:ttearncrypto.f9xr.org:content:llms-overview",
+      "displayName": "The DESI Sikka LLM overview (llms.txt)",
+      "type": "text/plain",
+      "url": "https://ttearncrypto.f9xr.org/thedesisikka/llms.txt",
+      "representativeQueries": [
+        "what does The DESI Sikka cover",
+        "crypto news site sections and policies"
+      ]
+    },
+    {
+      "identifier": "urn:air:ttearncrypto.f9xr.org:content:sitemap",
+      "displayName": "The DESI Sikka URL sitemap",
+      "type": "application/xml",
+      "url": "https://ttearncrypto.f9xr.org/thedesisikka/sitemap.xml",
+      "representativeQueries": [
+        "list all articles on The DESI Sikka",
+        "crypto news archive urls"
+      ]
+    }
+  ]
+}

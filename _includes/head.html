@@ -97,6 +97,8 @@
   <link rel="alternate" type="application/feed+json" title="{{ site.title }} JSON Feed" href="{{ '/feed.json' | absolute_url }}">
   <link rel="sitemap" type="application/xml" href="{{ '/sitemap.xml' | absolute_url }}">
   <link rel="llms" href="{{ '/llms.txt' | absolute_url }}">
+  <link rel="ai-catalog" href="{{ '/.well-known/ai-catalog.json' | absolute_url }}">
+  {% if page.cover_image %}<link rel="preload" as="image" href="{{ page.cover_image | relative_url }}" fetchpriority="high">{% endif %}
 
   <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/site-images/favicon-16x16.png' | relative_url }}">
   <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/site-images/favicon-32x32.png' | relative_url }}">

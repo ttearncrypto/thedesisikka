@@ -1,9 +1,10 @@
 ---
 title: "Bitcoin's quiet quarter is over. Here's what changed this week."
+seo_title: "Bitcoin's quiet quarter is over: what changed"
 date: 2026-08-23
 categories: [bitcoin]
 tags: [featured]
-description: "BTC spent months going sideways while everyone looked away. This week brought the first real signals that the next phase is starting. Here's what investors should actually watch."
+description: "BTC spent months going sideways while everyone looked away. This week brought the first real signals a new phase started. Here's what to watch next."
 summary:
   - "Bitcoin broke a multi-month range and held above it through several daily closes, ending the quiet phase."
   - "Volume confirmed the move: sellers were absorbed instead of reloading at the ceiling."

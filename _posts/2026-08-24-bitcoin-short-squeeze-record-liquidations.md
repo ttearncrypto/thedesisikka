@@ -1,5 +1,6 @@
 ---
 title: "The biggest bitcoin short squeeze since 2021 just happened. Don't chase it"
+seo_title: "Bitcoin short squeeze: record liquidations"
 date: 2026-08-24
 categories: [bitcoin]
 tags: [featured]

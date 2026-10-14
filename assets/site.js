@@ -531,4 +531,34 @@
       if (prev) window.location.href = prev.getAttribute("href");
     }
   });
+
+  /* ================= WebMCP: expose site actions to AI agents ================= */
+  var modelContext = (typeof document !== "undefined" && document.modelContext) ||
+                     (typeof navigator !== "undefined" && navigator.modelContext);
+  if (modelContext && typeof modelContext.registerTool === "function") {
+    try {
+      modelContext.registerTool({
+        name: "search_crypto_news",
+        description: "Search The DESI Sikka crypto news archive and open the matching results.",
+        inputSchema: {
+          type: "object",
+          properties: {
+            query: {
+              type: "string",
+              description: "Search term, for example 'bitcoin etf inflows' or 'India crypto tax'."
+            }
+          },
+          required: ["query"]
+        },
+        execute: function (input) {
+          var q = input && input.query ? String(input.query) : "";
+          var url = base + "/pages/search/?q=" + encodeURIComponent(q);
+          window.location.href = url;
+          return { ok: true, url: url };
+        }
+      });
+    } catch (err) {
+      /* WebMCP registration is best-effort; ignore failures. */
+    }
+  }
 })();

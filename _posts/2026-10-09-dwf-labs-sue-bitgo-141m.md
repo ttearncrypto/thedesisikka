@@ -1,5 +1,6 @@
 ---
 title: "DWF Labs Affiliates Sue BitGo for $141 Million Over Alleged Token Sales"
+seo_title: "DWF Labs Affiliates Sue BitGo for $141M"
 date: 2026-10-09
 categories: [exchanges, news]
 tags: [bitgo, dwf-labs]
