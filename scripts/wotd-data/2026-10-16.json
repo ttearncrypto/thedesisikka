@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-16",
+  "theme": "Binance Intelligence Makes Finance Smarter",
+  "campaign_start": "2026-10-12",
+  "campaign_end": "2026-10-18",
+  "cycle_day": 5,
+  "confirmed": null,
+  "reward": "10,000 USDC",
+  "reward_detail": "Rewards change by round, so treat any number you read elsewhere with suspicion. The Binance Intelligence Makes Finance Smarter cycle runs October 12 to October 18 with a 10,000 USDC pool split in two: a 3,000 USDC pool for players who log at least five correct words, and a 7,000 USDC pool for users who also complete $50 in non-zero fee trading on Spot, Convert, TradFi, bStocks, or Futures. Both pools pay by each player's share of correct answers, capped at 5 USDC per user, with rewards set to land in the Rewards Hub by November 1. Some trackers still print a 500,000 Binance Points figure, and that copy comes from older campaigns. Check the live campaign page in-app for the current terms.",
+  "two_games": false,
+  "words": {
+    "3": ["BOT", "API", "PIN"],
+    "4": ["DATA", "RISK", "COIN", "FUND", "AUTO"],
+    "5": ["MODEL", "ALERT", "AGENT", "TRADE", "SKILL", "SMART"],
+    "6": ["SMARTS", "MARKET", "SIGNAL", "PROFIT"],
+    "7": ["INSIGHT", "FINANCE", "TRADING", "DIGITAL"],
+    "8": ["STRATEGY", "AUTOMATE", "WORKFLOW", "ANALYSTS"]
+  },
+  "_sources": [
+    "https://www.coingabbar.com/en/binance-word-of-the-day-answer-16-october-2026-full-wotd-list",
+    "https://miningcombo.com/binance-word-of-the-day/",
+    "https://www.binance.com/en/support/announcement/detail/68a378b9faae45d9972fc2b223eaa22c"
+  ],
+  "_verified": "2026-10-16 by binance-wotd-autopilot; day five of the Binance Intelligence Makes Finance Smarter cycle (Oct 12-18). CoinGabbar lists the October 16 puzzle as awaiting verification but carries the theme and the same six length groups as the rest of the week; miningcombo agrees. No confirmed single answer logged at press time."
+}
