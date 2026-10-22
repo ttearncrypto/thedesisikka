@@ -3,7 +3,11 @@ layout: default
 permalink: /corrections/
 title: "Corrections"
 description: "The DESI Sikka's public log of corrections, clarifications and factual updates, dated and linked to the corrected stories."
-corrections: []
+corrections:
+  - date: 2026-10-22
+    url: /news/binance-wotd-october-21-2026/
+    story: "Binance WOTD Answers Oct 21, 2026: Full List"
+    note: "We filed SHARING under the six-letter answers for the Building Agent Rails theme. SHARING has seven letters and belongs in the seven-letter group. The word lists in the October 21 story have been corrected and the story now carries an Updated label."
 ---
 
 <div class="meta-strip compact">

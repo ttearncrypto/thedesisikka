@@ -2,6 +2,7 @@
 title: "Binance WOTD Answers Oct 21, 2026: Full List"
 seo_title: "Binance WOTD Answers Oct 21, 2026"
 date: 2026-10-21
+last_modified_at: 2026-10-22
 categories: [todays-combo, news]
 tags: [combo]
 author: muskanshaik
@@ -19,7 +20,7 @@ image_alt: "Binance Word of the Day puzzle answers for October 21, 2026, theme B
 cover_caption: "The Binance Word of the Day puzzle for October 21, 2026 runs on the Building Agent Rails theme."
 faq:
   - q: "What are today's Binance WOTD answers for October 21, 2026?"
-    a: "No confirmed single-word answer is public yet. Possible words for the Building Agent Rails theme: API, BTC (3 letters); RAIL, DATA, RISK, BOTS (4); TRADE, SMART, AGENT, ASSET, SUITE, RECAP, BROAD (5); ACCESS, BEFORE, LAYOUT, WALLET, ORACLE, SHARING (6); CONTEXT, EMPOWER, PROCEED, PROMPTS, NETWORK (7); POSITION, PROTOCOL, BUILDERS, BLOCKING (8). Match the list to the number of tiles in your grid."
+    a: "No confirmed single-word answer is public yet. Possible words for the Building Agent Rails theme: API, BTC (3 letters); RAIL, DATA, RISK, BOTS (4); TRADE, SMART, AGENT, ASSET, SUITE, RECAP, BROAD (5); ACCESS, BEFORE, LAYOUT, WALLET, ORACLE (6); SHARING, CONTEXT, EMPOWER, PROCEED, PROMPTS, NETWORK (7); POSITION, PROTOCOL, BUILDERS, BLOCKING (8). Match the list to the number of tiles in your grid."
   - q: "How do you play Binance Word of the Day?"
     a: "Open the Binance app, tap More, then Gifts and Campaigns, then Word of the Day. Guess a hidden crypto word; green means the letter is right, yellow means it is in the word but misplaced, and grey means it is not in the word."
   - q: "How much can you earn from Binance WOTD today?"
@@ -31,6 +32,8 @@ Binance's Word of the Day for October 21, 2026 is live, and it is day three of t
 Three days in, four to go. The window closes October 25 at 23:59 UTC, and five correct words is the bar for the qualifying pool. Even with a miss, two games a day keep the streak math on your side.
 
 No confirmed single-word answer is public yet for today. Work from the candidate list below and match it to your tile count.
+
+Correction: this story originally listed SHARING among the six-letter answers. SHARING has seven letters, and the lists below now place it correctly.
 
 The catch is that Binance does not give every player the same puzzle. One account might see a 5-letter word while another stares at 8 empty tiles. Match the list below to the number of letters in your own grid, then try each option until one lands.
 
@@ -46,9 +49,9 @@ Possible words for the Building Agent Rails theme, organized by word length:
 
 **5 letters:** TRADE, SMART, AGENT, ASSET, SUITE, RECAP, BROAD
 
-**6 letters:** ACCESS, BEFORE, LAYOUT, WALLET, ORACLE, SHARING
+**6 letters:** ACCESS, BEFORE, LAYOUT, WALLET, ORACLE
 
-**7 letters:** CONTEXT, EMPOWER, PROCEED, PROMPTS, NETWORK
+**7 letters:** SHARING, CONTEXT, EMPOWER, PROCEED, PROMPTS, NETWORK
 
 **8 letters:** POSITION, PROTOCOL, BUILDERS, BLOCKING
 
@@ -57,8 +60,8 @@ Possible words for the Building Agent Rails theme, organized by word length:
 | 3 letters   | API, BTC |
 | 4 letters   | RAIL, DATA, RISK, BOTS |
 | 5 letters   | TRADE, SMART, AGENT, ASSET, SUITE, RECAP, BROAD |
-| 6 letters   | ACCESS, BEFORE, LAYOUT, WALLET, ORACLE, SHARING |
-| 7 letters   | CONTEXT, EMPOWER, PROCEED, PROMPTS, NETWORK |
+| 6 letters   | ACCESS, BEFORE, LAYOUT, WALLET, ORACLE |
+| 7 letters   | SHARING, CONTEXT, EMPOWER, PROCEED, PROMPTS, NETWORK |
 | 8 letters   | POSITION, PROTOCOL, BUILDERS, BLOCKING |
 
 Check your tile count before anything else. Three days of puzzles have already cycled through this list, so the word that burned an attempt yesterday might be the one your grid wants today. Six guesses means six chances to read the colors, not six rolls of the dice.
