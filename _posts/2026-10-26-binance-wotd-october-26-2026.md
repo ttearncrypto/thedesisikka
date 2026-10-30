@@ -6,7 +6,7 @@ categories: [todays-combo, news]
 tags: [combo]
 author: muskanshaik
 large_text: true
-description: "Binance WOTD answers for October 26, 2026: day one of Start with Binance AI Pro theme with 3 to 8 letter word list."
+description: "Binance WOTD answers for October 26, 2026: day one of Start with Binance AI Pro theme with 3 to 8 letter word list. Candidate words are grouped by letter count."
 summary:
   - "Binance's Word of the Day for October 26, 2026 is day one of the Start with Binance AI Pro theme."
   - "Possible answers span 3 to 8 letters, from API and PRO up to PROTOCOL and APPROVAL."

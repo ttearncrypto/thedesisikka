@@ -6,7 +6,7 @@ categories: [todays-combo, news]
 tags: [combo]
 author: muskanshaik
 large_text: true
-description: "Binance WOTD answers for October 25, 2026: final day of Building Agent Rails theme with 3 to 8 letter word list."
+description: "Binance WOTD answers for October 25, 2026: final day of Building Agent Rails theme with 3 to 8 letter word list. Candidate words are grouped by letter count."
 summary:
   - "Binance's Word of the Day for October 25, 2026 is day seven (final day) of the Building Agent Rails theme."
   - "Possible answers span 3 to 8 letters, from API and BTC up to STRATEGY and WORKFLOW."
