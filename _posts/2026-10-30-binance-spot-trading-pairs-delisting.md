@@ -3,7 +3,7 @@ title: "Binance to Delist 12 Spot Trading Pairs on October 30"
 date: 2026-10-30
 categories: [exchanges, news]
 tags: [featured]
-description: "Binance will remove 12 BTC spot trading pairs on Oct 30 at 03:00 UTC due to poor liquidity and trading volume."
+description: "Binance will remove 12 spot trading pairs including AAVE/BTC and others on Oct 30 at 03:00 UTC due to poor liquidity and trading volume."
 summary:
   - "Binance is delisting 12 spot trading pairs including AAVE/BTC, ATOM/BTC, CAKE/BTC and others."
   - "Delisting takes effect 2026-10-30 03:00 UTC; tokens remain tradable on other pairs."
