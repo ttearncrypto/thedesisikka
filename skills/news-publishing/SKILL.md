@@ -1,6 +1,6 @@
 ---
 name: news-publishing
-description: End-to-end pipeline for publishing crypto news articles on The DESI Sikka (Jekyll). Optimized for SEO, AEO (Answer Engine Optimization), GEO (Generative Engine Optimization), Google Discover, Google AdSense, and social platforms. Use when the user asks to publish a news article, cover a story, write up news, or fetch the latest headlines and turn one into a post. Covers auto-fetching current headlines via web search, verifying facts across sources, drafting in the F9XR voice, SEO/AEO/GEO optimization, editorial self-audit, creating the correctly formatted _posts file, verifying with jekyll build, and committing/pushing when a live deploy is requested.
+description: End-to-end pipeline for publishing crypto news articles on The DESI Sikka (Jekyll). Optimized for SEO, AEO (Answer Engine Optimization), GEO (Generative Engine Optimization), Google Discover, Google AdSense, and social platforms. Use when the user asks to publish a news article, cover a story, write up news, or fetch the latest headlines and turn one into a post. Covers auto-fetching current headlines via web search, verifying facts across sources, drafting in the F9XR voice, SEO/AEO/GEO optimization, editorial self-audit, creating the correctly formatted _posts file, verifying with jekyll build, committing/pushing when a live deploy is requested, and pinging IndexNow so Bing and Yandex pick up the URL.
 ---
 
 # News Publishing Pipeline: SEO/AEO/GEO Optimized
@@ -101,7 +101,9 @@ Load `skills/anti-ai-writing/SKILL.md` and treat it as the mandatory voice layer
 - **H2 sections** (2-5 of them) that each answer one question a reader would ask next. Use the actual question as the H2 ("What caused the liquidation cascade?" not "Liquidation Analysis"). These H2s target **People Also Ask** queries and **AI Overview extraction**.
 - Include the practical layer: what a holder should watch or do. Concrete actions (what metric, which date, which threshold) not vibes ("stay cautious").
 - Include a **definition block** for any technical concept introduced. AI Overviews pull from the first authoritative definition they encounter. Format: "[Term] is [definition in one sentence]."
-- **Close** with a short bottom-line section. No summary-of-the-summary. Land the last sentence on something specific.
+- **Close** with a specific next step, a named risk, or a clear position. No "Bottom line," "Conclusion," or "Final thoughts" heading. No summary-of-the-summary. Land the last sentence on something specific.
+- **Let the story set the shape.** Use the sections this story needs, not the full template skeleton. Uneven section lengths are fine. Spend words where the reader's problem is.
+- **Take a position.** Say what the facts suggest. "This looks like a liquidity play, not a listing win" is a position. "It remains to be seen" is a shrug.
 - Length target: 600-900 words. Under 600 means thin reporting; over 900 means padding. Crypto taxes in India (flat 30% + 1% TDS) may be referenced accurately when relevant.
 - No financial advice. Describe what happened and what to watch; never tell readers to buy or sell.
 
@@ -120,6 +122,8 @@ Load `skills/anti-ai-writing/SKILL.md` and treat it as the mandatory voice layer
 - **Entity richness**: Name specific entities (exchanges, protocols, regulators, people) rather than using generic references. AI models use entity density as a relevance signal.
 - **Structured facts**: Use bullet lists for multi-point facts (e.g., exchange-specific liquidation breakdowns). LLMs extract structured data more reliably than paragraph prose.
 - **Contradiction-free**: Ensure all facts are internally consistent. AI systems penalize contradictory signals across your content.
+- **One fact that cuts against the thesis**: Include the number, quote, or timing that complicates the main argument. If every detail supports the same conclusion, the article reads like a press release.
+- **What the number does not show**: After a key statistic, add the limit. A market cap of $41,000 does not tell you who is trading it or whether the market is deep enough to sell into.
 - **Freshness signals**: Reference specific dates and times. "As of August 24, 2026" establishes temporal relevance for AI systems.
 
 ### Google Discover optimization during drafting:
@@ -132,11 +136,19 @@ Load `skills/anti-ai-writing/SKILL.md` and treat it as the mandatory voice layer
 
 ## Pass 5: Audit
 
-Run three checks before touching `_posts/`. Fix, then re-run until clean.
+Run these checks before touching `_posts/`. Fix, then re-run until clean.
 
 **Fact audit:** every number/name/date in the draft matches your sources. Summary bullets match body claims. Category slug is valid. Nothing presented as fact came from a single uncorroborated source.
 
-**Voice audit:** scan the full text against the anti-ai-writing banned list, banned vocabulary, dead phrases, mechanical transitions, negative parallelisms ("not X, it's Y"), metronome rhythm, rule-of-three padding. One hit anywhere (including front matter) fails the whole pass.
+**Voice audit:** scan the full text against the anti-ai-writing banned list, banned vocabulary, dead phrases, mechanical transitions, negative parallelisms ("not X, it's Y"), metronome rhythm, rule-of-three padding, dashes used as punctuation, performed candour, template headings ("Bottom line," "Conclusion"), fake reassurance one-liners, mini Q&A fragments, and bolded lead-ins on every list item. One hit anywhere (including front matter) fails the whole pass.
+
+**Humanity audit:** run the linter on the draft:
+
+```
+python scripts/lint_article.py _posts/YYYY-MM-DD-slug.md --keywords "primary keyword" "secondary keyword"
+```
+
+Fix every FAIL. Read every WARN. Aim for sentence-length stdev 7+, passive voice under 10%, and section variation above 0.35. The linter is a heuristic, so a WARN can be a false positive, but treat it as a real signal until you have checked it.
 
 **SEO/AEO/GEO audit:**
 - Title ≤ 110 chars, contains primary keyword in first 60 chars.
@@ -158,6 +170,19 @@ Run three checks before touching `_posts/`. Fix, then re-run until clean.
 3. Verify the output: confirm `_site/news/<slug>/index.html` exists and contains the headline in the NewsArticle JSON-LD block. Spot-check that the Quick Summary box renders all bullets.
 4. If verification fails, fix the source file and rebuild. Never push an article whose build you have not seen succeed.
 5. Publish live (only when the user asked for deployment): stage only the new post file, commit as `news: <short headline>`, push to main. GitHub Pages deploys on push.
+6. Wait for the live URL to return 200, then ping IndexNow with the new URL. Do this on every publish, not just when the user asks. See the IndexNow section below.
+
+### IndexNow ping (required on every publish)
+
+IndexNow tells Bing and Yandex about a new URL without waiting for a crawl. The repo root holds the key file `d6628032fa1e4b2ea31ba81441024687.txt`. The site serves it at `https://ttearncrypto.f9xr.org/thedesisikka/d6628032fa1e4b2ea31ba81441024687.txt`, and IndexNow accepts that subpath as the `keyLocation`.
+
+Run this after the live URL returns 200:
+
+```powershell
+python scripts/indexnow.py "https://ttearncrypto.f9xr.org/thedesisikka/news/<slug>/"
+```
+
+The script reads `url` and `baseurl` from `_config.yml`, finds the key file, and posts to `api.indexnow.org`, Bing, and Yandex. A 200 or 202 means accepted. If one commit publishes several posts, pass every new URL in the same call. If every endpoint fails, say so in the final report. Do not silently skip the ping.
 
 ## Post-publish checklist
 
@@ -170,6 +195,7 @@ After the article is live, verify:
 - [ ] Article appears in the correct category page.
 - [ ] RSS/Atom feed includes the new article.
 - [ ] Internal links from related articles point to this post where relevant.
+- [ ] IndexNow ping returned 200/202 for the new URL (Bing and Yandex notified).
 
 ## Restraint
 

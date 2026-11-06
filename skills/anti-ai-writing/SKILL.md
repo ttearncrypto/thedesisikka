@@ -1,11 +1,13 @@
 ---
 name: anti-ai-writing
-description: Write and rewrite content in the DESI Sikka F9XR human voice for crypto news. Use this skill when drafting or editing any content, news articles, learn guides, category pages, social posts, newsletters, to strip out AI-isms, banned vocabulary, hype language, and fatal constructions so text reads like a sharp human wrote it. Enforces short paragraphs, contractions, specific detail, direct address, a banned-word list, and Google Discover-friendly formatting.
+description: Write and rewrite content in the DESI Sikka F9XR human voice for crypto news. Use this skill when drafting or editing any content, news articles, learn guides, category pages, social posts, newsletters, to strip out AI-isms, banned vocabulary, hype language, and fatal constructions so text reads like a sharp human wrote it. Enforces short paragraphs, contractions, specific detail, direct address, a banned-word list, burstiness and passive-voice targets, a de-template pass, and Google Discover-friendly formatting.
 ---
 
 # VOICE DNA: The DESI Sikka
 
 Source of truth for all writing on The DESI Sikka. Apply with judgment. Spirit over letter. Always.
+
+Deeper references: `references/ai-tells.md`, `references/human-craft.md`, `references/structure.md`. The linter is `scripts/lint_article.py`.
 
 The DESI Sikka is a crypto news desk with one rule: **crypto news, zero jargon.** Readers worldwide, deep coverage of India. Every sentence must survive two tests: (1) Is it true? (2) Does it sound human?
 
@@ -50,7 +52,7 @@ Write like a sharp human who happens to be typing about crypto.
 - Short paragraphs (1-2 sentences default, 3 max).
 - Numbers as digits (3 years, 10 tools, $500 million).
 - Contractions always.
-- **NO em dashes.** AI overuses them. Use commas, periods, colons, semicolons, or parentheses.
+- **No dashes as punctuation.** No em dashes (—), no en dashes (–), no spaced hyphens ( - ). Use commas, periods, colons, semicolons, or parentheses. Hyphenated words like "proof-of-work" are fine.
 - Bold sparingly: 1-2 key moments per section.
 - Code blocks for specific prompts, commands, or tool outputs.
 - Use formatting like salt. Headers, bullets, numbered lists: only when they earn it.
@@ -107,6 +109,14 @@ Also banned: "serves as," "stands as," "marks a," "represents a," "boasts a," "f
 - "Challenges and Future Prospects" as a section header
 - "The crypto world" / "The blockchain space" / "The digital asset landscape"
 - "Web3 revolution" / "DeFi summer 2.0" / "NFT craze"
+- "The honest answer is..." / "Let's be real" / "Here's the thing" / "The truth is" / "Nobody talks about..."
+- "Most guides skip..." / "Most articles..." / "If you're reading this..."
+- "Boring? Yes." / "Terrifying? Absolutely." / "The catch?" (mini Q&A fragments, max one, ideally zero)
+- "Whether you're X or Y..."
+- "Your first reaction was probably..." (second-person mind reading)
+- "It didn't." / "Neither." / "And that's okay." / "You're not alone." (fake reassurance one-liners)
+- Aphorism endings that restate the paragraph as a quotable maxim.
+- "Bottom line" / "Conclusion" / "Final thoughts" / "Key takeaways" as a closing heading.
 
 ### 3C. Dead transitions
 
@@ -124,6 +134,8 @@ Also banned: "serves as," "stands as," "marks a," "represents a," "boasts a," "f
 - "Are you paying attention?" / "You're not ready for this"
 - "Do your own research" (as a substitute for actual analysis)
 - "Not financial advice" as a standalone sentence (required disclosures go in the legal section, not as a crutch)
+- "Most guides..." / "Most articles..." as an opening attack
+- "Which is my opinion and yours may differ" / "Your mileage may vary" / "Take this with a grain of salt" (performed humility)
 
 ### 3E. Hype language
 
@@ -223,6 +235,8 @@ Every sentence same length. Every paragraph same number of sentences. Perfectly 
 
 Real writing breathes unevenly. Short. Then longer. Then a fragment. Then a 30-word sentence that earns its length.
 
+Measurable targets: sentence-length standard deviation of 7+ words, passive voice under 10% of sentences, and unequal section lengths. Equal-length sections read like a template, even when the sentences vary.
+
 ### 4J. Copulative avoidance
 
 AI replaces "is" and "has" with bloated alternatives: "serves as," "stands as," "represents," "marks a," "holds the distinction of being."
@@ -232,6 +246,57 @@ Just say "is." Simple verbs work.
 ### 4K. Title case in headers
 
 AI capitalizes all main words: "Global Context: Critical Mineral Demand." Humans typically use sentence case. Do that.
+
+### 4L. Performed candour and template endings
+
+AI signals honesty instead of being honest. "The honest answer is..." "Let's be real." "Here's the thing." "Most guides won't tell you this." These announce candour. They don't deliver it. Cut the announcement and write the specific fact.
+
+The same goes for the ending. "Bottom line" and "Conclusion" headings turn the last section into a recap. If the reader got it, they don't need it again. If they didn't, the recap won't fix it. End on a specific next step, a named risk, or a position.
+
+Fake reassurance one-liners are another tell: "It didn't." "Neither." "And that's okay." They mimic a friendly voice without adding information.
+
+### 4M. Human news craft
+
+**Rotate the opening.** Do not use the same hook every article. Pick one:
+- the new fact, stated plainly
+- the number that moved
+- the decision and who made it
+- the date the thing takes effect
+- the contradiction in the official statement
+
+**Rotate the ending.** Do not summarize. Pick one:
+- the next date that matters
+- the person or group who has to act next
+- the part of the story that is still unconfirmed
+- a specific opinion about what the facts mean
+
+**Let the story set the shape.** Do not run the full template skeleton (hook, summary box, table, every list item, FAQ, bottom line). Use the parts this story needs. Uneven sections are fine. Spend words where the reader's problem is.
+
+**Take a position.** A news story can still say what the facts suggest. "This looks like a liquidity play, not a listing win" is a position. "It remains to be seen" is a shrug.
+
+**Include one fact that cuts against the thesis.** If every detail supports the same conclusion, the article reads like a press release. Find the number, quote, or timing that complicates it, and say so.
+
+**Handle numbers like a reporter.** Cite the number, then add context: the year, the sample, the comparison, the source. Say what the number does not show. A market cap of $41,000 does not tell you who is trading it or whether the market is deep enough to sell into.
+
+**Never invent experience.** No fake anecdotes, fake quotes, or fake "I tried this." If you don't have the material, report what happened and attribute it.
+
+**Passive voice under 10%.** "The exchange delisted the pair" beats "the pair was delisted by the exchange." Use passive only when the actor is unknown or irrelevant.
+
+**Plain verbs.** Use "use" not "utilize," "show" not "demonstrate," "then" not "subsequently," "help" not "facilitate," "start" not "commence."
+
+**No bolded lead-ins on every list item.** One or two per section, max. If every bullet starts with a bold phrase, the formatting is doing the thinking.
+
+**Locale consistency.** Pick one market's spelling and currency. Don't mix "color" and "colour," or dollars and rupees, unless the story is about the difference.
+
+### 4N. Run the linter
+
+The repo ships `scripts/lint_article.py`. Run it on every draft before publishing:
+
+```
+python scripts/lint_article.py _posts/YYYY-MM-DD-slug.md --keywords "primary keyword" "secondary keyword"
+```
+
+It checks dashes, banned vocabulary, contrast flips, triplets, bold lead-ins, template headings, burstiness, passive voice, paragraph and section variation, keyword placement, placeholders, performed candour, Q&A fragments, and locale mixing. Exit code 1 means at least one FAIL. Fix every FAIL. Read every WARN and fix the ones that are real. The linter is a heuristic, not a judge; a WARN can be a false positive, but it usually isn't.
 
 ---
 

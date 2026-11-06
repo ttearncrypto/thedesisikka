@@ -81,8 +81,8 @@ DNT still trades on other exchanges and lives on Ethereum. HBD remains a Hive na
 
 If you hold either asset on another venue, read that venue's notice. This schedule applies to Upbit Indonesia.
 
-## Bottom line
+## The dates that matter
 
-Upbit Indonesia closes DNT/BTC and HBD/BTC at 13:00 WIB on December 7, 2026, with withdrawals until January 5, 2027. Both delistings follow warnings the projects could not clear.
+Upbit Indonesia closes DNT/BTC and HBD/BTC at 13:00 WIB on December 7, 2026. Withdrawals run until January 5, 2027. Both delistings follow warnings the projects could not clear.
 
-DNT is a 2017 Ethereum governance token trading near $0.008. HBD is Hive's stablecoin, quoted at a steep premium on the exchange that is about to drop it. Put both dates in a calendar if you hold either one there.
+DNT is a 2017 Ethereum governance token trading near $0.008. HBD is Hive's stablecoin, quoted at a steep premium on the exchange that is about to drop it. If you hold either one there, put both dates in a calendar and decide before the cut-off.

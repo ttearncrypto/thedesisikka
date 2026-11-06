@@ -86,8 +86,8 @@ Check the withdrawal route. The 20-confirmation wait and 28 BCBO fee matter if y
 
 The proof of reserve page is labeled beta. Treat it as a signal to verify, not a guarantee.
 
-## Bottom line
+## The book is the story
 
-BCBO now trades against BTC and USDT on NonKYC.io, with deposits and withdrawals open. The listing is live, the book is small, and the first session swung from about a cent to nearly 14 cents.
+BCBO now trades against BTC and USDT on NonKYC.io, with deposits and withdrawals open. The first session ran from about a cent to nearly 14 cents. A $1,301 pool and $2,821 of first-day volume is the number that matters: the listing is real, and the market is thin.
 
-If you are looking at this one, read the project's GitHub and explorer first. The fair-launch claim is the pitch, and the chain data is where you check it.
+Read the project's GitHub and explorer before you size anything. The fair-launch claim is the pitch. The chain data is where you check it.
