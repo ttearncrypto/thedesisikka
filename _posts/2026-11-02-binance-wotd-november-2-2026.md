@@ -29,6 +29,30 @@ Binance's Word of the Day for November 2, 2026 is live. Community trackers inclu
 
 No confirmed single-word answer is public yet for today. Work from the candidate list below and match it to your tile count.
 
+![Binance logo for Binance WOTD answers 2026-11-02]({{ '/assets/articles-images/binance.png' | relative_url }} "Binance")
+
+![Binance Word of the Day (WOTD) puzzle graphic for 2026-11-02]({{ '/assets/articles-images/WOTD.png' | relative_url }} "Binance Word of the Day (WOTD)")
+
+
+## Sign up & play
+- [Sign up on Binance (referral)](https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en-IN&ref=GRO_28502_HU0O6&utm_source=referral_entrance) — Referral ID: `GRO_28502_HU0O6`
+- [Open the Binance WOTD event](https://www.binance.com/activity/word-of-the-day/Start-with-Binance-AI-Pro?ref=CPA_00EA4TTIGW&utm_medium=web_share_copy) — Referral Code: `CPA_00EA4TTIGW`
+- [Official announcement: “Start with Binance AI Pro” WOTD](https://www.binance.com/en/support/announcement/detail/294ae769a3ed4b219694dc9ca7803a67)
+
+## How to play?
+Guess the word in 6 tries.
+- **Green**: Correct letter, correct position
+- **Yellow**: Correct letter, wrong position
+- **Grey**: Not in the word
+
+## Rewards (referenced campaign)
+Users with 5 wins who also complete a $50 trade may be eligible to share a 14 BNB rewards pool (campaign terms apply).
+- **Theme:** Start with Binance AI Pro
+- **Period:** 2026-10-26 to 2026-11-01
+- **Reward Distribution:** 2 weeks post-campaign
+
+*Always check the live WOTD page in the Binance app for the current theme, rules, and rewards.*
+
 ![Binance WOTD word grid in the mobile app]({{ '/assets/articles-images/binance-wotd-app-grid.webp' | relative_url }} "Binance WOTD color-coded guessing grid")
 
 ## What are the Binance WOTD answers for November 2, 2026?
