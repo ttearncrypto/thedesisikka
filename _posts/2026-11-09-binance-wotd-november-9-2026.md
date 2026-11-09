@@ -32,7 +32,7 @@ No confirmed single-word answer is public yet for today.
 
 
 
-<p><a href="https://www.binance.com/activity/word-of-the-day/Start-with-Binance-AI-Pro?ref=CPA_00EA4TTIGW&utm_medium=web_share_copy"><img src="{{ '/assets/articles-images/WOTD.png' | relative_url }}" alt="Binance Word of the Day (WOTD) puzzle for 2026-11-09" title="Open Binance Word of the Day" loading="lazy" style="max-width:100%;width:100%;height:auto;border-radius:12px;display:block;margin:0 auto;" /></a></p>
+<p style="text-align:center;"><a href="https://www.binance.com/activity/word-of-the-day/Start-with-Binance-AI-Pro?ref=CPA_00EA4TTIGW&utm_medium=web_share_copy"><img src="{{ '/assets/articles-images/WOTD.png' | relative_url }}" alt="Binance Word of the Day (WOTD) puzzle for 2026-11-09" title="Open Binance Word of the Day" loading="lazy" style="max-width:420px;max-height:300px;width:100%;height:auto;border-radius:12px;display:inline-block;object-fit:contain;" /></a></p>
 
 ## How to play?
 Guess the word in 6 tries. If you don't have a Binance account, [create one using our referral link](https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en-IN&ref=GRO_28502_HU0O6&utm_source=referral_entrance).
