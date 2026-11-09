@@ -29,18 +29,15 @@ Binance's Word of the Day for November 1, 2026 is live, and it is day seven (fin
 
 No confirmed single-word answer is public yet for today. Work from the candidate list below and match it to your tile count.
 
-![Binance logo for Binance WOTD answers 2026-11-01]({{ '/assets/articles-images/binance.png' | relative_url }} "Binance")
-
-![Binance Word of the Day (WOTD) puzzle graphic for 2026-11-01]({{ '/assets/articles-images/WOTD.png' | relative_url }} "Binance Word of the Day (WOTD)")
 
 
-## Sign up & play
-- [Sign up on Binance (referral)](https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en-IN&ref=GRO_28502_HU0O6&utm_source=referral_entrance) — Referral ID: `GRO_28502_HU0O6`
-- [Open the Binance WOTD event](https://www.binance.com/activity/word-of-the-day/Start-with-Binance-AI-Pro?ref=CPA_00EA4TTIGW&utm_medium=web_share_copy) — Referral Code: `CPA_00EA4TTIGW`
-- [Official announcement: “Start with Binance AI Pro” WOTD](https://www.binance.com/en/support/announcement/detail/294ae769a3ed4b219694dc9ca7803a67)
+
+[![Binance Word of the Day (WOTD) puzzle for 2026-11-01]({{ '/assets/articles-images/WOTD.png' | relative_url }} "Open Binance Word of the Day")](https://www.binance.com/activity/word-of-the-day/Start-with-Binance-AI-Pro?ref=CPA_00EA4TTIGW&utm_medium=web_share_copy)
 
 ## How to play?
-Guess the word in 6 tries.
+Guess the word in 6 tries. If you don't have a Binance account, [create one using our referral link](https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en-IN&ref=GRO_28502_HU0O6&utm_source=referral_entrance).
+
+<a href="https://www.binance.com/activity/word-of-the-day/Start-with-Binance-AI-Pro?ref=CPA_00EA4TTIGW&utm_medium=web_share_copy" style="display:inline-block;padding:10px 16px;border:1px solid currentColor;border-radius:8px;text-decoration:none;font-weight:700;">Open Binance WOTD event</a>
 - **Green**: Correct letter, correct position
 - **Yellow**: Correct letter, wrong position
 - **Grey**: Not in the word
@@ -83,3 +80,5 @@ Possible words for the Start with Binance AI Pro theme, organized by word length
 ## Bottom line
 
 The November 1, 2026 Binance WOTD is final day of the Start with Binance AI Pro theme, closing tonight. No confirmed answer is public yet; match candidates to your grid length. Play from the official app and confirm the live prize pool in-app. If this is your first time on the desk, we explain crypto basics without the jargon in our [learn guides]({{ '/pages/learn/' | relative_url }}).
+
+[![Sign up on Binance]({{ '/assets/articles-images/binance.png' | relative_url }} "Create a Binance account using our referral link")](https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en-IN&ref=GRO_28502_HU0O6&utm_source=referral_entrance)
