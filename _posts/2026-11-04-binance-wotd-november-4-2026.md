@@ -32,7 +32,7 @@ No confirmed single-word answer is public yet for today. Work from the candidate
 
 
 
-[![Binance Word of the Day (WOTD) puzzle for 2026-11-04]({{ '/assets/articles-images/WOTD.png' | relative_url }} "Open Binance Word of the Day")](https://www.binance.com/activity/word-of-the-day/Start-with-Binance-AI-Pro?ref=CPA_00EA4TTIGW&utm_medium=web_share_copy)
+<p><a href="https://www.binance.com/activity/word-of-the-day/Start-with-Binance-AI-Pro?ref=CPA_00EA4TTIGW&utm_medium=web_share_copy"><img src="{{ '/assets/articles-images/WOTD.png' | relative_url }}" alt="Binance Word of the Day (WOTD) puzzle for 2026-11-04" title="Open Binance Word of the Day" loading="lazy" style="max-width:100%;width:100%;height:auto;border-radius:12px;display:block;margin:0 auto;" /></a></p>
 
 ## How to play?
 Guess the word in 6 tries. If you don't have a Binance account, [create one using our referral link](https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en-IN&ref=GRO_28502_HU0O6&utm_source=referral_entrance).
@@ -81,4 +81,4 @@ Candidate words reported for the Start with Binance AI Pro theme, organized by w
 
 The November 4, 2026 Binance WOTD is live. Reports suggest the Start with Binance AI Pro theme for Nov 2–8, but no confirmed single answer is public. Match candidates to your grid length and always confirm the live word and prize pool in the Binance app. If this is your first time on the desk, we explain crypto basics without the jargon in our [learn guides]({{ '/pages/learn/' | relative_url }}).
 
-[![Sign up on Binance]({{ '/assets/articles-images/binance.png' | relative_url }} "Create a Binance account using our referral link")](https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en-IN&ref=GRO_28502_HU0O6&utm_source=referral_entrance)
+<p style="text-align:center;"><a href="https://www.binance.com/referral/earn-together/refer2earn-usdc/claim?hl=en-IN&ref=GRO_28502_HU0O6&utm_source=referral_entrance"><img src="{{ '/assets/articles-images/binance.png' | relative_url }}" alt="Sign up on Binance using our referral link" title="Create a Binance account using our referral link" loading="lazy" style="max-width:320px;width:100%;height:auto;border-radius:12px;display:inline-block;" /></a></p>
