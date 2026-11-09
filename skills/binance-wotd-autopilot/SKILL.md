@@ -163,7 +163,7 @@ Run all three before touching `_posts/`. Fix and re-run until clean.
 1. Write `_posts/<YYYY>-<MM>-<DD>-binance-wotd-<month>-<D>-<YYYY>.md`. The filename slug is the established form (`2026-09-24-binance-wotd-september-24-2026`), keep it identical in shape.
 2. Build locally: `jekyll build`. Must finish with zero errors.
 3. Verify: `_site/news/binance-wotd-<month>-<D>-<YYYY>/index.html` exists; the headline appears in the NewsArticle JSON-LD; all FAQ pairs render; the hub page `pages/binance-wotd-answers.md` lists the post (it auto-includes any post whose title contains "Binance WOTD", so you do not edit the hub).
-4. Deploy (only if the user asked for deployment): `git add` only the new post file, commit as `news: Binance WOTD answers <Month> <D> <YYYY>`, push to `main`. GitHub Pages deploys on push. Never commit other dangling files.
+4. Deploy (only if the user asked for deployment): `git add` only the new post file, commit as `news: Binance WOTD answers <Month> <D> <YYYY>`, push to `main`. GitHub Pages deploys on push. After push, ping IndexNow for immediate indexing: call `https://api.indexnow.org/IndexNow` with key `d6628032fa1e4b2ea31ba81441024687`, keyLocation `https://thedesisikka.com/d6628032fa1e4b2ea31ba81441024687.txt`, and url set to the live post URL `https://thedesisikka.com/news/<slug>/`. Do this automatically whenever a WOTD post is published. Never commit other dangling files.
 
 ## Local-runner rescue mode
 

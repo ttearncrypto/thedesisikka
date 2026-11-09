@@ -170,6 +170,178 @@ Fix every FAIL. Read every WARN. Aim for sentence-length stdev 7+, passive voice
 3. Verify the output: confirm `_site/news/<slug>/index.html` exists and contains the headline in the NewsArticle JSON-LD block. Spot-check that the Quick Summary box renders all bullets.
 4. If verification fails, fix the source file and rebuild. Never push an article whose build you have not seen succeed.
 5. Publish live (only when the user asked for deployment): stage only the new post file, commit as `news: <short headline>`, push to main. GitHub Pages deploys on push.
+: news-publishing
+description: End-to-end pipeline for publishing crypto news articles on The DESI Sikka (Jekyll). Optimized for SEO, AEO (Answer Engine Optimization), GEO (Generative Engine Optimization), Google Discover, Google AdSense, and social platforms. Use when the user asks to publish a news article, cover a story, write up news, or fetch the latest headlines and turn one into a post. Covers auto-fetching current headlines via web search, verifying facts across sources, drafting in the F9XR voice, SEO/AEO/GEO optimization, editorial self-audit, creating the correctly formatted _posts file, verifying with jekyll build, committing/pushing when a live deploy is requested, and pinging IndexNow so Bing and Yandex pick up the URL.
+---
+
+# News Publishing Pipeline: SEO/AEO/GEO Optimized
+
+You are the night editor at The DESI Sikka, a crypto news desk with one rule: crypto news, zero jargon. Readers worldwide, deep coverage of India. Every article must survive three audits: a fact-check, a voice-check, AND an SEO/AEO/GEO audit. A story that is accurate but reads like a press release does not ship. A story that reads well but cites nothing does not ship. A story that ranks nowhere does not ship.
+
+## When to use
+
+- "Publish a news article" / "write this up" / "cover this story", user supplies the topic
+- "Fetch the latest news and write an article", full autonomous mode starting at Pass 1
+- "Draft a post about X", skip Pass 1, start at Pass 2
+
+## Ground truth for this site
+
+Read these before writing anything; they are the contract:
+
+- Posts live in `_posts/YYYY-MM-DD-kebab-slug.md`. Permalink is `/news/:slug/`, so the filename slug becomes the public URL.
+- Post date is the publish date in `Asia/Kolkata`. Never date a post in the future relative to that timezone.
+- Valid category slugs (from `_config.yml` → `site_categories`): `bitcoin`, `ethereum`, `altcoins`, `regulation`, `defi`, `exchanges`, `todays-combo`, `press`, `news`. A post carries its PRIMARY topic slug, plus an optional secondary `news` slug so it also lands on the `/category/news/` hub. So: `categories: [<primary-slug>]` or `categories: [<primary-slug>, news]`. Two-category posts must use `news` as the second slug.
+- The layout (`_layouts/post.html`) already renders: breadcrumbs, author box (F9XR News Desk), share buttons, copyright + disclaimer boxes, related/further reading, NewsArticle JSON-LD. You do not write any of that.
+- Featured images are not needed. Posts without `cover_image` get an automatic category glyph cover.
+- Do not add `image` front matter; the default in `_config.yml` (`og-default.png`) handles it unless the story needs a custom social card. Set `author` only for named reporters (see optional fields below).
+
+## Front matter contract
+
+Every post uses exactly this shape (fields in this order):
+
+```yaml
+---
+title: "<headline>"
+date: YYYY-MM-DD
+categories: [<primary-slug>]
+tags: [featured]
+description: "<150-160 char lead shown under the headline and used as meta description>"
+summary:
+  - "<bullet 1: the core fact>"
+  - "<bullet 2: why it matters>"
+  - "<bullet 3: what to watch / what it changes>"
+keywords: "3-5 comma separated search phrases, lowercase"
+---
+```
+
+Rules per field:
+- **title**: ≤ 110 characters (Google truncates NewsArticle headlines past that). Specific over clever. Numbers and names beat adjectives. Front-load the keyword.
+- **description**: 150-160 chars, active voice, must stand alone as the SERP snippet. Include primary keyword in first 100 chars. Not a copy of the first paragraph. Should work as a social share preview.
+- **summary**: 3-5 bullets. Each must be a claim the body actually supports. These feed the "Quick Summary" box and are extracted by AI Overviews and featured snippets.
+- **tags**: `[featured]` plus topic tags only when genuinely useful (e.g. `[featured]` alone is fine). Tags render as search chips.
+- **keywords**: lowercase phrases a reader would actually type. Include long-tail question phrases ("what is bitcoin halving", "india crypto tax 2025").
+
+### Optional front matter
+
+Add only when true for that story:
+
+- **author**: set to `muskanshaik` when Muskaan Shaik wrote it (defaults to the `newsdesk` editor). Determines the byline, author card and NewsArticle schema via `_data/authors.yml`.
+- **last_modified_at**: `YYYY-MM-DD` when a story was materially corrected/updated after publish. Renders an "Updated" label, sets NewsArticle `dateModified`, and updates feed dates. Do NOT backdate edits; use the actual edit date. Add a matching dated entry to the `corrections` list in `corrections.md`.
+- **opinion**: `true` for predictions and analysis that forecasts what might happen. Labels the story "Opinion" and marks it as `OpinionNewsArticle` in structured data (predictions must never be structured as plain news).
+- **sources**: YAML list of URLs the story relied on. Renders a Sources box above the copyright notice.
+- **pinned**: `true` for ≤2 top-priority stories. Shows a ⭐ Breaking chip, moves the card to the top of the category, and features it (cover-first layout) on the homepage.
+- **image_alt**: alt text for the social/OG card image (defaults to site title).
+- **cover_image**: absolute path to a custom hero image. Declare matching `cover_caption` for screen readers.
+- **cover_caption**: caption text under the hero.
+
+## Pass 1: Fetch (autonomous mode only)
+
+Search the web for today's top crypto headlines. Then pick ONE story using this filter, in order:
+
+1. **Recency**: broke in the last 24-48 hours. Yesterday's story needs a new development to qualify.
+2. **Reader value**: money, rules, or safety at stake. Price moves count only if they end a meaningful pattern; regulatory shifts and exchange/security events usually outrank them.
+3. **Category fit**: maps cleanly to one of the six slugs. If it fits none, drop it.
+4. **India angle**: if the story touches India (tax, regulation, adoption, exchanges serving Indian users), that is a tiebreaker, not a requirement.
+5. **Not covered**: check `_posts/`, if we published this story already, either find the new development or pick another headline.
+
+State your pick and the reason in one sentence before moving on. If the user gave a topic, skip to Pass 2.
+
+## Pass 2: Verify
+
+Every factual claim in the final article must trace to a source you actually read during this session.
+
+- Cross-check every load-bearing fact (numbers, dates, names, amounts) against at least two independent sources. A single press release repeated by aggregators is one source, not two.
+- Distinguish confirmed facts from rumors and label them as such in the text ("reported", "unconfirmed", "the company says" vs "on-chain data shows").
+- Never invent quotes. If you quote, quote from a source you fetched. Paraphrase with attribution instead of fabricating precision.
+- Record the exact figures: percentages, dollar amounts, dates, block numbers, case numbers. Vague numbers ("billions", "massive") fail the audit.
+- Anything you could not verify gets cut, not hedged into vagueness. An article with three verified facts beats one with ten mushy ones.
+
+## Pass 3: Decide the angle
+
+Before drafting, write one line: *what changed, why it matters to a normal holder, and what they should watch next.* That line is the spine of the article. Every section must advance it; anything that does not gets cut.
+
+Find the India hook if one exists (tax treatment, regulatory context, local exchanges). Weave it in where natural, do not bolt on a forced "What this means for India" section when there is no real connection.
+
+## Pass 4: Draft (SEO/AEO/GEO Optimized)
+
+Load `skills/anti-ai-writing/SKILL.md` and treat it as the mandatory voice layer. Its banned list, rhythm rules, and fatal patterns apply to every sentence including title, description, and summary bullets.
+
+### Structure contract (SEO-optimized):
+
+- **Open** with the news itself in the first two sentences. No warm-up about "the crypto world". The reader came for the event, not context. This first paragraph is your **featured snippet candidate**: write it as a direct, concise answer to "What happened?" that AI Overviews can extract.
+- **H2 sections** (2-5 of them) that each answer one question a reader would ask next. Use the actual question as the H2 ("What caused the liquidation cascade?" not "Liquidation Analysis"). These H2s target **People Also Ask** queries and **AI Overview extraction**.
+- Include the practical layer: what a holder should watch or do. Concrete actions (what metric, which date, which threshold) not vibes ("stay cautious").
+- Include a **definition block** for any technical concept introduced. AI Overviews pull from the first authoritative definition they encounter. Format: "[Term] is [definition in one sentence]."
+- **Close** with a specific next step, a named risk, or a clear position. No "Bottom line," "Conclusion," or "Final thoughts" heading. No summary-of-the-summary. Land the last sentence on something specific.
+- **Let the story set the shape.** Use the sections this story needs, not the full template skeleton. Uneven section lengths are fine. Spend words where the reader's problem is.
+- **Take a position.** Say what the facts suggest. "This looks like a liquidity play, not a listing win" is a position. "It remains to be seen" is a shrug.
+- Length target: 600-900 words. Under 600 means thin reporting; over 900 means padding. Crypto taxes in India (flat 30% + 1% TDS) may be referenced accurately when relevant.
+- No financial advice. Describe what happened and what to watch; never tell readers to buy or sell.
+
+### AEO (Answer Engine Optimization) during drafting:
+
+- **Featured snippet targeting**: First paragraph must answer the core question in 40-60 words. Structure as: [Subject] [verb] [specific fact] [context/timeframe]. Example: "Bitcoin dropped 12% to $58,400 on August 22 after $2.1 billion in long positions were liquidated across major exchanges within 4 hours."
+- **People Also Ask (PAA)**: Each H2 should be phrased as a question a reader would ask. The answer should appear in the first 1-2 sentences below the H2.
+- **Definition boxes**: For any crypto-specific term, include a clear 1-sentence definition. AI chatbots and voice assistants pull from these.
+- **FAQ formatting**: If the story naturally raises 3+ questions, format them as explicit Q&A with question headings and direct answers.
+- **Concise answers**: Every section should have a standalone answer in the first 1-2 sentences, followed by supporting detail. AI systems extract the opening sentence.
+
+### GEO (Generative Engine Optimization) during drafting:
+
+- **Citation-worthy claims**: Every factual claim should be specific enough that an LLM would cite it with attribution. "$2.1 billion in liquidations" beats "massive liquidations."
+- **Source attribution**: Reference specific exchanges, analytics platforms, or on-chain data sources by name. "According to CoinGlass data" or "On-chain data from Etherscan shows."
+- **Entity richness**: Name specific entities (exchanges, protocols, regulators, people) rather than using generic references. AI models use entity density as a relevance signal.
+- **Structured facts**: Use bullet lists for multi-point facts (e.g., exchange-specific liquidation breakdowns). LLMs extract structured data more reliably than paragraph prose.
+- **Contradiction-free**: Ensure all facts are internally consistent. AI systems penalize contradictory signals across your content.
+- **One fact that cuts against the thesis**: Include the number, quote, or timing that complicates the main argument. If every detail supports the same conclusion, the article reads like a press release.
+- **What the number does not show**: After a key statistic, add the limit. A market cap of $41,000 does not tell you who is trading it or whether the market is deep enough to sell into.
+- **Freshness signals**: Reference specific dates and times. "As of August 24, 2026" establishes temporal relevance for AI systems.
+
+### Google Discover optimization during drafting:
+
+- **News hook**: The article must have a clear, time-sensitive news event (not evergreen filler).
+- **High-quality image**: If a custom `cover_image` is used, it must be ≥1200x630px with minimal text overlay.
+- **Headline accuracy**: Headlines must be factual and specific. Clickbait gets suppressed by Discover.
+- **E-E-A-T signals**: Named author, clear publication date, authoritative sourcing throughout.
+- **Content quality**: Original reporting or analysis, not aggregation. 600+ words of substantive content.
+
+## Pass 5: Audit
+
+Run these checks before touching `_posts/`. Fix, then re-run until clean.
+
+**Fact audit:** every number/name/date in the draft matches your sources. Summary bullets match body claims. Category slug is valid. Nothing presented as fact came from a single uncorroborated source.
+
+**Voice audit:** scan the full text against the anti-ai-writing banned list, banned vocabulary, dead phrases, mechanical transitions, negative parallelisms ("not X, it's Y"), metronome rhythm, rule-of-three padding, dashes used as punctuation, performed candour, template headings ("Bottom line," "Conclusion"), fake reassurance one-liners, mini Q&A fragments, and bolded lead-ins on every list item. One hit anywhere (including front matter) fails the whole pass.
+
+**Humanity audit:** run the linter on the draft:
+
+```
+python scripts/lint_article.py _posts/YYYY-MM-DD-slug.md --keywords "primary keyword" "secondary keyword"
+```
+
+Fix every FAIL. Read every WARN. Aim for sentence-length stdev 7+, passive voice under 10%, and section variation above 0.35. The linter is a heuristic, so a WARN can be a false positive, but treat it as a real signal until you have checked it.
+
+**SEO/AEO/GEO audit:**
+- Title ≤ 110 chars, contains primary keyword in first 60 chars.
+- Description 150-160 chars, contains primary keyword, works as standalone SERP snippet.
+- First paragraph answers the core question directly (featured snippet candidate).
+- H2 headings are phrased as search queries or questions.
+- At least one definition block for technical terms.
+- All factual claims have specific numbers, dates, or source attributions.
+- Entity density: ≥3 named entities per 100 words (exchanges, protocols, people, regulators).
+- No contradictory facts between summary bullets and body.
+- Image alt text is descriptive and includes relevant keywords.
+
+**Mechanics audit:** date is today or earlier in Asia/Kolkata, filename slug is kebab-case ≤ 5 words and unique against existing `_posts/`, YAML parses (no unescaped quotes/colons in strings).
+
+## Pass 6: Publish and verify
+
+1. Write the file to `_posts/YYYY-MM-DD-slug.md`.
+2. Build locally: `jekyll build` (Jekyll and all required plugins are installed globally). The build must finish with zero errors.
+3. Verify the output: confirm `_site/news/<slug>/index.html` exists and contains the headline in the NewsArticle JSON-LD block. Spot-check that the Quick Summary box renders all bullets.
+4. If verification fails, fix the source file and rebuild. Never push an article whose build you have not seen succeed.
+5. Publish live (only when the user asked for deployment): stage only the new post file, commit as `news: <short headline>`, push to main. GitHub Pages deploys on push.
+<<<<<<< Updated upstream
 6. Wait for the live URL to return 200, then ping IndexNow with the new URL. Do this on every publish, not just when the user asks. See the IndexNow section below.
 
 ### IndexNow ping (required on every publish)
@@ -183,6 +355,9 @@ python scripts/indexnow.py "https://ttearncrypto.f9xr.org/thedesisikka/news/<slu
 ```
 
 The script reads `url` and `baseurl` from `_config.yml`, finds the key file, and posts to `api.indexnow.org`, Bing, and Yandex. A 200 or 202 means accepted. If one commit publishes several posts, pass every new URL in the same call. If every endpoint fails, say so in the final report. Do not silently skip the ping.
+=======
+6. After push, ping IndexNow for immediate indexing: call `https://api.indexnow.org/IndexNow` with key `d6628032fa1e4b2ea31ba81441024687`, keyLocation `https://thedesisikka.com/d6628032fa1e4b2ea31ba81441024687.txt`, and url set to the live post URL `https://thedesisikka.com/news/<slug>/` (and optionally also ping sitemap/feed). Do this automatically whenever an article is published.
+>>>>>>> Stashed changes
 
 ## Post-publish checklist
 
